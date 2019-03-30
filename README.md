@@ -38,7 +38,7 @@ Network
    |--> Vehicle.swift
    |--> Starship.swift
 ```
-Every API will look like `StarWarsAPI.swift`
+Every API will look like `StarWarsAPI.swift` (except the method parameters, which are specific to every API)
 ```swift
 class StarWarsAPI: JSONReactiveAPI {
     

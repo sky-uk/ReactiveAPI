@@ -36,6 +36,7 @@
 		FA5434C6224FA7AC00ACA9CE /* StarshipsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5434C5224FA7AC00ACA9CE /* StarshipsViewModel.swift */; };
 		FA5434C9224FA82D00ACA9CE /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5434C8224FA82D00ACA9CE /* ViewModelFactory.swift */; };
 		FA5434CB224FAD1B00ACA9CE /* SubtitleUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5434CA224FAD1B00ACA9CE /* SubtitleUITableViewCell.swift */; };
+		FA5434CD2250339B00ACA9CE /* SingleViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5434CC2250339B00ACA9CE /* SingleViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		FA5434C5224FA7AC00ACA9CE /* StarshipsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsViewModel.swift; sourceTree = "<group>"; };
 		FA5434C8224FA82D00ACA9CE /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		FA5434CA224FAD1B00ACA9CE /* SubtitleUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleUITableViewCell.swift; sourceTree = "<group>"; };
+		FA5434CC2250339B00ACA9CE /* SingleViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewModelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				FA5434AE224F951400ACA9CE /* RootViewModelFactory.swift */,
+				FA5434CC2250339B00ACA9CE /* SingleViewModelFactory.swift */,
 			);
 			path = ViewModelsFactories;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5434CD2250339B00ACA9CE /* SingleViewModelFactory.swift in Sources */,
 				FA54348B224F6C0F00ACA9CE /* Person.swift in Sources */,
 				FA54349F224F74D000ACA9CE /* PagedResponse.swift in Sources */,
 				FA5434B3224F9BC800ACA9CE /* Specie.swift in Sources */,

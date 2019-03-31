@@ -15,3 +15,24 @@ class PlanetsViewModel: ViewModel {
         }
     }
 }
+
+class PlanetViewModel: ViewModel {
+    override func apiCall() -> Single<[ViewModelData]> {
+        return client.getPlanet(url: url)
+            .map { data in
+                return [
+                    ViewModelData(title: data.name, subtitle: "Name", url: data.url),
+                    ViewModelData(title: data.diameter, subtitle: "Diameter (Km)", url: data.url),
+                    ViewModelData(title: data.orbital_period, subtitle: "Orbital Period (days)", url: data.url),
+                    ViewModelData(title: data.rotation_period, subtitle: "Rotation Period (hours)", url: data.url),
+                    ViewModelData(title: data.gravity, subtitle: "Gravity", url: data.url),
+                    ViewModelData(title: data.climate, subtitle: "Climate", url: data.url),
+                    ViewModelData(title: "\(data.surface_water)%", subtitle: "Covered with water", url: data.url),
+                    ViewModelData(title: data.terrain, subtitle: "Terrain", url: data.url),
+                    ViewModelData(title: data.population, subtitle: "Population", url: data.url),
+                    ViewModelData(title: "\(data.residents.count)", subtitle: "Known Characters live here", url: data.url),
+                    ViewModelData(title: "\(data.films.count)", subtitle: "Films", url: data.url)
+                ]
+        }
+    }
+}

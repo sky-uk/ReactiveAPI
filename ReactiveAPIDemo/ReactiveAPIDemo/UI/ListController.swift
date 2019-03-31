@@ -40,6 +40,14 @@ class ListController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if viewModelFactory?.hasViewModel(for: indexPath) ?? false {
+            return indexPath
+        }
+        
+        return nil
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModelFactory?.viewModel(for: indexPath, data: data) else {
             return
@@ -47,6 +55,7 @@ class ListController: UITableViewController {
         
         let controller = ListController(style: .grouped)
         controller.viewModel = viewModel
+        controller.viewModelFactory = viewModelFactory?.childViewModelFactory(for: indexPath, data: data)
         controller.title = data[indexPath.row].title
         
         navigationController?.pushViewController(controller, animated: true)

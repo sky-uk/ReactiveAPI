@@ -12,13 +12,15 @@ github "sky-uk/ReactiveAPI" ~> version
 where `version` is one of the released versions (e.g. `1.0.0`). Check [releases](https://github.com/sky-uk/ReactiveAPI/releases)
 
 ## Demo
-To see ReactiveAPI in action, clone this repository, open `ReactiveAPIDemo` directory from your terminal and run:
+To see ReactiveAPI in action we created a complete [swapi.co](https://swapi.co/) client. 
+
+Clone this repository, open `ReactiveAPIDemo` directory from your terminal and run:
 
 ```
 carthage bootstrap --platform ios
 ```
 
-After that completes, simply open `ReactiveAPIDemo` project from Xcode and hit `Run`
+After that completes, simply open `ReactiveAPIDemo` project from Xcode and hit `Run`.
 
 ## What your network code will look like with ReactiveAPI
 We highly suggest to create a `Network` group with two child groups: `APIs` and `Models`. 

@@ -22,6 +22,8 @@ carthage bootstrap --platform ios
 
 After that completes, simply open `ReactiveAPIDemo` project from Xcode and hit `Run`.
 
+![demo](https://user-images.githubusercontent.com/16792495/55287028-ffece280-53a3-11e9-9504-1dffa1f2316f.gif)
+
 ## What your network code will look like with ReactiveAPI
 We highly suggest to create a `Network` group with two child groups: `APIs` and `Models`. 
 

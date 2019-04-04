@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-class RootViewModel: ViewModel {
+final class RootViewModel: ViewModel {
     override func apiCall() -> Single<[ViewModelData]> {
         return client.getRoot()
             .map { root in

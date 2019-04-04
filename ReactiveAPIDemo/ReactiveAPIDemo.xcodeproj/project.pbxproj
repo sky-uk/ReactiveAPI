@@ -10,8 +10,6 @@
 		FA54345A224F68F500ACA9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA543459224F68F500ACA9CE /* AppDelegate.swift */; };
 		FA543461224F68F700ACA9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA543460224F68F700ACA9CE /* Assets.xcassets */; };
 		FA543464224F68F700ACA9CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA543462224F68F700ACA9CE /* LaunchScreen.storyboard */; };
-		FA54346F224F68F700ACA9CE /* ReactiveAPIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA54346E224F68F700ACA9CE /* ReactiveAPIDemoTests.swift */; };
-		FA54347A224F68F700ACA9CE /* ReactiveAPIDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA543479224F68F700ACA9CE /* ReactiveAPIDemoUITests.swift */; };
 		FA54348B224F6C0F00ACA9CE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA54348A224F6C0F00ACA9CE /* Person.swift */; };
 		FA543492224F6E5200ACA9CE /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA543491224F6E5200ACA9CE /* ReactiveAPI.framework */; };
 		FA543496224F6E6100ACA9CE /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA543495224F6E6100ACA9CE /* RxCocoa.framework */; };
@@ -39,35 +37,12 @@
 		FA5434CD2250339B00ACA9CE /* SingleViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5434CC2250339B00ACA9CE /* SingleViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FA54346B224F68F700ACA9CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA54344E224F68F500ACA9CE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA543455224F68F500ACA9CE;
-			remoteInfo = ReactiveAPIDemo;
-		};
-		FA543476224F68F700ACA9CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA54344E224F68F500ACA9CE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA543455224F68F500ACA9CE;
-			remoteInfo = ReactiveAPIDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		FA543456224F68F500ACA9CE /* ReactiveAPIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveAPIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA543459224F68F500ACA9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA543460224F68F700ACA9CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA543463224F68F700ACA9CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA543465224F68F700ACA9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA54346A224F68F700ACA9CE /* ReactiveAPIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA54346E224F68F700ACA9CE /* ReactiveAPIDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIDemoTests.swift; sourceTree = "<group>"; };
-		FA543470224F68F700ACA9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA543475224F68F700ACA9CE /* ReactiveAPIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA543479224F68F700ACA9CE /* ReactiveAPIDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIDemoUITests.swift; sourceTree = "<group>"; };
-		FA54347B224F68F700ACA9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA54348A224F6C0F00ACA9CE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		FA54348D224F6E3700ACA9CE /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Carthage/Build/iOS/Carbon.framework; sourceTree = "<group>"; };
 		FA54348F224F6E4D00ACA9CE /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
@@ -109,20 +84,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA543467224F68F700ACA9CE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA543472224F68F700ACA9CE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -130,8 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				FA543458224F68F500ACA9CE /* ReactiveAPIDemo */,
-				FA54346D224F68F700ACA9CE /* ReactiveAPIDemoTests */,
-				FA543478224F68F700ACA9CE /* ReactiveAPIDemoUITests */,
 				FA543457224F68F500ACA9CE /* Products */,
 				FA54348C224F6E3700ACA9CE /* Frameworks */,
 			);
@@ -141,8 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				FA543456224F68F500ACA9CE /* ReactiveAPIDemo.app */,
-				FA54346A224F68F700ACA9CE /* ReactiveAPIDemoTests.xctest */,
-				FA543475224F68F700ACA9CE /* ReactiveAPIDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,24 +115,6 @@
 				FA5434A7224F8C4D00ACA9CE /* UI */,
 			);
 			path = ReactiveAPIDemo;
-			sourceTree = "<group>";
-		};
-		FA54346D224F68F700ACA9CE /* ReactiveAPIDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				FA54346E224F68F700ACA9CE /* ReactiveAPIDemoTests.swift */,
-				FA543470224F68F700ACA9CE /* Info.plist */,
-			);
-			path = ReactiveAPIDemoTests;
-			sourceTree = "<group>";
-		};
-		FA543478224F68F700ACA9CE /* ReactiveAPIDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FA543479224F68F700ACA9CE /* ReactiveAPIDemoUITests.swift */,
-				FA54347B224F68F700ACA9CE /* Info.plist */,
-			);
-			path = ReactiveAPIDemoUITests;
 			sourceTree = "<group>";
 		};
 		FA543487224F6BCD00ACA9CE /* Network */ = {
@@ -201,11 +140,11 @@
 				FA5434A8224F8D9B00ACA9CE /* Film.swift */,
 				FA54349E224F74D000ACA9CE /* PagedResponse.swift */,
 				FA54348A224F6C0F00ACA9CE /* Person.swift */,
-				FA54349C224F736500ACA9CE /* Root.swift */,
 				FA5434B0224F9A6100ACA9CE /* Planet.swift */,
+				FA54349C224F736500ACA9CE /* Root.swift */,
 				FA5434B2224F9BC800ACA9CE /* Specie.swift */,
-				FA5434B4224F9DD100ACA9CE /* Vehicle.swift */,
 				FA5434B6224FA13500ACA9CE /* Starship.swift */,
+				FA5434B4224F9DD100ACA9CE /* Vehicle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,42 +219,6 @@
 			productReference = FA543456224F68F500ACA9CE /* ReactiveAPIDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FA543469224F68F700ACA9CE /* ReactiveAPIDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA543481224F68F700ACA9CE /* Build configuration list for PBXNativeTarget "ReactiveAPIDemoTests" */;
-			buildPhases = (
-				FA543466224F68F700ACA9CE /* Sources */,
-				FA543467224F68F700ACA9CE /* Frameworks */,
-				FA543468224F68F700ACA9CE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA54346C224F68F700ACA9CE /* PBXTargetDependency */,
-			);
-			name = ReactiveAPIDemoTests;
-			productName = ReactiveAPIDemoTests;
-			productReference = FA54346A224F68F700ACA9CE /* ReactiveAPIDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FA543474224F68F700ACA9CE /* ReactiveAPIDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA543484224F68F700ACA9CE /* Build configuration list for PBXNativeTarget "ReactiveAPIDemoUITests" */;
-			buildPhases = (
-				FA543471224F68F700ACA9CE /* Sources */,
-				FA543472224F68F700ACA9CE /* Frameworks */,
-				FA543473224F68F700ACA9CE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA543477224F68F700ACA9CE /* PBXTargetDependency */,
-			);
-			name = ReactiveAPIDemoUITests;
-			productName = ReactiveAPIDemoUITests;
-			productReference = FA543475224F68F700ACA9CE /* ReactiveAPIDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -328,14 +231,6 @@
 				TargetAttributes = {
 					FA543455224F68F500ACA9CE = {
 						CreatedOnToolsVersion = 10.2;
-					};
-					FA543469224F68F700ACA9CE = {
-						CreatedOnToolsVersion = 10.2;
-						TestTargetID = FA543455224F68F500ACA9CE;
-					};
-					FA543474224F68F700ACA9CE = {
-						CreatedOnToolsVersion = 10.2;
-						TestTargetID = FA543455224F68F500ACA9CE;
 					};
 				};
 			};
@@ -353,8 +248,6 @@
 			projectRoot = "";
 			targets = (
 				FA543455224F68F500ACA9CE /* ReactiveAPIDemo */,
-				FA543469224F68F700ACA9CE /* ReactiveAPIDemoTests */,
-				FA543474224F68F700ACA9CE /* ReactiveAPIDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -366,20 +259,6 @@
 			files = (
 				FA543464224F68F700ACA9CE /* LaunchScreen.storyboard in Resources */,
 				FA543461224F68F700ACA9CE /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA543468224F68F700ACA9CE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA543473224F68F700ACA9CE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,36 +319,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA543466224F68F700ACA9CE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA54346F224F68F700ACA9CE /* ReactiveAPIDemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA543471224F68F700ACA9CE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA54347A224F68F700ACA9CE /* ReactiveAPIDemoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FA54346C224F68F700ACA9CE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA543455224F68F500ACA9CE /* ReactiveAPIDemo */;
-			targetProxy = FA54346B224F68F700ACA9CE /* PBXContainerItemProxy */;
-		};
-		FA543477224F68F700ACA9CE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA543455224F68F500ACA9CE /* ReactiveAPIDemo */;
-			targetProxy = FA543476224F68F700ACA9CE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FA543462224F68F700ACA9CE /* LaunchScreen.storyboard */ = {
@@ -641,84 +491,6 @@
 			};
 			name = Release;
 		};
-		FA543482224F68F700ACA9CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReactiveAPIDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveAPIDemo.app/ReactiveAPIDemo";
-			};
-			name = Debug;
-		};
-		FA543483224F68F700ACA9CE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReactiveAPIDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveAPIDemo.app/ReactiveAPIDemo";
-			};
-			name = Release;
-		};
-		FA543485224F68F700ACA9CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReactiveAPIDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ReactiveAPIDemo;
-			};
-			name = Debug;
-		};
-		FA543486224F68F700ACA9CE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReactiveAPIDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ReactiveAPIDemo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -736,24 +508,6 @@
 			buildConfigurations = (
 				FA54347F224F68F700ACA9CE /* Debug */,
 				FA543480224F68F700ACA9CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA543481224F68F700ACA9CE /* Build configuration list for PBXNativeTarget "ReactiveAPIDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA543482224F68F700ACA9CE /* Debug */,
-				FA543483224F68F700ACA9CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA543484224F68F700ACA9CE /* Build configuration list for PBXNativeTarget "ReactiveAPIDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA543485224F68F700ACA9CE /* Debug */,
-				FA543486224F68F700ACA9CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

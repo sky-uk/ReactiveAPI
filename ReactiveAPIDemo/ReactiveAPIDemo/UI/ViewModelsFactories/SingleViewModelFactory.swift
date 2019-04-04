@@ -3,7 +3,7 @@ import RxSwift
 
 typealias SingleViewModelCreator = (_ indexPath: IndexPath, _ data: [ViewModelData]) -> ViewModel?
 
-class SingleViewModelFactory: ViewModelFactory {
+final class SingleViewModelFactory: ViewModelFactory {
     
     private let client: StarWarsAPI
     private let creator: SingleViewModelCreator

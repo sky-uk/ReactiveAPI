@@ -16,9 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.httpAdditionalHeaders = ["User-Agent": "ReactiveAPIDemo/\(appVersion)"]
+
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         client = StarWarsAPI(session: URLSession(configuration: sessionConfig).rx,
-                             decoder: JSONDecoder(),
+                             decoder: decoder,
                              baseUrl: AppDelegate.baseURL)
     }
     

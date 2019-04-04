@@ -2,11 +2,11 @@ import Foundation
 
 struct Film: Codable, Hashable {
     let title: String
-    let episode_id: Int
-    let opening_crawl: String
+    let episodeId: Int
+    let openingCrawl: String
     let director: String
     let producer: String
-    let release_date: String
+    let releaseDate: String
     let species: [URL]
     let starships: [URL]
     let vehicles: [URL]

@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-class RootViewModelFactory: ViewModelFactory {
+final class RootViewModelFactory: ViewModelFactory {
     
     private let client: StarWarsAPI
     

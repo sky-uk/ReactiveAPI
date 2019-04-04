@@ -61,6 +61,3 @@ class ListController: UITableViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
 }
-
-
-

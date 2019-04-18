@@ -38,7 +38,7 @@ extension URLRequest {
     
     public static func createForJSON(with url: URL,
                                      method: ReactiveAPIHTTPMethod = .get,
-                                     headers: [String: String?]? = nil,
+                                     headers: [String: Any?]? = nil,
                                      queryParams: [String: Any?]? = nil,
                                      body: Encodable? = nil) throws -> URLRequest {
         return try createForJSON(with: url,

@@ -94,11 +94,11 @@ open class JSONReactiveAPI: ReactiveAPI {
 
 public extension JSONReactiveAPI {
     // body params as dictionary and generic response type
-    public func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                      url: URL,
-                                      headers: [String: String?]? = nil,
-                                      queryParams: [String: Any?]? = nil,
-                                      bodyParams: [String: Any?]? = nil) -> Single<D> {
+    func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+                               url: URL,
+                               headers: [String: Any?]? = nil,
+                               queryParams: [String: Any?]? = nil,
+                               bodyParams: [String: Any?]? = nil) -> Single<D> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -112,11 +112,11 @@ public extension JSONReactiveAPI {
     }
 
     // body params as encodable and generic response type
-    public func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                                    url: URL,
-                                                    headers: [String: String?]? = nil,
-                                                    queryParams: [String: Any?]? = nil,
-                                                    body: E? = nil) -> Single<D> {
+    func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+                                             url: URL,
+                                             headers: [String: Any?]? = nil,
+                                             queryParams: [String: Any?]? = nil,
+                                             body: E? = nil) -> Single<D> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -130,11 +130,11 @@ public extension JSONReactiveAPI {
     }
 
     // body params as dictionary and void response type
-    public func request(_ method: ReactiveAPIHTTPMethod = .get,
-                        url: URL,
-                        headers: [String: String?]? = nil,
-                        queryParams: [String: Any?]? = nil,
-                        bodyParams: [String: Any?]? = nil) -> Single<Void> {
+    func request(_ method: ReactiveAPIHTTPMethod = .get,
+                 url: URL,
+                 headers: [String: Any?]? = nil,
+                 queryParams: [String: Any?]? = nil,
+                 bodyParams: [String: Any?]? = nil) -> Single<Void> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -148,11 +148,11 @@ public extension JSONReactiveAPI {
     }
 
     // body params as encodable and void response type
-    public func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                      url: URL,
-                                      headers: [String: String?]? = nil,
-                                      queryParams: [String: Any?]? = nil,
-                                      body: E? = nil) -> Single<Void> {
+    func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
+                               url: URL,
+                               headers: [String: Any?]? = nil,
+                               queryParams: [String: Any?]? = nil,
+                               body: E? = nil) -> Single<Void> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -166,11 +166,11 @@ public extension JSONReactiveAPI {
     }
 
     // body params as dictionary and array response type
-    public func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                      url: URL,
-                                      headers: [String: String?]? = nil,
-                                      queryParams: [String: Any?]? = nil,
-                                      bodyParams: [String: Any?]? = nil) -> Single<[D]> {
+    func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+                               url: URL,
+                               headers: [String: Any?]? = nil,
+                               queryParams: [String: Any?]? = nil,
+                               bodyParams: [String: Any?]? = nil) -> Single<[D]> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -184,11 +184,11 @@ public extension JSONReactiveAPI {
     }
 
     // body params as encodable and array response type
-    public func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                                    url: URL,
-                                                    headers: [String: String?]? = nil,
-                                                    queryParams: [String: Any?]? = nil,
-                                                    body: E? = nil) -> Single<[D]> {
+    func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+                                             url: URL,
+                                             headers: [String: Any?]? = nil,
+                                             queryParams: [String: Any?]? = nil,
+                                             body: E? = nil) -> Single<[D]> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,

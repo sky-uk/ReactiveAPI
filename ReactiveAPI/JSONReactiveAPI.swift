@@ -164,40 +164,4 @@ public extension JSONReactiveAPI {
             return Single.error(error)
         }
     }
-
-    // body params as dictionary and array response type
-    func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                               url: URL,
-                               headers: [String: Any?]? = nil,
-                               queryParams: [String: Any?]? = nil,
-                               bodyParams: [String: Any?]? = nil) -> Single<[D]> {
-        do {
-            let request = try URLRequest.createForJSON(with: url,
-                                                       method: method,
-                                                       headers: headers,
-                                                       queryParams: queryParams,
-                                                       bodyParams: bodyParams)
-            return rxDataRequestArray(request)
-        } catch {
-            return Single.error(error)
-        }
-    }
-
-    // body params as encodable and array response type
-    func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                             url: URL,
-                                             headers: [String: Any?]? = nil,
-                                             queryParams: [String: Any?]? = nil,
-                                             body: E? = nil) -> Single<[D]> {
-        do {
-            let request = try URLRequest.createForJSON(with: url,
-                                                       method: method,
-                                                       headers: headers,
-                                                       queryParams: queryParams,
-                                                       body: body)
-            return rxDataRequestArray(request)
-        } catch {
-            return Single.error(error)
-        }
-    }
 }

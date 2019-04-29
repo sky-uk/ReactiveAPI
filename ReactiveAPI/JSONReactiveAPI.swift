@@ -70,22 +70,6 @@ open class JSONReactiveAPI: ReactiveAPI {
             }
         }
     }
-
-    private func rxDataRequestArray<D: Decodable>(_ request: URLRequest) -> Single<[D]> {
-        return rxDataRequest(request).flatMap { data in
-            do {
-                let decoded = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-
-                if let decodedArray = decoded as? [D] {
-                    return Single.just(decodedArray)
-                } else {
-                    return Single.error(ReactiveAPIError.jsonDeserializationError("unable to deserialize to JSON Array", data))
-                }
-            } catch {
-                return Single.error(error)
-            }
-        }
-    }
     
     private func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
         return rxDataRequest(request).map { _ in () }
@@ -160,42 +144,6 @@ public extension JSONReactiveAPI {
                                                        queryParams: queryParams,
                                                        body: body)
             return rxDataRequestDiscardingPayload(request)
-        } catch {
-            return Single.error(error)
-        }
-    }
-
-    // body params as dictionary and array response type
-    func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                               url: URL,
-                               headers: [String: Any?]? = nil,
-                               queryParams: [String: Any?]? = nil,
-                               bodyParams: [String: Any?]? = nil) -> Single<[D]> {
-        do {
-            let request = try URLRequest.createForJSON(with: url,
-                                                       method: method,
-                                                       headers: headers,
-                                                       queryParams: queryParams,
-                                                       bodyParams: bodyParams)
-            return rxDataRequestArray(request)
-        } catch {
-            return Single.error(error)
-        }
-    }
-
-    // body params as encodable and array response type
-    func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                             url: URL,
-                                             headers: [String: Any?]? = nil,
-                                             queryParams: [String: Any?]? = nil,
-                                             body: E? = nil) -> Single<[D]> {
-        do {
-            let request = try URLRequest.createForJSON(with: url,
-                                                       method: method,
-                                                       headers: headers,
-                                                       queryParams: queryParams,
-                                                       body: body)
-            return rxDataRequestArray(request)
         } catch {
             return Single.error(error)
         }

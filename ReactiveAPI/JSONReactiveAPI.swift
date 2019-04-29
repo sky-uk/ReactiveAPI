@@ -70,22 +70,6 @@ open class JSONReactiveAPI: ReactiveAPI {
             }
         }
     }
-
-    private func rxDataRequestArray<D: Decodable>(_ request: URLRequest) -> Single<[D]> {
-        return rxDataRequest(request).flatMap { data in
-            do {
-                let decoded = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-
-                if let decodedArray = decoded as? [D] {
-                    return Single.just(decodedArray)
-                } else {
-                    return Single.error(ReactiveAPIError.jsonDeserializationError("unable to deserialize to JSON Array", data))
-                }
-            } catch {
-                return Single.error(error)
-            }
-        }
-    }
     
     private func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
         return rxDataRequest(request).map { _ in () }

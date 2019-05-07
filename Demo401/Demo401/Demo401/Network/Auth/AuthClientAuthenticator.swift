@@ -11,6 +11,7 @@ public class AuthClientAuthenticator: ReactiveAPIAuthenticator {
     }
 
     public func authenticate(session: Reactive<URLSession>, request: URLRequest, response: HTTPURLResponse, data: Data?) -> Single<Data>? {
+        debugPrint("Invoked authenticator")
         guard response.statusCode == 401, let token = self.authClient.tokenStorage?.token else {
             debugPrint(response.statusCode == 401 ? "authenticator - no saved tokens" : "authenticator - response status code != 401")
             return nil

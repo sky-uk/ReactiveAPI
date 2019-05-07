@@ -49,7 +49,7 @@ open class JSONReactiveAPI: ReactiveAPI {
             .catchError({ [unowned self] (error) -> Single<Data> in
                 guard
                     let authenticator = self.authenticator,
-                    case let RxCocoaURLError.httpRequestFailed(response, data) = error,
+                    case let ReactiveAPIError.httpError(response, data) = error,
                     let retryRequest = authenticator.authenticate(session: self.session,
                                                                   request: mutableRequest,
                                                                   response: response,

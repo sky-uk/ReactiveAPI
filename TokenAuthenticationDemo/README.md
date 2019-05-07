@@ -20,10 +20,10 @@ This sample project demostrates how to handle Token Based Authentication with Re
 `ReactiveAPI` borrows the concepts of `Interceptor` and `Authenticator` from [OkHttp](https://square.github.io/okhttp/) which makes working with token based authentication mechanism a breeze.
 
 ### Interceptor
-It enriches requests to the server, by adding headers and parameters. When added to a ReactiveAPI instance, it is automatically called on each request. In this example it will be used to automatically add the saved token to each authenticated request.
+It can enrich requests to the server, by adding headers and parameters. When added to a ReactiveAPI instance, it is automatically called on each request. In this example it will be used to automatically add the saved token to each authenticated request.
 
 ### Authenticator
-It is called everytime there's an HTTP error. It gives you the possibility to try to recover errors. In this example will be used to try to recover `HTTP 401 Unauthorized` errors by making a token renew request. If that succeeds, the original API call which failed will be automatically retried by ReactiveAPI.
+It is called everytime there's an HTTP error. It gives you the possibility to try to recover errors. In this example it will be used to try to recover `HTTP 401 Unauthorized` errors by making a token renew request. If that succeeds, the original API call which failed will be automatically retried by ReactiveAPI.
 
 For example, consider this flow:
 * perform `/login` and save a token which expires in 5 minutes

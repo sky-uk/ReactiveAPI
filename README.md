@@ -25,7 +25,7 @@ After that completes, simply open `ReactiveAPIDemo` project from Xcode and hit `
 ![demo](https://user-images.githubusercontent.com/16792495/55287028-ffece280-53a3-11e9-9504-1dffa1f2316f.gif)
 
 ## Token Authenticated API Demo
-Most of today REST APIs have a token authentication mechanism. We created a dedicated demo app, with a standalone node.js server to demostrate all the power of ReactiveAPI authentication handling. [Check it here](TokenAuthenticationDemo/README.md)
+Most of today REST APIs have a token authentication mechanism. We created a dedicated demo app, with a standalone node.js server to demostrate all the power of ReactiveAPI authentication handling. [Check it here](TokenAuthenticationDemo).
 
 ## What your network code will look like with ReactiveAPI
 We highly suggest to create a `Network` group with two child groups: `APIs` and `Models`.

@@ -1,0 +1,3 @@
+#!/bin/bash
+. config
+curl -X POST -H "Content-Type: application/json" -d '{"username": "user", "password": "password"}' "$BASEURL/login" -o token.json

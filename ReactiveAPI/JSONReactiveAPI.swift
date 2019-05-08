@@ -28,7 +28,7 @@ open class JSONReactiveAPI: ReactiveAPI {
         requestInterceptors.forEach { mutableRequest = $0.intercept(mutableRequest) }
         
         return session.response(request: mutableRequest)
-            .flatMap { [unowned self] (response, data) -> Observable<Data>  in
+            .flatMap { response, data -> Observable<Data>  in
                 if response.statusCode < 200 || response.statusCode >= 300 {
                     return Observable.error(ReactiveAPIError.httpError(response: response, data: data))
                 }
@@ -46,7 +46,7 @@ open class JSONReactiveAPI: ReactiveAPI {
                 return Observable.just(data)
             }
             .asSingle()
-            .catchError({ [unowned self] (error) -> Single<Data> in
+            .catchError { error -> Single<Data> in
                 guard
                     let authenticator = self.authenticator,
                     case let ReactiveAPIError.httpError(response, data) = error,
@@ -57,16 +57,20 @@ open class JSONReactiveAPI: ReactiveAPI {
                     else { throw error }
                 
                 return retryRequest
-            })
+            }
     }
     
     private func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {
-        return rxDataRequest(request).flatMap { [unowned self] data in
+        return rxDataRequest(request).flatMap { data in
             do {
                 let decoded = try self.decoder.decode(D.self, from: data)
                 return Single.just(decoded)
             } catch {
-                return Single.error(error)
+                guard let underlyingError = error as? DecodingError
+                    else { return Single.error(error) }
+
+                let decodingError = ReactiveAPIError.decodingError(underlyingError, data: data)
+                return Single.error(decodingError)
             }
         }
     }

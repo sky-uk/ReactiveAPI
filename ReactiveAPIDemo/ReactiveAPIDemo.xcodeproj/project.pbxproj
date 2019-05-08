@@ -44,10 +44,7 @@
 		FA543463224F68F700ACA9CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA543465224F68F700ACA9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA54348A224F6C0F00ACA9CE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		FA54348D224F6E3700ACA9CE /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Carthage/Build/iOS/Carbon.framework; sourceTree = "<group>"; };
-		FA54348F224F6E4D00ACA9CE /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
 		FA543491224F6E5200ACA9CE /* ReactiveAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveAPI.framework; path = Carthage/Build/iOS/ReactiveAPI.framework; sourceTree = "<group>"; };
-		FA543493224F6E5B00ACA9CE /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		FA543495224F6E6100ACA9CE /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		FA543497224F6E6900ACA9CE /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		FA54349A224F707200ACA9CE /* StarWarsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsAPI.swift; sourceTree = "<group>"; };
@@ -154,10 +151,7 @@
 			children = (
 				FA543497224F6E6900ACA9CE /* RxSwift.framework */,
 				FA543495224F6E6100ACA9CE /* RxCocoa.framework */,
-				FA543493224F6E5B00ACA9CE /* RxAtomic.framework */,
 				FA543491224F6E5200ACA9CE /* ReactiveAPI.framework */,
-				FA54348F224F6E4D00ACA9CE /* DifferenceKit.framework */,
-				FA54348D224F6E3700ACA9CE /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

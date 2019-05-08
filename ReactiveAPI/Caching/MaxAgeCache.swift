@@ -10,8 +10,7 @@ public final class MaxAgeCache: ReactiveAPICache {
     public func cache(_ response: HTTPURLResponse,
                       request: URLRequest,
                       data: Data) -> CachedURLResponse? {
-        guard
-            request.httpMethod == ReactiveAPIHTTPMethod.get.rawValue,
+        guard request.httpMethod == ReactiveAPIHTTPMethod.get.rawValue,
             var headers = response.allHeaderFields as? [String: String],
             let url = response.url else { return nil }
         

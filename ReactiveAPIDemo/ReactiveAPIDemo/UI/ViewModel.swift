@@ -25,7 +25,8 @@ class ViewModel {
     final func fetch(controller: ListController) {
         apiCall()
             .asDriver(onErrorRecover: { error in
-                print("Something bad happened: \(error)")
+                let error = error as NSError
+                print("Something bad happened: \(error.localizedFailureReason ?? error.localizedDescription)")
                 return Driver.empty()
             })
             .drive(onNext: { controller.data = $0 })

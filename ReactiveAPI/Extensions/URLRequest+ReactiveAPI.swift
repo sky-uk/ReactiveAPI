@@ -2,7 +2,10 @@ import Foundation
 
 extension URLRequest {
     public mutating func setHeaders(_ headers: [String: Any?]? = nil) {
-        headers?.forEach { setValue(String(describing: $1), forHTTPHeaderField: $0) }
+        headers?.compactMapValues({ $0 })
+            .forEach {
+                setValue("\($1)", forHTTPHeaderField: $0)
+        }
     }
     
     public static func createForJSON(with url: URL,
@@ -16,7 +19,7 @@ extension URLRequest {
         if let queryParams = queryParams {
                 urlComponents.queryItems = (urlComponents.queryItems ?? [URLQueryItem]()) + queryParams
                     .compactMapValues({ $0 })
-                    .compactMap({ URLQueryItem(name: $0, value: String(describing: $1)) })
+                    .compactMap({ URLQueryItem(name: $0, value: "\($1)") })
         }
 
         var request = URLRequest(url: urlComponents.url!)

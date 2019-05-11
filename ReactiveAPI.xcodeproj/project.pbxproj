@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D16432F822873CB700C0F780 /* ReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16432F722873CB700C0F780 /* ReactiveAPITests.swift */; };
+		D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; };
+		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
+		D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D195F1D522086D9600530339 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
 		D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */; };
 		D195F1E622086DB200530339 /* JSONReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D722086DB200530339 /* JSONReactiveAPI.swift */; };
@@ -22,7 +26,34 @@
 		D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E422086DB200530339 /* MaxAgeCache.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D16432FB22873CB700C0F780 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D195F1BF22086C8200530339 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D195F1C722086C8200530339;
+			remoteInfo = ReactiveAPI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D164330122873D3200C0F780 /* Copy Files Carthage */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */,
+			);
+			name = "Copy Files Carthage";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16432F722873CB700C0F780 /* ReactiveAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITests.swift; sourceTree = "<group>"; };
+		D16432F922873CB700C0F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D195F1C822086C8200530339 /* ReactiveAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D195F1CC22086C8200530339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D195F1D422086D9600530339 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -41,6 +72,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D16432F222873CB700C0F780 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */,
+				D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D195F1C522086C8200530339 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,12 +92,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D16432F622873CB700C0F780 /* ReactiveAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				D16432F722873CB700C0F780 /* ReactiveAPITests.swift */,
+				D16432F922873CB700C0F780 /* Info.plist */,
+			);
+			path = ReactiveAPITests;
+			sourceTree = "<group>";
+		};
 		D195F1BE22086C8200530339 = {
 			isa = PBXGroup;
 			children = (
 				D195F1D322086D9600530339 /* Frameworks */,
 				D195F1C922086C8200530339 /* Products */,
 				D195F1CA22086C8200530339 /* ReactiveAPI */,
+				D16432F622873CB700C0F780 /* ReactiveAPITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				D195F1C822086C8200530339 /* ReactiveAPI.framework */,
+				D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +177,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		D16432F422873CB700C0F780 /* ReactiveAPITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D16432FF22873CB700C0F780 /* Build configuration list for PBXNativeTarget "ReactiveAPITests" */;
+			buildPhases = (
+				D16432F122873CB700C0F780 /* Sources */,
+				D16432F222873CB700C0F780 /* Frameworks */,
+				D16432F322873CB700C0F780 /* Resources */,
+				D164330122873D3200C0F780 /* Copy Files Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D16432FC22873CB700C0F780 /* PBXTargetDependency */,
+			);
+			name = ReactiveAPITests;
+			productName = ReactiveAPITests;
+			productReference = D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D195F1C722086C8200530339 /* ReactiveAPI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D195F1D022086C8200530339 /* Build configuration list for PBXNativeTarget "ReactiveAPI" */;
@@ -150,9 +220,13 @@
 		D195F1BF22086C8200530339 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Sky;
 				TargetAttributes = {
+					D16432F422873CB700C0F780 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					D195F1C722086C8200530339 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
@@ -173,11 +247,19 @@
 			projectRoot = "";
 			targets = (
 				D195F1C722086C8200530339 /* ReactiveAPI */,
+				D16432F422873CB700C0F780 /* ReactiveAPITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D16432F322873CB700C0F780 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D195F1C622086C8200530339 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,6 +270,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D16432F122873CB700C0F780 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D16432F822873CB700C0F780 /* ReactiveAPITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D195F1C422086C8200530339 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,7 +299,61 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D16432FC22873CB700C0F780 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D195F1C722086C8200530339 /* ReactiveAPI */;
+			targetProxy = D16432FB22873CB700C0F780 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		D16432FD22873CB700C0F780 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64346Y5J98;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ReactiveAPITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D16432FE22873CB700C0F780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64346Y5J98;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ReactiveAPITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D195F1CE22086C8200530339 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -396,6 +540,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D16432FF22873CB700C0F780 /* Build configuration list for PBXNativeTarget "ReactiveAPITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D16432FD22873CB700C0F780 /* Debug */,
+				D16432FE22873CB700C0F780 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D195F1C222086C8200530339 /* Build configuration list for PBXProject "ReactiveAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

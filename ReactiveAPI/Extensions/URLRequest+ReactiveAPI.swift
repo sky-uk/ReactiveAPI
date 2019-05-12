@@ -1,8 +1,8 @@
 import Foundation
 
 extension URLRequest {
-    public mutating func setHeaders(_ headers: [String: Any?]? = nil) {
-        headers?.compactMapValues({ $0 })
+    public mutating func setHeaders(_ headers: [String: Any?]) {
+        headers.compactMapValues({ $0 })
             .forEach {
                 setValue("\($1)", forHTTPHeaderField: $0)
         }
@@ -33,8 +33,8 @@ extension URLRequest {
                 request.httpBody = try JSONSerialization.data(withJSONObject: bodyDict)
             }
         }
-        
-        request.setHeaders(headers)
+
+        headers.map { request.setHeaders($0) }
         
         return request
     }

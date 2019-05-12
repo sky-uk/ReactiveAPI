@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D16432F822873CB700C0F780 /* ReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16432F722873CB700C0F780 /* ReactiveAPITests.swift */; };
+		D16432F822873CB700C0F780 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16432F722873CB700C0F780 /* ExtensionsTests.swift */; };
 		D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; };
 		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
 		D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -16,7 +16,6 @@
 		D195F1E622086DB200530339 /* JSONReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D722086DB200530339 /* JSONReactiveAPI.swift */; };
 		D195F1E722086DB200530339 /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */; };
 		D195F1E922086DB200530339 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */; };
-		D195F1EA22086DB200530339 /* Array+CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DC22086DB200530339 /* Array+CSV.swift */; };
 		D195F1EB22086DB200530339 /* ReactiveAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DD22086DB200530339 /* ReactiveAPIError.swift */; };
 		D195F1EC22086DB200530339 /* ReactiveAPICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DE22086DB200530339 /* ReactiveAPICache.swift */; };
 		D195F1ED22086DB200530339 /* ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DF22086DB200530339 /* ReactiveAPI.swift */; };
@@ -52,7 +51,7 @@
 
 /* Begin PBXFileReference section */
 		D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D16432F722873CB700C0F780 /* ReactiveAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITests.swift; sourceTree = "<group>"; };
+		D16432F722873CB700C0F780 /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		D16432F922873CB700C0F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D195F1C822086C8200530339 /* ReactiveAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D195F1CC22086C8200530339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,7 +60,6 @@
 		D195F1D722086DB200530339 /* JSONReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReactiveAPI.swift; sourceTree = "<group>"; };
 		D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+ReactiveAPI.swift"; sourceTree = "<group>"; };
 		D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
-		D195F1DC22086DB200530339 /* Array+CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+CSV.swift"; sourceTree = "<group>"; };
 		D195F1DD22086DB200530339 /* ReactiveAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIError.swift; sourceTree = "<group>"; };
 		D195F1DE22086DB200530339 /* ReactiveAPICache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPICache.swift; sourceTree = "<group>"; };
 		D195F1DF22086DB200530339 /* ReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPI.swift; sourceTree = "<group>"; };
@@ -95,7 +93,7 @@
 		D16432F622873CB700C0F780 /* ReactiveAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				D16432F722873CB700C0F780 /* ReactiveAPITests.swift */,
+				D16432F722873CB700C0F780 /* ExtensionsTests.swift */,
 				D16432F922873CB700C0F780 /* Info.plist */,
 			);
 			path = ReactiveAPITests;
@@ -149,7 +147,6 @@
 		D195F1D822086DB200530339 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D195F1DC22086DB200530339 /* Array+CSV.swift */,
 				D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */,
 				D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */,
 			);
@@ -274,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D16432F822873CB700C0F780 /* ReactiveAPITests.swift in Sources */,
+				D16432F822873CB700C0F780 /* ExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +282,6 @@
 				D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */,
 				D195F1EE22086DB200530339 /* ReactiveAPIHTTPMethod.swift in Sources */,
 				D195F1ED22086DB200530339 /* ReactiveAPI.swift in Sources */,
-				D195F1EA22086DB200530339 /* Array+CSV.swift in Sources */,
 				D195F1E722086DB200530339 /* URLRequest+ReactiveAPI.swift in Sources */,
 				D195F1EC22086DB200530339 /* ReactiveAPICache.swift in Sources */,
 				D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */,

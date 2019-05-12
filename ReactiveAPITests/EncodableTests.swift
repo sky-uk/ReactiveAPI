@@ -1,7 +1,7 @@
 import XCTest
 import ReactiveAPI
 
-class ExtensionsTests: XCTestCase {
+class EncodableTests: XCTestCase {
     private struct MockEncodable: Encodable {
         let name: String
         let id: Double
@@ -18,7 +18,7 @@ class ExtensionsTests: XCTestCase {
 
     func test_Dictionary_WhenDataIsNotValid_RetursNil() {
         let encodable = MockEncodable(name: "Infinity",
-                                      id: Double.infinity)
+                                      id: .infinity)
         let result = encodable.dictionary
         XCTAssertNil(result)
     }

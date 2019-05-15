@@ -3,6 +3,5 @@
 VERSION=$(cat "ReactiveAPI/Info.plist" | grep -A 1 "CFBundleShortVersionString" | tail -n 1 | tr '>' '\n' | tr '<' '\n' | head -n 3 | tail -n 1)
 
 rm -rf Carthage
-carthage bootstrap --platform iOS
 carthage build --archive
 hub release create -a ReactiveAPI.framework.zip -m "$VERSION" "$VERSION"

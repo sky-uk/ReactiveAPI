@@ -16,11 +16,7 @@ extension URLRequest {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             else { throw ReactiveAPIError.URLComponentsError(url) }
 
-        if let queryParams = queryParams {
-                urlComponents.queryItems = (urlComponents.queryItems ?? [URLQueryItem]()) + queryParams
-                    .compactMapValues({ $0 })
-                    .compactMap({ URLQueryItem(name: $0, value: "\($1)") })
-        }
+        queryParams.map { urlComponents.setQueryParams($0) }
 
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = method.rawValue

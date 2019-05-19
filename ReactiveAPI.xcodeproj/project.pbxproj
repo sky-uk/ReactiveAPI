@@ -12,6 +12,11 @@
 		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
 		D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D164330422888BCD00C0F780 /* URLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164330322888BCD00C0F780 /* URLRequestTests.swift */; };
+		D1942861228EC5310071D00C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; };
+		D1942862228EC54A0071D00C /* RxCocoa.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D1942865228EC58E0071D00C /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1942863228EC5700071D00C /* RxRelay.framework */; };
+		D1942866228EC5950071D00C /* RxRelay.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D1942863228EC5700071D00C /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */; };
 		D195F1D522086D9600530339 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
 		D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */; };
 		D195F1E622086DB200530339 /* JSONReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D722086DB200530339 /* JSONReactiveAPI.swift */; };
@@ -43,6 +48,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D1942866228EC5950071D00C /* RxRelay.framework in Copy Files Carthage */,
+				D1942862228EC54A0071D00C /* RxCocoa.framework in Copy Files Carthage */,
 				D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */,
 			);
 			name = "Copy Files Carthage";
@@ -55,6 +62,9 @@
 		D16432F722873CB700C0F780 /* EncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableTests.swift; sourceTree = "<group>"; };
 		D16432F922873CB700C0F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D164330322888BCD00C0F780 /* URLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestTests.swift; sourceTree = "<group>"; };
+		D1942860228EC5310071D00C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		D1942863228EC5700071D00C /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+QueryParams.swift"; sourceTree = "<group>"; };
 		D195F1C822086C8200530339 /* ReactiveAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D195F1CC22086C8200530339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D195F1D422086D9600530339 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -78,6 +88,8 @@
 			files = (
 				D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */,
 				D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */,
+				D1942861228EC5310071D00C /* RxCocoa.framework in Frameworks */,
+				D1942865228EC58E0071D00C /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +117,7 @@
 		D195F1BE22086C8200530339 = {
 			isa = PBXGroup;
 			children = (
+				D1942863228EC5700071D00C /* RxRelay.framework */,
 				D195F1D322086D9600530339 /* Frameworks */,
 				D195F1C922086C8200530339 /* Products */,
 				D195F1CA22086C8200530339 /* ReactiveAPI */,
@@ -142,6 +155,7 @@
 		D195F1D322086D9600530339 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1942860228EC5310071D00C /* RxCocoa.framework */,
 				D195F1D422086D9600530339 /* RxSwift.framework */,
 			);
 			name = Frameworks;
@@ -151,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */,
+				D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */,
 				D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */,
 			);
 			path = Extensions;
@@ -283,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */,
 				D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */,
 				D195F1EE22086DB200530339 /* ReactiveAPIHTTPMethod.swift in Sources */,
 				D195F1ED22086DB200530339 /* ReactiveAPI.swift in Sources */,

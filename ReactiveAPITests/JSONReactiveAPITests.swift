@@ -16,6 +16,7 @@ class JSONReactiveAPITests: XCTestCase {
     func test_Init_JSONReactiveAPI() {
         XCTAssertEqual(api.session.base, session)
         XCTAssertNotNil(api.decoder)
+        XCTAssertTrue(api.decoder is JSONDecoder)
     }
 
     func test_AbsoluteURL_AppendsEndpoint() {
@@ -28,4 +29,3 @@ class JSONReactiveAPITests: XCTestCase {
         XCTAssertEqual(url.absoluteString, "https://baseurl.com/")
     }
 }
-

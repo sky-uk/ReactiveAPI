@@ -27,8 +27,4 @@ class URLRequestTests: XCTestCase {
         XCTAssertNotNil(number)
         XCTAssertEqual(number?.value, "3")
     }
-
-    func test_CreateForJSON_WhenUrlIsNotValid_ThrowsError() {
-        // TODO
-    }
 }

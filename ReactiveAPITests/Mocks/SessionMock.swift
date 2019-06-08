@@ -4,6 +4,7 @@ class URLSessionMock: URLSession {
     var data: Data?
     var error: Error?
     var response: HTTPURLResponse?
+    private let configurationMock = URLSessionConfigurationMock()
 
     override func dataTask(with request: URLRequest,
                            completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
@@ -13,6 +14,10 @@ class URLSessionMock: URLSession {
         return URLSessionDataTaskMock {
             completionHandler(data, response, error)
         }
+    }
+
+    override var configuration: URLSessionConfiguration {
+        return configurationMock
     }
 }
 
@@ -40,4 +45,19 @@ class URLSessionDataTaskMock: URLSessionDataTask {
     }
 
     override func cancel() {}
+}
+
+
+class URLSessionConfigurationMock: URLSessionConfiguration {
+    private var cache: URLCache? = URLCache(memoryCapacity: 5 * 1024 * 1024,
+                                            diskCapacity: 5 * 1024 * 1024,
+                                            diskPath: "test")
+    override var urlCache: URLCache? {
+        get {
+            return cache
+        }
+        set {
+            self.cache = newValue
+        }
+    }
 }

@@ -91,4 +91,25 @@ class RxDataRequestTests: XCTestCase {
             }
         }
     }
+
+    func test_RxDataRequest_Cache() {
+        let session = URLSessionMock.create(json)
+        let api = JSONReactiveAPI(session: session.rx,
+                                  decoder: JSONDecoder(),
+                                  baseUrl: Resources.url)
+        let cache = CacheMock()
+        api.cache = cache
+        let request = URLRequest(url: Resources.url)
+        do {
+            let _ = try api.rxDataRequest(request)
+                .toBlocking()
+                .single()
+
+            let urlCache = session.configuration.urlCache
+            XCTAssertNotNil(urlCache?.cachedResponse(for: request))
+
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
 }

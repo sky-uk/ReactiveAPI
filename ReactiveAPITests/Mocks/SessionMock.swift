@@ -3,10 +3,7 @@ import Foundation
 class URLSessionMock: URLSession {
     var data: Data?
     var error: Error?
-    var response: HTTPURLResponse? = HTTPURLResponse(url: Resources.url,
-                                                     statusCode: 200,
-                                                     httpVersion: nil,
-                                                     headerFields: nil)
+    var response: HTTPURLResponse?
 
     override func dataTask(with request: URLRequest,
                            completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
@@ -20,9 +17,13 @@ class URLSessionMock: URLSession {
 }
 
 extension URLSessionMock {
-    static func create(_ json: String) -> URLSession {
+    static func create(_ json: String, errorCode: Int = 200) -> URLSession {
         let session = URLSessionMock()
         session.data = json.data(using: .utf8)!
+        session.response = HTTPURLResponse(url: Resources.url,
+                                           statusCode: errorCode,
+                                           httpVersion: nil,
+                                           headerFields: nil)
         return session
     }
 }

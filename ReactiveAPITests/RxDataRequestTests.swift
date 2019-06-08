@@ -9,7 +9,7 @@ class RxDataRequestTests: XCTestCase {
         [ { "beautiful": "json" } ]
         """
 
-    func test_RxDataRequest() {
+    func test_RxDataRequest_When200_DataIsValid() {
         let session = URLSessionMock.create(json)
         let api = JSONReactiveAPI(session: session.rx,
                                   decoder: JSONDecoder(),
@@ -23,6 +23,29 @@ class RxDataRequestTests: XCTestCase {
             XCTAssertNotNil(response)
         } catch {
             XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_RxDataRequest_WhenMoreThan200_ReturnError() {
+        let session = URLSessionMock.create(json, errorCode: 401)
+        
+        let api = JSONReactiveAPI(session: session.rx,
+                                  decoder: JSONDecoder(),
+                                  baseUrl: Resources.url)
+
+        let response = api.rxDataRequest(URLRequest(url: Resources.url))
+            .toBlocking()
+            .materialize()
+
+        switch response {
+        case .completed(elements: _):
+            XCTFail("This should throws an error!")
+        case .failed(elements: _, error: let error):
+            if case let ReactiveAPIError.httpError(response: response, data: _) = error {
+                XCTAssertTrue(response.statusCode == 401)
+            } else {
+                XCTFail("This should be a ReactiveAPIError.httpError")
+            }
         }
     }
 }

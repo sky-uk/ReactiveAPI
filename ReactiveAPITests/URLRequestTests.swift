@@ -7,7 +7,7 @@ class URLRequestTests: XCTestCase {
                                            "nil": nil]
 
     func test_SetHeaders_WhenDictionaryIsValid_SetHTTPHeaderField() {
-        var request = URLRequest(url: URL(string: "www")!)
+        var request = Resources.urlRequest
         request.setHeaders(params)
         XCTAssert(request.allHTTPHeaderFields?.count == 2)
         XCTAssertEqual(request.allHTTPHeaderFields, ["key":"value",

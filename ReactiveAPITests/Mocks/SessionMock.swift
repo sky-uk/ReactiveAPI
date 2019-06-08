@@ -25,10 +25,7 @@ extension URLSessionMock {
     static func create(_ json: String, errorCode: Int = 200) -> URLSession {
         let session = URLSessionMock()
         session.data = json.data(using: .utf8)!
-        session.response = HTTPURLResponse(url: Resources.url,
-                                           statusCode: errorCode,
-                                           httpVersion: nil,
-                                           headerFields: nil)
+        session.response = Resources.httpUrlResponse(code: errorCode)
         return session
     }
 }

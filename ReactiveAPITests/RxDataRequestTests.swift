@@ -16,7 +16,7 @@ class RxDataRequestTests: XCTestCase {
                                   baseUrl: Resources.url)
 
         do {
-            let response = try api.rxDataRequest(URLRequest(url: Resources.url))
+            let response = try api.rxDataRequest(Resources.urlRequest)
                 .toBlocking()
                 .single()
 
@@ -33,7 +33,7 @@ class RxDataRequestTests: XCTestCase {
                                   decoder: JSONDecoder(),
                                   baseUrl: Resources.url)
 
-        let response = api.rxDataRequest(URLRequest(url: Resources.url))
+        let response = api.rxDataRequest(Resources.urlRequest)
             .toBlocking()
             .materialize()
 
@@ -58,7 +58,7 @@ class RxDataRequestTests: XCTestCase {
         api.authenticator = AuthenticatorMock(code: 401)
 
         do {
-            let response = try api.rxDataRequest(URLRequest(url: Resources.url))
+            let response = try api.rxDataRequest(Resources.urlRequest)
                 .toBlocking()
                 .single()
 
@@ -76,7 +76,7 @@ class RxDataRequestTests: XCTestCase {
                                   baseUrl: Resources.url)
         api.authenticator = AuthenticatorMock(code: 401)
 
-        let response = api.rxDataRequest(URLRequest(url: Resources.url))
+        let response = api.rxDataRequest(Resources.urlRequest)
             .toBlocking()
             .materialize()
 
@@ -99,7 +99,7 @@ class RxDataRequestTests: XCTestCase {
                                   baseUrl: Resources.url)
         let cache = CacheMock()
         api.cache = cache
-        let request = URLRequest(url: Resources.url)
+        let request = Resources.urlRequest
         do {
             let _ = try api.rxDataRequest(request)
                 .toBlocking()

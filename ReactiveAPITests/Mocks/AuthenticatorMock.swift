@@ -9,6 +9,6 @@ struct AuthenticatorMock: ReactiveAPIAuthenticator {
         guard response.statusCode == code
             else { return nil }
 
-        return Single.just(Data(count: 10))
+        return Single.just(Resources.data)
     }
 }

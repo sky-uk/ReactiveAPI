@@ -14,6 +14,7 @@
 		D164330422888BCD00C0F780 /* URLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164330322888BCD00C0F780 /* URLRequestTests.swift */; };
 		D181276922ABAC25001CA667 /* ModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181276822ABAC25001CA667 /* ModelMock.swift */; };
 		D181276B22ABACBC001CA667 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181276A22ABACBC001CA667 /* Resources.swift */; };
+		D181276F22ABC712001CA667 /* AuthenticatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181276E22ABC712001CA667 /* AuthenticatorMock.swift */; };
 		D184126B22ABA67500609847 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; };
 		D184126D22ABA6FF00609847 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; };
 		D184126E22ABA72000609847 /* RxBlocking.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -72,6 +73,7 @@
 		D164330322888BCD00C0F780 /* URLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestTests.swift; sourceTree = "<group>"; };
 		D181276822ABAC25001CA667 /* ModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMock.swift; sourceTree = "<group>"; };
 		D181276A22ABACBC001CA667 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		D181276E22ABC712001CA667 /* AuthenticatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorMock.swift; sourceTree = "<group>"; };
 		D184126A22ABA67500609847 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		D184126C22ABA6FE00609847 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		D184127022ABA8C100609847 /* RxDataRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxDataRequestTests.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		D1A36F1622A2CE23001D9ED5 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				D181276E22ABC712001CA667 /* AuthenticatorMock.swift */,
 				D181276822ABAC25001CA667 /* ModelMock.swift */,
 				D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */,
 			);
@@ -325,6 +328,7 @@
 				D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */,
 				D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */,
 				D164330422888BCD00C0F780 /* URLRequestTests.swift in Sources */,
+				D181276F22ABC712001CA667 /* AuthenticatorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

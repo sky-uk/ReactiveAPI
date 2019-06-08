@@ -26,8 +26,8 @@ class RxDataRequestTests: XCTestCase {
         }
     }
 
-    func test_RxDataRequest_WhenMoreThan200_ReturnError() {
-        let session = URLSessionMock.create(json, errorCode: 401)
+    func test_RxDataRequest_When500_ReturnError() {
+        let session = URLSessionMock.create(json, errorCode: 500)
         
         let api = JSONReactiveAPI(session: session.rx,
                                   decoder: JSONDecoder(),
@@ -42,7 +42,50 @@ class RxDataRequestTests: XCTestCase {
             XCTFail("This should throws an error!")
         case .failed(elements: _, error: let error):
             if case let ReactiveAPIError.httpError(response: response, data: _) = error {
-                XCTAssertTrue(response.statusCode == 401)
+                XCTAssertTrue(response.statusCode == 500)
+            } else {
+                XCTFail("This should be a ReactiveAPIError.httpError")
+            }
+        }
+    }
+
+    func test_RxDataRequest_When401WithAuthenticator_DataIsValid() {
+        let session = URLSessionMock.create(json, errorCode: 401)
+
+        let api = JSONReactiveAPI(session: session.rx,
+                                  decoder: JSONDecoder(),
+                                  baseUrl: Resources.url)
+        api.authenticator = AuthenticatorMock(code: 401)
+
+        do {
+            let response = try api.rxDataRequest(URLRequest(url: Resources.url))
+                .toBlocking()
+                .single()
+
+            XCTAssertNotNil(response)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_RxDataRequest_When500WithAuthenticator_ReturnError() {
+        let session = URLSessionMock.create(json, errorCode: 500)
+
+        let api = JSONReactiveAPI(session: session.rx,
+                                  decoder: JSONDecoder(),
+                                  baseUrl: Resources.url)
+        api.authenticator = AuthenticatorMock(code: 401)
+
+        let response = api.rxDataRequest(URLRequest(url: Resources.url))
+            .toBlocking()
+            .materialize()
+
+        switch response {
+        case .completed(elements: _):
+            XCTFail("This should throws an error!")
+        case .failed(elements: _, error: let error):
+            if case let ReactiveAPIError.httpError(response: response, data: _) = error {
+                XCTAssertTrue(response.statusCode == 500)
             } else {
                 XCTFail("This should be a ReactiveAPIError.httpError")
             }

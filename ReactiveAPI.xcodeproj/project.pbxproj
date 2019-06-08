@@ -39,6 +39,7 @@
 		D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */; };
 		D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6822ABF1AA00324223 /* CacheMock.swift */; };
 		D1CD8B6B22ABF99100324223 /* MaxAgeCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */; };
+		D1CD8B6E22AC064900324223 /* ReactiveAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
 		D1CD8B6822ABF1AA00324223 /* CacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheMock.swift; sourceTree = "<group>"; };
 		D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAgeCacheTests.swift; sourceTree = "<group>"; };
+		D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				D16432F722873CB700C0F780 /* EncodableTests.swift */,
 				D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */,
 				D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */,
+				D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */,
 				D184127022ABA8C100609847 /* RxDataRequestTests.swift */,
 				D164330322888BCD00C0F780 /* URLRequestTests.swift */,
 				D1A36F1622A2CE23001D9ED5 /* Mocks */,
@@ -335,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1CD8B6E22AC064900324223 /* ReactiveAPIErrorTests.swift in Sources */,
 				D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */,
 				D1CD8B6B22ABF99100324223 /* MaxAgeCacheTests.swift in Sources */,
 				D181276922ABAC25001CA667 /* ModelMock.swift in Sources */,

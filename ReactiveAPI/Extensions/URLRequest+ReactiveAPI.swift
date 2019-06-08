@@ -12,11 +12,16 @@ extension URLRequest {
                                      method: ReactiveAPIHTTPMethod = .get,
                                      headers: [String: Any?]? = nil,
                                      queryParams: [String: Any?]? = nil,
-                                     bodyParams: [String: Any?]? = nil) throws -> URLRequest {
+                                     bodyParams: [String: Any?]? = nil,
+                                     queryStringTypeConverter: ReactiveAPITypeConverter?) throws -> URLRequest {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             else { throw ReactiveAPIError.URLComponentsError(url) }
 
-        queryParams.map { urlComponents.setQueryParams($0) }
+        if let queryParams = queryParams {
+                urlComponents.queryItems = (urlComponents.queryItems ?? [URLQueryItem]()) + queryParams
+                    .compactMapValues({ queryStringTypeConverter?($0) ?? $0 })
+                    .compactMap({ URLQueryItem(name: $0, value: "\($1)") })
+        }
 
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = method.rawValue
@@ -39,11 +44,13 @@ extension URLRequest {
                                      method: ReactiveAPIHTTPMethod = .get,
                                      headers: [String: Any?]? = nil,
                                      queryParams: [String: Any?]? = nil,
-                                     body: Encodable? = nil) throws -> URLRequest {
+                                     body: Encodable? = nil,
+                                     queryStringTypeConverter: ReactiveAPITypeConverter?) throws -> URLRequest {
         return try createForJSON(with: url,
                                  method: method,
                                  headers: headers,
                                  queryParams: queryParams,
-                                 bodyParams: body?.dictionary)
+                                 bodyParams: body?.dictionary,
+                                 queryStringTypeConverter: queryStringTypeConverter)
     }
 }

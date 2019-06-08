@@ -9,6 +9,7 @@ open class JSONReactiveAPI: ReactiveAPI {
     public var authenticator: ReactiveAPIAuthenticator? = nil
     public var requestInterceptors: [ReactiveAPIRequestInterceptor] = []
     public var cache: ReactiveAPICache? = nil
+    public var queryStringTypeConverter: ReactiveAPITypeConverter?
     
     required public init(session: Reactive<URLSession>, decoder: ReactiveAPIDecoder, baseUrl: URL) {
         self.session = session
@@ -92,7 +93,8 @@ public extension JSONReactiveAPI {
                                                        method: method,
                                                        headers: headers,
                                                        queryParams: queryParams,
-                                                       bodyParams: bodyParams)
+                                                       bodyParams: bodyParams,
+                                                       queryStringTypeConverter: queryStringTypeConverter)
             return rxDataRequest(request)
         } catch {
             return Single.error(error)
@@ -110,7 +112,8 @@ public extension JSONReactiveAPI {
                                                        method: method,
                                                        headers: headers,
                                                        queryParams: queryParams,
-                                                       body: body)
+                                                       body: body,
+                                                       queryStringTypeConverter: queryStringTypeConverter)
             return rxDataRequest(request)
         } catch {
             return Single.error(error)
@@ -128,7 +131,8 @@ public extension JSONReactiveAPI {
                                                        method: method,
                                                        headers: headers,
                                                        queryParams: queryParams,
-                                                       bodyParams: bodyParams)
+                                                       bodyParams: bodyParams,
+                                                       queryStringTypeConverter: queryStringTypeConverter)
             return rxDataRequestDiscardingPayload(request)
         } catch {
             return Single.error(error)
@@ -146,7 +150,8 @@ public extension JSONReactiveAPI {
                                                        method: method,
                                                        headers: headers,
                                                        queryParams: queryParams,
-                                                       body: body)
+                                                       body: body,
+                                                       queryStringTypeConverter: queryStringTypeConverter)
             return rxDataRequestDiscardingPayload(request)
         } catch {
             return Single.error(error)

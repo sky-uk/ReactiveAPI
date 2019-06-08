@@ -21,7 +21,7 @@ open class JSONReactiveAPI: ReactiveAPI {
     }
     
     // every request must pass here
-    private func rxDataRequest(_ request: URLRequest) -> Single<Data> {
+    internal func rxDataRequest(_ request: URLRequest) -> Single<Data> {
         
         var mutableRequest = request
         

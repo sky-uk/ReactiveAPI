@@ -1,14 +1,16 @@
 import XCTest
 import RxSwift
+import RxBlocking
+import RxCocoa
 @testable import ReactiveAPI
 
 class JSONReactiveAPITests: XCTestCase {
     private let session = URLSession(configuration: URLSessionConfiguration.default)
-    private let baseUrl = URL(string: "https://baseurl.com")!
+
     private var api: JSONReactiveAPI {
         return JSONReactiveAPI(session: session.rx,
-                        decoder: JSONDecoder(),
-                        baseUrl: baseUrl)
+                               decoder: JSONDecoder(),
+                               baseUrl: Resources.baseUrl)
     }
 
     func test_Init_JSONReactiveAPI() {

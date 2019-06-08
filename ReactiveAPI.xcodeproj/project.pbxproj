@@ -12,10 +12,15 @@
 		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
 		D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D164330422888BCD00C0F780 /* URLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164330322888BCD00C0F780 /* URLRequestTests.swift */; };
+		D181276922ABAC25001CA667 /* ModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181276822ABAC25001CA667 /* ModelMock.swift */; };
+		D181276B22ABACBC001CA667 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181276A22ABACBC001CA667 /* Resources.swift */; };
+		D184126B22ABA67500609847 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; };
+		D184126D22ABA6FF00609847 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; };
+		D184126E22ABA72000609847 /* RxBlocking.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D184126F22ABA72B00609847 /* RxRelay.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D184127122ABA8C100609847 /* RxDataRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D184127022ABA8C100609847 /* RxDataRequestTests.swift */; };
 		D1942861228EC5310071D00C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; };
 		D1942862228EC54A0071D00C /* RxCocoa.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D1942865228EC58E0071D00C /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1942863228EC5700071D00C /* RxRelay.framework */; };
-		D1942866228EC5950071D00C /* RxRelay.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D1942863228EC5700071D00C /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */; };
 		D195F1D522086D9600530339 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
 		D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */; };
@@ -30,6 +35,7 @@
 		D195F1F022086DB200530339 /* ReactiveAPIDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E222086DB200530339 /* ReactiveAPIDecoder.swift */; };
 		D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E422086DB200530339 /* MaxAgeCache.swift */; };
 		D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */; };
+		D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +55,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D1942866228EC5950071D00C /* RxRelay.framework in Copy Files Carthage */,
+				D184126F22ABA72B00609847 /* RxRelay.framework in Copy Files Carthage */,
+				D184126E22ABA72000609847 /* RxBlocking.framework in Copy Files Carthage */,
 				D1942862228EC54A0071D00C /* RxCocoa.framework in Copy Files Carthage */,
 				D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */,
 			);
@@ -63,8 +70,12 @@
 		D16432F722873CB700C0F780 /* EncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableTests.swift; sourceTree = "<group>"; };
 		D16432F922873CB700C0F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D164330322888BCD00C0F780 /* URLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestTests.swift; sourceTree = "<group>"; };
+		D181276822ABAC25001CA667 /* ModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMock.swift; sourceTree = "<group>"; };
+		D181276A22ABACBC001CA667 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		D184126A22ABA67500609847 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		D184126C22ABA6FE00609847 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		D184127022ABA8C100609847 /* RxDataRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxDataRequestTests.swift; sourceTree = "<group>"; };
 		D1942860228EC5310071D00C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		D1942863228EC5700071D00C /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+QueryParams.swift"; sourceTree = "<group>"; };
 		D195F1C822086C8200530339 /* ReactiveAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D195F1CC22086C8200530339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 		D195F1E222086DB200530339 /* ReactiveAPIDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIDecoder.swift; sourceTree = "<group>"; };
 		D195F1E422086DB200530339 /* MaxAgeCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxAgeCache.swift; sourceTree = "<group>"; };
 		D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReactiveAPITests.swift; sourceTree = "<group>"; };
+		D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +103,8 @@
 				D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */,
 				D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */,
 				D1942861228EC5310071D00C /* RxCocoa.framework in Frameworks */,
-				D1942865228EC58E0071D00C /* RxRelay.framework in Frameworks */,
+				D184126B22ABA67500609847 /* RxBlocking.framework in Frameworks */,
+				D184126D22ABA6FF00609847 /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +125,10 @@
 				D16432F922873CB700C0F780 /* Info.plist */,
 				D16432F722873CB700C0F780 /* EncodableTests.swift */,
 				D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */,
+				D181276A22ABACBC001CA667 /* Resources.swift */,
+				D184127022ABA8C100609847 /* RxDataRequestTests.swift */,
 				D164330322888BCD00C0F780 /* URLRequestTests.swift */,
+				D1A36F1622A2CE23001D9ED5 /* Mocks */,
 			);
 			path = ReactiveAPITests;
 			sourceTree = "<group>";
@@ -120,7 +136,6 @@
 		D195F1BE22086C8200530339 = {
 			isa = PBXGroup;
 			children = (
-				D1942863228EC5700071D00C /* RxRelay.framework */,
 				D195F1D322086D9600530339 /* Frameworks */,
 				D195F1C922086C8200530339 /* Products */,
 				D195F1CA22086C8200530339 /* ReactiveAPI */,
@@ -158,7 +173,9 @@
 		D195F1D322086D9600530339 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D184126A22ABA67500609847 /* RxBlocking.framework */,
 				D1942860228EC5310071D00C /* RxCocoa.framework */,
+				D184126C22ABA6FE00609847 /* RxRelay.framework */,
 				D195F1D422086D9600530339 /* RxSwift.framework */,
 			);
 			name = Frameworks;
@@ -180,6 +197,15 @@
 				D195F1E422086DB200530339 /* MaxAgeCache.swift */,
 			);
 			path = Caching;
+			sourceTree = "<group>";
+		};
+		D1A36F1622A2CE23001D9ED5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D181276822ABAC25001CA667 /* ModelMock.swift */,
+				D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,7 +319,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */,
+				D181276922ABAC25001CA667 /* ModelMock.swift in Sources */,
+				D181276B22ABACBC001CA667 /* Resources.swift in Sources */,
+				D184127122ABA8C100609847 /* RxDataRequestTests.swift in Sources */,
 				D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */,
+				D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */,
 				D164330422888BCD00C0F780 /* URLRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

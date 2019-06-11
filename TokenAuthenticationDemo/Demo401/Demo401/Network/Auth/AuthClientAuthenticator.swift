@@ -6,8 +6,14 @@ public class AuthClientAuthenticator: ReactiveAPIAuthenticator {
 
     private let authClient: AuthClient
 
+    private let tokenRenew: Observable<TokenPair>
+
     public init(authClient: AuthClient) {
         self.authClient = authClient
+        self.tokenRenew = authClient
+            .renewToken()
+            .asObservable()
+            .share(replay: 1, scope: .whileConnected)
     }
 
     public func authenticate(session: Reactive<URLSession>, request: URLRequest, response: HTTPURLResponse, data: Data?) -> Single<Data>? {
@@ -19,7 +25,7 @@ public class AuthClientAuthenticator: ReactiveAPIAuthenticator {
 
         debugPrint("authenticator - trying to refresh token: \(token)")
 
-        return self.authClient.renewToken()
+        return tokenRenew.asSingle()
             .flatMap { newToken in
                 debugPrint("authenticator - got new token: \(newToken)")
                 var newRequest = request

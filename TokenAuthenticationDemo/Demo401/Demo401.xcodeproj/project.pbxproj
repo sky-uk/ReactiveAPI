@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D869D6AE22AFBBFC00BBD3FB /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D869D6AD22AFBBFC00BBD3FB /* RxRelay.framework */; };
+		D869D6B022AFBD3F00BBD3FB /* netfox_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D869D6AF22AFBD3F00BBD3FB /* netfox_ios.framework */; };
 		D89C908C22818C7900995D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C908B22818C7900995D97 /* AppDelegate.swift */; };
 		D89C908E22818C7900995D97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C908D22818C7900995D97 /* ViewController.swift */; };
 		D89C909322818C7A00995D97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D89C909222818C7A00995D97 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D869D6AD22AFBBFC00BBD3FB /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		D869D6AF22AFBD3F00BBD3FB /* netfox_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = netfox_ios.framework; path = Carthage/Build/iOS/netfox_ios.framework; sourceTree = "<group>"; };
 		D89C908822818C7900995D97 /* Demo401.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo401.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D89C908B22818C7900995D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D89C908D22818C7900995D97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +84,9 @@
 			files = (
 				D89C90BF2281916900995D97 /* RxCocoa.framework in Frameworks */,
 				D89C90C02281916900995D97 /* ReactiveAPI.framework in Frameworks */,
+				D869D6AE22AFBBFC00BBD3FB /* RxRelay.framework in Frameworks */,
 				D89C90C12281916900995D97 /* RxSwift.framework in Frameworks */,
+				D869D6B022AFBD3F00BBD3FB /* netfox_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +163,8 @@
 		D89C90BB2281916900995D97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D869D6AF22AFBD3F00BBD3FB /* netfox_ios.framework */,
+				D869D6AD22AFBBFC00BBD3FB /* RxRelay.framework */,
 				D89C90BD2281916900995D97 /* ReactiveAPI.framework */,
 				D89C90BC2281916900995D97 /* RxCocoa.framework */,
 				D89C90BE2281916900995D97 /* RxSwift.framework */,
@@ -366,6 +374,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveAPI.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/netfox_ios.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputFileListPaths = (

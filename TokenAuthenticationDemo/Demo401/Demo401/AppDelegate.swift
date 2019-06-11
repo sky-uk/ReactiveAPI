@@ -1,4 +1,5 @@
 import UIKit
+import netfox_ios
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let mainViewController = ViewController()
         mainViewController.services = services
+
+        NFX.sharedInstance().start()
 
         window = UIWindow()
         window?.backgroundColor = .white

@@ -1,0 +1,3 @@
+github "ReactiveX/RxSwift" "5.0.1"
+github "kasketis/netfox" "1.15.0"
+github "sky-uk/ReactiveAPI" "bbb2ab44cb00a18a000e1ef412a0051a49912fea"

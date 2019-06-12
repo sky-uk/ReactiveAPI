@@ -29,7 +29,7 @@ app.post('/login', (req, res) => {
     if ('username' in req.body && 'password' in req.body) {
         if (req.body.username === user.username && req.body.password === user.password) {
             refreshTokens(false)
-            console.log("/login - Login succeeded!")
+            console.log(`/login - Login succeeded! Tokens: ${JSON.stringify(tokens)}`)
             res.status(200).json(tokens)
         } else {
             console.log("/login - Invalid username or password")

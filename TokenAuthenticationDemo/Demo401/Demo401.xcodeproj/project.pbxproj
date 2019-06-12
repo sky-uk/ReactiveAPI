@@ -23,7 +23,6 @@
 		D89C90CA2281931700995D97 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90C92281931700995D97 /* AuthAPI.swift */; };
 		D89C90CC2281935400995D97 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90CB2281935400995D97 /* TokenStorage.swift */; };
 		D89C90CE2281936D00995D97 /* AuthClientInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90CD2281936C00995D97 /* AuthClientInterceptor.swift */; };
-		D89C90D02281939A00995D97 /* AuthClientAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90CF2281939A00995D97 /* AuthClientAuthenticator.swift */; };
 		D89C90D2228193BC00995D97 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90D1228193BC00995D97 /* AuthClient.swift */; };
 		D89C90D72281942600995D97 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90D62281942600995D97 /* Version.swift */; };
 		D89C90D92281944500995D97 /* BackendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90D82281944500995D97 /* BackendAPI.swift */; };
@@ -70,7 +69,6 @@
 		D89C90C92281931700995D97 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		D89C90CB2281935400995D97 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		D89C90CD2281936C00995D97 /* AuthClientInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClientInterceptor.swift; sourceTree = "<group>"; };
-		D89C90CF2281939A00995D97 /* AuthClientAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClientAuthenticator.swift; sourceTree = "<group>"; };
 		D89C90D1228193BC00995D97 /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
 		D89C90D62281942600995D97 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		D89C90D82281944500995D97 /* BackendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendAPI.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				D89C90D1228193BC00995D97 /* AuthClient.swift */,
-				D89C90CF2281939A00995D97 /* AuthClientAuthenticator.swift */,
 				D89C90CD2281936C00995D97 /* AuthClientInterceptor.swift */,
 				D89C90CB2281935400995D97 /* TokenStorage.swift */,
 				D89C90C8228192F900995D97 /* APIs */,
@@ -400,7 +397,6 @@
 				D89C90CA2281931700995D97 /* AuthAPI.swift in Sources */,
 				D89C90D92281944500995D97 /* BackendAPI.swift in Sources */,
 				D89C908E22818C7900995D97 /* ViewController.swift in Sources */,
-				D89C90D02281939A00995D97 /* AuthClientAuthenticator.swift in Sources */,
 				D89C90D72281942600995D97 /* Version.swift in Sources */,
 				D89C90CE2281936D00995D97 /* AuthClientInterceptor.swift in Sources */,
 				D89C908C22818C7900995D97 /* AppDelegate.swift in Sources */,

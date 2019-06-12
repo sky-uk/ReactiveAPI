@@ -60,12 +60,12 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
             logger?.log(state: .waitingForTokenRenewWhichIsInProgress)
 
             return currentToken
-                .filter { $0 != nil }
+                .filter { $0 != nil }.map { $0! }
                 .take(1)
                 .asSingle()
                 .flatMap { token in
                     self.logger?.log(state: .finishedWaitingForTokenRenew)
-                    return self.requestWithNewToken(session: session, request: request, newToken: token!)
+                    return self.requestWithNewToken(session: session, request: request, newToken: token)
             }
         }
 

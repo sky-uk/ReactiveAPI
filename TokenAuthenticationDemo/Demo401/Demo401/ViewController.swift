@@ -19,7 +19,9 @@ class ViewController: UIViewController {
             createButton(label: "Login", action: #selector(loginAction)),
             createButton(label: "Invalidate", action: #selector(invalidateAction)),
             createButton(label: "Renew Token", action: #selector(renewTokenAction)),
-            createButton(label: "Get Version", action: #selector(getVersionAction))
+            createButton(label: "Get Version", action: #selector(getVersionAction)),
+            createButton(label: "FlatMap Get Version", action: #selector(flatMapGetVersionAction)),
+            createButton(label: "Zip Get Version", action: #selector(zipGetVersionAction))
             ])
 
         self.view.addSubview(stackView)
@@ -77,6 +79,29 @@ class ViewController: UIViewController {
         services.backendAPI.getVersion()
             .observeOn(MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] version in
+                self?.showMessage(title: "Version ok", message: "\(version)")
+                }, onError: { [weak self] error in
+                    self?.showMessage(title: "Version error", message: "\(error)")
+            }).disposed(by: disposeBag)
+    }
+
+    @objc func flatMapGetVersionAction(sender: UIButton!) {
+        services.backendAPI.getVersion()
+            .flatMap { _ in
+                return self.services.backendAPI.getVersion()
+            }
+            .observeOn(MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] version in
+                self?.showMessage(title: "Version ok", message: "\(version)")
+                }, onError: { [weak self] error in
+                    self?.showMessage(title: "Version error", message: "\(error)")
+            }).disposed(by: disposeBag)
+    }
+
+    @objc func zipGetVersionAction(sender: UIButton!) {
+        Single.zip(services.backendAPI.getVersion(), services.backendAPI.getVersion())
+            .observeOn(MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] _, version in
                 self?.showMessage(title: "Version ok", message: "\(version)")
                 }, onError: { [weak self] error in
                     self?.showMessage(title: "Version error", message: "\(error)")

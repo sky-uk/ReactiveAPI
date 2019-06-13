@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D869D6AE22AFBBFC00BBD3FB /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D869D6AD22AFBBFC00BBD3FB /* RxRelay.framework */; };
+		D869D6B022AFBD3F00BBD3FB /* netfox_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D869D6AF22AFBD3F00BBD3FB /* netfox_ios.framework */; };
 		D89C908C22818C7900995D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C908B22818C7900995D97 /* AppDelegate.swift */; };
 		D89C908E22818C7900995D97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C908D22818C7900995D97 /* ViewController.swift */; };
 		D89C909322818C7A00995D97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D89C909222818C7A00995D97 /* Assets.xcassets */; };
@@ -21,7 +23,6 @@
 		D89C90CA2281931700995D97 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90C92281931700995D97 /* AuthAPI.swift */; };
 		D89C90CC2281935400995D97 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90CB2281935400995D97 /* TokenStorage.swift */; };
 		D89C90CE2281936D00995D97 /* AuthClientInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90CD2281936C00995D97 /* AuthClientInterceptor.swift */; };
-		D89C90D02281939A00995D97 /* AuthClientAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90CF2281939A00995D97 /* AuthClientAuthenticator.swift */; };
 		D89C90D2228193BC00995D97 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90D1228193BC00995D97 /* AuthClient.swift */; };
 		D89C90D72281942600995D97 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90D62281942600995D97 /* Version.swift */; };
 		D89C90D92281944500995D97 /* BackendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C90D82281944500995D97 /* BackendAPI.swift */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D869D6AD22AFBBFC00BBD3FB /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		D869D6AF22AFBD3F00BBD3FB /* netfox_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = netfox_ios.framework; path = Carthage/Build/iOS/netfox_ios.framework; sourceTree = "<group>"; };
 		D89C908822818C7900995D97 /* Demo401.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo401.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D89C908B22818C7900995D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D89C908D22818C7900995D97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		D89C90C92281931700995D97 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		D89C90CB2281935400995D97 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		D89C90CD2281936C00995D97 /* AuthClientInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClientInterceptor.swift; sourceTree = "<group>"; };
-		D89C90CF2281939A00995D97 /* AuthClientAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClientAuthenticator.swift; sourceTree = "<group>"; };
 		D89C90D1228193BC00995D97 /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
 		D89C90D62281942600995D97 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		D89C90D82281944500995D97 /* BackendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendAPI.swift; sourceTree = "<group>"; };
@@ -80,7 +82,9 @@
 			files = (
 				D89C90BF2281916900995D97 /* RxCocoa.framework in Frameworks */,
 				D89C90C02281916900995D97 /* ReactiveAPI.framework in Frameworks */,
+				D869D6AE22AFBBFC00BBD3FB /* RxRelay.framework in Frameworks */,
 				D89C90C12281916900995D97 /* RxSwift.framework in Frameworks */,
+				D869D6B022AFBD3F00BBD3FB /* netfox_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +161,8 @@
 		D89C90BB2281916900995D97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D869D6AF22AFBD3F00BBD3FB /* netfox_ios.framework */,
+				D869D6AD22AFBBFC00BBD3FB /* RxRelay.framework */,
 				D89C90BD2281916900995D97 /* ReactiveAPI.framework */,
 				D89C90BC2281916900995D97 /* RxCocoa.framework */,
 				D89C90BE2281916900995D97 /* RxSwift.framework */,
@@ -178,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				D89C90D1228193BC00995D97 /* AuthClient.swift */,
-				D89C90CF2281939A00995D97 /* AuthClientAuthenticator.swift */,
 				D89C90CD2281936C00995D97 /* AuthClientInterceptor.swift */,
 				D89C90CB2281935400995D97 /* TokenStorage.swift */,
 				D89C90C8228192F900995D97 /* APIs */,
@@ -366,6 +371,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveAPI.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/netfox_ios.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputFileListPaths = (
@@ -390,7 +397,6 @@
 				D89C90CA2281931700995D97 /* AuthAPI.swift in Sources */,
 				D89C90D92281944500995D97 /* BackendAPI.swift in Sources */,
 				D89C908E22818C7900995D97 /* ViewController.swift in Sources */,
-				D89C90D02281939A00995D97 /* AuthClientAuthenticator.swift in Sources */,
 				D89C90D72281942600995D97 /* Version.swift in Sources */,
 				D89C90CE2281936D00995D97 /* AuthClientInterceptor.swift in Sources */,
 				D89C908C22818C7900995D97 /* AppDelegate.swift in Sources */,

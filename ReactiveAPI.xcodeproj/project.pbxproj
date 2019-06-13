@@ -40,6 +40,7 @@
 		D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6822ABF1AA00324223 /* CacheMock.swift */; };
 		D1CD8B6B22ABF99100324223 /* MaxAgeCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */; };
 		D1CD8B6E22AC064900324223 /* ReactiveAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */; };
+		D869D6B422AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D869D6B322AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		D1CD8B6822ABF1AA00324223 /* CacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheMock.swift; sourceTree = "<group>"; };
 		D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAgeCacheTests.swift; sourceTree = "<group>"; };
 		D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
+		D869D6B322AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				D195F1DD22086DB200530339 /* ReactiveAPIError.swift */,
 				D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */,
 				D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */,
+				D869D6B322AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift */,
 				D195F1E322086DB200530339 /* Caching */,
 				D195F1D822086DB200530339 /* Extensions */,
 			);
@@ -363,6 +366,7 @@
 				D195F1E722086DB200530339 /* URLRequest+ReactiveAPI.swift in Sources */,
 				D195F1EC22086DB200530339 /* ReactiveAPICache.swift in Sources */,
 				D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */,
+				D869D6B422AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift in Sources */,
 				D195F1F022086DB200530339 /* ReactiveAPIDecoder.swift in Sources */,
 				D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */,
 				D195F1E922086DB200530339 /* Encodable+Dictionary.swift in Sources */,

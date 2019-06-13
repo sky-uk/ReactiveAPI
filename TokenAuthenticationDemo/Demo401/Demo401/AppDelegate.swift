@@ -1,10 +1,16 @@
 import UIKit
+import netfox_ios
+import ReactiveAPI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ReactiveAPITokenAuthenticatorLogger {
 
     var window: UIWindow?
     var services: Services!
+
+    func log(state: ReactiveAPITokenAuthenticatorState) {
+        debugPrint("authenticator - \(state)")
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -21,13 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         authClient.tokenStorage = tokenStorage
 
         let backendAPI = BackendAPI(session: session, decoder: decoder, baseUrl: baseUrl)
-        backendAPI.authenticator = AuthClientAuthenticator(authClient: authClient)
+        backendAPI.authenticator = ReactiveAPITokenAuthenticator(
+            tokenHeaderName: "token",
+            getCurrentToken: { authClient.tokenStorage.token?.shortLivedToken },
+            renewToken: { authClient.renewToken().map { $0.shortLivedToken } },
+            logger: self)
         backendAPI.requestInterceptors += [AuthClientInterceptor(tokenStorage: tokenStorage)]
 
         services = Services(authClient: authClient, backendAPI: backendAPI)
 
         let mainViewController = ViewController()
         mainViewController.services = services
+
+        NFX.sharedInstance().start()
 
         window = UIWindow()
         window?.backgroundColor = .white

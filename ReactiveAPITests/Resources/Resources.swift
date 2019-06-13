@@ -8,6 +8,15 @@ struct Resources {
     static let params: [String : Any?] = ["key": "value",
                                           "number": 3,
                                           "nil": nil]
+    static let json = """
+        [ { "beautiful": "json" } ]
+        """
+    static let jsonResponse: String = """
+        { "name": "Patrick", "id": 5 }
+        """
+    static let jsonInvalidResponse: String = """
+        { "name": "Patrick", "id": "id" }
+        """
     
     static func httpUrlResponse(code: Int = 200) -> HTTPURLResponse? {
         return HTTPURLResponse(url: Resources.url,

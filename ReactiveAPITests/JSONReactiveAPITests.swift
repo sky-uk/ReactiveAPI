@@ -1,7 +1,5 @@
 import XCTest
 import RxSwift
-import RxBlocking
-import RxCocoa
 @testable import ReactiveAPI
 
 class JSONReactiveAPITests: XCTestCase {

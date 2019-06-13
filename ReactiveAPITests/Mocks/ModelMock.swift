@@ -1,6 +1,6 @@
 import Foundation
 
-struct ModelMock: Encodable {
+struct ModelMock: Codable {
     let name: String
     let id: Double
 }

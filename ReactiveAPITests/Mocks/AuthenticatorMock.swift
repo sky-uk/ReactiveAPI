@@ -5,7 +5,10 @@ import RxSwift
 struct AuthenticatorMock: ReactiveAPIAuthenticator {
     let code: Int
 
-    func authenticate(session: Reactive<URLSession>, request: URLRequest, response: HTTPURLResponse, data: Data?) -> Single<Data>? {
+    func authenticate(session: Reactive<URLSession>,
+                      request: URLRequest,
+                      response: HTTPURLResponse,
+                      data: Data?) -> Single<Data>? {
         guard response.statusCode == code
             else { return nil }
 

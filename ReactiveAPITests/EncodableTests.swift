@@ -3,8 +3,7 @@ import ReactiveAPI
 
 class EncodableTests: XCTestCase {
     func test_Dictionary_WhenDataIsValid_RetursDictionary() {
-        let encodable = ModelMock(name: "Patrick",
-                                  id: 5)
+        let encodable = ModelMock(name: "Patrick", id: 5)
         let result = encodable.dictionary
         XCTAssertNotNil(result)
         XCTAssertEqual(result?["name"] as? String, "Patrick")
@@ -12,8 +11,7 @@ class EncodableTests: XCTestCase {
     }
     
     func test_Dictionary_WhenDataIsNotValid_RetursNil() {
-        let encodable = ModelMock(name: "Infinity",
-                                  id: .infinity)
+        let encodable = ModelMock(name: "Infinity", id: .infinity)
         let result = encodable.dictionary
         XCTAssertNil(result)
     }

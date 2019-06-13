@@ -55,7 +55,7 @@ class URLRequestTests: XCTestCase {
 
     func test_createForJSON_WhenPutParamsAreValid_ReturnRequest() {
         do {
-            let body = ModelMock(name: "Elisa", id: 123)
+            let body = ModelMock(name: "Sophia", id: 123)
             let request = try URLRequest.createForJSON(with: Resources.url,
                                                        method: .put,
                                                        body: body,
@@ -65,7 +65,7 @@ class URLRequestTests: XCTestCase {
             let bodyDict = try JSONSerialization.jsonObject(with: request.httpBody!, options: []) as? [String: Any]
             XCTAssert(bodyDict!.count == 2)
             XCTAssertEqual(bodyDict!["id"] as! Double, 123)
-            XCTAssertEqual(bodyDict!["name"] as! String, "Elisa")
+            XCTAssertEqual(bodyDict!["name"] as! String, "Sophia")
 
         } catch {
             XCTFail(error.localizedDescription)

@@ -61,7 +61,7 @@ open class JSONReactiveAPI: ReactiveAPI {
             }
     }
     
-    private func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {
+    internal func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {
         return rxDataRequest(request).flatMap { data in
             do {
                 let decoded = try self.decoder.decode(D.self, from: data)
@@ -76,7 +76,7 @@ open class JSONReactiveAPI: ReactiveAPI {
         }
     }
     
-    private func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
+    internal func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
         return rxDataRequest(request).map { _ in () }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D13AAB6B22B2BC9600752B77 /* URLComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13AAB6A22B2BC9600752B77 /* URLComponentsTests.swift */; };
 		D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16432F722873CB700C0F780 /* EncodableTests.swift */; };
 		D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; };
 		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D13AAB6A22B2BC9600752B77 /* URLComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsTests.swift; sourceTree = "<group>"; };
 		D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16432F722873CB700C0F780 /* EncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableTests.swift; sourceTree = "<group>"; };
 		D16432F922873CB700C0F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */,
 				D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */,
 				D184127022ABA8C100609847 /* RxDataRequestTests.swift */,
+				D13AAB6A22B2BC9600752B77 /* URLComponentsTests.swift */,
 				D164330322888BCD00C0F780 /* URLRequestTests.swift */,
 				D1A36F1622A2CE23001D9ED5 /* Mocks */,
 				D1CD8B6C22ABFAB200324223 /* Resources */,
@@ -348,6 +351,7 @@
 				D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */,
 				D181276B22ABACBC001CA667 /* Resources.swift in Sources */,
 				D184127122ABA8C100609847 /* RxDataRequestTests.swift in Sources */,
+				D13AAB6B22B2BC9600752B77 /* URLComponentsTests.swift in Sources */,
 				D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */,
 				D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */,
 				D164330422888BCD00C0F780 /* URLRequestTests.swift in Sources */,

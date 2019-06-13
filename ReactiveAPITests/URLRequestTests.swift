@@ -2,39 +2,21 @@ import XCTest
 import ReactiveAPI
 
 class URLRequestTests: XCTestCase {
-    private let params: [String : Any?] = ["key": "value",
-                                           "number": 3,
-                                           "nil": nil]
-
-    func test_SetHeaders_WhenDictionaryIsValid_SetHTTPHeaderField() {
+    func test_SetHeaders_WhenDictionaryIsValid_SetHTTPHeaderFields() {
         var request = Resources.urlRequest
-        request.setHeaders(params)
+        request.setHeaders(Resources.params)
         XCTAssert(request.allHTTPHeaderFields?.count == 2)
         XCTAssertEqual(request.allHTTPHeaderFields, ["key":"value",
                                                      "number": "3"])
-    }
-
-    func test_SetQueryParams_WhenDictionaryIsValid_SetQueryItems() {
-        var components = URLComponents()
-        components.setQueryParams(params)
-
-        XCTAssert(components.queryItems?.count == 2)
-        let first = components.queryItems?.first(where: { $0.name == "key" })
-        XCTAssertNotNil(first)
-        XCTAssertEqual(first?.value, "value")
-
-        let number = components.queryItems?.first(where: { $0.name == "number" })
-        XCTAssertNotNil(number)
-        XCTAssertEqual(number?.value, "3")
     }
 
     func test_createForJSON_WhenGetParamsAreValid_ReturnRequest() {
         do {
             let request = try URLRequest.createForJSON(with: Resources.url,
                                                        method: .get,
-                                                       headers: params,
-                                                       queryParams: params,
-                                                       bodyParams: params,
+                                                       headers: Resources.params,
+                                                       queryParams: Resources.params,
+                                                       bodyParams: Resources.params,
                                                        queryStringTypeConverter: nil)
             XCTAssertNotNil(request)
             XCTAssertEqual(request.httpMethod, "GET")
@@ -50,9 +32,9 @@ class URLRequestTests: XCTestCase {
         do {
             let request = try URLRequest.createForJSON(with: Resources.url,
                                                        method: .patch,
-                                                       headers: params,
-                                                       queryParams: params,
-                                                       bodyParams: params,
+                                                       headers: Resources.params,
+                                                       queryParams: Resources.params,
+                                                       bodyParams: Resources.params,
                                                        queryStringTypeConverter: nil)
             XCTAssertNotNil(request)
             XCTAssertEqual(request.httpMethod, "PATCH")

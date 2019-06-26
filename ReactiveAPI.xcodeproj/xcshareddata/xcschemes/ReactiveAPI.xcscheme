@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D16432F422873CB700C0F780"
+               BuildableName = "ReactiveAPITests.xctest"
+               BlueprintName = "ReactiveAPITests"
+               ReferencedContainer = "container:ReactiveAPI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D195F1C722086C8200530339"
+            BuildableName = "ReactiveAPI.framework"
+            BlueprintName = "ReactiveAPI"
+            ReferencedContainer = "container:ReactiveAPI.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

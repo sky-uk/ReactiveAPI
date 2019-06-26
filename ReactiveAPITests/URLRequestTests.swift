@@ -6,7 +6,7 @@ class URLRequestTests: XCTestCase {
         var request = Resources.urlRequest
         request.setHeaders(Resources.params)
         XCTAssert(request.allHTTPHeaderFields?.count == 2)
-        XCTAssertEqual(request.allHTTPHeaderFields, ["key":"value",
+        XCTAssertEqual(request.allHTTPHeaderFields, ["key": "value",
                                                      "number": "3"])
     }
 
@@ -20,7 +20,7 @@ class URLRequestTests: XCTestCase {
                                                        queryStringTypeConverter: nil)
             XCTAssertNotNil(request)
             XCTAssertEqual(request.httpMethod, "GET")
-            XCTAssertEqual(request.allHTTPHeaderFields, ["key":"value",
+            XCTAssertEqual(request.allHTTPHeaderFields, ["key": "value",
                                                          "number": "3",
                                                          "Accept": "application/json"])
         } catch {

@@ -17,7 +17,7 @@ final class PeopleViewModel: ViewModel {
 }
 
 final class PersonViewModel: ViewModel {
-    
+
     override func apiCall() -> Single<[ViewModelData]> {
         return client.getPerson(url: url)
             .map { data in

@@ -6,7 +6,7 @@ extension URLRequest {
             .compactMapValues { $0 }
             .forEach { setValue("\($1)", forHTTPHeaderField: $0) }
     }
-    
+
     static func createForJSON(with url: URL,
                               method: ReactiveAPIHTTPMethod = .get,
                               headers: [String: Any?]? = nil,
@@ -21,20 +21,20 @@ extension URLRequest {
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
+
         if method == .post || method == .put || method == .patch {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            
+
             if let bodyDict = bodyParams?.compactMapValues({ $0 }) {
                 request.httpBody = try JSONSerialization.data(withJSONObject: bodyDict)
             }
         }
 
         headers.map { request.setHeaders($0) }
-        
+
         return request
     }
-    
+
     static func createForJSON(with url: URL,
                               method: ReactiveAPIHTTPMethod = .get,
                               headers: [String: Any?]? = nil,

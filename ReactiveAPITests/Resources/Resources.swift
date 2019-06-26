@@ -5,7 +5,7 @@ struct Resources {
     static let baseUrl = URL(string: "https://baseurl.com/")!
     static let urlRequest = URLRequest(url: Resources.url)
     static let data = Data(count: 100)
-    static let params: [String : Any?] = ["key": "value",
+    static let params: [String: Any?] = ["key": "value",
                                           "number": 3,
                                           "nil": nil]
     static let json = """
@@ -17,7 +17,7 @@ struct Resources {
     static let jsonInvalidResponse: String = """
         { "name": "Patrick", "id": "id" }
         """
-    
+
     static func httpUrlResponse(code: Int = 200) -> HTTPURLResponse? {
         return HTTPURLResponse(url: Resources.url,
                                statusCode: code,

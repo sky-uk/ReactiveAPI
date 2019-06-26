@@ -1,5 +1,5 @@
 import Foundation
 
 public class TokenStorage {
-    public var token: TokenPair? = nil
+    public var token: TokenPair?
 }

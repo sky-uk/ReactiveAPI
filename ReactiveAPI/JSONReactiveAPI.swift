@@ -7,11 +7,11 @@ open class JSONReactiveAPI: ReactiveAPI {
     let decoder: JSONDecoder
     let encoder: JSONEncoder
     private let baseUrl: URL
-    public var authenticator: ReactiveAPIAuthenticator? = nil
+    public var authenticator: ReactiveAPIAuthenticator?
     public var requestInterceptors: [ReactiveAPIRequestInterceptor] = []
-    public var cache: ReactiveAPICache? = nil
+    public var cache: ReactiveAPICache?
     public var queryStringTypeConverter: ReactiveAPITypeConverter?
-    
+
     public init(session: Reactive<URLSession>,
                 decoder: JSONDecoder = JSONDecoder(),
                 encoder: JSONEncoder = JSONEncoder(),
@@ -21,18 +21,18 @@ open class JSONReactiveAPI: ReactiveAPI {
         self.encoder = encoder
         self.baseUrl = baseUrl
     }
-    
+
     public func absoluteURL(_ endpoint: String) -> URL {
         return baseUrl.appendingPathComponent(endpoint)
     }
-    
+
     // every request must pass here
     func rxDataRequest(_ request: URLRequest) -> Single<Data> {
-        
+
         var mutableRequest = request
-        
+
         requestInterceptors.forEach { mutableRequest = $0.intercept(mutableRequest) }
-        
+
         return session.response(request: mutableRequest)
             .flatMap { response, data -> Observable<Data>  in
                 if response.statusCode < 200 || response.statusCode >= 300 {
@@ -48,7 +48,7 @@ open class JSONReactiveAPI: ReactiveAPI {
                     urlCache.storeCachedResponse(cachedResponse,
                                                  for: mutableRequest)
                 }
-                
+
                 return Observable.just(data)
             }
             .asSingle()
@@ -61,11 +61,11 @@ open class JSONReactiveAPI: ReactiveAPI {
                                                                   response: response,
                                                                   data: data)
                     else { throw error }
-                
+
                 return retryRequest
             }
     }
-    
+
     func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {
         return rxDataRequest(request).flatMap { data in
             do {
@@ -80,7 +80,7 @@ open class JSONReactiveAPI: ReactiveAPI {
             }
         }
     }
-    
+
     func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
         return rxDataRequest(request).map { _ in () }
     }

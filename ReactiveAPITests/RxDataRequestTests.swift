@@ -91,7 +91,7 @@ class RxDataRequestTests: XCTestCase {
         api.cache = cache
         let request = Resources.urlRequest
         do {
-            let _ = try api.rxDataRequest(request)
+            _ = try api.rxDataRequest(request)
                 .toBlocking()
                 .single()
 
@@ -125,7 +125,7 @@ class RxDataRequestTests: XCTestCase {
         let api = JSONReactiveAPI(session: session.rx,
                                   decoder: JSONDecoder(),
                                   baseUrl: Resources.url)
-        let response:  MaterializedSequenceResult<ModelMock> = api.rxDataRequest(Resources.urlRequest)
+        let response: MaterializedSequenceResult<ModelMock> = api.rxDataRequest(Resources.urlRequest)
             .toBlocking()
             .materialize()
 

@@ -50,4 +50,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ReactiveAPITokenAuthentic
     }
 
 }
-

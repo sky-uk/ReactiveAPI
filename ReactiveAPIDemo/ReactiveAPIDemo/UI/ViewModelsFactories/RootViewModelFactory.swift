@@ -2,17 +2,17 @@ import Foundation
 import RxSwift
 
 final class RootViewModelFactory: ViewModelFactory {
-    
+
     private let client: StarWarsAPI
-    
+
     init(client: StarWarsAPI) {
         self.client = client
     }
-    
+
     func hasViewModel(for indexPath: IndexPath) -> Bool {
         return indexPath.row >= 0 && indexPath.row <= 5
     }
-    
+
     func viewModel(for indexPath: IndexPath, data: [ViewModelData]) -> ViewModel? {
         switch indexPath.row {
         case 0:
@@ -31,7 +31,7 @@ final class RootViewModelFactory: ViewModelFactory {
             return nil
         }
     }
-    
+
     func childViewModelFactory(for indexPath: IndexPath, data: [ViewModelData]) -> ViewModelFactory? {
         switch indexPath.row {
         case 0:

@@ -9,7 +9,7 @@ class EncodableTests: XCTestCase {
         XCTAssertEqual(result?["name"] as? String, "Patrick")
         XCTAssertEqual(result?["id"] as? Int, 5)
     }
-    
+
     func test_Dictionary_WhenDataIsNotValid_RetursNil() {
         let encodable = ModelMock(name: "Infinity", id: .infinity)
         let result = encodable.dictionary(with: JSONEncoder())

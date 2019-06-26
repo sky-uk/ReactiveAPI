@@ -9,19 +9,19 @@ struct ViewModelData {
 }
 
 class ViewModel {
-    
+
     internal let client: StarWarsAPI
     internal let url: URL
-    
+
     init(client: StarWarsAPI, url: URL) {
         self.client = client
         self.url = url
     }
-    
+
     func apiCall() -> Single<[ViewModelData]> {
         return Observable.empty().asSingle()
     }
-    
+
     final func fetch(controller: ListController) {
         apiCall()
             .asDriver(onErrorRecover: { error in

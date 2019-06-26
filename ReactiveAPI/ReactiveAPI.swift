@@ -8,6 +8,5 @@ public protocol ReactiveAPI {
     var requestInterceptors: [ReactiveAPIRequestInterceptor] { get set }
     var queryStringTypeConverter: ReactiveAPITypeConverter? { get set }
     var cache: ReactiveAPICache? { get set }
-    init(session: Reactive<URLSession>, decoder: ReactiveAPIDecoder, baseUrl: URL)
     func absoluteURL(_ endpoint: String) -> URL
 }

@@ -1,5 +1,5 @@
 import XCTest
-import ReactiveAPI
+@testable import ReactiveAPI
 
 class URLComponentsTests: XCTestCase {
     func test_SetQueryParams_WhenDictionaryIsValid_SetQueryItems() {

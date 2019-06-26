@@ -1,5 +1,5 @@
 import XCTest
-import ReactiveAPI
+@testable import ReactiveAPI
 
 class URLRequestTests: XCTestCase {
     func test_SetHeaders_WhenDictionaryIsValid_SetHTTPHeaderFields() {
@@ -59,6 +59,7 @@ class URLRequestTests: XCTestCase {
             let request = try URLRequest.createForJSON(with: Resources.url,
                                                        method: .put,
                                                        body: body,
+                                                       encoder: JSONEncoder(),
                                                        queryStringTypeConverter: nil)
             XCTAssertNotNil(request)
 

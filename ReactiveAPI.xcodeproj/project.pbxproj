@@ -34,7 +34,6 @@
 		D195F1ED22086DB200530339 /* ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DF22086DB200530339 /* ReactiveAPI.swift */; };
 		D195F1EE22086DB200530339 /* ReactiveAPIHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */; };
 		D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */; };
-		D195F1F022086DB200530339 /* ReactiveAPIDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E222086DB200530339 /* ReactiveAPIDecoder.swift */; };
 		D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E422086DB200530339 /* MaxAgeCache.swift */; };
 		D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */; };
 		D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */; };
@@ -97,7 +96,6 @@
 		D195F1DF22086DB200530339 /* ReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPI.swift; sourceTree = "<group>"; };
 		D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIHTTPMethod.swift; sourceTree = "<group>"; };
 		D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIAuthenticator.swift; sourceTree = "<group>"; };
-		D195F1E222086DB200530339 /* ReactiveAPIDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIDecoder.swift; sourceTree = "<group>"; };
 		D195F1E422086DB200530339 /* MaxAgeCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxAgeCache.swift; sourceTree = "<group>"; };
 		D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReactiveAPITests.swift; sourceTree = "<group>"; };
 		D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				D195F1DF22086DB200530339 /* ReactiveAPI.swift */,
 				D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */,
 				D195F1DE22086DB200530339 /* ReactiveAPICache.swift */,
-				D195F1E222086DB200530339 /* ReactiveAPIDecoder.swift */,
 				D195F1DD22086DB200530339 /* ReactiveAPIError.swift */,
 				D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */,
 				D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */,
@@ -371,7 +368,6 @@
 				D195F1EC22086DB200530339 /* ReactiveAPICache.swift in Sources */,
 				D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */,
 				D869D6B422AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift in Sources */,
-				D195F1F022086DB200530339 /* ReactiveAPIDecoder.swift in Sources */,
 				D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */,
 				D195F1E922086DB200530339 /* Encodable+Dictionary.swift in Sources */,
 				D195F1E622086DB200530339 /* JSONReactiveAPI.swift in Sources */,

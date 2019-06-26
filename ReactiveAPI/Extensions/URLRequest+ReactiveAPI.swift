@@ -1,19 +1,18 @@
 import Foundation
 
 extension URLRequest {
-    public mutating func setHeaders(_ headers: [String: Any?]) {
-        headers.compactMapValues({ $0 })
-            .forEach {
-                setValue("\($1)", forHTTPHeaderField: $0)
-        }
+    mutating func setHeaders(_ headers: [String: Any?]) {
+        headers
+            .compactMapValues { $0 }
+            .forEach { setValue("\($1)", forHTTPHeaderField: $0) }
     }
     
-    public static func createForJSON(with url: URL,
-                                     method: ReactiveAPIHTTPMethod = .get,
-                                     headers: [String: Any?]? = nil,
-                                     queryParams: [String: Any?]? = nil,
-                                     bodyParams: [String: Any?]? = nil,
-                                     queryStringTypeConverter: ReactiveAPITypeConverter?) throws -> URLRequest {
+    static func createForJSON(with url: URL,
+                              method: ReactiveAPIHTTPMethod = .get,
+                              headers: [String: Any?]? = nil,
+                              queryParams: [String: Any?]? = nil,
+                              bodyParams: [String: Any?]? = nil,
+                              queryStringTypeConverter: ReactiveAPITypeConverter?) throws -> URLRequest {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             else { throw ReactiveAPIError.URLComponentsError(url) }
 
@@ -36,17 +35,18 @@ extension URLRequest {
         return request
     }
     
-    public static func createForJSON(with url: URL,
-                                     method: ReactiveAPIHTTPMethod = .get,
-                                     headers: [String: Any?]? = nil,
-                                     queryParams: [String: Any?]? = nil,
-                                     body: Encodable? = nil,
-                                     queryStringTypeConverter: ReactiveAPITypeConverter?) throws -> URLRequest {
+    static func createForJSON(with url: URL,
+                              method: ReactiveAPIHTTPMethod = .get,
+                              headers: [String: Any?]? = nil,
+                              queryParams: [String: Any?]? = nil,
+                              body: Encodable? = nil,
+                              encoder: JSONEncoder,
+                              queryStringTypeConverter: ReactiveAPITypeConverter?) throws -> URLRequest {
         return try createForJSON(with: url,
                                  method: method,
                                  headers: headers,
                                  queryParams: queryParams,
-                                 bodyParams: body?.dictionary,
+                                 bodyParams: body?.dictionary(with: encoder),
                                  queryStringTypeConverter: queryStringTypeConverter)
     }
 }

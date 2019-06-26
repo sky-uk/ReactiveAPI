@@ -1,8 +1,8 @@
 import Foundation
 
 extension URLRequest {
-    public mutating func setHeaders(_ headers: [String: Any?]? = nil) {
-        headers?.compactMapValues({ $0 })
+    public mutating func setHeaders(_ headers: [String: Any?]) {
+        headers.compactMapValues({ $0 })
             .forEach {
                 setValue("\($1)", forHTTPHeaderField: $0)
         }
@@ -17,11 +17,7 @@ extension URLRequest {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             else { throw ReactiveAPIError.URLComponentsError(url) }
 
-        if let queryParams = queryParams {
-                urlComponents.queryItems = (urlComponents.queryItems ?? [URLQueryItem]()) + queryParams
-                    .compactMapValues({ queryStringTypeConverter?($0) ?? $0 })
-                    .compactMap({ URLQueryItem(name: $0, value: "\($1)") })
-        }
+        queryParams.map { urlComponents.setQueryParams($0, queryStringTypeConverter: queryStringTypeConverter) }
 
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = method.rawValue
@@ -34,8 +30,8 @@ extension URLRequest {
                 request.httpBody = try JSONSerialization.data(withJSONObject: bodyDict)
             }
         }
-        
-        request.setHeaders(headers)
+
+        headers.map { request.setHeaders($0) }
         
         return request
     }

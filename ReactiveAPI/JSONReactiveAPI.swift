@@ -6,16 +6,17 @@ open class JSONReactiveAPI: ReactiveAPI {
     let session: Reactive<URLSession>
     let decoder: JSONDecoder
     let encoder: JSONEncoder
-    private let baseUrl: URL
+    let baseUrl: URL
+
     public var authenticator: ReactiveAPIAuthenticator?
     public var requestInterceptors: [ReactiveAPIRequestInterceptor] = []
     public var cache: ReactiveAPICache?
     public var queryStringTypeConverter: ReactiveAPITypeConverter?
 
-    public init(session: Reactive<URLSession>,
-                decoder: JSONDecoder = JSONDecoder(),
-                encoder: JSONEncoder = JSONEncoder(),
-                baseUrl: URL) {
+    required public init(session: Reactive<URLSession>,
+                         decoder: JSONDecoder = JSONDecoder(),
+                         encoder: JSONEncoder = JSONEncoder(),
+                         baseUrl: URL) {
         self.session = session
         self.decoder = decoder
         self.encoder = encoder

@@ -21,7 +21,7 @@ final class FilmsViewModel: ViewModel {
 }
 
 final class FilmViewModel: ViewModel {
-    
+
     override func apiCall() -> Single<[ViewModelData]> {
         return client.getFilm(url: url)
             .map { data in
@@ -35,7 +35,7 @@ final class FilmViewModel: ViewModel {
                     ViewModelData(title: "\(data.vehicles.count)", subtitle: "Vehicles involved", url: data.url),
                     ViewModelData(title: "\(data.starships.count)", subtitle: "Starships involved", url: data.url),
                     ViewModelData(title: "\(data.characters.count)", subtitle: "Characters involved", url: data.url),
-                    ViewModelData(title: "\(data.species.count)", subtitle: "Species involved", url: data.url),
+                    ViewModelData(title: "\(data.species.count)", subtitle: "Species involved", url: data.url)
                 ]
         }
     }

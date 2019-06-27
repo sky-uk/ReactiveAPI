@@ -1,6 +1,6 @@
 import Foundation
 
-public extension URLComponents {
+extension URLComponents {
     mutating func setQueryParams(_ params: [String: Any?],
                                  queryStringTypeConverter: ReactiveAPITypeConverter? = nil) {
         queryItems = (queryItems ?? []) + params

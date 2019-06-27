@@ -1,12 +1,12 @@
 import XCTest
-import ReactiveAPI
+@testable import ReactiveAPI
 
 class URLRequestTests: XCTestCase {
     func test_SetHeaders_WhenDictionaryIsValid_SetHTTPHeaderFields() {
         var request = Resources.urlRequest
         request.setHeaders(Resources.params)
         XCTAssert(request.allHTTPHeaderFields?.count == 2)
-        XCTAssertEqual(request.allHTTPHeaderFields, ["key":"value",
+        XCTAssertEqual(request.allHTTPHeaderFields, ["key": "value",
                                                      "number": "3"])
     }
 
@@ -20,7 +20,7 @@ class URLRequestTests: XCTestCase {
                                                        queryStringTypeConverter: nil)
             XCTAssertNotNil(request)
             XCTAssertEqual(request.httpMethod, "GET")
-            XCTAssertEqual(request.allHTTPHeaderFields, ["key":"value",
+            XCTAssertEqual(request.allHTTPHeaderFields, ["key": "value",
                                                          "number": "3",
                                                          "Accept": "application/json"])
         } catch {
@@ -59,6 +59,7 @@ class URLRequestTests: XCTestCase {
             let request = try URLRequest.createForJSON(with: Resources.url,
                                                        method: .put,
                                                        body: body,
+                                                       encoder: JSONEncoder(),
                                                        queryStringTypeConverter: nil)
             XCTAssertNotNil(request)
 

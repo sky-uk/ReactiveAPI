@@ -44,7 +44,6 @@ class URLSessionDataTaskMock: URLSessionDataTask {
     override func cancel() {}
 }
 
-
 class URLSessionConfigurationMock: URLSessionConfiguration {
     private var cache: URLCache? = URLCache(memoryCapacity: 5 * 1024 * 1024,
                                             diskCapacity: 5 * 1024 * 1024,

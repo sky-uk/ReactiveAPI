@@ -3,31 +3,36 @@ import RxSwift
 import RxCocoa
 
 open class JSONReactiveAPI: ReactiveAPI {
-    internal let session: Reactive<URLSession>
-    internal let decoder: ReactiveAPIDecoder
+    let session: Reactive<URLSession>
+    let decoder: JSONDecoder
+    let encoder: JSONEncoder
     private let baseUrl: URL
-    public var authenticator: ReactiveAPIAuthenticator? = nil
+    public var authenticator: ReactiveAPIAuthenticator?
     public var requestInterceptors: [ReactiveAPIRequestInterceptor] = []
-    public var cache: ReactiveAPICache? = nil
+    public var cache: ReactiveAPICache?
     public var queryStringTypeConverter: ReactiveAPITypeConverter?
-    
-    required public init(session: Reactive<URLSession>, decoder: ReactiveAPIDecoder, baseUrl: URL) {
+
+    public init(session: Reactive<URLSession>,
+                decoder: JSONDecoder = JSONDecoder(),
+                encoder: JSONEncoder = JSONEncoder(),
+                baseUrl: URL) {
         self.session = session
         self.decoder = decoder
+        self.encoder = encoder
         self.baseUrl = baseUrl
     }
-    
+
     public func absoluteURL(_ endpoint: String) -> URL {
         return baseUrl.appendingPathComponent(endpoint)
     }
-    
+
     // every request must pass here
-    internal func rxDataRequest(_ request: URLRequest) -> Single<Data> {
-        
+    func rxDataRequest(_ request: URLRequest) -> Single<Data> {
+
         var mutableRequest = request
-        
+
         requestInterceptors.forEach { mutableRequest = $0.intercept(mutableRequest) }
-        
+
         return session.response(request: mutableRequest)
             .flatMap { response, data -> Observable<Data>  in
                 if response.statusCode < 200 || response.statusCode >= 300 {
@@ -43,7 +48,7 @@ open class JSONReactiveAPI: ReactiveAPI {
                     urlCache.storeCachedResponse(cachedResponse,
                                                  for: mutableRequest)
                 }
-                
+
                 return Observable.just(data)
             }
             .asSingle()
@@ -56,12 +61,12 @@ open class JSONReactiveAPI: ReactiveAPI {
                                                                   response: response,
                                                                   data: data)
                     else { throw error }
-                
+
                 return retryRequest
             }
     }
-    
-    internal func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {
+
+    func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {
         return rxDataRequest(request).flatMap { data in
             do {
                 let decoded = try self.decoder.decode(D.self, from: data)
@@ -75,15 +80,13 @@ open class JSONReactiveAPI: ReactiveAPI {
             }
         }
     }
-    
-    internal func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
+
+    func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
         return rxDataRequest(request).map { _ in () }
     }
-}
 
-public extension JSONReactiveAPI {
     // body params as dictionary and generic response type
-    func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+    public func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                url: URL,
                                headers: [String: Any?]? = nil,
                                queryParams: [String: Any?]? = nil,
@@ -102,7 +105,7 @@ public extension JSONReactiveAPI {
     }
 
     // body params as encodable and generic response type
-    func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+    public func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                              url: URL,
                                              headers: [String: Any?]? = nil,
                                              queryParams: [String: Any?]? = nil,
@@ -113,6 +116,7 @@ public extension JSONReactiveAPI {
                                                        headers: headers,
                                                        queryParams: queryParams,
                                                        body: body,
+                                                       encoder: encoder,
                                                        queryStringTypeConverter: queryStringTypeConverter)
             return rxDataRequest(request)
         } catch {
@@ -121,7 +125,7 @@ public extension JSONReactiveAPI {
     }
 
     // body params as dictionary and void response type
-    func request(_ method: ReactiveAPIHTTPMethod = .get,
+    public func request(_ method: ReactiveAPIHTTPMethod = .get,
                  url: URL,
                  headers: [String: Any?]? = nil,
                  queryParams: [String: Any?]? = nil,
@@ -140,7 +144,7 @@ public extension JSONReactiveAPI {
     }
 
     // body params as encodable and void response type
-    func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
+    public func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                url: URL,
                                headers: [String: Any?]? = nil,
                                queryParams: [String: Any?]? = nil,
@@ -151,6 +155,7 @@ public extension JSONReactiveAPI {
                                                        headers: headers,
                                                        queryParams: queryParams,
                                                        body: body,
+                                                       encoder: encoder,
                                                        queryStringTypeConverter: queryStringTypeConverter)
             return rxDataRequestDiscardingPayload(request)
         } catch {

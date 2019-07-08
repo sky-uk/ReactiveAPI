@@ -1,33 +1,31 @@
 import Foundation
 import RxSwift
-import RxCocoa
 
-open class JSONReactiveAPI: ReactiveAPI {
-    let session: Reactive<URLSession>
-    let decoder: JSONDecoder
-    let encoder: JSONEncoder
-    let baseUrl: URL
+public typealias ReactiveAPITypeConverter = (_ value: Any?) -> String?
 
-    public var authenticator: ReactiveAPIAuthenticator?
-    public var requestInterceptors: [ReactiveAPIRequestInterceptor] = []
-    public var cache: ReactiveAPICache?
-    public var queryStringTypeConverter: ReactiveAPITypeConverter?
+public protocol ReactiveAPIProtocol {
+    var baseUrl: URL { get }
+    var session: Reactive<URLSession> { get }
+    var decoder: ReactiveDecoder { get }
+    var encoder: JSONEncoder { get }
+    var authenticator: ReactiveAPIAuthenticator? { get set }
+    var requestInterceptors: [ReactiveAPIRequestInterceptor] { get set }
+    var queryStringTypeConverter: ReactiveAPITypeConverter? { get set }
+    var cache: ReactiveAPICache? { get set }
+    func absoluteURL(_ endpoint: String) -> URL
+}
 
-    required public init(session: Reactive<URLSession>,
-                         decoder: JSONDecoder = JSONDecoder(),
-                         encoder: JSONEncoder = JSONEncoder(),
-                         baseUrl: URL) {
-        self.session = session
-        self.decoder = decoder
-        self.encoder = encoder
-        self.baseUrl = baseUrl
-    }
+public protocol ReactiveDecoder {
+    func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable
+}
 
+extension JSONDecoder: ReactiveDecoder {}
+
+extension ReactiveAPIProtocol {
     public func absoluteURL(_ endpoint: String) -> URL {
         return baseUrl.appendingPathComponent(endpoint)
     }
 
-    // every request must pass here
     func rxDataRequest(_ request: URLRequest) -> Single<Data> {
 
         var mutableRequest = request
@@ -64,7 +62,7 @@ open class JSONReactiveAPI: ReactiveAPI {
                     else { throw error }
 
                 return retryRequest
-            }
+        }
     }
 
     func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {
@@ -88,10 +86,10 @@ open class JSONReactiveAPI: ReactiveAPI {
 
     // body params as dictionary and generic response type
     public func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                               url: URL,
-                               headers: [String: Any?]? = nil,
-                               queryParams: [String: Any?]? = nil,
-                               bodyParams: [String: Any?]? = nil) -> Single<D> {
+                                      url: URL,
+                                      headers: [String: Any?]? = nil,
+                                      queryParams: [String: Any?]? = nil,
+                                      bodyParams: [String: Any?]? = nil) -> Single<D> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -107,10 +105,10 @@ open class JSONReactiveAPI: ReactiveAPI {
 
     // body params as encodable and generic response type
     public func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                             url: URL,
-                                             headers: [String: Any?]? = nil,
-                                             queryParams: [String: Any?]? = nil,
-                                             body: E? = nil) -> Single<D> {
+                                                    url: URL,
+                                                    headers: [String: Any?]? = nil,
+                                                    queryParams: [String: Any?]? = nil,
+                                                    body: E? = nil) -> Single<D> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -127,10 +125,10 @@ open class JSONReactiveAPI: ReactiveAPI {
 
     // body params as dictionary and void response type
     public func request(_ method: ReactiveAPIHTTPMethod = .get,
-                 url: URL,
-                 headers: [String: Any?]? = nil,
-                 queryParams: [String: Any?]? = nil,
-                 bodyParams: [String: Any?]? = nil) -> Single<Void> {
+                        url: URL,
+                        headers: [String: Any?]? = nil,
+                        queryParams: [String: Any?]? = nil,
+                        bodyParams: [String: Any?]? = nil) -> Single<Void> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -146,10 +144,10 @@ open class JSONReactiveAPI: ReactiveAPI {
 
     // body params as encodable and void response type
     public func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                               url: URL,
-                               headers: [String: Any?]? = nil,
-                               queryParams: [String: Any?]? = nil,
-                               body: E? = nil) -> Single<Void> {
+                                      url: URL,
+                                      headers: [String: Any?]? = nil,
+                                      queryParams: [String: Any?]? = nil,
+                                      body: E? = nil) -> Single<Void> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,

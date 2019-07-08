@@ -5,9 +5,9 @@ import RxSwift
 class JSONReactiveAPITests: XCTestCase {
     private let session = URLSession(configuration: URLSessionConfiguration.default)
 
-    private var api: JSONReactiveAPI {
-        return JSONReactiveAPI(session: session.rx,
-                               baseUrl: Resources.baseUrl)
+    private var api: ReactiveAPI {
+        return ReactiveAPI(session: session.rx,
+                           baseUrl: Resources.baseUrl)
     }
 
     func test_Init_JSONReactiveAPI() {

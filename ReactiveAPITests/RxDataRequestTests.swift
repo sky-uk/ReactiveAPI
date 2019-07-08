@@ -6,9 +6,9 @@ import RxBlocking
 class RxDataRequestTests: XCTestCase {
     func test_RxDataRequest_When200_DataIsValid() {
         let session = URLSessionMock.create(Resources.json)
-        let api = JSONReactiveAPI(session: session.rx,
-                                  decoder: JSONDecoder(),
-                                  baseUrl: Resources.url)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
         do {
             let response = try api.rxDataRequest(Resources.urlRequest)
                 .toBlocking()
@@ -22,9 +22,9 @@ class RxDataRequestTests: XCTestCase {
 
     func test_RxDataRequest_When500_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
-        let api = JSONReactiveAPI(session: session.rx,
-                                  decoder: JSONDecoder(),
-                                  baseUrl: Resources.url)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
         let response = api.rxDataRequest(Resources.urlRequest)
             .toBlocking()
             .materialize()
@@ -43,9 +43,9 @@ class RxDataRequestTests: XCTestCase {
 
     func test_RxDataRequest_When401WithAuthenticator_DataIsValid() {
         let session = URLSessionMock.create(Resources.json, errorCode: 401)
-        let api = JSONReactiveAPI(session: session.rx,
-                                  decoder: JSONDecoder(),
-                                  baseUrl: Resources.url)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
         api.authenticator = AuthenticatorMock(code: 401)
 
         do {
@@ -61,9 +61,9 @@ class RxDataRequestTests: XCTestCase {
 
     func test_RxDataRequest_When500WithAuthenticator_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
-        let api = JSONReactiveAPI(session: session.rx,
-                                  decoder: JSONDecoder(),
-                                  baseUrl: Resources.url)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
         api.authenticator = AuthenticatorMock(code: 401)
 
         let response = api.rxDataRequest(Resources.urlRequest)
@@ -84,9 +84,9 @@ class RxDataRequestTests: XCTestCase {
 
     func test_RxDataRequest_Cache() {
         let session = URLSessionMock.create(Resources.json)
-        let api = JSONReactiveAPI(session: session.rx,
-                                  decoder: JSONDecoder(),
-                                  baseUrl: Resources.url)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
         let cache = CacheMock()
         api.cache = cache
         let request = Resources.urlRequest
@@ -104,9 +104,9 @@ class RxDataRequestTests: XCTestCase {
 
     func test_RxDataRequestDecodable_WhenResponseIsValid_ReturnDecoded() {
         let session = URLSessionMock.create(Resources.jsonResponse)
-        let api = JSONReactiveAPI(session: session.rx,
-                                  decoder: JSONDecoder(),
-                                  baseUrl: Resources.url)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
         do {
             let response: ModelMock = try api.rxDataRequest(Resources.urlRequest)
                 .toBlocking()
@@ -122,9 +122,9 @@ class RxDataRequestTests: XCTestCase {
 
     func test_RxDataRequestDecodable_WhenResponseIsInvalid_ReturnError() {
         let session = URLSessionMock.create(Resources.jsonInvalidResponse)
-        let api = JSONReactiveAPI(session: session.rx,
-                                  decoder: JSONDecoder(),
-                                  baseUrl: Resources.url)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
         let response: MaterializedSequenceResult<ModelMock> = api.rxDataRequest(Resources.urlRequest)
             .toBlocking()
             .materialize()
@@ -143,9 +143,9 @@ class RxDataRequestTests: XCTestCase {
 
     func test_RxDataRequestVoid_WhenResponseIsValid_ReturnDecoded() {
         let session = URLSessionMock.create(Resources.jsonResponse)
-        let api = JSONReactiveAPI(session: session.rx,
-                                  decoder: JSONDecoder(),
-                                  baseUrl: Resources.url)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
         do {
             let response: Void = try api.rxDataRequestDiscardingPayload(Resources.urlRequest)
                 .toBlocking()

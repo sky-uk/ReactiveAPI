@@ -7,7 +7,7 @@ class JSONReactiveAPITests: XCTestCase {
 
     private var api: ReactiveAPI {
         return ReactiveAPI(session: session.rx,
-                               baseUrl: Resources.baseUrl)
+                           baseUrl: Resources.baseUrl)
     }
 
     func test_Init_JSONReactiveAPI() {

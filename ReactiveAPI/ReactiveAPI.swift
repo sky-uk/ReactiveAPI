@@ -1,12 +1,26 @@
 import Foundation
 import RxSwift
 
-public typealias ReactiveAPITypeConverter = (_ value: Any?) -> String?
+open class ReactiveAPI: ReactiveAPIProtocol {
+    public let session: Reactive<URLSession>
+    public let decoder: ReactiveDecoder
+    public let encoder: JSONEncoder
+    public let baseUrl: URL
+    public var authenticator: ReactiveAPIAuthenticator?
+    public var requestInterceptors: [ReactiveAPIRequestInterceptor] = []
+    public var cache: ReactiveAPICache?
+    public var queryStringTypeConverter: ReactiveAPITypeConverter?
 
-public protocol ReactiveAPI {
-    var authenticator: ReactiveAPIAuthenticator? { get set }
-    var requestInterceptors: [ReactiveAPIRequestInterceptor] { get set }
-    var queryStringTypeConverter: ReactiveAPITypeConverter? { get set }
-    var cache: ReactiveAPICache? { get set }
-    func absoluteURL(_ endpoint: String) -> URL
+    required public init(session: Reactive<URLSession>,
+                         decoder: ReactiveDecoder = JSONDecoder(),
+                         encoder: JSONEncoder = JSONEncoder(),
+                         baseUrl: URL) {
+        self.session = session
+        self.decoder = decoder
+        self.encoder = encoder
+        self.baseUrl = baseUrl
+    }
 }
+
+@available(*, deprecated, renamed: "ReactiveAPI")
+open class JSONReactiveAPI: ReactiveAPI {}

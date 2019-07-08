@@ -26,12 +26,12 @@
 		D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */; };
 		D195F1D522086D9600530339 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
 		D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */; };
-		D195F1E622086DB200530339 /* JSONReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D722086DB200530339 /* JSONReactiveAPI.swift */; };
+		D195F1E622086DB200530339 /* ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D722086DB200530339 /* ReactiveAPI.swift */; };
 		D195F1E722086DB200530339 /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */; };
 		D195F1E922086DB200530339 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */; };
 		D195F1EB22086DB200530339 /* ReactiveAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DD22086DB200530339 /* ReactiveAPIError.swift */; };
 		D195F1EC22086DB200530339 /* ReactiveAPICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DE22086DB200530339 /* ReactiveAPICache.swift */; };
-		D195F1ED22086DB200530339 /* ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DF22086DB200530339 /* ReactiveAPI.swift */; };
+		D195F1ED22086DB200530339 /* ReactiveAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DF22086DB200530339 /* ReactiveAPIProtocol.swift */; };
 		D195F1EE22086DB200530339 /* ReactiveAPIHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */; };
 		D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */; };
 		D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E422086DB200530339 /* MaxAgeCache.swift */; };
@@ -88,12 +88,12 @@
 		D195F1CC22086C8200530339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D195F1D422086D9600530339 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIRequestInterceptor.swift; sourceTree = "<group>"; };
-		D195F1D722086DB200530339 /* JSONReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReactiveAPI.swift; sourceTree = "<group>"; };
+		D195F1D722086DB200530339 /* ReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPI.swift; sourceTree = "<group>"; };
 		D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+ReactiveAPI.swift"; sourceTree = "<group>"; };
 		D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
 		D195F1DD22086DB200530339 /* ReactiveAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIError.swift; sourceTree = "<group>"; };
 		D195F1DE22086DB200530339 /* ReactiveAPICache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPICache.swift; sourceTree = "<group>"; };
-		D195F1DF22086DB200530339 /* ReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPI.swift; sourceTree = "<group>"; };
+		D195F1DF22086DB200530339 /* ReactiveAPIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocol.swift; sourceTree = "<group>"; };
 		D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIHTTPMethod.swift; sourceTree = "<group>"; };
 		D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIAuthenticator.swift; sourceTree = "<group>"; };
 		D195F1E422086DB200530339 /* MaxAgeCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxAgeCache.swift; sourceTree = "<group>"; };
@@ -169,8 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				D195F1CC22086C8200530339 /* Info.plist */,
-				D195F1D722086DB200530339 /* JSONReactiveAPI.swift */,
-				D195F1DF22086DB200530339 /* ReactiveAPI.swift */,
+				D195F1D722086DB200530339 /* ReactiveAPI.swift */,
+				D195F1DF22086DB200530339 /* ReactiveAPIProtocol.swift */,
 				D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */,
 				D195F1DE22086DB200530339 /* ReactiveAPICache.swift */,
 				D195F1DD22086DB200530339 /* ReactiveAPIError.swift */,
@@ -363,14 +363,14 @@
 				D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */,
 				D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */,
 				D195F1EE22086DB200530339 /* ReactiveAPIHTTPMethod.swift in Sources */,
-				D195F1ED22086DB200530339 /* ReactiveAPI.swift in Sources */,
+				D195F1ED22086DB200530339 /* ReactiveAPIProtocol.swift in Sources */,
 				D195F1E722086DB200530339 /* URLRequest+ReactiveAPI.swift in Sources */,
 				D195F1EC22086DB200530339 /* ReactiveAPICache.swift in Sources */,
 				D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */,
 				D869D6B422AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift in Sources */,
 				D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */,
 				D195F1E922086DB200530339 /* Encodable+Dictionary.swift in Sources */,
-				D195F1E622086DB200530339 /* JSONReactiveAPI.swift in Sources */,
+				D195F1E622086DB200530339 /* ReactiveAPI.swift in Sources */,
 				D195F1EB22086DB200530339 /* ReactiveAPIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

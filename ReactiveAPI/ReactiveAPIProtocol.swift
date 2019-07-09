@@ -6,7 +6,7 @@ public typealias ReactiveAPITypeConverter = (_ value: Any?) -> String?
 public protocol ReactiveAPIProtocol {
     var baseUrl: URL { get }
     var session: Reactive<URLSession> { get }
-    var decoder: ReactiveDecoder { get }
+    var decoder: ReactiveAPIDecoder { get }
     var encoder: JSONEncoder { get }
     var authenticator: ReactiveAPIAuthenticator? { get set }
     var requestInterceptors: [ReactiveAPIRequestInterceptor] { get set }
@@ -15,11 +15,11 @@ public protocol ReactiveAPIProtocol {
     func absoluteURL(_ endpoint: String) -> URL
 }
 
-public protocol ReactiveDecoder {
+public protocol ReactiveAPIDecoder {
     func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable
 }
 
-extension JSONDecoder: ReactiveDecoder {}
+extension JSONDecoder: ReactiveAPIDecoder {}
 
 extension ReactiveAPIProtocol {
     public func absoluteURL(_ endpoint: String) -> URL {

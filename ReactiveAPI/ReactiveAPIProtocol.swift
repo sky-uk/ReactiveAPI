@@ -27,25 +27,20 @@ extension ReactiveAPIProtocol {
     }
 
     func rxDataRequest(_ request: URLRequest) -> Single<Data> {
-
-        var mutableRequest = request
-
-        requestInterceptors.forEach { mutableRequest = $0.intercept(mutableRequest) }
-
-        return session.response(request: mutableRequest)
-            .flatMap { response, data -> Observable<Data>  in
+        return session.response(request: request, interceptors: requestInterceptors)
+            .flatMap { request, response, data -> Observable<Data>  in
                 if response.statusCode < 200 || response.statusCode >= 300 {
-                    return Observable.error(ReactiveAPIError.httpError(response: response, data: data))
+                    return Observable.error(ReactiveAPIError.httpError(request: request, response: response, data: data))
                 }
 
                 if
                     let cache = self.cache,
                     let urlCache = self.session.base.configuration.urlCache,
                     let cachedResponse = cache.cache(response,
-                                                     request: mutableRequest,
+                                                     request: request,
                                                      data: data) {
                     urlCache.storeCachedResponse(cachedResponse,
-                                                 for: mutableRequest)
+                                                 for: request)
                 }
 
                 return Observable.just(data)
@@ -54,9 +49,9 @@ extension ReactiveAPIProtocol {
             .catchError { error -> Single<Data> in
                 guard
                     let authenticator = self.authenticator,
-                    case let ReactiveAPIError.httpError(response, data) = error,
+                    case let ReactiveAPIError.httpError(request, response, data) = error,
                     let retryRequest = authenticator.authenticate(session: self.session,
-                                                                  request: mutableRequest,
+                                                                  request: request,
                                                                   response: response,
                                                                   data: data)
                     else { throw error }

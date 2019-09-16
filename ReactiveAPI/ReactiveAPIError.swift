@@ -9,7 +9,9 @@ private func reduce(_ codingKeys: [CodingKey]) -> String {
 public enum ReactiveAPIError: Error {
     case decodingError(_ underlyingError: DecodingError, data: Data)
     case URLComponentsError(URL)
-    case httpError(response: HTTPURLResponse, data: Data)
+    case httpError(request: URLRequest, response: HTTPURLResponse, data: Data)
+    case nonHttpResponse(response: URLResponse)
+    case unknown
 }
 
 extension ReactiveAPIError: LocalizedError {

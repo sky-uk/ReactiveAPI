@@ -40,6 +40,7 @@
 		D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6822ABF1AA00324223 /* CacheMock.swift */; };
 		D1CD8B6B22ABF99100324223 /* MaxAgeCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */; };
 		D1CD8B6E22AC064900324223 /* ReactiveAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */; };
+		D857D840232FDC6F008170E7 /* URLSession+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D857D83F232FDC6F008170E7 /* URLSession+Rx.swift */; };
 		D869D6B422AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D869D6B322AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		D1CD8B6822ABF1AA00324223 /* CacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheMock.swift; sourceTree = "<group>"; };
 		D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAgeCacheTests.swift; sourceTree = "<group>"; };
 		D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
+		D857D83F232FDC6F008170E7 /* URLSession+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Rx.swift"; sourceTree = "<group>"; };
 		D869D6B322AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +202,7 @@
 				D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */,
 				D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */,
 				D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */,
+				D857D83F232FDC6F008170E7 /* URLSession+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D857D840232FDC6F008170E7 /* URLSession+Rx.swift in Sources */,
 				D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */,
 				D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */,
 				D195F1EE22086DB200530339 /* ReactiveAPIHTTPMethod.swift in Sources */,

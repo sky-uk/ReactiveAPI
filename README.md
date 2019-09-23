@@ -1,4 +1,5 @@
-# ReactiveAPI
+# ReactiveAPI [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 Reactive API library allows you to write clean, concise and declarative network code, with the power of RxSwift and URLSession!
 
 ## Deployment Target

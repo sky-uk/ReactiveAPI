@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-VERSION=$(cat "ReactiveAPI/Info.plist" | grep -A 1 "CFBundleShortVersionString" | tail -n 1 | tr '>' '\n' | tr '<' '\n' | head -n 3 | tail -n 1)
-
+VERSION=$(cat ReactiveAPI.xcodeproj/project.pbxproj | grep MARKETING_VERSION | head -n 1 | awk '{print $3}' | tr ';' '\n' | head -n 1)
+echo "Creating version: $VERSION"
 git clean -fxd
 carthage build --archive
 hub release create -a ReactiveAPI.framework.zip -m "$VERSION" "$VERSION"

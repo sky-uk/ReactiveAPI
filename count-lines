@@ -1,0 +1,10 @@
+#!/bin/bash
+which cloc
+
+if [ $? -ne 0 ]
+then
+  echo "Install cloc first!"
+  echo "brew install cloc"
+fi
+
+cloc --exclude-dir=Carthage --include-lang=Swift .

@@ -1,10 +1,12 @@
-#!/bin/bash
-which cloc
+#!/bin/bash -e
 
-if [ $? -ne 0 ]
+command -v cloc >/dev/null 2>&1 || { echo "Install cloc with: brew install cloc" >&2; exit 1; }
+
+COUNT=$(cloc --exclude-dir=Carthage,build --include-lang=Swift,Kotlin .)
+
+if [ "x$1" == "xnumber" ]
 then
-  echo "Install cloc first!"
-  echo "brew install cloc"
+  echo "$COUNT" | grep SUM | awk '{print $5}'
+else
+  echo "$COUNT"
 fi
-
-cloc --exclude-dir=Carthage --include-lang=Swift .

@@ -3,7 +3,7 @@ import RxSwift
 
 open class ReactiveAPI: ReactiveAPIProtocol {
     public let session: Reactive<URLSession>
-    public let decoder: ReactiveDecoder
+    public let decoder: ReactiveAPIDecoder
     public let encoder: JSONEncoder
     public let baseUrl: URL
     public var authenticator: ReactiveAPIAuthenticator?
@@ -12,7 +12,7 @@ open class ReactiveAPI: ReactiveAPIProtocol {
     public var queryStringTypeConverter: ReactiveAPITypeConverter?
 
     required public init(session: Reactive<URLSession>,
-                         decoder: ReactiveDecoder = JSONDecoder(),
+                         decoder: ReactiveAPIDecoder = JSONDecoder(),
                          encoder: JSONEncoder = JSONEncoder(),
                          baseUrl: URL) {
         self.session = session

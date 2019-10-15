@@ -1,5 +1,4 @@
 import Foundation
-import RxCocoa
 import RxSwift
 
 public protocol ReactiveAPIAuthenticator {

@@ -29,12 +29,7 @@ extension ReactiveAPIProtocol {
     func rxDataRequest(_ request: URLRequest) -> Single<Data> {
         return session.response(request: request, interceptors: requestInterceptors)
             .flatMap { request, response, data -> Observable<Data>  in
-                if response.statusCode < 200 || response.statusCode >= 300 {
-                    return Observable.error(ReactiveAPIError.httpError(request: request, response: response, data: data))
-                }
-
-                if
-                    let cache = self.cache,
+                if let cache = self.cache,
                     let urlCache = self.session.base.configuration.urlCache,
                     let cachedResponse = cache.cache(response,
                                                      request: request,

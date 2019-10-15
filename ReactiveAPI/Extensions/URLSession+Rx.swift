@@ -18,6 +18,11 @@ extension Reactive where Base: URLSession {
                     return
                 }
 
+                if httpResponse.statusCode < 200 || httpResponse.statusCode >= 300 {
+                    observer.on(.error(ReactiveAPIError.httpError(request: request, response: httpResponse, data: data)))
+                    return
+                }
+
                 observer.on(.next((mutableRequest, httpResponse, data)))
                 observer.on(.completed)
             }

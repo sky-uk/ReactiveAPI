@@ -42,7 +42,11 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
         var newRequest = request
         newRequest.setValue(newToken, forHTTPHeaderField: tokenHeaderName)
-        return session.data(request: newRequest).asSingle()
+        return session.response(request: newRequest)
+            .map { _, data in
+                data
+            }
+            .asSingle()
     }
 
     public func authenticate(session: Reactive<URLSession>, request: URLRequest, response: HTTPURLResponse, data: Data?) -> Single<Data>? {

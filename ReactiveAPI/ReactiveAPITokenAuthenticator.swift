@@ -42,10 +42,8 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
         var newRequest = request
         newRequest.setValue(newToken, forHTTPHeaderField: tokenHeaderName)
-        return session.response(request: newRequest)
-            .map { _, data in
-                data
-            }
+        return session.response(newRequest)
+            .map { $0.data }
             .asSingle()
     }
 

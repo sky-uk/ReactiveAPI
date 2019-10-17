@@ -27,7 +27,7 @@ extension ReactiveAPIProtocol {
     }
 
     func rxDataRequest(_ request: URLRequest) -> Single<Data> {
-        return session.response(request: request, interceptors: requestInterceptors)
+        return session.fetch(request, interceptors: requestInterceptors)
             .flatMap { request, response, data -> Observable<Data>  in
                 if let cache = self.cache,
                     let urlCache = self.session.base.configuration.urlCache,

@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 
 extension Reactive where Base: URLSession {
-    public func response(_ request: URLRequest, interceptors: [ReactiveAPIRequestInterceptor]? = nil) -> Observable<(request: URLRequest, response: HTTPURLResponse, data: Data)> {
+    public func fetch(_ request: URLRequest, interceptors: [ReactiveAPIRequestInterceptor]? = nil) -> Observable<(request: URLRequest, response: HTTPURLResponse, data: Data)> {
         return Observable.create { observer in
             var mutableRequest = request
             interceptors?.forEach { mutableRequest = $0.intercept(mutableRequest) }

@@ -33,7 +33,7 @@ class RxDataRequestTests: XCTestCase {
         case .completed(elements: _):
             XCTFail("This should throws an error!")
         case .failed(elements: _, error: let error):
-            if case let ReactiveAPIError.httpError(response: response, data: _) = error {
+            if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                 XCTAssertTrue(response.statusCode == 500)
             } else {
                 XCTFail("This should be a ReactiveAPIError.httpError")
@@ -74,7 +74,7 @@ class RxDataRequestTests: XCTestCase {
         case .completed(elements: _):
             XCTFail("This should throws an error!")
         case .failed(elements: _, error: let error):
-            if case let ReactiveAPIError.httpError(response: response, data: _) = error {
+            if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                 XCTAssertTrue(response.statusCode == 500)
             } else {
                 XCTFail("This should be a ReactiveAPIError.httpError")

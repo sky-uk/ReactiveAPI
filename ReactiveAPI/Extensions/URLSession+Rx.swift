@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 
 extension Reactive where Base: URLSession {
-    public func response(request: URLRequest, interceptors: [ReactiveAPIRequestInterceptor]? = nil) -> Observable<(request: URLRequest, response: HTTPURLResponse, data: Data)> {
+    public func fetch(_ request: URLRequest, interceptors: [ReactiveAPIRequestInterceptor]? = nil) -> Observable<(request: URLRequest, response: HTTPURLResponse, data: Data)> {
         return Observable.create { observer in
             var mutableRequest = request
             interceptors?.forEach { mutableRequest = $0.intercept(mutableRequest) }
@@ -15,6 +15,11 @@ extension Reactive where Base: URLSession {
 
                 guard let httpResponse = response as? HTTPURLResponse else {
                     observer.on(.error(ReactiveAPIError.nonHttpResponse(response: response)))
+                    return
+                }
+
+                if httpResponse.statusCode < 200 || httpResponse.statusCode >= 300 {
+                    observer.on(.error(ReactiveAPIError.httpError(request: request, response: httpResponse, data: data)))
                     return
                 }
 

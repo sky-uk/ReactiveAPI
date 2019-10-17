@@ -6,7 +6,7 @@ public typealias ReactiveAPITypeConverter = (_ value: Any?) -> String?
 public protocol ReactiveAPIProtocol {
     var baseUrl: URL { get }
     var session: Reactive<URLSession> { get }
-    var decoder: ReactiveDecoder { get }
+    var decoder: ReactiveAPIDecoder { get }
     var encoder: JSONEncoder { get }
     var authenticator: ReactiveAPIAuthenticator? { get set }
     var requestInterceptors: [ReactiveAPIRequestInterceptor] { get set }
@@ -15,11 +15,11 @@ public protocol ReactiveAPIProtocol {
     func absoluteURL(_ endpoint: String) -> URL
 }
 
-public protocol ReactiveDecoder {
+public protocol ReactiveAPIDecoder {
     func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable
 }
 
-extension JSONDecoder: ReactiveDecoder {}
+extension JSONDecoder: ReactiveAPIDecoder {}
 
 extension ReactiveAPIProtocol {
     public func absoluteURL(_ endpoint: String) -> URL {
@@ -27,14 +27,9 @@ extension ReactiveAPIProtocol {
     }
 
     func rxDataRequest(_ request: URLRequest) -> Single<Data> {
-        return session.response(request: request, interceptors: requestInterceptors)
+        return session.fetch(request, interceptors: requestInterceptors)
             .flatMap { request, response, data -> Observable<Data>  in
-                if response.statusCode < 200 || response.statusCode >= 300 {
-                    return Observable.error(ReactiveAPIError.httpError(request: request, response: response, data: data))
-                }
-
-                if
-                    let cache = self.cache,
+                if let cache = self.cache,
                     let urlCache = self.session.base.configuration.urlCache,
                     let cachedResponse = cache.cache(response,
                                                      request: request,

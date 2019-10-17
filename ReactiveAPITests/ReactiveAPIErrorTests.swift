@@ -10,7 +10,7 @@ class ReactiveAPIErrorTests: XCTestCase {
     private let dataCorrupted = DecodingError.dataCorrupted(ReactiveAPIErrorTests.context)
 
     private let urlComponentsError = ReactiveAPIError.URLComponentsError(Resources.url)
-    private let httpError = ReactiveAPIError.httpError(response: Resources.httpUrlResponse(code: 500)!, data: Resources.data)
+    private let httpError = ReactiveAPIError.httpError(request: Resources.urlRequest, response: Resources.httpUrlResponse(code: 500)!, data: Resources.data)
 
     func test_ErrorDescription() {
         XCTAssertNil(urlComponentsError.errorDescription)

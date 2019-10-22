@@ -3,9 +3,9 @@ import RxSwift
 
 public struct ReactiveFetcher<Input, Output> {
     public typealias Service = (Input) -> Single<Output>
+    public let fetcher = PublishSubject<Input>()
 
     private let operation: Observable<LoadingResult<Output>>
-    private let fetcher = PublishSubject<Input>()
 
     public init(service: @escaping Service) {
         operation = fetcher
@@ -36,9 +36,5 @@ public struct ReactiveFetcher<Input, Output> {
         operation.events
             .filter { $0.event.isCompleted }
             .map { _ in }
-    }
-
-    public func fetch(next input: Input) {
-        fetcher.onNext(input)
     }
 }

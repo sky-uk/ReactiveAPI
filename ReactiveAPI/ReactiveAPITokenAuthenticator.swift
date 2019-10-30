@@ -52,7 +52,8 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     public func authenticate(session: Reactive<URLSession>, request: URLRequest, response: HTTPURLResponse, data: Data?) -> Single<Data>? {
         logger?.log(state: .invoked)
 
-        guard response.statusCode == 401, let _ = getCurrentToken() else {
+        guard response.statusCode == 401,
+            let _ = getCurrentToken() else {
             response.statusCode == 401
                 ? logger?.log(state: .skippedHandlingBecauseOfMissingToken)
                 : logger?.log(state: .skippedHandlingBecauseOfWrongErrorCode(response.statusCode))

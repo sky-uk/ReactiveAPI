@@ -67,4 +67,38 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
+    func test_Authenticate_When401_Nil() {
+        let session = URLSessionMock.create(Resources.json)
+        let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
+                                                          getCurrentToken: { nil },
+                                                          renewToken: { Single.just("renewToken") })
+        do {
+            let response = try authenticator.authenticate(session: session.rx,
+                                                          request: Resources.urlRequest,
+                                                          response: Resources.httpUrlResponse(code: 401)!,
+                                                          data: nil)?
+                .toBlocking()
+                .single()
+
+            XCTAssertNil(response)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_Authenticate_WhenGetCurrentTokenNil_Nil() {
+        let session = URLSessionMock.create(Resources.json)
+        do {
+            let response = try authenticator.authenticate(session: session.rx,
+                                                          request: Resources.urlRequest,
+                                                          response: Resources.httpUrlResponse(code: 500)!,
+                                                          data: nil)?
+                .toBlocking()
+                .single()
+
+            XCTAssertNil(response)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
 }

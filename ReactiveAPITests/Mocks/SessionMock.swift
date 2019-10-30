@@ -3,12 +3,12 @@ import Foundation
 class URLSessionMock: URLSession {
     var data: Data? = nil
     var error: Error? = nil
-    var response: HTTPURLResponse? = nil
+    var response: URLResponse? = nil
     private let configurationMock = URLSessionConfigurationMock()
 
     init(data: Data? = nil,
          error: Error? = nil,
-         response: HTTPURLResponse? = nil) {
+         response: URLResponse? = nil) {
         self.data = data
         self.response = response
         self.error = error

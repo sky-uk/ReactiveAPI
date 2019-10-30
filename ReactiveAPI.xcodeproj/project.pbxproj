@@ -36,6 +36,7 @@
 		D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */; };
 		D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E422086DB200530339 /* MaxAgeCache.swift */; };
 		D1996DE92369C69E00F25CA6 /* URLSessionRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1996DE82369C69E00F25CA6 /* URLSessionRxTests.swift */; };
+		D1996DEB2369DA7D00F25CA6 /* InterceptorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1996DEA2369DA7D00F25CA6 /* InterceptorMock.swift */; };
 		D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */; };
 		D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */; };
 		D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6822ABF1AA00324223 /* CacheMock.swift */; };
@@ -100,6 +101,7 @@
 		D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIAuthenticator.swift; sourceTree = "<group>"; };
 		D195F1E422086DB200530339 /* MaxAgeCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxAgeCache.swift; sourceTree = "<group>"; };
 		D1996DE82369C69E00F25CA6 /* URLSessionRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRxTests.swift; sourceTree = "<group>"; };
+		D1996DEA2369DA7D00F25CA6 /* InterceptorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorMock.swift; sourceTree = "<group>"; };
 		D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReactiveAPITests.swift; sourceTree = "<group>"; };
 		D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
 		D1CD8B6822ABF1AA00324223 /* CacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheMock.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				D181276E22ABC712001CA667 /* AuthenticatorMock.swift */,
 				D1CD8B6822ABF1AA00324223 /* CacheMock.swift */,
+				D1996DEA2369DA7D00F25CA6 /* InterceptorMock.swift */,
 				D181276822ABAC25001CA667 /* ModelMock.swift */,
 				D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */,
 			);
@@ -362,6 +365,7 @@
 				D181276922ABAC25001CA667 /* ModelMock.swift in Sources */,
 				D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */,
 				D181276B22ABACBC001CA667 /* Resources.swift in Sources */,
+				D1996DEB2369DA7D00F25CA6 /* InterceptorMock.swift in Sources */,
 				D184127122ABA8C100609847 /* RxDataRequestTests.swift in Sources */,
 				D13AAB6B22B2BC9600752B77 /* URLComponentsTests.swift in Sources */,
 				D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */,

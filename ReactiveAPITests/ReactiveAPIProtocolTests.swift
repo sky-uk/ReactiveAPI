@@ -65,4 +65,60 @@ class ReactiveAPIProtocolTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
+
+    func test_RxDataRequestDecodable_WhenResponseIsValid_ReturnDecoded() {
+        let session = URLSessionMock.create(Resources.jsonResponse)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        do {
+            let response: ModelMock = try api.rxDataRequest(Resources.urlRequest)
+                .toBlocking()
+                .single()
+
+            XCTAssertNotNil(response)
+            XCTAssertEqual(response.name, "Patrick")
+            XCTAssertEqual(response.id, 5)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_RxDataRequestDecodable_WhenResponseIsInvalid_ReturnError() {
+        let session = URLSessionMock.create(Resources.jsonInvalidResponse)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        let response: MaterializedSequenceResult<ModelMock> = api.rxDataRequest(Resources.urlRequest)
+            .toBlocking()
+            .materialize()
+
+        switch response {
+        case .completed(elements: _):
+            XCTFail("This should throws an error!")
+        case .failed(elements: _, error: let error):
+            if case let ReactiveAPIError.decodingError(_, data: data) = error {
+                XCTAssertNotNil(data)
+            } else {
+                XCTFail("This should be a ReactiveAPIError.decodingError")
+            }
+        }
+    }
+
+    func test_RxDataRequestVoid_WhenResponseIsValid_ReturnDecoded() {
+        let session = URLSessionMock.create(Resources.jsonResponse)
+        let api = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        do {
+            let response: Void = try api.rxDataRequestDiscardingPayload(Resources.urlRequest)
+                .toBlocking()
+                .single()
+
+            XCTAssertNotNil(response)
+
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
 }

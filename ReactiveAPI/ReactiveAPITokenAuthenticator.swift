@@ -22,9 +22,9 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
     private var isRenewingToken = false
     private let currentToken = BehaviorRelay<String?>(value: nil)
-    private let tokenHeaderName: String
-    private let getCurrentToken: () -> String?
-    private let renewToken: () -> Single<String>
+    internal let tokenHeaderName: String
+    internal let getCurrentToken: () -> String?
+    internal let renewToken: () -> Single<String>
     private let logger: ReactiveAPITokenAuthenticatorLogger?
 
     public init(tokenHeaderName: String,
@@ -37,7 +37,9 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         self.logger = logger
     }
 
-    private func requestWithNewToken(session: Reactive<URLSession>, request: URLRequest, newToken: String) -> Single<Data> {
+    internal func requestWithNewToken(session: Reactive<URLSession>,
+                                      request: URLRequest,
+                                      newToken: String) -> Single<Data> {
         logger?.log(state: .retryingRequestWithNewToken)
 
         var newRequest = request

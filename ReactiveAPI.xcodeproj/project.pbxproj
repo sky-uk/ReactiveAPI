@@ -20,7 +20,7 @@
 		D184126D22ABA6FF00609847 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; };
 		D184126E22ABA72000609847 /* RxBlocking.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D184126F22ABA72B00609847 /* RxRelay.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D184127122ABA8C100609847 /* RxDataRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D184127022ABA8C100609847 /* RxDataRequestTests.swift */; };
+		D184127122ABA8C100609847 /* ReactiveAPIProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D184127022ABA8C100609847 /* ReactiveAPIProtocolTests.swift */; };
 		D1942861228EC5310071D00C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; };
 		D1942862228EC54A0071D00C /* RxCocoa.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */; };
@@ -84,7 +84,7 @@
 		D181276E22ABC712001CA667 /* AuthenticatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorMock.swift; sourceTree = "<group>"; };
 		D184126A22ABA67500609847 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		D184126C22ABA6FE00609847 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
-		D184127022ABA8C100609847 /* RxDataRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxDataRequestTests.swift; sourceTree = "<group>"; };
+		D184127022ABA8C100609847 /* ReactiveAPIProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocolTests.swift; sourceTree = "<group>"; };
 		D1942860228EC5310071D00C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+QueryParams.swift"; sourceTree = "<group>"; };
 		D195F1C822086C8200530339 /* ReactiveAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,7 +142,7 @@
 				D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */,
 				D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */,
 				D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */,
-				D184127022ABA8C100609847 /* RxDataRequestTests.swift */,
+				D184127022ABA8C100609847 /* ReactiveAPIProtocolTests.swift */,
 				D1996DE72369AAFD00F25CA6 /* Extensions */,
 				D1A36F1622A2CE23001D9ED5 /* Mocks */,
 				D1CD8B6C22ABFAB200324223 /* Resources */,
@@ -366,7 +366,7 @@
 				D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */,
 				D181276B22ABACBC001CA667 /* Resources.swift in Sources */,
 				D1996DEB2369DA7D00F25CA6 /* InterceptorMock.swift in Sources */,
-				D184127122ABA8C100609847 /* RxDataRequestTests.swift in Sources */,
+				D184127122ABA8C100609847 /* ReactiveAPIProtocolTests.swift in Sources */,
 				D13AAB6B22B2BC9600752B77 /* URLComponentsTests.swift in Sources */,
 				D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */,
 				D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */,

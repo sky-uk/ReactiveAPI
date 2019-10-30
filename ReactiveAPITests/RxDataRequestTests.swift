@@ -3,6 +3,8 @@ import RxSwift
 import RxBlocking
 @testable import ReactiveAPI
 
+// TODO remove tests
+/*
 class RxDataRequestTests: XCTestCase {
     func test_RxDataRequest_When200_DataIsValid() {
         let session = URLSessionMock.create(Resources.json)
@@ -158,3 +160,5 @@ class RxDataRequestTests: XCTestCase {
         }
     }
 }
+
+ */

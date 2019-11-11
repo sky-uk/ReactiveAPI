@@ -6,6 +6,7 @@ public enum ReactiveAPITokenAuthenticatorState {
     case invoked
     case skippedHandlingBecauseOfMissingToken
     case skippedHandlingBecauseOfWrongErrorCode(_ code: Int)
+    case skippedHandlingBecauseOfBusinessLogic
     case waitingForTokenRenewWhichIsInProgress
     case finishedWaitingForTokenRenew
     case retryingRequestWithNewToken
@@ -25,15 +26,18 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     private let tokenHeaderName: String
     private let getCurrentToken: () -> String?
     private let renewToken: () -> Single<String>
+    private let shouldRenewToken: (URLRequest, HTTPURLResponse, Data?) -> Bool
     private let logger: ReactiveAPITokenAuthenticatorLogger?
 
     public init(tokenHeaderName: String,
                 getCurrentToken: @escaping () -> String?,
                 renewToken: @escaping () -> Single<String>,
+                shouldRenewToken: @escaping(URLRequest, HTTPURLResponse, Data?) -> Bool = { _, _, _ in true },
                 logger: ReactiveAPITokenAuthenticatorLogger? = nil) {
         self.tokenHeaderName = tokenHeaderName
         self.getCurrentToken = getCurrentToken
         self.renewToken = renewToken
+        self.shouldRenewToken = shouldRenewToken
         self.logger = logger
     }
 
@@ -58,6 +62,11 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
                 ? logger?.log(state: .skippedHandlingBecauseOfMissingToken)
                 : logger?.log(state: .skippedHandlingBecauseOfWrongErrorCode(response.statusCode))
 
+            return nil
+        }
+
+        if !shouldRenewToken(request, response, data) {
+            logger?.log(state: .skippedHandlingBecauseOfBusinessLogic)
             return nil
         }
 

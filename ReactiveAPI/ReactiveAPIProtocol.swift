@@ -75,7 +75,6 @@ extension ReactiveAPIProtocol {
     }
 }
 
-
 public extension ReactiveAPIProtocol {
     // body params as dictionary and generic response type
     func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,

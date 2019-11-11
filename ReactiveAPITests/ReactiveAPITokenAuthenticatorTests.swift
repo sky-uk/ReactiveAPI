@@ -7,11 +7,6 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
                                                               getCurrentToken: { "getCurrentToken" },
                                                               renewToken: { Single.just("renewToken") })
 
-    func test_Init() {
-        XCTAssertEqual(authenticator.tokenHeaderName, "tokenHeaderName")
-        XCTAssertEqual(authenticator.getCurrentToken(), "getCurrentToken")
-    }
-
     func test_requestWithNewToken_When200_DataIsValid() {
         let session = URLSessionMock.create(Resources.json)
         do {
@@ -118,23 +113,6 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
-
-//    func test_Authenticate_WhenisRenewingTokenTrue_Fails() {
-//        let session = URLSessionMock.create(Resources.json)
-//        authenticator.setNewToken(token: nil, isRenewing: true)
-//        do {
-//            let response = try authenticator.authenticate(session: session.rx,
-//                                                          request: Resources.urlRequest,
-//                                                          response: Resources.httpUrlResponse(code: 401)!,
-//                                                          data: nil)?
-//                .toBlocking()
-//                .single()
-//
-//            XCTAssertNotNil(response)
-//        } catch {
-//            XCTFail(error.localizedDescription)
-//        }
-//    }
 
     func test_Authenticate_RenewToken() {
         let session = URLSessionMock.create(Resources.json)

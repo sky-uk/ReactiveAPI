@@ -109,14 +109,14 @@ class LoadingResultTests: XCTestCase {
 
     func test_Events_ReturnFiltered() {
         let events = [
-            LoadingResult<String>(true),
+            loadingTrue,
             next,
-            LoadingResult<String>(false),
-            LoadingResult<String>(false),
+            loadingFalse,
+            loadingFalse,
             completed,
             next,
             error,
-            LoadingResult<String>(false),
+            loadingTrue,
             next,
         ]
         let results = try? Observable.from(events)

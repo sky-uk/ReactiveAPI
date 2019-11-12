@@ -89,15 +89,15 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         setNewToken(token: nil, isRenewing: true)
 
         return renewToken()
-            .flatMap { newToken in
-                self.setNewToken(token: newToken, isRenewing: false)
-                self.logger?.log(state: .tokenRenewSucceeded)
-
-                return self.requestWithNewToken(session: session, request: request, newToken: newToken)
-            }.catchError { error in
+            .catchError { error in
                 self.logger?.log(state: .tokenRenewError(error))
                 self.setNewToken(token: nil, isRenewing: false)
-                return Single.error(error)
+                let httpError = ReactiveAPIError.httpError(request: request, response: response, data: data ?? Data())
+                return Single.error(httpError)
+        }.flatMap { newToken in
+            self.setNewToken(token: newToken, isRenewing: false)
+            self.logger?.log(state: .tokenRenewSucceeded)
+            return self.requestWithNewToken(session: session, request: request, newToken: newToken)
         }
     }
 

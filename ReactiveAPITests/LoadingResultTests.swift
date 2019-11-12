@@ -3,34 +3,33 @@ import RxSwift
 @testable import ReactiveAPI
 
 class LoadingResultTests: XCTestCase {
+    private let next = LoadingResult<String>(Event.next("data"))
+    private let completed = LoadingResult<String>(Event<String>.completed)
+    private let error = LoadingResult<String>(Event<String>.error(ReactiveAPIError.unknown))
+    private let loadingFalse = LoadingResult<String>(false)
+    private let loadingTrue = LoadingResult<String>(true)
+
     func test_InitLoading() {
-        let result = LoadingResult<String>(false)
-        XCTAssertNil(result.data)
-        XCTAssertEqual(result.loading, false)
-        let result2 = LoadingResult<String>(true)
-        XCTAssertNil(result2.data)
-        XCTAssertEqual(result2.loading, true)
+        XCTAssertNil(loadingFalse.data)
+        XCTAssertEqual(loadingFalse.loading, false)
+
+        XCTAssertNil(loadingTrue.data)
+        XCTAssertEqual(loadingTrue.loading, true)
     }
 
     func test_InitData() {
-        let next = Event.next("data")
-        let resultNext = LoadingResult<String>(next)
-        XCTAssertEqual(resultNext.loading, false)
-        XCTAssertEqual(resultNext.data?.event.element, "data")
-        XCTAssertFalse(resultNext.data!.isCompleted)
+        XCTAssertEqual(next.loading, false)
+        XCTAssertEqual(next.data?.event.element, "data")
+        XCTAssertFalse(next.data!.isCompleted)
 
-        let completed = Event<String>.completed
-        let resultCompleted = LoadingResult<String>(completed)
-        XCTAssertEqual(resultCompleted.loading, false)
-        XCTAssertNil(resultCompleted.data?.event.element)
-        XCTAssertTrue(resultCompleted.data!.isCompleted)
+        XCTAssertEqual(completed.loading, false)
+        XCTAssertNil(completed.data?.event.element)
+        XCTAssertTrue(completed.data!.isCompleted)
 
-        let error = Event<String>.error(ReactiveAPIError.unknown)
-        let resultError = LoadingResult<String>(error)
-        XCTAssertEqual(resultError.loading, false)
-        XCTAssertNil(resultError.data?.event.element)
-        XCTAssertFalse(resultError.data!.isCompleted)
-        if let error = resultError.data?.error,
+        XCTAssertEqual(error.loading, false)
+        XCTAssertNil(error.data?.event.element)
+        XCTAssertFalse(error.data!.isCompleted)
+        if let error = error.data?.error,
             case ReactiveAPIError.unknown = error {
             XCTAssert(true)
         } else {
@@ -106,5 +105,26 @@ class LoadingResultTests: XCTestCase {
                 XCTAssertNotNil(result.data!.event.element)
                 XCTAssert((result.data!.event.element! == "event"))
         }
+    }
+
+    func test_Events_ReturnFiltered() {
+        let events = [
+            LoadingResult<String>(true),
+            next,
+            LoadingResult<String>(false),
+            LoadingResult<String>(false),
+            completed,
+            next,
+            error,
+            LoadingResult<String>(false),
+            next,
+        ]
+        let results = try? Observable.from(events)
+            .events
+            .toBlocking()
+            .toArray()
+
+        XCTAssertNotNil(results)
+        XCTAssertEqual(results?.count, 5)
     }
 }

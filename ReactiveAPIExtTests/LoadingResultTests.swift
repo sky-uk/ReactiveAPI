@@ -19,27 +19,28 @@ class LoadingResultTests: XCTestCase {
         XCTAssertEqual(loadingTrue.loading, true)
     }
 
-    func test_InitData() {
+    func test_InitData() throws {
         XCTAssertEqual(next.loading, false)
-        XCTAssertEqual(next.data?.event.element, "data")
-        XCTAssertFalse(next.data!.isCompleted)
+        let dataNext = try XCTUnwrap(next.data)
+        XCTAssertEqual(dataNext.event.element, "data")
+        XCTAssertFalse(dataNext.isCompleted)
 
         XCTAssertEqual(completed.loading, false)
-        XCTAssertNil(completed.data?.event.element)
-        XCTAssertTrue(completed.data!.isCompleted)
+        let dataCompleted = try XCTUnwrap(completed.data)
+        XCTAssertNil(dataCompleted.event.element)
+        XCTAssertTrue(dataCompleted.isCompleted)
 
         XCTAssertEqual(error.loading, false)
-        XCTAssertNil(error.data?.event.element)
-        XCTAssertFalse(error.data!.isCompleted)
-        if let error = error.data?.error,
-            case ReactiveAPIError.unknown = error {
-            XCTAssert(true)
-        } else {
-            XCTFail()
-        }
+        let dataError = try XCTUnwrap(error.data)
+        let error = try XCTUnwrap(dataError.error)
+        XCTAssertNil(dataError.event.element)
+        XCTAssertFalse(dataError.isCompleted)
+        XCTAssert(error is ReactiveAPIError)
+        if case ReactiveAPIError.unknown = error { XCTAssert(true) }
+        else { XCTFail() }
     }
 
-    func test_MonitorLoading_WhenCompleted_ReturnLoadingResult() {
+    func test_MonitorLoading_WhenCompleted_ReturnLoadingResult() throws {
         let count = Int.random(in: 1...10)
         let observable = Observable<String>.create { observer in
             Array(repeating: "event", count: count).enumerated()
@@ -48,50 +49,50 @@ class LoadingResultTests: XCTestCase {
             return Disposables.create()
         }
 
-        var results = try? observable
+        let sequence = try? observable
             .monitorLoading()
             .toBlocking()
             .toArray()
 
-        XCTAssertNotNil(results)
-        XCTAssertEqual(results?.count, 1 + count + 1)
+        var results = try XCTUnwrap(sequence)
+        XCTAssertEqual(results.count, 1 + count + 1)
 
-        let first = results!.removeFirst()
+        let first = results.removeFirst()
         XCTAssertNil(first.data)
         XCTAssertEqual(first.loading, true)
 
-        let last = results!.removeLast()
+        let last = results.removeLast()
         XCTAssertEqual(last.loading, false)
         XCTAssertNil(last.data!.event.element)
         XCTAssertTrue(last.data!.isCompleted)
 
-        results!.enumerated()
+        results.enumerated()
             .forEach { (index, result) in
                 XCTAssertNotNil(result.data!.event.element)
                 XCTAssert((result.data!.event.element!.contains("\(index)")))
         }
     }
 
-    func test_MonitorLoading_WhenError_ReturnLoadingResult() {
+    func test_MonitorLoading_WhenError_ReturnLoadingResult() throws {
         let observable = Observable<String>.create { observer in
             observer.onNext("event")
             observer.onError(ReactiveAPIError.unknown)
             return Disposables.create()
         }
 
-        var results = try? observable
+        let sequence = try? observable
             .monitorLoading()
             .toBlocking()
             .toArray()
 
-        XCTAssertNotNil(results)
-        XCTAssertEqual(results?.count, 3)
+        var results = try XCTUnwrap(sequence)
+        XCTAssertEqual(results.count, 3)
 
-        let first = results!.removeFirst()
+        let first = results.removeFirst()
         XCTAssertNil(first.data)
         XCTAssertEqual(first.loading, true)
 
-        let last = results!.removeLast()
+        let last = results.removeLast()
         XCTAssertEqual(last.loading, false)
         XCTAssertNil(last.data!.event.element)
         XCTAssertFalse(last.data!.isCompleted)
@@ -102,7 +103,7 @@ class LoadingResultTests: XCTestCase {
             XCTFail()
         }
 
-        results!.enumerated()
+        results.enumerated()
             .forEach { (index, result) in
                 XCTAssertNotNil(result.data!.event.element)
                 XCTAssert((result.data!.event.element! == "event"))

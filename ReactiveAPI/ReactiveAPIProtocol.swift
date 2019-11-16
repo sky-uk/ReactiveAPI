@@ -73,9 +73,11 @@ extension ReactiveAPIProtocol {
     func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
         return rxDataRequest(request).map { _ in () }
     }
+}
 
+public extension ReactiveAPIProtocol {
     // body params as dictionary and generic response type
-    public func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+    func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                       url: URL,
                                       headers: [String: Any?]? = nil,
                                       queryParams: [String: Any?]? = nil,
@@ -94,7 +96,7 @@ extension ReactiveAPIProtocol {
     }
 
     // body params as encodable and generic response type
-    public func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+    func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                                     url: URL,
                                                     headers: [String: Any?]? = nil,
                                                     queryParams: [String: Any?]? = nil,
@@ -114,7 +116,7 @@ extension ReactiveAPIProtocol {
     }
 
     // body params as dictionary and void response type
-    public func request(_ method: ReactiveAPIHTTPMethod = .get,
+    func request(_ method: ReactiveAPIHTTPMethod = .get,
                         url: URL,
                         headers: [String: Any?]? = nil,
                         queryParams: [String: Any?]? = nil,
@@ -133,7 +135,7 @@ extension ReactiveAPIProtocol {
     }
 
     // body params as encodable and void response type
-    public func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
+    func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                       url: URL,
                                       headers: [String: Any?]? = nil,
                                       queryParams: [String: Any?]? = nil,

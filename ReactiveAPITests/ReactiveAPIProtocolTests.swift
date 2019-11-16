@@ -3,43 +3,7 @@ import RxSwift
 import RxBlocking
 @testable import ReactiveAPI
 
-class RxDataRequestTests: XCTestCase {
-    func test_RxDataRequest_When200_DataIsValid() {
-        let session = URLSessionMock.create(Resources.json)
-        let api = ReactiveAPI(session: session.rx,
-                              decoder: JSONDecoder(),
-                              baseUrl: Resources.url)
-        do {
-            let response = try api.rxDataRequest(Resources.urlRequest)
-                .toBlocking()
-                .single()
-
-            XCTAssertNotNil(response)
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
-    }
-
-    func test_RxDataRequest_When500_ReturnError() {
-        let session = URLSessionMock.create(Resources.json, errorCode: 500)
-        let api = ReactiveAPI(session: session.rx,
-                              decoder: JSONDecoder(),
-                              baseUrl: Resources.url)
-        let response = api.rxDataRequest(Resources.urlRequest)
-            .toBlocking()
-            .materialize()
-
-        switch response {
-        case .completed(elements: _):
-            XCTFail("This should throws an error!")
-        case .failed(elements: _, error: let error):
-            if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
-                XCTAssertTrue(response.statusCode == 500)
-            } else {
-                XCTFail("This should be a ReactiveAPIError.httpError")
-            }
-        }
-    }
+class ReactiveAPIProtocolTests: XCTestCase {
 
     func test_RxDataRequest_When401WithAuthenticator_DataIsValid() {
         let session = URLSessionMock.create(Resources.json, errorCode: 401)

@@ -1,6 +1,8 @@
 import XCTest
 import RxSwift
-@testable import ReactiveAPI
+import RxBlocking
+import ReactiveAPI
+@testable import ReactiveAPIExt
 
 class LoadingResultTests: XCTestCase {
     private let next = LoadingResult<String>(Event.next("data"))

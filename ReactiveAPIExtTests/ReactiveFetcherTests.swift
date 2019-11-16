@@ -1,6 +1,7 @@
 import XCTest
 import ReactiveAPI
 import RxSwift
+@testable import ReactiveAPIExt
 
 class ReactiveFetcherTests: XCTestCase {
     func test_Init() {

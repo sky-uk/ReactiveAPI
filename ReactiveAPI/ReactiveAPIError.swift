@@ -32,7 +32,8 @@ extension ReactiveAPIError: LocalizedError {
                 let fullPath = context.codingPath + [key]
                 return "\(reduce(fullPath)): Not Found!"
             case DecodingError.typeMismatch(_, let context),
-                 DecodingError.valueNotFound(_, let context):
+                 DecodingError.valueNotFound(_, let context),
+                 DecodingError.dataCorrupted(let context):
                 return "\(reduce(context.codingPath)): \(context.debugDescription)"
             default:
                 return underlyingError.failureReason

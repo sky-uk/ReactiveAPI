@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25A3A1B1238DC1CA009C70EA /* FailableCodableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A3A1B0238DC1CA009C70EA /* FailableCodableArray.swift */; };
+		25A3A1B3238DC1F4009C70EA /* FailableCodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */; };
 		D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16432F722873CB700C0F780 /* EncodableTests.swift */; };
 		D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; };
 		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
@@ -112,6 +114,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25A3A1B0238DC1CA009C70EA /* FailableCodableArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailableCodableArray.swift; sourceTree = "<group>"; };
+		25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
 		25E88A72235F0D050027797A /* ReactiveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveFetcher.swift; sourceTree = "<group>"; };
 		25E88A74235F0ECD0027797A /* LoadingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
 		D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,8 +337,9 @@
 		D820B58D237FFA1E00C7B0D3 /* ReactiveAPIExt */ = {
 			isa = PBXGroup;
 			children = (
-				25E88A71235F0CE80027797A /* Fetcher */,
 				D820B58F237FFA1E00C7B0D3 /* Info.plist */,
+				25A3A1B0238DC1CA009C70EA /* FailableCodableArray.swift */,
+				25E88A71235F0CE80027797A /* Fetcher */,
 			);
 			path = ReactiveAPIExt;
 			sourceTree = "<group>";
@@ -342,9 +347,10 @@
 		D820B598237FFA1E00C7B0D3 /* ReactiveAPIExtTests */ = {
 			isa = PBXGroup;
 			children = (
+				D820B59B237FFA1E00C7B0D3 /* Info.plist */,
+				25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */,
 				D1C7CC8E2374B87B007EDC5D /* LoadingResultTests.swift */,
 				D1BA2C2B237AE38C009CCDC2 /* ReactiveFetcherTests.swift */,
-				D820B59B237FFA1E00C7B0D3 /* Info.plist */,
 			);
 			path = ReactiveAPIExtTests;
 			sourceTree = "<group>";
@@ -568,6 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D820B5A4237FFA6000C7B0D3 /* ReactiveFetcher.swift in Sources */,
+				25A3A1B1238DC1CA009C70EA /* FailableCodableArray.swift in Sources */,
 				D820B5A3237FFA6000C7B0D3 /* LoadingResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D820B5A6237FFA7700C7B0D3 /* LoadingResultTests.swift in Sources */,
+				25A3A1B3238DC1F4009C70EA /* FailableCodableArrayTests.swift in Sources */,
 				D820B5A5237FFA7700C7B0D3 /* ReactiveFetcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

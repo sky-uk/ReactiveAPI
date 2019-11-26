@@ -1,7 +1,7 @@
 import Foundation
 
-public struct FailableCodable<Base: Codable>: Codable {
-    let base: Base?
+public struct FailableCodable<Base: Codable & Hashable>: Codable, Hashable {
+    public let base: Base?
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -14,10 +14,10 @@ public struct FailableCodable<Base: Codable>: Codable {
     }
 }
 
-public struct FailableCodableArray<Element: Codable>: Codable {
+public struct FailableCodableArray<Element: Codable & Hashable>: Codable, Hashable {
     public let elements: [Element]
 
-    public init(elements: [Element]) {
+    init(elements: [Element]) {
         self.elements = elements
     }
 

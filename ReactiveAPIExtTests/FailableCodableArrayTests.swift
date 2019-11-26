@@ -2,11 +2,11 @@ import XCTest
 @testable import ReactiveAPIExt
 
 final class FailableCodableArrayTests: XCTestCase {
-    struct Root: Codable {
+    struct Root: Codable, Hashable {
         let items: FailableCodableArray<SUT>
     }
 
-    struct SUT: Codable, Equatable {
+    struct SUT: Codable, Hashable {
         enum Foobar: String, Codable {
             case foo, bar
         }

@@ -2,7 +2,7 @@ import Foundation
 
 struct Resources {
     static let url = URL(string: "https://url.com")!
-    static let baseUrl = URL(string: "https://baseurl.com/")!
+    static let baseUrl = URL(string: "http://www.mock.com/")!
     static let urlRequest = URLRequest(url: Resources.url)
     static let data = Data(count: 100)
     static let params: [String: Any?] = ["key": "value",

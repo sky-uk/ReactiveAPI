@@ -184,60 +184,75 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
-    func test() {
+    func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() {
         // Given
+        var loginCounter = 0
         var renewCounter = 0
-        let renewToken: () -> Single<String> = {
-            return Observable.just( { renewCounter += 1; return "renewCounter" }() ).share().asSingle()
-        }
-        let sut = MockAPI(session: URLSession.shared.rx, baseUrl: Resources.baseUrl)
-        let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "", getCurrentToken: { "" }, renewToken: renewToken)
-        sut.authenticator = authenticator
-
+        var singleActionCounter = 0
+        var parallelActionCounter = 0
         var callCounter = 0
-        stub(condition: isHost("www.mock.com")) { request -> OHHTTPStubsResponse in
-            print("\(callCounter) Request: \(request.url!.absoluteString) - \(renewCounter)")
-            do {
-                switch callCounter {
-                    case 0:
-                        XCTAssertTrue(request.url!.absoluteString == "http://www.mock.com/endpoint1")
-                        callCounter += 1
-                        return JSONHelper.unauthorized401()
-                    case 1:
-                        XCTAssertTrue(request.url!.absoluteString == "http://www.mock.com/endpoint1")
-                        callCounter += 1
-                        return JSONHelper.unauthorized401()
-                    case 2:
-                        XCTAssertTrue(request.url!.absoluteString == "http://www.mock.com/endpoint1")
-                        callCounter += 1
-                        return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "secondo", id: 2))
-                    case 3:
-                        XCTAssertTrue(request.url!.absoluteString == "http://www.mock.com/endpoint1")
-                        callCounter += 1
-                        return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "secondo", id: 2))
-                    default:
-                        return JSONHelper.stubError()
 
+        let sut = MockAPI(session: URLSession.shared.rx, baseUrl: Resources.baseUrl)
+
+        sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
+                                                          getCurrentToken: { nil },
+                                                          renewToken: {
+                                                            renewCounter += 1
+                                                            return sut.renewToken().map { $0.name } })
+
+        stub(condition: isHost(Resources.baseUrlHost)) { request -> OHHTTPStubsResponse in
+            callCounter += 1
+            print("\(callCounter) Request: \(request.url!.absoluteString)")
+
+            do {
+                if (request.urlIsEquals(MockAPI.loginEndpoint)) {
+                    loginCounter += 1
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "oldToken", id: 0))
+                }
+
+                if (request.urlIsEquals(MockAPI.renewEndpoint)) {
+                    renewCounter += 1
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "newToken", id: 1))
+                }
+
+                if (request.urlIsEquals(MockAPI.authenticatedSingleActionEndpoint)) {
+                    singleActionCounter += 1
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "singleAction", id: 2))
+                }
+
+                if (request.urlIsEquals(MockAPI.authenticatedParallelActionEndpoint)) {
+                    parallelActionCounter += 1
+                    if (request.value(forHTTPHeaderField: "tokenHeaderName") == "oldToken") {
+                        return JSONHelper.unauthorized401()
+                    }
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "parallelAction", id: 3))
                 }
             } catch {
                 XCTFail("\(error)")
             }
+
             return JSONHelper.stubError()
         }
 
         do {
-            let response1 = sut.getModel1()
-            let response2 = sut.getModel1()
+            let loginResponse = try sut.login().toBlocking().single()
+            let doSomethingResponse = try sut.authenticatedSingleAction().toBlocking().single()
+
+            let parallelCall1 = sut.authenticatedParallelAction()
+            let parallelCall2 = sut.authenticatedParallelAction()
+            let parallelCall3 = sut.authenticatedParallelAction()
 
             // When
-            let events = try Single.zip(response1, response2)
+            let events = try Single.zip(parallelCall1, parallelCall2, parallelCall3)
                 .toBlocking()
                 .single()
 
             // Then
             XCTAssertNotNil(events)
+            XCTAssertEqual(loginCounter, 1)
             XCTAssertEqual(renewCounter, 1)
-
+            XCTAssertEqual(singleActionCounter, 1)
+            XCTAssertEqual(parallelActionCounter, 6)
         } catch {
             XCTFail("\(error)")
         }
@@ -246,12 +261,26 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
 
 class MockAPI: ReactiveAPI {
-    func getModel1() -> Single<ModelMock> {
-        return request(url: absoluteURL("endpoint1"))
+
+    public static let loginEndpoint = "login"
+    public static let renewEndpoint = "renew"
+    public static let authenticatedSingleActionEndpoint = "auth-action"
+    public static let authenticatedParallelActionEndpoint = "auth-parallel-action"
+
+    func login() -> Single<ModelMock> {
+        return request(url: absoluteURL(MockAPI.loginEndpoint))
     }
 
-    func getModel2() -> Single<ModelMock> {
-        return request(url: absoluteURL("endpoint2"))
+    func renewToken() -> Single<ModelMock> {
+        return request(url: absoluteURL(MockAPI.renewEndpoint))
+    }
+
+    func authenticatedSingleAction() -> Single<ModelMock> {
+        return request(url: absoluteURL(MockAPI.authenticatedSingleActionEndpoint))
+    }
+
+    func authenticatedParallelAction() -> Single<ModelMock> {
+        return request(url: absoluteURL(MockAPI.authenticatedParallelActionEndpoint))
     }
 }
 

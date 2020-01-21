@@ -191,12 +191,21 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         var singleActionCounter = 0
         var parallelActionCounter = 0
         var callCounter = 0
+        var currentToken = ""
 
+        let tokenHeaderName = "tokenHeaderName"
         let sut = MockAPI(session: URLSession.shared.rx, baseUrl: Resources.baseUrl)
 
-        sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
-                                                          getCurrentToken: { nil },
-                                                          renewToken: { sut.renewToken().map { $0.name } })
+        sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName,
+                                                          getCurrentToken: { currentToken },
+                                                          renewToken: {
+                                                            sut.renewToken().map {
+                                                                currentToken = $0.name
+                                                                return $0.name
+                                                            }})
+        sut.requestInterceptors += [
+            TokenInterceptor(tokenValue: { currentToken }, headerName: tokenHeaderName)
+        ]
 
         stub(condition: isHost(Resources.baseUrlHost)) { request -> OHHTTPStubsResponse in
             callCounter += 1
@@ -220,7 +229,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
                 if (request.urlHasSuffix(MockAPI.authenticatedParallelActionEndpoint)) {
                     parallelActionCounter += 1
-                    if (request.value(forHTTPHeaderField: "tokenHeaderName") == "oldToken") {
+                    if (request.value(forHTTPHeaderField: tokenHeaderName) == "oldToken") {
                         return JSONHelper.unauthorized401()
                     }
                     return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "parallelAction", id: 4))
@@ -233,7 +242,8 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
 
         do {
-            let _ = try sut.login().toBlocking().single()
+            let loginResponse = try sut.login().toBlocking().single()
+            currentToken = loginResponse.name
             let _ = try sut.authenticatedSingleAction().toBlocking().single()
 
             let parallelCall1 = sut.authenticatedParallelAction()
@@ -279,6 +289,23 @@ class MockAPI: ReactiveAPI {
 
     func authenticatedParallelAction() -> Single<ModelMock> {
         return request(url: absoluteURL(MockAPI.authenticatedParallelActionEndpoint))
+    }
+}
+
+public class TokenInterceptor : ReactiveAPIRequestInterceptor {
+
+    private let tokenValue: () -> String
+    private let headerName: String
+
+    public init(tokenValue: @escaping () -> String, headerName: String) {
+        self.tokenValue = tokenValue
+        self.headerName = headerName
+    }
+
+    public func intercept(_ request: URLRequest) -> URLRequest {
+        var mutableRequest = request
+        mutableRequest.addValue(tokenValue(), forHTTPHeaderField: headerName)
+        return mutableRequest
     }
 }
 

@@ -202,30 +202,30 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
         stub(condition: isHost(Resources.baseUrlHost)) { request -> OHHTTPStubsResponse in
             callCounter += 1
-            print("\(callCounter) Request: \(request.url!.absoluteString)")
+            print("\(callCounter) Request: \(request.url?.absoluteString)")
 
             do {
-                if (request.urlIsEquals(MockAPI.loginEndpoint)) {
+                if (request.urlHasSuffix(MockAPI.loginEndpoint)) {
                     loginCounter += 1
-                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "oldToken", id: 0))
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "oldToken", id: 1))
                 }
 
-                if (request.urlIsEquals(MockAPI.renewEndpoint)) {
+                if (request.urlHasSuffix(MockAPI.renewEndpoint)) {
                     renewCounter += 1
-                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "newToken", id: 1))
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "newToken", id: 2))
                 }
 
-                if (request.urlIsEquals(MockAPI.authenticatedSingleActionEndpoint)) {
+                if (request.urlHasSuffix(MockAPI.authenticatedSingleActionEndpoint)) {
                     singleActionCounter += 1
-                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "singleAction", id: 2))
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "singleAction", id: 3))
                 }
 
-                if (request.urlIsEquals(MockAPI.authenticatedParallelActionEndpoint)) {
+                if (request.urlHasSuffix(MockAPI.authenticatedParallelActionEndpoint)) {
                     parallelActionCounter += 1
                     if (request.value(forHTTPHeaderField: "tokenHeaderName") == "oldToken") {
                         return JSONHelper.unauthorized401()
                     }
-                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "parallelAction", id: 3))
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "parallelAction", id: 4))
                 }
             } catch {
                 XCTFail("\(error)")

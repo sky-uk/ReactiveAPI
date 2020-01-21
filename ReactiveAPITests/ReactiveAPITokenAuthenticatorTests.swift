@@ -196,13 +196,11 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
         sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                           getCurrentToken: { nil },
-                                                          renewToken: {
-                                                            renewCounter += 1
-                                                            return sut.renewToken().map { $0.name } })
+                                                          renewToken: { sut.renewToken().map { $0.name } })
 
         stub(condition: isHost(Resources.baseUrlHost)) { request -> OHHTTPStubsResponse in
             callCounter += 1
-            print("\(callCounter) Request: \(request.url?.absoluteString)")
+            print("\(callCounter) Request: \(request.url!.absoluteString)")
 
             do {
                 if (request.urlHasSuffix(MockAPI.loginEndpoint)) {
@@ -235,8 +233,8 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
 
         do {
-            let loginResponse = try sut.login().toBlocking().single()
-            let doSomethingResponse = try sut.authenticatedSingleAction().toBlocking().single()
+            let _ = try sut.login().toBlocking().single()
+            let _ = try sut.authenticatedSingleAction().toBlocking().single()
 
             let parallelCall1 = sut.authenticatedParallelAction()
             let parallelCall2 = sut.authenticatedParallelAction()

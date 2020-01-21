@@ -186,6 +186,13 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
     func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() {
         // Given
+        let queueA = DispatchQueue.init(label: "queueA")
+        let queueAscheduler = ConcurrentDispatchQueueScheduler(queue: queueA)
+        let queueB = DispatchQueue.init(label: "queueB")
+        let queueBscheduler = ConcurrentDispatchQueueScheduler(queue: queueB)
+        let queueC = DispatchQueue.init(label: "queueC")
+        let queueCscheduler = ConcurrentDispatchQueueScheduler(queue: queueC)
+
         var loginCounter = 0
         var renewCounter = 0
         var singleActionCounter = 0
@@ -247,23 +254,22 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             let _ = try sut.authenticatedSingleAction().toBlocking().single()
 
             let parallelCall1 = sut.authenticatedParallelAction()
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .do(onSubscribed: {
-                    print("Parallel call 1 on \(Thread.current.description)")
+                    print("\(Date().dateMillis) Parallel call 1 on \(Thread.current.description)")
 
-                })
+                }).subscribeOn(queueAscheduler)
+
             let parallelCall2 = sut.authenticatedParallelAction()
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .do(onSubscribed: {
-                    print("Parallel call 2 on \(Thread.current.description)")
+                    print("\(Date().dateMillis) Parallel call 2 on \(Thread.current.description)")
 
-                })
+                }).subscribeOn(queueBscheduler)
+
             let parallelCall3 = sut.authenticatedParallelAction()
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .do(onSubscribed: {
-                    print("Parallel call 3 on \(Thread.current.description)")
+                    print("\(Date().dateMillis) Parallel call 3 on \(Thread.current.description)")
 
-                })
+                }).subscribeOn(queueCscheduler)
 
             // When
             let events = try Single.zip(parallelCall1, parallelCall2, parallelCall3)

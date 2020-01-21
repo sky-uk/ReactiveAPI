@@ -52,6 +52,7 @@
 		D811C14923D714EB005325BF /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D811C14723D714EB005325BF /* RxTest.framework */; };
 		D811C14A23D7152A005325BF /* RxTest.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D811C14723D714EB005325BF /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D811C14B23D71537005325BF /* RxTest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D811C14723D714EB005325BF /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D811C14D23D736DB005325BF /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811C14C23D736DB005325BF /* Date+.swift */; };
 		D820B595237FFA1E00C7B0D3 /* ReactiveAPIExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D820B58C237FFA1E00C7B0D3 /* ReactiveAPIExt.framework */; };
 		D820B5A3237FFA6000C7B0D3 /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E88A74235F0ECD0027797A /* LoadingResult.swift */; };
 		D820B5A4237FFA6000C7B0D3 /* ReactiveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E88A72235F0D050027797A /* ReactiveFetcher.swift */; };
@@ -167,6 +168,7 @@
 		D1E3B8D323D1E4E300A94844 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		D811C14523D6EC4B005325BF /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
 		D811C14723D714EB005325BF /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		D811C14C23D736DB005325BF /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		D820B58C237FFA1E00C7B0D3 /* ReactiveAPIExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPIExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D820B58F237FFA1E00C7B0D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D820B594237FFA1E00C7B0D3 /* ReactiveAPIExtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPIExtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +331,7 @@
 				D1AF9B07237FF6C2000513F9 /* URLRequestTests.swift */,
 				D1996DE82369C69E00F25CA6 /* URLSessionRxTests.swift */,
 				D811C14523D6EC4B005325BF /* URLRequest+.swift */,
+				D811C14C23D736DB005325BF /* Date+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				D181276B22ABACBC001CA667 /* Resources.swift in Sources */,
 				D1996DEB2369DA7D00F25CA6 /* InterceptorMock.swift in Sources */,
 				D184127122ABA8C100609847 /* ReactiveAPIProtocolTests.swift in Sources */,
+				D811C14D23D736DB005325BF /* Date+.swift in Sources */,
 				D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */,
 				D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */,
 				D181276F22ABC712001CA667 /* AuthenticatorMock.swift in Sources */,

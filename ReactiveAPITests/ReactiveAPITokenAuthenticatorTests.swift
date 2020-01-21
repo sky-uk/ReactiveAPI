@@ -247,8 +247,23 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             let _ = try sut.authenticatedSingleAction().toBlocking().single()
 
             let parallelCall1 = sut.authenticatedParallelAction()
+                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .do(onSubscribed: {
+                    print("Parallel call 1 on \(Thread.current.description)")
+
+                })
             let parallelCall2 = sut.authenticatedParallelAction()
+                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .do(onSubscribed: {
+                    print("Parallel call 2 on \(Thread.current.description)")
+
+                })
             let parallelCall3 = sut.authenticatedParallelAction()
+                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .do(onSubscribed: {
+                    print("Parallel call 3 on \(Thread.current.description)")
+
+                })
 
             // When
             let events = try Single.zip(parallelCall1, parallelCall2, parallelCall3)

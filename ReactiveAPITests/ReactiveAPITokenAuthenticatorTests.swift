@@ -1,8 +1,17 @@
 import XCTest
 import RxSwift
+import OHHTTPStubs
 @testable import ReactiveAPI
 
 class ReactiveAPITokenAuthenticatorTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        OHHTTPStubs.removeAllStubs()
+        OHHTTPStubs.onStubActivation { (request, _, _) in
+            debugPrint("Stubbed: \(String(describing: request.url))")
+        }
+    }
+
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
                                                               renewToken: { Single.just("renewToken") })
@@ -172,6 +181,106 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
                     XCTFail("This should be a ReactiveAPIError.httpError")
             }
             default: XCTFail("This should throws an error!")
+        }
+    }
+
+    func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() {
+        // Given
+        let queueAscheduler = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queueA"))
+        let queueBscheduler = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queueB"))
+        let queueCscheduler = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queueC"))
+
+        var loginCounter = 0
+        var renewCounter = 0
+        var singleActionCounter = 0
+        var parallelActionCounter = 0
+        var callCounter = 0
+        var currentToken = ""
+
+        let tokenHeaderName = "tokenHeaderName"
+        let sut = MockAPI(session: URLSession.shared.rx, baseUrl: Resources.baseUrl)
+
+        sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName,
+                                                          getCurrentToken: { currentToken },
+                                                          renewToken: {
+                                                            sut.renewToken().map {
+                                                                currentToken = $0.name
+                                                                return $0.name
+                                                            }})
+        sut.requestInterceptors += [
+            TokenInterceptor(tokenValue: { currentToken }, headerName: tokenHeaderName)
+        ]
+
+        stub(condition: isHost(Resources.baseUrlHost)) { request -> OHHTTPStubsResponse in
+            callCounter += 1
+            print("\(callCounter) Request: \(request.url!.absoluteString)")
+
+            do {
+                if (request.urlHasSuffix(MockAPI.loginEndpoint)) {
+                    loginCounter += 1
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "oldToken", id: 1))
+                }
+
+                if (request.urlHasSuffix(MockAPI.renewEndpoint)) {
+                    renewCounter += 1
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "newToken", id: 2))
+                }
+
+                if (request.urlHasSuffix(MockAPI.authenticatedSingleActionEndpoint)) {
+                    singleActionCounter += 1
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "singleAction", id: 3))
+                }
+
+                if (request.urlHasSuffix(MockAPI.authenticatedParallelActionEndpoint)) {
+                    parallelActionCounter += 1
+                    if (request.value(forHTTPHeaderField: tokenHeaderName) == "oldToken") {
+                        return JSONHelper.unauthorized401()
+                    }
+                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "parallelAction", id: 4))
+                }
+            } catch {
+                XCTFail("\(error)")
+            }
+
+            return JSONHelper.stubError()
+        }
+
+        do {
+            let loginResponse = try sut.login().toBlocking().single()
+            currentToken = loginResponse.name
+            let _ = try sut.authenticatedSingleAction().toBlocking().single()
+
+            let parallelCall1 = sut.authenticatedParallelAction()
+                .do(onSubscribed: {
+                    print("\(Date().dateMillis) Parallel call 1 on \(Thread.current.description)")
+
+                }).subscribeOn(queueAscheduler)
+
+            let parallelCall2 = sut.authenticatedParallelAction()
+                .do(onSubscribed: {
+                    print("\(Date().dateMillis) Parallel call 2 on \(Thread.current.description)")
+
+                }).subscribeOn(queueBscheduler)
+
+            let parallelCall3 = sut.authenticatedParallelAction()
+                .do(onSubscribed: {
+                    print("\(Date().dateMillis) Parallel call 3 on \(Thread.current.description)")
+
+                }).subscribeOn(queueCscheduler)
+
+            // When
+            let events = try Single.zip(parallelCall1, parallelCall2, parallelCall3)
+                .toBlocking()
+                .single()
+
+            // Then
+            XCTAssertNotNil(events)
+            XCTAssertEqual(loginCounter, 1)
+            XCTAssertEqual(renewCounter, 1)
+            XCTAssertEqual(singleActionCounter, 1)
+            XCTAssertEqual(parallelActionCounter, 6)
+        } catch {
+            XCTFail("\(error)")
         }
     }
 }

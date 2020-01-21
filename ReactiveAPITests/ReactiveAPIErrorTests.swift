@@ -33,6 +33,6 @@ class ReactiveAPIErrorTests: XCTestCase {
         XCTAssertEqual(typeMismatchReason, "root: Value not found.")
 
         let dataCorruptedReason = ReactiveAPIError.decodingError(dataCorrupted, data: Resources.data).failureReason
-        XCTAssertEqual(dataCorruptedReason, dataCorrupted.failureReason)
+        XCTAssertEqual(dataCorruptedReason, "root: Value not found.")
     }
 }

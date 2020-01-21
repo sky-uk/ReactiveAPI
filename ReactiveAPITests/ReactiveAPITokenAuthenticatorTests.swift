@@ -186,12 +186,9 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
     func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() {
         // Given
-        let queueA = DispatchQueue.init(label: "queueA")
-        let queueAscheduler = ConcurrentDispatchQueueScheduler(queue: queueA)
-        let queueB = DispatchQueue.init(label: "queueB")
-        let queueBscheduler = ConcurrentDispatchQueueScheduler(queue: queueB)
-        let queueC = DispatchQueue.init(label: "queueC")
-        let queueCscheduler = ConcurrentDispatchQueueScheduler(queue: queueC)
+        let queueAscheduler = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queueA"))
+        let queueBscheduler = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queueB"))
+        let queueCscheduler = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queueC"))
 
         var loginCounter = 0
         var renewCounter = 0

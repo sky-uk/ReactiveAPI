@@ -8,6 +8,7 @@ public enum ReactiveAPITokenAuthenticatorState {
     case skippedHandlingBecauseOfWrongErrorCode(_ code: Int)
     case skippedHandlingBecauseOfBusinessLogic
     case waitingForTokenRenewWhichIsInProgress
+    case injectingExistingToken
     case finishedWaitingForTokenRenew
     case retryingRequestWithNewToken
     case startedTokenRefresh
@@ -57,7 +58,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         logger?.log(state: .invoked)
 
         guard response.statusCode == 401,
-            let _ = getCurrentToken() else {
+            let actualToken = getCurrentToken() else {
             response.statusCode == 401
                 ? logger?.log(state: .skippedHandlingBecauseOfMissingToken)
                 : logger?.log(state: .skippedHandlingBecauseOfWrongErrorCode(response.statusCode))
@@ -68,6 +69,13 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         if !shouldRenewToken(request, response, data) {
             logger?.log(state: .skippedHandlingBecauseOfBusinessLogic)
             return nil
+        }
+
+        let failedRequestToken = request.value(forHTTPHeaderField: tokenHeaderName)
+
+        if (failedRequestToken == nil || failedRequestToken != actualToken) {
+            logger?.log(state: .injectingExistingToken)
+            return requestWithNewToken(session: session, request: request, newToken: actualToken)
         }
 
         if (isRenewingToken) {

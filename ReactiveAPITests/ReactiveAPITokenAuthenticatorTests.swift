@@ -6,8 +6,8 @@ import OHHTTPStubs
 class ReactiveAPITokenAuthenticatorTests: XCTestCase {
     override func setUp() {
         super.setUp()
-        OHHTTPStubs.removeAllStubs()
-        OHHTTPStubs.onStubActivation { (request, _, _) in
+        HTTPStubs.removeAllStubs()
+        HTTPStubs.onStubActivation { (request, _, _) in
             debugPrint("Stubbed: \(String(describing: request.url))")
         }
     }
@@ -211,7 +211,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             TokenInterceptor(tokenValue: { currentToken }, headerName: tokenHeaderName)
         ]
 
-        stub(condition: isHost(Resources.baseUrlHost)) { request -> OHHTTPStubsResponse in
+        stub(condition: isHost(Resources.baseUrlHost)) { request -> HTTPStubsResponse in
             callCounter += 1
             print("\(callCounter) Request: \(request.url!.absoluteString)")
 

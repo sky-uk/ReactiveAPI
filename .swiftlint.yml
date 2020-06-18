@@ -5,9 +5,10 @@ disabled_rules:
   - todo
 
 included:
-  - My Sky App
-  - My Sky App SDK
-  - My Sky App UI
+  - ReactiveAPI
+  - ReactiveAPITests
+  - ReactiveAPIExt
+  - ReactiveAPIExtTests
 
 identifier_name:
   max_length:

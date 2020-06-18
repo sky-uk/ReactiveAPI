@@ -86,7 +86,7 @@ workflows:
   build-test:
     jobs:
       - prebase
-      - swiftlint
+#      - swiftlint
       - ut-test:
           requires:
             - prebase

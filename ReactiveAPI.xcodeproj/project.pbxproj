@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25A3A1B1238DC1CA009C70EA /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A3A1B0238DC1CA009C70EA /* FailableCodables.swift */; };
 		25A3A1B3238DC1F4009C70EA /* FailableCodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */; };
+		3378E97C249B62010060FE0C /* RefreshTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378E97B249B62010060FE0C /* RefreshTokenTests.swift */; };
 		D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16432F722873CB700C0F780 /* EncodableTests.swift */; };
 		D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; };
 		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
@@ -131,6 +132,7 @@
 		25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
 		25E88A72235F0D050027797A /* ReactiveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveFetcher.swift; sourceTree = "<group>"; };
 		25E88A74235F0ECD0027797A /* LoadingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
+		3378E97B249B62010060FE0C /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
 		D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16432F722873CB700C0F780 /* EncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableTests.swift; sourceTree = "<group>"; };
 		D16432F922873CB700C0F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				D1996DE72369AAFD00F25CA6 /* Extensions */,
 				D1A36F1622A2CE23001D9ED5 /* Mocks */,
 				D1CD8B6C22ABFAB200324223 /* Resources */,
+				3378E97B249B62010060FE0C /* RefreshTokenTests.swift */,
 			);
 			path = ReactiveAPITests;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1CD8B6E22AC064900324223 /* ReactiveAPIErrorTests.swift in Sources */,
+				3378E97C249B62010060FE0C /* RefreshTokenTests.swift in Sources */,
 				D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */,
 				D1CD8B6B22ABF99100324223 /* MaxAgeCacheTests.swift in Sources */,
 				D811C14623D6EC4C005325BF /* URLRequest+.swift in Sources */,

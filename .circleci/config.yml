@@ -1,0 +1,126 @@
+# Warning, do not change version.
+version: 2
+aliases:
+  - &boot_simulator
+      name: Boot Simulator
+      command: xcrun instruments -w "iPhone 11 (13.5) [" || true
+  - &restore_gem_cache
+      name: Restore Gemfile Cache
+      key: 1-gems-{{ checksum "Gemfile.lock" }}
+  - &bundle_install
+      name: Update Gemfile
+      command: bundle check || bundle install --path vendor/bundle
+  - &save_gem_cache
+      name: Save Gemfile Cache
+      key: 1-gems-{{ checksum "Gemfile.lock" }}
+      paths:
+        - vendor/bundle
+  - &restore_carthage_cache
+      name: Restore Cartfile Cache
+      key: 2-ca-{{ checksum "date" }}
+  - &carthage_bootstrap
+      name: Bootstrap iOS dependencies
+      command: carthage bootstrap --platform ios --cache-builds
+  - &save_carthage_cache
+      name: Save Cartfile Cache
+      key: 2-ca-{{ checksum "date" }}
+      paths:
+        - Carthage
+  - &ruby_fix
+      name: Set Ruby Version
+      command:  echo "ruby-2.6" > ~/.ruby-version
+  - &fastlane_test
+      path: fastlane/test_output
+  - &fastlane_artifacts
+      path: fastlane/test_output
+      destination: reports
+jobs:
+
+# Swift setup
+  prebase:
+    macos:
+      xcode: 11.5.0
+    shell: /bin/bash --login -eo pipefail
+    steps:
+      - checkout
+      - run: *ruby_fix
+      - restore_cache: *restore_gem_cache
+      - run: *bundle_install
+      - save_cache: *save_gem_cache
+      - run: date +%F > date
+      - restore_cache: *restore_carthage_cache
+      - run: *carthage_bootstrap
+      - save_cache: *save_carthage_cache
+      - persist_to_workspace:
+          root: ~/
+          paths: project
+
+# Swift lint
+  swiftlint:
+    docker:
+      - image: dantoml/swiftlint:latest
+    steps:
+      - checkout
+      - run:
+          name: Run Swiftlint
+          command: |
+            mkdir -p test_output/swiftlint
+            swiftlint lint --reporter junit | tee test_output/swiftlint/junit.xml
+      - store_test_results:
+          path: test_output
+
+# Run Unit Tests
+  ut-test:
+    macos:
+      xcode: 11.5.0
+    shell: /bin/bash --login -eo pipefail
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: *boot_simulator
+      - run: *ruby_fix
+      - run:
+          name: Run ReactiveAPI Unit Tests
+          command: bundle exec fastlane scan code_coverage
+          environment:
+            SCAN_OUTPUT_DIRECTORY: fastlane/test_output
+            SCAN_OUTPUT_TYPES: junit,html
+            SCAN_OUTPUT_FILES: junit.xml,junit.html
+            SCAN_DEVICE: iPhone 11
+            SCAN_SCHEME: My Sky App
+            SCAN_XCARGS: -testPlan MySkyAppUT
+      - store_test_results: *fastlane_test
+      - store_artifacts: *fastlane_artifacts
+
+# Build for UI Tests
+  build-for-ui-tests:
+    macos:
+     xcode: 11.5.0
+    shell: /bin/bash --login -eo pipefail
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: *ruby_fix
+      - run:
+          name: Build for ui tests
+          command: >
+            xcodebuild build-for-testing
+            -project ReactiveAPI.xcodeproj
+            -scheme ReactiveAPITests
+            -sdk iphonesimulator
+            -destination 'platform=iOS Simulator,name=iPhone 11'
+            | xcpretty
+      - persist_to_workspace:
+          root: ~/
+          paths: Library/Developer/Xcode/DerivedData
+
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - prebase
+      - ut-test:
+          requires:
+            - prebase
+
+

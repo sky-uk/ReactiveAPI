@@ -29,11 +29,6 @@ aliases:
   - &ruby_fix
       name: Set Ruby Version
       command:  echo "ruby-2.6" > ~/.ruby-version
-  - &fastlane_test
-      path: fastlane/test_output
-  - &fastlane_artifacts
-      path: fastlane/test_output
-      destination: reports
 jobs:
 
 # Swift setup

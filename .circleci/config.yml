@@ -81,16 +81,17 @@ jobs:
       - run: *ruby_fix
       - run:
           name: Run ReactiveAPI Unit Tests
-          command: xcodebuild test -scheme ReactiveAPITests  -destination 'platform=iOS Simulator,name=iPhone 11'
+          command: xcodebuild test -scheme ReactiveAPITests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
       - run:
           name: Run ReactiveAPI Ext Unit Tests
-          command: xcodebuild test -scheme ReactiveAPIExtTests  -destination 'platform=iOS Simulator,name=iPhone 11'
+          command: xcodebuild test -scheme ReactiveAPIExtTests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
 
 workflows:
   version: 2
   build-test:
     jobs:
       - prebase
+      - swiftlint
       - ut-test:
           requires:
             - prebase

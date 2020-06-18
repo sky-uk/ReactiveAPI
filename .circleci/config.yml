@@ -83,36 +83,24 @@ jobs:
           name: Run ReactiveAPI Unit Tests
           command: bundle exec fastlane scan code_coverage
           environment:
-            SCAN_OUTPUT_DIRECTORY: fastlane/test_output
+            SCAN_OUTPUT_DIRECTORY: fastlane/test_output/reactive_api
             SCAN_OUTPUT_TYPES: junit,html
             SCAN_OUTPUT_FILES: junit.xml,junit.html
             SCAN_DEVICE: iPhone 11
-            SCAN_SCHEME: My Sky App
-            SCAN_XCARGS: -testPlan MySkyAppUT
+            SCAN_SCHEME: ReactiveAPITests
       - store_test_results: *fastlane_test
       - store_artifacts: *fastlane_artifacts
-
-# Build for UI Tests
-  build-for-ui-tests:
-    macos:
-     xcode: 11.5.0
-    shell: /bin/bash --login -eo pipefail
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: *ruby_fix
       - run:
-          name: Build for ui tests
-          command: >
-            xcodebuild build-for-testing
-            -project ReactiveAPI.xcodeproj
-            -scheme ReactiveAPITests
-            -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,name=iPhone 11'
-            | xcpretty
-      - persist_to_workspace:
-          root: ~/
-          paths: Library/Developer/Xcode/DerivedData
+          name: Run ReactiveAPI Ext Unit Tests
+          command: bundle exec fastlane scan code_coverage
+          environment:
+            SCAN_OUTPUT_DIRECTORY: fastlane/test_output/reactive_api_ext
+            SCAN_OUTPUT_TYPES: html
+            SCAN_OUTPUT_FILES: junit.html
+            SCAN_DEVICE: iPhone 11
+            SCAN_SCHEME: ReactiveAPIExtTests
+      - store_test_results: *fastlane_test
+      - store_artifacts: *fastlane_artifacts
 
 workflows:
   version: 2

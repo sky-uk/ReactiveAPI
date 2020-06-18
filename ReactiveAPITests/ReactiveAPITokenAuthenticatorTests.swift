@@ -160,30 +160,6 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
-    func test_Authenticate_WhenRenewTokenFails_RetrunError() {
-        let session = URLSessionMock.create(Resources.json)
-        let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
-                                                          getCurrentToken: { "getCurrentToken" },
-                                                          renewToken: { Single.error(ReactiveAPIError.unknown) })
-
-        let response = authenticator.authenticate(session: session.rx,
-                                                  request: Resources.urlRequest,
-                                                  response: Resources.httpUrlResponse(code: 401)!,
-                                                  data: nil)?
-            .toBlocking()
-            .materialize()
-
-        switch response {
-            case .failed(elements: _, error: let error):
-                if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
-                    XCTAssertTrue(response.statusCode == 401)
-                } else {
-                    XCTFail("This should be a ReactiveAPIError.httpError")
-            }
-            default: XCTFail("This should throws an error!")
-        }
-    }
-
     func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() {
         // Given
         let queueAscheduler = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queueA"))

@@ -1,9 +1,9 @@
 import Foundation
 
 class URLSessionMock: URLSession {
-    var data: Data? = nil
-    var error: Error? = nil
-    var response: URLResponse? = nil
+    var data: Data?
+    var error: Error?
+    var response: URLResponse?
     private let configurationMock = URLSessionConfigurationMock()
 
     init(data: Data? = nil,

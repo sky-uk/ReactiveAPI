@@ -36,8 +36,7 @@ class LoadingResultTests: XCTestCase {
         XCTAssertNil(dataError.event.element)
         XCTAssertFalse(dataError.isCompleted)
         XCTAssert(error is ReactiveAPIError)
-        if case ReactiveAPIError.unknown = error { XCTAssert(true) }
-        else { XCTFail() }
+        if case ReactiveAPIError.unknown = error { XCTAssert(true) } else { XCTFail() }
     }
 
     func test_MonitorLoading_WhenCompleted_ReturnLoadingResult() throws {
@@ -104,7 +103,7 @@ class LoadingResultTests: XCTestCase {
         }
 
         results.enumerated()
-            .forEach { (index, result) in
+            .forEach { (_, result) in
                 XCTAssertNotNil(result.data!.event.element)
                 XCTAssert((result.data!.event.element! == "event"))
         }
@@ -120,7 +119,7 @@ class LoadingResultTests: XCTestCase {
             next,
             error,
             loadingTrue,
-            next,
+            next
         ]
         let results = try? Observable.from(events)
             .events

@@ -1,0 +1,56 @@
+disabled_rules:
+  - line_length
+  - function_body_length
+  - type_body_length
+  - todo
+
+included:
+  - ReactiveAPI
+  - ReactiveAPITests
+  - ReactiveAPIExt
+  - ReactiveAPIExtTests
+
+identifier_name:
+  max_length:
+    warning: 45
+  excluded:
+    - _id
+    - x
+    - y
+    - id
+    - tv
+    - TV
+    - pt # per tutti
+    - ba # bimbi accompagnati
+    - bb # broadband
+    - BB # BroadBand
+    - ID
+    - to
+    - on
+    - ok
+    - sc # selfcare
+    - sr # chatbot
+
+type_name:
+  max_length:
+    warning: 45
+  excluded:
+    - ID
+
+nesting:
+  type_level:
+    - 3
+
+file_length:
+  warning: 500
+  error: 800
+
+large_tuple:
+   - 3
+   - 4
+
+cyclomatic_complexity:
+  ignores_case_statements: true
+
+switch_case_alignment:
+  indented_cases: true

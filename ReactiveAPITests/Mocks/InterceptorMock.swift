@@ -9,7 +9,7 @@ struct InterceptorMock: ReactiveAPIRequestInterceptor {
     }
 }
 
-public class TokenInterceptor : ReactiveAPIRequestInterceptor {
+public class TokenInterceptor: ReactiveAPIRequestInterceptor {
 
     private let tokenValue: () -> String
     private let headerName: String

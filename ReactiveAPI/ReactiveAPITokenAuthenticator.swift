@@ -73,12 +73,12 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
         let failedRequestToken = request.value(forHTTPHeaderField: tokenHeaderName)
 
-        if (failedRequestToken == nil || failedRequestToken != actualToken) {
+        if failedRequestToken == nil || failedRequestToken != actualToken {
             logger?.log(state: .injectingExistingToken)
             return requestWithNewToken(session: session, request: request, newToken: actualToken)
         }
 
-        if (isRenewingToken) {
+        if isRenewingToken {
             logger?.log(state: .waitingForTokenRenewWhichIsInProgress)
 
             return currentToken

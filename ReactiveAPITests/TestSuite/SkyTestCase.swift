@@ -41,7 +41,6 @@ extension HttpResponse {
     }
 }
 
-
 extension HttpRequest {
 
     func header(name: String) -> String? {
@@ -54,4 +53,3 @@ extension HttpRequest {
             }?.1
     }
 }
-

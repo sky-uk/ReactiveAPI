@@ -39,7 +39,7 @@ class RefreshTokenTests: SkyTestCase {
                 return HttpResponse.unauthorized
             }
 
-            httpServer.route(ClientAPI.Endpoint.renew) { (request, callCount) -> (HttpResponse) in
+            httpServer.route(ClientAPI.Endpoint.renew) { (_, callCount) -> (HttpResponse) in
                 XCTAssertLessThanOrEqual(callCount, 1)
                 return HttpResponse.ok(Model.mock(name: token2).encoded())
             }
@@ -64,7 +64,7 @@ class RefreshTokenTests: SkyTestCase {
 
             try startServer()
             // When
-            let _ = try sut.login().toBlocking().single()
+            _ = try sut.login().toBlocking().single()
 
             let endpointCall1 = sut.endpoint1().subscribeOn(ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue1")))
             let endpointCall2 = sut.endpoint2().subscribeOn(ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue2")))
@@ -107,7 +107,6 @@ class ClientAPI: ReactiveAPI {
     }
 }
 
-
 // Struct
 struct Model: Codable {
     let name: String
@@ -129,4 +128,3 @@ extension Encodable {
         }
     }
 }
-

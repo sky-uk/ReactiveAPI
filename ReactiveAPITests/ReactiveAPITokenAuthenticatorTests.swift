@@ -139,7 +139,6 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
-
     func test_Authenticate_WhenRenewTokenSucceeded_AndRequest500_RetrunError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         let response = authenticator.authenticate(session: session.rx,
@@ -192,24 +191,24 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             print("\(callCounter) Request: \(request.url!.absoluteString)")
 
             do {
-                if (request.urlHasSuffix(MockAPI.loginEndpoint)) {
+                if request.urlHasSuffix(MockAPI.loginEndpoint) {
                     loginCounter += 1
                     return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "oldToken", id: 1))
                 }
 
-                if (request.urlHasSuffix(MockAPI.renewEndpoint)) {
+                if request.urlHasSuffix(MockAPI.renewEndpoint) {
                     renewCounter += 1
                     return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "newToken", id: 2))
                 }
 
-                if (request.urlHasSuffix(MockAPI.authenticatedSingleActionEndpoint)) {
+                if request.urlHasSuffix(MockAPI.authenticatedSingleActionEndpoint) {
                     singleActionCounter += 1
                     return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "singleAction", id: 3))
                 }
 
-                if (request.urlHasSuffix(MockAPI.authenticatedParallelActionEndpoint)) {
+                if request.urlHasSuffix(MockAPI.authenticatedParallelActionEndpoint) {
                     parallelActionCounter += 1
-                    if (request.value(forHTTPHeaderField: tokenHeaderName) == "oldToken") {
+                    if request.value(forHTTPHeaderField: tokenHeaderName) == "oldToken" {
                         return JSONHelper.unauthorized401()
                     }
                     return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "parallelAction", id: 4))
@@ -224,7 +223,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         do {
             let loginResponse = try sut.login().toBlocking().single()
             currentToken = loginResponse.name
-            let _ = try sut.authenticatedSingleAction().toBlocking().single()
+            _ = try sut.authenticatedSingleAction().toBlocking().single()
 
             let parallelCall1 = sut.authenticatedParallelAction()
                 .do(onSubscribed: {

@@ -81,26 +81,10 @@ jobs:
       - run: *ruby_fix
       - run:
           name: Run ReactiveAPI Unit Tests
-          command: bundle exec fastlane scan code_coverage
-          environment:
-            SCAN_OUTPUT_DIRECTORY: fastlane/test_output/reactive_api
-            SCAN_OUTPUT_TYPES: junit,html
-            SCAN_OUTPUT_FILES: junit.xml,junit.html
-            SCAN_DEVICE: iPhone 11
-            SCAN_SCHEME: ReactiveAPITests
-      - store_test_results: *fastlane_test
-      - store_artifacts: *fastlane_artifacts
+          command: xcodebuild test -scheme ReactiveAPITests  -destination 'platform=iOS Simulator,name=iPhone 11'
       - run:
           name: Run ReactiveAPI Ext Unit Tests
-          command: bundle exec fastlane scan code_coverage
-          environment:
-            SCAN_OUTPUT_DIRECTORY: fastlane/test_output/reactive_api_ext
-            SCAN_OUTPUT_TYPES: html
-            SCAN_OUTPUT_FILES: junit.html
-            SCAN_DEVICE: iPhone 11
-            SCAN_SCHEME: ReactiveAPIExtTests
-      - store_test_results: *fastlane_test
-      - store_artifacts: *fastlane_artifacts
+          command: xcodebuild test -scheme ReactiveAPIExtTests  -destination 'platform=iOS Simulator,name=iPhone 11'
 
 workflows:
   version: 2

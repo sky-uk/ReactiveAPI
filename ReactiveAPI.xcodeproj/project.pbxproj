@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		25A3A1B1238DC1CA009C70EA /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A3A1B0238DC1CA009C70EA /* FailableCodables.swift */; };
 		25A3A1B3238DC1F4009C70EA /* FailableCodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */; };
-		3378E97C249B62010060FE0C /* RefreshTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378E97B249B62010060FE0C /* RefreshTokenTests.swift */; };
+		3378E97E249B6A0A0060FE0C /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3378E97D249B6A0A0060FE0C /* Swifter.framework */; };
+		3378E981249B6AE10060FE0C /* SkyTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378E980249B6AE10060FE0C /* SkyTestCase.swift */; };
+		3378E982249B6B020060FE0C /* Swifter.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = 3378E97D249B6A0A0060FE0C /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3378E984249B6B5D0060FE0C /* RefreshTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378E983249B6B5D0060FE0C /* RefreshTokenTests.swift */; };
 		D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16432F722873CB700C0F780 /* EncodableTests.swift */; };
 		D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; };
 		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
@@ -100,6 +103,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3378E982249B6B020060FE0C /* Swifter.framework in Copy Files Carthage */,
 				D811C14A23D7152A005325BF /* RxTest.framework in Copy Files Carthage */,
 				D1E3B8D523D1E4EF00A94844 /* OHHTTPStubs.framework in Copy Files Carthage */,
 				D184126F22ABA72B00609847 /* RxRelay.framework in Copy Files Carthage */,
@@ -132,7 +136,9 @@
 		25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
 		25E88A72235F0D050027797A /* ReactiveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveFetcher.swift; sourceTree = "<group>"; };
 		25E88A74235F0ECD0027797A /* LoadingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
-		3378E97B249B62010060FE0C /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
+		3378E97D249B6A0A0060FE0C /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/iOS/Swifter.framework; sourceTree = "<group>"; };
+		3378E980249B6AE10060FE0C /* SkyTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTestCase.swift; sourceTree = "<group>"; };
+		3378E983249B6B5D0060FE0C /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
 		D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16432F722873CB700C0F780 /* EncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableTests.swift; sourceTree = "<group>"; };
 		D16432F922873CB700C0F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D811C14823D714EB005325BF /* RxTest.framework in Frameworks */,
+				3378E97E249B6A0A0060FE0C /* Swifter.framework in Frameworks */,
 				D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */,
 				D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */,
 				D1942861228EC5310071D00C /* RxCocoa.framework in Frameworks */,
@@ -240,6 +247,14 @@
 			path = Fetcher;
 			sourceTree = "<group>";
 		};
+		3378E97F249B6AC50060FE0C /* TestSuite */ = {
+			isa = PBXGroup;
+			children = (
+				3378E980249B6AE10060FE0C /* SkyTestCase.swift */,
+			);
+			path = TestSuite;
+			sourceTree = "<group>";
+		};
 		D16432F622873CB700C0F780 /* ReactiveAPITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,10 +264,11 @@
 				D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */,
 				D184127022ABA8C100609847 /* ReactiveAPIProtocolTests.swift */,
 				D1996DEC2369E74200F25CA6 /* ReactiveAPITokenAuthenticatorTests.swift */,
+				3378E983249B6B5D0060FE0C /* RefreshTokenTests.swift */,
+				3378E97F249B6AC50060FE0C /* TestSuite */,
 				D1996DE72369AAFD00F25CA6 /* Extensions */,
 				D1A36F1622A2CE23001D9ED5 /* Mocks */,
 				D1CD8B6C22ABFAB200324223 /* Resources */,
-				3378E97B249B62010060FE0C /* RefreshTokenTests.swift */,
 			);
 			path = ReactiveAPITests;
 			sourceTree = "<group>";
@@ -301,6 +317,7 @@
 		D195F1D322086D9600530339 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3378E97D249B6A0A0060FE0C /* Swifter.framework */,
 				D811C14723D714EB005325BF /* RxTest.framework */,
 				D1E3B8D323D1E4E300A94844 /* OHHTTPStubs.framework */,
 				D184126A22ABA67500609847 /* RxBlocking.framework */,
@@ -563,7 +580,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1CD8B6E22AC064900324223 /* ReactiveAPIErrorTests.swift in Sources */,
-				3378E97C249B62010060FE0C /* RefreshTokenTests.swift in Sources */,
 				D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */,
 				D1CD8B6B22ABF99100324223 /* MaxAgeCacheTests.swift in Sources */,
 				D811C14623D6EC4C005325BF /* URLRequest+.swift in Sources */,
@@ -571,10 +587,12 @@
 				D1996DE92369C69E00F25CA6 /* URLSessionRxTests.swift in Sources */,
 				D1AF9B0A237FF6C2000513F9 /* URLComponentsTests.swift in Sources */,
 				D181276922ABAC25001CA667 /* ModelMock.swift in Sources */,
+				3378E981249B6AE10060FE0C /* SkyTestCase.swift in Sources */,
 				D1996DED2369E74200F25CA6 /* ReactiveAPITokenAuthenticatorTests.swift in Sources */,
 				D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */,
 				D181276B22ABACBC001CA667 /* Resources.swift in Sources */,
 				D1996DEB2369DA7D00F25CA6 /* InterceptorMock.swift in Sources */,
+				3378E984249B6B5D0060FE0C /* RefreshTokenTests.swift in Sources */,
 				D184127122ABA8C100609847 /* ReactiveAPIProtocolTests.swift in Sources */,
 				D811C14D23D736DB005325BF /* Date+.swift in Sources */,
 				D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */,

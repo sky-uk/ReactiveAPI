@@ -3,6 +3,7 @@
 VERSION=$(cat ReactiveAPI.xcodeproj/project.pbxproj | grep MARKETING_VERSION | head -n 1 | awk '{print $3}' | tr ';' '\n' | head -n 1)
 echo "Creating version: $VERSION"
 git clean -fxd
-carthage bootstrap --platform iOS
-carthage build --archive
+curl https://gist.githubusercontent.com/skymobilebuilds/61f4a95bd62a3db36b52719aeab7e0d5/raw/4ba422e5f3a5e7e37cdcb1e232058c5431fc59fc/carthage-xc12.sh -o wcarthage && chmod +x wcarthage
+./wcarthage bootstrap --platform iOS --cache-builds
+./wcarthage build --archive --platform iOS --cache-builds
 hub release create -a ReactiveAPI.framework.zip -m "$VERSION" "$VERSION"

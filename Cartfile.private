@@ -1,2 +1,2 @@
 github "AliSoftware/OHHTTPStubs"
-github "httpswift/swifter"
+github "httpswift/swifter" "xcode12-swift5"

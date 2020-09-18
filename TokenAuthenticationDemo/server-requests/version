@@ -1,6 +1,0 @@
-#!/bin/bash
-. config
-
-TOKEN=$(currentShortLivedToken)
-echo "token: $TOKEN"
-curl -H "token: $TOKEN" -D - "$BASEURL/version"

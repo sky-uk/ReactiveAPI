@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "OHHTTPStubs",
+        "repositoryURL": "https://github.com/AliSoftware/OHHTTPStubs",
+        "state": {
+          "branch": null,
+          "revision": "e92b5a5746ef16add2a1424f1fc19529d9a75cde",
+          "version": "9.0.0"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
+        "state": {
+          "branch": null,
+          "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "package": "Swifter",
+        "repositoryURL": "https://github.com/httpswift/swifter",
+        "state": {
+          "branch": null,
+          "revision": "3a03ccab4e4a0cee17198a84f55348b5dcacc6bf",
+          "version": "1.5.0-rc.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

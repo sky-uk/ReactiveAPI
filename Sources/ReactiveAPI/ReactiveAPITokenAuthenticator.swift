@@ -43,8 +43,8 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     }
 
     func requestWithNewToken(session: Reactive<URLSession>,
-                                      request: URLRequest,
-                                      newToken: String) -> Single<Data> {
+                             request: URLRequest,
+                             newToken: String) -> Single<Data> {
         logger?.log(state: .retryingRequestWithNewToken)
 
         var newRequest = request
@@ -58,7 +58,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         logger?.log(state: .invoked)
 
         guard response.statusCode == 401,
-            let actualToken = getCurrentToken() else {
+              let actualToken = getCurrentToken() else {
             response.statusCode == 401
                 ? logger?.log(state: .skippedHandlingBecauseOfMissingToken)
                 : logger?.log(state: .skippedHandlingBecauseOfWrongErrorCode(response.statusCode))
@@ -89,7 +89,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
                 .flatMap { token in
                     self.logger?.log(state: .finishedWaitingForTokenRenew)
                     return self.requestWithNewToken(session: session, request: request, newToken: token)
-            }
+                }
         }
 
         logger?.log(state: .startedTokenRefresh)
@@ -102,11 +102,11 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
                 self.setNewToken(token: nil, isRenewing: false)
                 let httpError = ReactiveAPIError.httpError(request: request, response: response, data: data ?? Data())
                 return Single.error(httpError)
-        }.flatMap { newToken in
-            self.setNewToken(token: newToken, isRenewing: false)
-            self.logger?.log(state: .tokenRenewSucceeded)
-            return self.requestWithNewToken(session: session, request: request, newToken: newToken)
-        }
+            }.flatMap { newToken in
+                self.setNewToken(token: newToken, isRenewing: false)
+                self.logger?.log(state: .tokenRenewSucceeded)
+                return self.requestWithNewToken(session: session, request: request, newToken: newToken)
+            }
     }
 
     func setNewToken(token: String?, isRenewing: Bool) {

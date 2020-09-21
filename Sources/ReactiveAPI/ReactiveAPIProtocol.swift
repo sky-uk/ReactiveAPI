@@ -30,10 +30,10 @@ extension ReactiveAPIProtocol {
         return session.fetch(request, interceptors: requestInterceptors)
             .flatMap { request, response, data -> Observable<Data>  in
                 if let cache = self.cache,
-                    let urlCache = self.session.base.configuration.urlCache,
-                    let cachedResponse = cache.cache(response,
-                                                     request: request,
-                                                     data: data) {
+                   let urlCache = self.session.base.configuration.urlCache,
+                   let cachedResponse = cache.cache(response,
+                                                    request: request,
+                                                    data: data) {
                     urlCache.storeCachedResponse(cachedResponse,
                                                  for: request)
                 }
@@ -49,10 +49,10 @@ extension ReactiveAPIProtocol {
                                                                   request: request,
                                                                   response: response,
                                                                   data: data)
-                    else { throw error }
+                else { throw error }
 
                 return retryRequest
-        }
+            }
     }
 
     func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {
@@ -62,7 +62,7 @@ extension ReactiveAPIProtocol {
                 return Single.just(decoded)
             } catch {
                 guard let underlyingError = error as? DecodingError
-                    else { return Single.error(error) }
+                else { return Single.error(error) }
 
                 let decodingError = ReactiveAPIError.decodingError(underlyingError, data: data)
                 return Single.error(decodingError)
@@ -78,10 +78,10 @@ extension ReactiveAPIProtocol {
 public extension ReactiveAPIProtocol {
     // body params as dictionary and generic response type
     func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                      url: URL,
-                                      headers: [String: Any?]? = nil,
-                                      queryParams: [String: Any?]? = nil,
-                                      bodyParams: [String: Any?]? = nil) -> Single<D> {
+                               url: URL,
+                               headers: [String: Any?]? = nil,
+                               queryParams: [String: Any?]? = nil,
+                               bodyParams: [String: Any?]? = nil) -> Single<D> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -97,10 +97,10 @@ public extension ReactiveAPIProtocol {
 
     // body params as encodable and generic response type
     func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                                    url: URL,
-                                                    headers: [String: Any?]? = nil,
-                                                    queryParams: [String: Any?]? = nil,
-                                                    body: E? = nil) -> Single<D> {
+                                             url: URL,
+                                             headers: [String: Any?]? = nil,
+                                             queryParams: [String: Any?]? = nil,
+                                             body: E? = nil) -> Single<D> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -117,10 +117,10 @@ public extension ReactiveAPIProtocol {
 
     // body params as dictionary and void response type
     func request(_ method: ReactiveAPIHTTPMethod = .get,
-                        url: URL,
-                        headers: [String: Any?]? = nil,
-                        queryParams: [String: Any?]? = nil,
-                        bodyParams: [String: Any?]? = nil) -> Single<Void> {
+                 url: URL,
+                 headers: [String: Any?]? = nil,
+                 queryParams: [String: Any?]? = nil,
+                 bodyParams: [String: Any?]? = nil) -> Single<Void> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,
@@ -136,10 +136,10 @@ public extension ReactiveAPIProtocol {
 
     // body params as encodable and void response type
     func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                                      url: URL,
-                                      headers: [String: Any?]? = nil,
-                                      queryParams: [String: Any?]? = nil,
-                                      body: E? = nil) -> Single<Void> {
+                               url: URL,
+                               headers: [String: Any?]? = nil,
+                               queryParams: [String: Any?]? = nil,
+                               body: E? = nil) -> Single<Void> {
         do {
             let request = try URLRequest.createForJSON(with: url,
                                                        method: method,

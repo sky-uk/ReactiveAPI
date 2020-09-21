@@ -1,3 +1,8 @@
 included:
   - Sources
-  - Tests
+
+disabled_rules:
+  - line_length
+
+large_tuple:
+  - 3

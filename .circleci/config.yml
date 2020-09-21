@@ -6,7 +6,7 @@ aliases:
   - &xcode_version
       xcode: 12.0.0
 jobs:
-  prebase:
+  build-and-test:
     macos: *xcode_version
     shell: /bin/bash --login -eo pipefail
     steps:
@@ -18,3 +18,9 @@ jobs:
       - run:
           name: Run ReactiveAPI Ext Unit Tests
           command: xcodebuild test -scheme ReactiveAPIExtTests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
+
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - build-and-test

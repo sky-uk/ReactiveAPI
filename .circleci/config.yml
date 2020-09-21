@@ -20,7 +20,12 @@ aliases:
         - SourcePackages
   - &unittest
       name: Run ReactiveAPI Unit Tests
-      command: xcodebuild test -scheme ReactiveAPI-Package -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
+      command: >
+        xcodebuild test 
+        -scheme ReactiveAPI-Package 
+        -destination 'platform=iOS Simulator,name=iPhone 11' 
+        -clonedSourcePackagesDirPath SourcePackages
+        | xcpretty
 jobs:
   build-and-test:
     macos: *xcode_version

@@ -1,13 +1,16 @@
 import XCTest
 import RxSwift
 import RxBlocking
-import ReactiveAPI
 @testable import ReactiveAPIExt
+
+private enum LoadingResultTestsError: Error {
+    case unknown
+}
 
 class LoadingResultTests: XCTestCase {
     private let next = LoadingResult<String>(Event.next("data"))
     private let completed = LoadingResult<String>(Event<String>.completed)
-    private let error = LoadingResult<String>(Event<String>.error(ReactiveAPIError.unknown))
+    private let error = LoadingResult<String>(Event<String>.error(LoadingResultTestsError.unknown))
     private let loadingFalse = LoadingResult<String>(false)
     private let loadingTrue = LoadingResult<String>(true)
 
@@ -35,8 +38,8 @@ class LoadingResultTests: XCTestCase {
         let error = try XCTUnwrap(dataError.error)
         XCTAssertNil(dataError.event.element)
         XCTAssertFalse(dataError.isCompleted)
-        XCTAssert(error is ReactiveAPIError)
-        if case ReactiveAPIError.unknown = error { XCTAssert(true) } else { XCTFail() }
+        XCTAssert(error is LoadingResultTestsError)
+        if case LoadingResultTestsError.unknown = error { XCTAssert(true) } else { XCTFail() }
     }
 
     func test_MonitorLoading_WhenCompleted_ReturnLoadingResult() throws {
@@ -75,7 +78,7 @@ class LoadingResultTests: XCTestCase {
     func test_MonitorLoading_WhenError_ReturnLoadingResult() throws {
         let observable = Observable<String>.create { observer in
             observer.onNext("event")
-            observer.onError(ReactiveAPIError.unknown)
+            observer.onError(LoadingResultTestsError.unknown)
             return Disposables.create()
         }
 
@@ -96,7 +99,7 @@ class LoadingResultTests: XCTestCase {
         XCTAssertNil(last.data!.event.element)
         XCTAssertFalse(last.data!.isCompleted)
         if let error = last.data?.error,
-            case ReactiveAPIError.unknown = error {
+            case LoadingResultTestsError.unknown = error {
             XCTAssert(true)
         } else {
             XCTFail()

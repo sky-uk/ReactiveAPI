@@ -4,7 +4,7 @@ class URLSessionMock: URLSession {
     var data: Data?
     var error: Error?
     var response: URLResponse?
-    private let configurationMock = URLSessionConfigurationMock()
+    private let configurationMock = URLSessionConfigurationMock.default
 
     init(data: Data? = nil,
          error: Error? = nil,

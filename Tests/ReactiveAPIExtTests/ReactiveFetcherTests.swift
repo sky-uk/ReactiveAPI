@@ -1,5 +1,4 @@
 import XCTest
-import ReactiveAPI
 import RxSwift
 @testable import ReactiveAPIExt
 

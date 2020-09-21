@@ -1,6 +1,7 @@
 import XCTest
 import RxSwift
 import OHHTTPStubs
+import OHHTTPStubsSwift
 @testable import ReactiveAPI
 
 class ReactiveAPITokenAuthenticatorTests: XCTestCase {
@@ -258,14 +259,4 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             XCTFail("\(error)")
         }
     }
-}
-
-@discardableResult
-private func stub(condition: @escaping HTTPStubsTestBlock, response: @escaping HTTPStubsResponseBlock) -> HTTPStubsDescriptor {
-    return HTTPStubs.stubRequests(passingTest: condition, withStubResponse: response)
-}
-
-private func isHost(_ host: String) -> HTTPStubsTestBlock {
-    precondition(!host.contains("/"), "The host part of an URL never contains any slash. Only use strings like 'api.example.com' for this value, and not things like 'https://api.example.com/'")
-    return { req in req.url?.host == host }
 }

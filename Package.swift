@@ -7,6 +7,13 @@ let package = Package(
     name: "ReactiveAPI",
     platforms: [
         .iOS(.v12),
+        .macOS(.v10_15),
+        .tvOS(.v12),
+        .watchOS(.v5),
+    ],
+    products: [
+        .library(name: "ReactiveAPI", targets: ["ReactiveAPI"]),
+        .library(name: "ReactiveAPIExt", targets: ["ReactiveAPIExt"]),
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift", from: "5.1.1"),
@@ -27,8 +34,9 @@ let package = Package(
             name: "ReactiveAPITests",
             dependencies: [
                 "ReactiveAPI",
-                "OHHTTPStubs",
                 "Swifter",
+                "OHHTTPStubs",
+                .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs"),
                 .product(name: "RxBlocking", package: "RxSwift"),
             ]),
         .testTarget(

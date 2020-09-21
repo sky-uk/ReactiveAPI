@@ -21,7 +21,10 @@ aliases:
         xcodebuild test
         -scheme ReactiveAPI-Package
         -clonedSourcePackagesDirPath SourcePackages
-        -destination 'platform=iOS Simulator,name=iPhone 11' 
+        -destination 'platform=iOS Simulator,name=iPhone 11'
+  - &swiftlint
+      name: Run Swiftlint
+      command: swiftlint lint
 jobs:
   build-and-test:
     macos: *xcode_version
@@ -32,9 +35,16 @@ jobs:
       - restore_cache: *restore_spm_cache
       - run: *unittest
       - save_cache: *save_spm_cache
+  swiftlint:
+    docker:
+      - image: dantoml/swiftlint:latest
+    steps:
+      - checkout
+      - run: *swiftlint
 
 workflows:
   version: 2
   build-test:
     jobs:
       - build-and-test
+      - swiftlint

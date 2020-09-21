@@ -21,10 +21,7 @@ jobs:
       - run: *ssh_fix
       - run:
           name: Run ReactiveAPI Unit Tests
-          command: xcodebuild test -scheme ReactiveAPITests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
-      - run:
-          name: Run ReactiveAPI Ext Unit Tests
-          command: xcodebuild test -scheme ReactiveAPIExtTests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
+          command: xcodebuild test -scheme ReactiveAPI-Package -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
 
 workflows:
   version: 2

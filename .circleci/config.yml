@@ -3,6 +3,11 @@ aliases:
   - &boot_simulator
       name: Boot Simulator
       command: xcrun instruments -w "iPhone 11 (14.0) [" || true
+  - &ssh_fix
+      name: SSH FIX -> https://support.circleci.com/hc/en-us/articles/360044709573-Swift-Package-Manager-fails-to-clone-from-private-Git-repositories
+      command: |
+        rm ~/.ssh/id_rsa
+        for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts || true
   - &xcode_version
       xcode: 12.0.0
 jobs:
@@ -11,14 +16,15 @@ jobs:
     shell: /bin/bash --login -eo pipefail
     steps:
       - checkout
-      - run: swift test
-      #- run: *boot_simulator
-      #- run:
-      #    name: Run ReactiveAPI Unit Tests
-      #    command: xcodebuild test -scheme ReactiveAPITests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
-      #- run:
-      #    name: Run ReactiveAPI Ext Unit Tests
-      #    command: xcodebuild test -scheme ReactiveAPIExtTests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
+      #- run: swift test
+      - run: *boot_simulator
+      - run: *ssh_fix
+      - run:
+          name: Run ReactiveAPI Unit Tests
+          command: xcodebuild test -scheme ReactiveAPITests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
+      - run:
+          name: Run ReactiveAPI Ext Unit Tests
+          command: xcodebuild test -scheme ReactiveAPIExtTests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
 
 workflows:
   version: 2

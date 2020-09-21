@@ -11,7 +11,7 @@ jobs:
     shell: /bin/bash --login -eo pipefail
     steps:
       - checkout
-      - run: boot_simulator
+      - run: *boot_simulator
       - run:
           name: Run ReactiveAPI Unit Tests
           command: xcodebuild test -scheme ReactiveAPITests  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty

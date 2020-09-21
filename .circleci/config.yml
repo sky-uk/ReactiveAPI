@@ -22,6 +22,7 @@ aliases:
         -scheme ReactiveAPI-Package
         -clonedSourcePackagesDirPath SourcePackages
         -destination 'platform=iOS Simulator,name=iPhone 11'
+        | xcpretty
   - &swiftlint
       name: Run Swiftlint
       command: swiftlint lint

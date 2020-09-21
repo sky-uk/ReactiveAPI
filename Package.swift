@@ -42,7 +42,6 @@ let package = Package(
         .testTarget(
             name: "ReactiveAPIExtTests",
             dependencies: [
-                "ReactiveAPI",
                 "ReactiveAPIExt",
                 .product(name: "RxBlocking", package: "RxSwift"),
             ]),

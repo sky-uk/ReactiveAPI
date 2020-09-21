@@ -68,3 +68,4 @@ fastlane/test_output
 
 test/
 .swiftpm/
+SourcePackages/

@@ -18,7 +18,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift", from: "5.1.1"),
         .package(url: "https://github.com/AliSoftware/OHHTTPStubs", from: "9.0.0"),
-        .package(name: "Swifter", url: "https://github.com/httpswift/swifter", from: "1.5.0-rc.1"),
+        .package(name: "Swifter", url: "https://github.com/httpswift/swifter", from: "1.5.0"),
     ],
     targets: [
         .target(

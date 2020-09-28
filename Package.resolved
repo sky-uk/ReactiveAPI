@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/httpswift/swifter",
         "state": {
           "branch": null,
-          "revision": "3a03ccab4e4a0cee17198a84f55348b5dcacc6bf",
-          "version": "1.5.0-rc.1"
+          "revision": "9483a5d459b45c3ffd059f7b55f9638e268632fd",
+          "version": "1.5.0"
         }
       }
     ]

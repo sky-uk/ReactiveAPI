@@ -1,5 +1,5 @@
 ## ReactiveAPI Demo
-To see ReactiveAPI in action we created a complete [swapi.co](https://swapi.co/) client.
+To see ReactiveAPI in action we created a complete http client.
 
 Clone this repository, open `ReactiveAPIDemo` directory from your terminal and run:
 

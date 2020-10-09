@@ -5,7 +5,7 @@ import ReactiveAPI
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    private static let baseURL = URL(string: "https://swapi.co/api/")!
+    private static let baseURL = URL(string: "https://gotev.github.io/swapi-android")!
 
     var window: UIWindow?
     var navigationController: UINavigationController?

@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18CF08F3B98466DC23314F74 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839157C258FE3573E04FE73D /* UIStackView+.swift */; };
+		1AEE66C7AE65497A5CA26F90 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC87F61353B180068D68EB /* AuthClient.swift */; };
+		24B8577CE9CA563E8DB73483 /* ReactiveAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 63B3D6EEC1FC0DA0F078F24F /* ReactiveAPI */; };
+		452EA07F8B5CE682E1CA9A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024A31904F192570DD540B18 /* AppDelegate.swift */; };
+		7A569C343865AF9D36C8C5E1 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9EA24CD77975C12D24746E /* Version.swift */; };
+		8100EFC8A7F9C42F9313DFE7 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C000AD92417251069DA47870 /* AuthAPI.swift */; };
+		9328FCC5538718E7EBCC3233 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38E0AC9A95DA4C6031AC32 /* TokenStorage.swift */; };
+		9703255CA73E6D1A7BBED409 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587A5C1E5579D5BAE219C59E /* Services.swift */; };
+		A4D0B3687106E746FCFEE0B4 /* BackendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D94D5440BA00600B66D0808 /* BackendAPI.swift */; };
+		C66E18122E4BE1971EA0E34C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFEDB399CE974FEF826DEC /* ViewController.swift */; };
+		CA903F5C9CA0BBDBAF5C1551 /* TokenPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE5FC426C69DDECF02EFFC /* TokenPair.swift */; };
+		EC0D7710A6DEEC3C9A85A10B /* AuthClientInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3FBA6139C4166BA64D1D85 /* AuthClientInterceptor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		024A31904F192570DD540B18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		069629ACA410E3C1156A027E /* TokenAuthenticationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokenAuthenticationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21AFEDB399CE974FEF826DEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		48DE5FC426C69DDECF02EFFC /* TokenPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenPair.swift; sourceTree = "<group>"; };
+		4D94D5440BA00600B66D0808 /* BackendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendAPI.swift; sourceTree = "<group>"; };
+		587A5C1E5579D5BAE219C59E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		5B3FBA6139C4166BA64D1D85 /* AuthClientInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClientInterceptor.swift; sourceTree = "<group>"; };
+		81CC87F61353B180068D68EB /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
+		839157C258FE3573E04FE73D /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		8D9EA24CD77975C12D24746E /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		C000AD92417251069DA47870 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		DE38E0AC9A95DA4C6031AC32 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		E9242E9D340644D9BA5946D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52A50BF7EFA9DAC9E612B167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24B8577CE9CA563E8DB73483 /* ReactiveAPI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		038C505B175B377127912768 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				81CC87F61353B180068D68EB /* AuthClient.swift */,
+				5B3FBA6139C4166BA64D1D85 /* AuthClientInterceptor.swift */,
+				DE38E0AC9A95DA4C6031AC32 /* TokenStorage.swift */,
+				6AC65EB75DD1AFD780D93547 /* APIs */,
+				D5D373AFC838986863D2A334 /* Models */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		07207F1D9D1439457C2D957A /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				4D94D5440BA00600B66D0808 /* BackendAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		6AC65EB75DD1AFD780D93547 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				C000AD92417251069DA47870 /* AuthAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		7D195F37AC972E9C17872268 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				587A5C1E5579D5BAE219C59E /* Services.swift */,
+				038C505B175B377127912768 /* Auth */,
+				B4FBE1E646F3178F3458CD76 /* Backend */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AD960A617C4DCD679F64299D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D9EA24CD77975C12D24746E /* Version.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B4FBE1E646F3178F3458CD76 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				07207F1D9D1439457C2D957A /* APIs */,
+				AD960A617C4DCD679F64299D /* Models */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		D5D373AFC838986863D2A334 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				48DE5FC426C69DDECF02EFFC /* TokenPair.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4D69EB50FDED0C8AB20D5BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				069629ACA410E3C1156A027E /* TokenAuthenticationDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E70E4527092581090C96EC80 = {
+			isa = PBXGroup;
+			children = (
+				FD06A2F9BABA91C330CA1B2C /* Sources */,
+				E4D69EB50FDED0C8AB20D5BC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD06A2F9BABA91C330CA1B2C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				024A31904F192570DD540B18 /* AppDelegate.swift */,
+				E9242E9D340644D9BA5946D9 /* Info.plist */,
+				839157C258FE3573E04FE73D /* UIStackView+.swift */,
+				21AFEDB399CE974FEF826DEC /* ViewController.swift */,
+				7D195F37AC972E9C17872268 /* Network */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		06308AC74B25648AE5C376AF /* TokenAuthenticationDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A234A402631724BA7ABF15E /* Build configuration list for PBXNativeTarget "TokenAuthenticationDemo" */;
+			buildPhases = (
+				7E8A8262F8D20BFD9780C639 /* Sources */,
+				52A50BF7EFA9DAC9E612B167 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TokenAuthenticationDemo;
+			packageProductDependencies = (
+				63B3D6EEC1FC0DA0F078F24F /* ReactiveAPI */,
+			);
+			productName = TokenAuthenticationDemo;
+			productReference = 069629ACA410E3C1156A027E /* TokenAuthenticationDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C3B26546EC6F9669218F866 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+			};
+			buildConfigurationList = 5526AD31E0E2316F4E725214 /* Build configuration list for PBXProject "TokenAuthenticationDemo" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E70E4527092581090C96EC80;
+			packageReferences = (
+				B809229C0CCBA920E8F7CAE2 /* XCRemoteSwiftPackageReference "ReactiveAPI" */,
+			);
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06308AC74B25648AE5C376AF /* TokenAuthenticationDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E8A8262F8D20BFD9780C639 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				452EA07F8B5CE682E1CA9A31 /* AppDelegate.swift in Sources */,
+				8100EFC8A7F9C42F9313DFE7 /* AuthAPI.swift in Sources */,
+				1AEE66C7AE65497A5CA26F90 /* AuthClient.swift in Sources */,
+				EC0D7710A6DEEC3C9A85A10B /* AuthClientInterceptor.swift in Sources */,
+				A4D0B3687106E746FCFEE0B4 /* BackendAPI.swift in Sources */,
+				9703255CA73E6D1A7BBED409 /* Services.swift in Sources */,
+				CA903F5C9CA0BBDBAF5C1551 /* TokenPair.swift in Sources */,
+				9328FCC5538718E7EBCC3233 /* TokenStorage.swift in Sources */,
+				18CF08F3B98466DC23314F74 /* UIStackView+.swift in Sources */,
+				7A569C343865AF9D36C8C5E1 /* Version.swift in Sources */,
+				C66E18122E4BE1971EA0E34C /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0495C3A45AA35ED77F07F7A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AB0713016FDAE139F707FA2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 64346Y5J98;
+				INFOPLIST_FILE = Sources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.sky.TokenAuthenticationDemo;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E8896F26958B57A6B930792F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 64346Y5J98;
+				INFOPLIST_FILE = Sources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.sky.TokenAuthenticationDemo;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF134107B42A2765F6CC602C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A234A402631724BA7ABF15E /* Build configuration list for PBXNativeTarget "TokenAuthenticationDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8896F26958B57A6B930792F /* Debug */,
+				AB0713016FDAE139F707FA2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5526AD31E0E2316F4E725214 /* Build configuration list for PBXProject "TokenAuthenticationDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0495C3A45AA35ED77F07F7A9 /* Debug */,
+				FF134107B42A2765F6CC602C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B809229C0CCBA920E8F7CAE2 /* XCRemoteSwiftPackageReference "ReactiveAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sky-uk/ReactiveAPI.git";
+			requirement = {
+				branch = spm;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63B3D6EEC1FC0DA0F078F24F /* ReactiveAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B809229C0CCBA920E8F7CAE2 /* XCRemoteSwiftPackageReference "ReactiveAPI" */;
+			productName = ReactiveAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1C3B26546EC6F9669218F866 /* Project object */;
+}

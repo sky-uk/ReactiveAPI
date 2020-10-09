@@ -1,0 +1,19 @@
+name: ReactiveAPIDemo
+packages:
+  ReactiveAPI:
+    url: https://github.com/sky-uk/ReactiveAPI.git
+    branch: spm
+targets:
+  ReactiveAPIDemo:
+    type: application
+    platform: iOS
+    deploymentTarget: 12.2
+    sources: [Sources]
+    info:
+      path: Sources/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: it.sky.ReactiveAPIDemo
+    dependencies:
+      - package: ReactiveAPI
+

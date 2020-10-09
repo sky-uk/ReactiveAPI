@@ -1,3 +1,0 @@
-#!/bin/bash
-. config
-curl -X POST -H "Content-Type: application/json" -d '{"usern": "", "password": "password"}' "$BASEURL/login"

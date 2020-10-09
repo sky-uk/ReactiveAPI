@@ -1,6 +1,0 @@
-#!/bin/bash
-. config
-
-TOKEN=$(cat token.json)
-echo "$TOKEN"
-curl -X POST -H "Content-Type: application/json" -d "$TOKEN" "$BASEURL/renewToken" > token.json

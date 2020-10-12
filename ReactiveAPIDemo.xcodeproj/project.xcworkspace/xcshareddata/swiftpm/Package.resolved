@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ReactiveAPI",
+        "repositoryURL": "https://github.com/sky-uk/ReactiveAPI.git",
+        "state": {
+          "branch": "spm",
+          "revision": "e45f2e5d05a3dd92daa86e8b54e747ab2e1c6523",
+          "version": null
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
+        "state": {
+          "branch": null,
+          "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
+          "version": "5.1.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

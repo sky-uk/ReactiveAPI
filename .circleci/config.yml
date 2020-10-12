@@ -22,6 +22,4 @@ workflows:
   version: 2
   build-test:
     jobs:
-      - prebase:
-          context:
-            - skyita-mobile
+      - prebase

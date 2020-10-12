@@ -1,15 +1,11 @@
 # Warning, do not change version.
 version: 2.1
 
-executors:
-  ios-environment:
-    macos:
-      xcode: 12.0.0
-    shell: /bin/bash -eo pipefail
-
 jobs:
   prebase:
-    executor: ios-environment
+    macos:
+      xcode: 12.0.0
+    shell: /bin/bash --login -eo pipefail
     steps:
       - checkout
       - run:

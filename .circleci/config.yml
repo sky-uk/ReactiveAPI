@@ -15,6 +15,7 @@ jobs:
          name: Build ReactiveAPIDemo
          command: >
            xcodebuild
+           -disableAutomaticPackageResolution
            -scheme ReactiveAPIDemo
            -destination 'platform=iOS Simulator,name=iPhone 11'
 

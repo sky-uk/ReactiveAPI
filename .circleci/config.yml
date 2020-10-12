@@ -7,26 +7,17 @@ executors:
       xcode: 12.0.0
     shell: /bin/bash -eo pipefail
 
-  swiftlint-environment:
-    docker:
-      - image: dantoml/swiftlint:latest
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
 jobs:
   prebase:
     executor: ios-environment
     steps:
       - checkout
-           - run:
+      - run:
          name: Build ReactiveAPIDemo
          command: >
            xcodebuild
            -scheme ReactiveAPIDemo
            -destination 'platform=iOS Simulator,name=iPhone 11'
-
-
-
 
 workflows:
   version: 2
@@ -35,8 +26,3 @@ workflows:
       - prebase:
           context:
             - skyita-mobile
-      - build-for-ui-tests:
-          context:
-            - skyita-mobile
-          requires:
-            - prebase

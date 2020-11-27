@@ -12,8 +12,8 @@ let package = Package(
         .watchOS(.v5),
     ],
     products: [
-        .library(name: "ReactiveAPI", targets: ["ReactiveAPI"]),
-        .library(name: "ReactiveAPIExt", targets: ["ReactiveAPIExt"]),
+        .library(name: "ReactiveAPI", type: .dynamic, targets: ["ReactiveAPI"]),
+        .library(name: "ReactiveAPIExt", type: .dynamic, targets: ["ReactiveAPIExt"]),
     ],
     dependencies: [
 

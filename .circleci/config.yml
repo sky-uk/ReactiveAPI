@@ -41,10 +41,9 @@ jobs:
     steps:
       - checkout
       - run: *ssh_fix
-      - restore_cache: *restore_spm_cache
+      - run: ./bootstrap
       - run: *unittest_reactive_api
       - run: *unittest_reactive_api_ext
-      - save_cache: *save_spm_cache
   swiftlint:
     docker:
       - image: dantoml/swiftlint:latest

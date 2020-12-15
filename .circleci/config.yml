@@ -15,11 +15,19 @@ aliases:
       key: spm-cache-{{ checksum "Package.resolved" }}
       paths:
         - SourcePackages
-  - &unittest
+  - &unittest_reactive_api
       name: Run ReactiveAPI Unit Tests
       command: >
         xcodebuild test
-        -scheme ReactiveAPI-Package
+        -scheme ReactiveAPI
+        -clonedSourcePackagesDirPath SourcePackages
+        -destination 'platform=iOS Simulator,name=iPhone 11'
+        | xcpretty
+    - &unittest_reactive_api_ext
+      name: Run ReactiveAPIExt Unit Tests
+      command: >
+        xcodebuild test
+        -scheme ReactiveAPI
         -clonedSourcePackagesDirPath SourcePackages
         -destination 'platform=iOS Simulator,name=iPhone 11'
         | xcpretty
@@ -34,7 +42,8 @@ jobs:
       - checkout
       - run: *ssh_fix
       - restore_cache: *restore_spm_cache
-      - run: *unittest
+      - run: *unittest_reactive_api
+      - run: *unittest_reactive_api_ext
       - save_cache: *save_spm_cache
   swiftlint:
     docker:

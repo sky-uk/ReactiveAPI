@@ -7,14 +7,18 @@ aliases:
       command: |
         rm ~/.ssh/id_rsa
         for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts || true
-  - &restore_spm_cache
-      name: Restore Swift Package Manager Cache
-      key: spm-cache-{{ checksum "Package.resolved" }}
-  - &save_spm_cache
-      name: Save Swift Package Manager Cache
-      key: spm-cache-{{ checksum "Package.resolved" }}
+  - &restore_carthage_cache
+      name: Restore Cartfile Cache
+      key: 1-ca-{{ checksum "date" }}
+  - &carthage_bootstrap
+      name: Bootstrap iOS dependencies
+      command: |
+        ./bootstrap
+  - &save_carthage_cache
+      name: Save Cartfile Cache
+      key: 1-ca-{{ checksum "date" }}
       paths:
-        - SourcePackages
+        - Carthage
   - &unittest_reactive_api
       name: Run ReactiveAPI Unit Tests
       command: >
@@ -40,10 +44,12 @@ jobs:
     shell: /bin/bash --login -eo pipefail
     steps:
       - checkout
+      - restore_cache: *restore_carthage_cache
+      - run: *carthage_bootstrap
       - run: *ssh_fix
-      - run: ./bootstrap
       - run: *unittest_reactive_api
       - run: *unittest_reactive_api_ext
+      - save_cache: *save_carthage_cache
   swiftlint:
     docker:
       - image: dantoml/swiftlint:latest

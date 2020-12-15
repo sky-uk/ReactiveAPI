@@ -1,7 +1,7 @@
 import XCTest
 import RxSwift
 import OHHTTPStubs
-import OHHTTPStubsSwift
+
 @testable import ReactiveAPI
 
 class ReactiveAPITokenAuthenticatorTests: XCTestCase {

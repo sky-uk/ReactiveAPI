@@ -23,7 +23,6 @@
 		2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */; };
 		2EFE047B74F161361711D972 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */; };
 		2FEA0E518AAAA48D75FEF455 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */; };
-		3362218C2589162300AAB04F /* RedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3362218B2589162300AAB04F /* RedirectTests.swift */; };
 		38931B80CB9E716336F20F6D /* ModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D586ECD11FEED79B4C990F5 /* ModelMock.swift */; };
 		399854E62897A90CC9F34FC8 /* ReactiveAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */; };
 		3A4146ED9D21634B60ED7FB7 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -82,6 +81,7 @@
 		E90611E9FDF9D87E366E718C /* ReactiveAPICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */; };
 		E93BA63D40CF92C0631A9AFB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; };
 		EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */; };
+		ED7A01E7DF5091EA6668423B /* RedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E09D6BB2185C58FE50A8FD /* RedirectTests.swift */; };
 		EDEADE3EF5362AF77DB5145C /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F111710DF741B5DDAFEB36A6 /* MaxAgeCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD9A05164737FAEFE27254 /* MaxAgeCacheTests.swift */; };
 		F49C6BCECA6C84BE55000622 /* ReactiveAPITokenAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35E6E100532D2E6BA7653F /* ReactiveAPITokenAuthenticatorTests.swift */; };
@@ -153,7 +153,6 @@
 		28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
 		3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
 		32FBEDC77343F064C15A9673 /* ReactiveAPIRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIRequestInterceptor.swift; sourceTree = "<group>"; };
-		3362218B2589162300AAB04F /* RedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectTests.swift; sourceTree = "<group>"; };
 		3711A757EF3708D6E483915B /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxTest.framework; sourceTree = "<group>"; };
 		3E4B6B5DE4C89F71FADDADA3 /* ReactiveAPIAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIAuthenticator.swift; sourceTree = "<group>"; };
 		3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
@@ -165,6 +164,7 @@
 		5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
 		54AA865FD18A6B91D4202C5E /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxRelay.framework; sourceTree = "<group>"; };
 		554E6082EF93B90A356CAB2E /* FailableCodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodables.swift; sourceTree = "<group>"; };
+		57E09D6BB2185C58FE50A8FD /* RedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectTests.swift; sourceTree = "<group>"; };
 		5B09D7854629F235A953514E /* LoadingResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultTests.swift; sourceTree = "<group>"; };
 		5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+ReactiveAPI.swift"; sourceTree = "<group>"; };
 		5FB6920B4E31350CD51D7561 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
@@ -420,8 +420,8 @@
 				C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */,
 				D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */,
 				EB35E6E100532D2E6BA7653F /* ReactiveAPITokenAuthenticatorTests.swift */,
+				57E09D6BB2185C58FE50A8FD /* RedirectTests.swift */,
 				BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */,
-				3362218B2589162300AAB04F /* RedirectTests.swift */,
 				02AC9A4C7DAEAD646ADC41F6 /* Extensions */,
 				5328F841BF5000D048B3D5FE /* Mocks */,
 				3859C20799BEDA7EC7FF2E71 /* Resources */,
@@ -509,6 +509,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1020;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 4668ACBF8DC2B272523853C3 /* Build configuration list for PBXProject "ReactiveAPI" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -566,11 +568,11 @@
 				BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */,
 				F111710DF741B5DDAFEB36A6 /* MaxAgeCacheTests.swift in Sources */,
 				B5A64C1F069A6B63CFFFB3A3 /* MockAPI.swift in Sources */,
-				3362218C2589162300AAB04F /* RedirectTests.swift in Sources */,
 				38931B80CB9E716336F20F6D /* ModelMock.swift in Sources */,
 				81F0407DF82E64DA6AE7D699 /* ReactiveAPIErrorTests.swift in Sources */,
 				628DD4487A1E825B09DCEC82 /* ReactiveAPIProtocolTests.swift in Sources */,
 				F49C6BCECA6C84BE55000622 /* ReactiveAPITokenAuthenticatorTests.swift in Sources */,
+				ED7A01E7DF5091EA6668423B /* RedirectTests.swift in Sources */,
 				1DEE82B93E8213E624B4A3C8 /* RefreshTokenTests.swift in Sources */,
 				A43359890AFD2272147304D0 /* Resources.swift in Sources */,
 				B5D632917EE07A220969482B /* SessionMock.swift in Sources */,

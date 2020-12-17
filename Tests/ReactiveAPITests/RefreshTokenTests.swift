@@ -80,7 +80,7 @@ class RefreshTokenTests: SkyTestCase {
     }
 }
 
-class ClientAPI: ReactiveAPI {
+private class ClientAPI: ReactiveAPI {
     struct Endpoint {
         static let login = "/login"
         static let renew = "/renew"
@@ -108,7 +108,7 @@ class ClientAPI: ReactiveAPI {
 }
 
 // Struct
-struct Model: Codable {
+private struct Model: Codable {
     let name: String
     let id: String
 }

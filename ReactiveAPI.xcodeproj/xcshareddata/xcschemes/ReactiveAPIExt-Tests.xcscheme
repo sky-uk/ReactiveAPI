@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0423F2354F0F3B5CF799C41"
-               BuildableName = "ReactiveAPIExt.framework"
-               BlueprintName = "ReactiveAPIExt"
+               BlueprintIdentifier = "EE00F2D50627B34AB9498629"
+               BuildableName = "ReactiveAPIExt-Tests.xctest"
+               BlueprintName = "ReactiveAPIExt-Tests"
                ReferencedContainer = "container:ReactiveAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,27 +26,16 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "NO"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE00F2D50627B34AB9498629"
-               BuildableName = "ReactiveAPIExt-Tests.xctest"
-               BlueprintName = "ReactiveAPIExt-Tests"
-               ReferencedContainer = "container:ReactiveAPI.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0423F2354F0F3B5CF799C41"
-            BuildableName = "ReactiveAPIExt.framework"
-            BlueprintName = "ReactiveAPIExt"
+            BlueprintIdentifier = "EE00F2D50627B34AB9498629"
+            BuildableName = "ReactiveAPIExt-Tests.xctest"
+            BlueprintName = "ReactiveAPIExt-Tests"
             ReferencedContainer = "container:ReactiveAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,9 +55,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0423F2354F0F3B5CF799C41"
-            BuildableName = "ReactiveAPIExt.framework"
-            BlueprintName = "ReactiveAPIExt"
+            BlueprintIdentifier = "EE00F2D50627B34AB9498629"
+            BuildableName = "ReactiveAPIExt-Tests.xctest"
+            BlueprintName = "ReactiveAPIExt-Tests"
             ReferencedContainer = "container:ReactiveAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -85,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0423F2354F0F3B5CF799C41"
-            BuildableName = "ReactiveAPIExt.framework"
-            BlueprintName = "ReactiveAPIExt"
+            BlueprintIdentifier = "EE00F2D50627B34AB9498629"
+            BuildableName = "ReactiveAPIExt-Tests.xctest"
+            BlueprintName = "ReactiveAPIExt-Tests"
             ReferencedContainer = "container:ReactiveAPI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

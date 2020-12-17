@@ -3,453 +3,443 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25A3A1B1238DC1CA009C70EA /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A3A1B0238DC1CA009C70EA /* FailableCodables.swift */; };
-		25A3A1B3238DC1F4009C70EA /* FailableCodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */; };
-		3378E97E249B6A0A0060FE0C /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3378E97D249B6A0A0060FE0C /* Swifter.framework */; };
-		3378E981249B6AE10060FE0C /* SkyTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378E980249B6AE10060FE0C /* SkyTestCase.swift */; };
-		3378E982249B6B020060FE0C /* Swifter.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = 3378E97D249B6A0A0060FE0C /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3378E984249B6B5D0060FE0C /* RefreshTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378E983249B6B5D0060FE0C /* RefreshTokenTests.swift */; };
-		D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16432F722873CB700C0F780 /* EncodableTests.swift */; };
-		D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; };
-		D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
-		D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D181276922ABAC25001CA667 /* ModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181276822ABAC25001CA667 /* ModelMock.swift */; };
-		D181276B22ABACBC001CA667 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181276A22ABACBC001CA667 /* Resources.swift */; };
-		D181276F22ABC712001CA667 /* AuthenticatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D181276E22ABC712001CA667 /* AuthenticatorMock.swift */; };
-		D184126B22ABA67500609847 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; };
-		D184126D22ABA6FF00609847 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; };
-		D184126E22ABA72000609847 /* RxBlocking.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D184126F22ABA72B00609847 /* RxRelay.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D184127122ABA8C100609847 /* ReactiveAPIProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D184127022ABA8C100609847 /* ReactiveAPIProtocolTests.swift */; };
-		D1942861228EC5310071D00C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; };
-		D1942862228EC54A0071D00C /* RxCocoa.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */; };
-		D195F1D522086D9600530339 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
-		D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */; };
-		D195F1E622086DB200530339 /* ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D722086DB200530339 /* ReactiveAPI.swift */; };
-		D195F1E722086DB200530339 /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */; };
-		D195F1E922086DB200530339 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */; };
-		D195F1EB22086DB200530339 /* ReactiveAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DD22086DB200530339 /* ReactiveAPIError.swift */; };
-		D195F1EC22086DB200530339 /* ReactiveAPICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DE22086DB200530339 /* ReactiveAPICache.swift */; };
-		D195F1ED22086DB200530339 /* ReactiveAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1DF22086DB200530339 /* ReactiveAPIProtocol.swift */; };
-		D195F1EE22086DB200530339 /* ReactiveAPIHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */; };
-		D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */; };
-		D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195F1E422086DB200530339 /* MaxAgeCache.swift */; };
-		D1996DE92369C69E00F25CA6 /* URLSessionRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1996DE82369C69E00F25CA6 /* URLSessionRxTests.swift */; };
-		D1996DEB2369DA7D00F25CA6 /* InterceptorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1996DEA2369DA7D00F25CA6 /* InterceptorMock.swift */; };
-		D1996DED2369E74200F25CA6 /* ReactiveAPITokenAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1996DEC2369E74200F25CA6 /* ReactiveAPITokenAuthenticatorTests.swift */; };
-		D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */; };
-		D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */; };
-		D1AF9B09237FF6C2000513F9 /* URLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF9B07237FF6C2000513F9 /* URLRequestTests.swift */; };
-		D1AF9B0A237FF6C2000513F9 /* URLComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF9B08237FF6C2000513F9 /* URLComponentsTests.swift */; };
-		D1C4CA5E23D757D100B6F0CF /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4CA5D23D757D100B6F0CF /* MockAPI.swift */; };
-		D1C4CA6023D7585100B6F0CF /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4CA5F23D7585100B6F0CF /* JSONHelper.swift */; };
-		D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6822ABF1AA00324223 /* CacheMock.swift */; };
-		D1CD8B6B22ABF99100324223 /* MaxAgeCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */; };
-		D1CD8B6E22AC064900324223 /* ReactiveAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */; };
-		D1E3B8D423D1E4E300A94844 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E3B8D323D1E4E300A94844 /* OHHTTPStubs.framework */; };
-		D1E3B8D523D1E4EF00A94844 /* OHHTTPStubs.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D1E3B8D323D1E4E300A94844 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D811C14623D6EC4C005325BF /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811C14523D6EC4B005325BF /* URLRequest+.swift */; };
-		D811C14823D714EB005325BF /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D811C14723D714EB005325BF /* RxTest.framework */; };
-		D811C14923D714EB005325BF /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D811C14723D714EB005325BF /* RxTest.framework */; };
-		D811C14A23D7152A005325BF /* RxTest.framework in Copy Files Carthage */ = {isa = PBXBuildFile; fileRef = D811C14723D714EB005325BF /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D811C14B23D71537005325BF /* RxTest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D811C14723D714EB005325BF /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D811C14D23D736DB005325BF /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811C14C23D736DB005325BF /* Date+.swift */; };
-		D820B595237FFA1E00C7B0D3 /* ReactiveAPIExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D820B58C237FFA1E00C7B0D3 /* ReactiveAPIExt.framework */; };
-		D820B5A3237FFA6000C7B0D3 /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E88A74235F0ECD0027797A /* LoadingResult.swift */; };
-		D820B5A4237FFA6000C7B0D3 /* ReactiveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E88A72235F0D050027797A /* ReactiveFetcher.swift */; };
-		D820B5A5237FFA7700C7B0D3 /* ReactiveFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA2C2B237AE38C009CCDC2 /* ReactiveFetcherTests.swift */; };
-		D820B5A6237FFA7700C7B0D3 /* LoadingResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7CC8E2374B87B007EDC5D /* LoadingResultTests.swift */; };
-		D820B5A7237FFB2B00C7B0D3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; };
-		D820B5A8237FFB2B00C7B0D3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; };
-		D820B5A9237FFB2B00C7B0D3 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; };
-		D820B5AA237FFB2B00C7B0D3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
-		D820B5AB237FFB3400C7B0D3 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; };
-		D820B5AD237FFB4900C7B0D3 /* RxBlocking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D184126A22ABA67500609847 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D820B5AE237FFB4900C7B0D3 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D1942860228EC5310071D00C /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D820B5AF237FFB4900C7B0D3 /* RxRelay.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D184126C22ABA6FE00609847 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D820B5B0237FFB4900C7B0D3 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D820B5B1237FFB5000C7B0D3 /* ReactiveAPI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D195F1C822086C8200530339 /* ReactiveAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D820B5B2237FFBCB00C7B0D3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195F1D422086D9600530339 /* RxSwift.framework */; };
-		D857D840232FDC6F008170E7 /* URLSession+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D857D83F232FDC6F008170E7 /* URLSession+Rx.swift */; };
-		D869D6B422AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D869D6B322AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift */; };
+		0210DC737540435B27370485 /* URLComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4437588A10A00E7461E53C70 /* URLComponentsTests.swift */; };
+		08BEE139065AE1038D4BC814 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; };
+		0D0E12C2C94D25D9640A2AB4 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0DFD7EDFEE0EC53AEC044FE8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; };
+		134CA0DFF0EF1F4D154BBFB1 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */; };
+		1722E21EF47A31A43150C81C /* AuthenticatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27167FD1A4D02BA3A995F9A7 /* AuthenticatorMock.swift */; };
+		17626DA69DB75BC178F4B27F /* Swifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		182534ABEC461D7210573392 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54AA865FD18A6B91D4202C5E /* RxRelay.framework */; };
+		1A639B2EAD1F4F4F48315D2A /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */; };
+		1DEE82B93E8213E624B4A3C8 /* RefreshTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */; };
+		1FA1B4AB3B726ACC60811C20 /* URLComponents+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */; };
+		21197C4005982A06DE6DCF96 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54AA865FD18A6B91D4202C5E /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		284BB9BE2902E77B7FF877AE /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */; };
+		2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */; };
+		2EFE047B74F161361711D972 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */; };
+		2FEA0E518AAAA48D75FEF455 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */; };
+		3362218C2589162300AAB04F /* RedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3362218B2589162300AAB04F /* RedirectTests.swift */; };
+		38931B80CB9E716336F20F6D /* ModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D586ECD11FEED79B4C990F5 /* ModelMock.swift */; };
+		399854E62897A90CC9F34FC8 /* ReactiveAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */; };
+		3A4146ED9D21634B60ED7FB7 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3E19FF4A4D47C1DACD6AE6B2 /* ReactiveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */; };
+		3E1E67C0FDA795C15561FF57 /* URLSession+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489A94C6149C5A1D9597459E /* URLSession+Rx.swift */; };
+		3EAE79251499B755EECE2074 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D501B7ABA3E2CD7FCAC8C4F /* CacheMock.swift */; };
+		42F8CA0A75C45E5F9AF9237B /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		472C1C45AF3D5882144E62DD /* LoadingResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09D7854629F235A953514E /* LoadingResultTests.swift */; };
+		4A916EA919CD58BE3AED7795 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */; };
+		543F4CF4648DB738D3814304 /* Swifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		55CE7017D10F36672FB1E611 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869092CEC22B107478730568 /* EncodableTests.swift */; };
+		6044286A72B57F21C89F192B /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
+		628DD4487A1E825B09DCEC82 /* ReactiveAPIProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */; };
+		65B900F550F4896C18D2BB89 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */; };
+		6888BEAEE73E4BF1959B3374 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C439ED428595B7BEE3F49CB /* ReactiveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */; };
+		6FAC30C2E796BCBFD60F4004 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7290E5AF239C07F648FB0904 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; };
+		72DF081ED4D25D7BC1921C9D /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA214593A00D0B46EE4D4A8B /* Date+.swift */; };
+		74B19ADC932FDBE9998539AF /* ReactiveAPIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FBEDC77343F064C15A9673 /* ReactiveAPIRequestInterceptor.swift */; };
+		786203255A9D3A72B681D4A9 /* MaxAgeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E36590C422A73E9BBEB844 /* MaxAgeCache.swift */; };
+		7B06F7B6B76B639F6C4FD78A /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54AA865FD18A6B91D4202C5E /* RxRelay.framework */; };
+		7E8329315416A967F2481F76 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; };
+		7F3E0EE5EAF1D7D09AB16031 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		81F0407DF82E64DA6AE7D699 /* ReactiveAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */; };
+		82CF3A1BA13835F2FFF1D023 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3711A757EF3708D6E483915B /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8969C5BA53EDD7F8362AE50C /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; };
+		8A152B482FF66A5B4CFBC696 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3711A757EF3708D6E483915B /* RxTest.framework */; };
+		8B99611D5819DFC6B5F6EFD8 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3711A757EF3708D6E483915B /* RxTest.framework */; };
+		9080A42F2EC90ABF12AF5AB2 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; };
+		9610A70386D45E0CC4603883 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F7379DD222FC46C8D31E7 /* JSONHelper.swift */; };
+		98E8BEC8A09DA673CC96966E /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */; };
+		9A9E9F226734FDCF1A5849C4 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54AA865FD18A6B91D4202C5E /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0F3A78B8CDA3E9603436DA4 /* SkyTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DF91CAF7B84D49BEA0844 /* SkyTestCase.swift */; };
+		A380737D37C954DB5B642AF3 /* ReactiveAPIHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B391517D09D9A66EEEC5846 /* ReactiveAPIHTTPMethod.swift */; };
+		A43359890AFD2272147304D0 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6920B4E31350CD51D7561 /* Resources.swift */; };
+		ACA18579ECA350C08C14A96B /* ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68006A12527D833055AF6728 /* ReactiveAPI.swift */; };
+		AEC1DF0B620D1D339DA11042 /* ReactiveAPIExt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B015151A9FB04E24DE5C6E51 /* ReactiveAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B5A64C1F069A6B63CFFFB3A3 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E5C245626036717746AE9 /* MockAPI.swift */; };
+		B5D632917EE07A220969482B /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05F731F77317CB1F151CA3B /* SessionMock.swift */; };
+		BA6B38CB8DED835219A1A72C /* ReactiveAPITokenAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */; };
+		BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */; };
+		C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
+		C3CB029F1104E61DD22141F1 /* InterceptorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FD5560BB69955774B1326 /* InterceptorMock.swift */; };
+		C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */; };
+		C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */; };
+		C971B939B1265CE5F5E1D0F6 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */; };
+		CCD4CE254DE60CFDAB11C804 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3711A757EF3708D6E483915B /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D02BB21A12C91F622F76505D /* ReactiveAPIAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B6B5DE4C89F71FADDADA3 /* ReactiveAPIAuthenticator.swift */; };
+		D6FD38AC63A25B6569F70555 /* URLSessionRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31AEC6DF701ED0452C880E /* URLSessionRxTests.swift */; };
+		DA2EB26240D0A9EDCC582553 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD00C850D8E4FF92347728BE /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; };
+		E271914CDE833CBCC5631D21 /* URLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B03DD405C5A981B208EF61 /* URLRequestTests.swift */; };
+		E523A8599F7D043F0F01B081 /* ReactiveAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C7303A883E96E966491DB /* ReactiveAPIError.swift */; };
+		E90611E9FDF9D87E366E718C /* ReactiveAPICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */; };
+		E93BA63D40CF92C0631A9AFB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; };
+		EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */; };
+		EDEADE3EF5362AF77DB5145C /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F111710DF741B5DDAFEB36A6 /* MaxAgeCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD9A05164737FAEFE27254 /* MaxAgeCacheTests.swift */; };
+		F49C6BCECA6C84BE55000622 /* ReactiveAPITokenAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35E6E100532D2E6BA7653F /* ReactiveAPITokenAuthenticatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D16432FB22873CB700C0F780 /* PBXContainerItemProxy */ = {
+		9298C2DC819C20FA8DED1148 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D195F1BF22086C8200530339 /* Project object */;
+			containerPortal = 0257EE0D0B53C201CBE27AEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D195F1C722086C8200530339;
+			remoteGlobalIDString = AF9CECAD7D366C48F74C4654;
 			remoteInfo = ReactiveAPI;
 		};
-		D820B596237FFA1E00C7B0D3 /* PBXContainerItemProxy */ = {
+		A664658C848B8628DD31FACD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D195F1BF22086C8200530339 /* Project object */;
+			containerPortal = 0257EE0D0B53C201CBE27AEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D820B58B237FFA1E00C7B0D3;
+			remoteGlobalIDString = D0423F2354F0F3B5CF799C41;
 			remoteInfo = ReactiveAPIExt;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D164330122873D3200C0F780 /* Copy Files Carthage */ = {
+		4A5E0371819C2F29A9859A77 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3378E982249B6B020060FE0C /* Swifter.framework in Copy Files Carthage */,
-				D811C14A23D7152A005325BF /* RxTest.framework in Copy Files Carthage */,
-				D1E3B8D523D1E4EF00A94844 /* OHHTTPStubs.framework in Copy Files Carthage */,
-				D184126F22ABA72B00609847 /* RxRelay.framework in Copy Files Carthage */,
-				D184126E22ABA72000609847 /* RxBlocking.framework in Copy Files Carthage */,
-				D1942862228EC54A0071D00C /* RxCocoa.framework in Copy Files Carthage */,
-				D164330222873D6400C0F780 /* RxSwift.framework in Copy Files Carthage */,
+				AEC1DF0B620D1D339DA11042 /* ReactiveAPIExt.framework in Embed Frameworks */,
+				3A4146ED9D21634B60ED7FB7 /* OHHTTPStubs.framework in Embed Frameworks */,
+				0D0E12C2C94D25D9640A2AB4 /* RxBlocking.framework in Embed Frameworks */,
+				EDEADE3EF5362AF77DB5145C /* RxCocoa.framework in Embed Frameworks */,
+				21197C4005982A06DE6DCF96 /* RxRelay.framework in Embed Frameworks */,
+				42F8CA0A75C45E5F9AF9237B /* RxSwift.framework in Embed Frameworks */,
+				CCD4CE254DE60CFDAB11C804 /* RxTest.framework in Embed Frameworks */,
+				17626DA69DB75BC178F4B27F /* Swifter.framework in Embed Frameworks */,
 			);
-			name = "Copy Files Carthage";
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D820B5AC237FFB4300C7B0D3 /* CopyFiles */ = {
+		9B34ED4CB40488D0A6A7B679 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D811C14B23D71537005325BF /* RxTest.framework in CopyFiles */,
-				D820B5B1237FFB5000C7B0D3 /* ReactiveAPI.framework in CopyFiles */,
-				D820B5AD237FFB4900C7B0D3 /* RxBlocking.framework in CopyFiles */,
-				D820B5AE237FFB4900C7B0D3 /* RxCocoa.framework in CopyFiles */,
-				D820B5AF237FFB4900C7B0D3 /* RxRelay.framework in CopyFiles */,
-				D820B5B0237FFB4900C7B0D3 /* RxSwift.framework in CopyFiles */,
+				B015151A9FB04E24DE5C6E51 /* ReactiveAPI.framework in Embed Frameworks */,
+				6888BEAEE73E4BF1959B3374 /* OHHTTPStubs.framework in Embed Frameworks */,
+				DA2EB26240D0A9EDCC582553 /* RxBlocking.framework in Embed Frameworks */,
+				6FAC30C2E796BCBFD60F4004 /* RxCocoa.framework in Embed Frameworks */,
+				9A9E9F226734FDCF1A5849C4 /* RxRelay.framework in Embed Frameworks */,
+				7F3E0EE5EAF1D7D09AB16031 /* RxSwift.framework in Embed Frameworks */,
+				82CF3A1BA13835F2FFF1D023 /* RxTest.framework in Embed Frameworks */,
+				543F4CF4648DB738D3814304 /* Swifter.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		25A3A1B0238DC1CA009C70EA /* FailableCodables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailableCodables.swift; sourceTree = "<group>"; };
-		25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
-		25E88A72235F0D050027797A /* ReactiveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveFetcher.swift; sourceTree = "<group>"; };
-		25E88A74235F0ECD0027797A /* LoadingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
-		3378E97D249B6A0A0060FE0C /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/iOS/Swifter.framework; sourceTree = "<group>"; };
-		3378E980249B6AE10060FE0C /* SkyTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTestCase.swift; sourceTree = "<group>"; };
-		3378E983249B6B5D0060FE0C /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
-		D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D16432F722873CB700C0F780 /* EncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableTests.swift; sourceTree = "<group>"; };
-		D16432F922873CB700C0F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D181276822ABAC25001CA667 /* ModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMock.swift; sourceTree = "<group>"; };
-		D181276A22ABACBC001CA667 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
-		D181276E22ABC712001CA667 /* AuthenticatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorMock.swift; sourceTree = "<group>"; };
-		D184126A22ABA67500609847 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		D184126C22ABA6FE00609847 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
-		D184127022ABA8C100609847 /* ReactiveAPIProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocolTests.swift; sourceTree = "<group>"; };
-		D1942860228EC5310071D00C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+QueryParams.swift"; sourceTree = "<group>"; };
-		D195F1C822086C8200530339 /* ReactiveAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D195F1CC22086C8200530339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D195F1D422086D9600530339 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIRequestInterceptor.swift; sourceTree = "<group>"; };
-		D195F1D722086DB200530339 /* ReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPI.swift; sourceTree = "<group>"; };
-		D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+ReactiveAPI.swift"; sourceTree = "<group>"; };
-		D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
-		D195F1DD22086DB200530339 /* ReactiveAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIError.swift; sourceTree = "<group>"; };
-		D195F1DE22086DB200530339 /* ReactiveAPICache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPICache.swift; sourceTree = "<group>"; };
-		D195F1DF22086DB200530339 /* ReactiveAPIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocol.swift; sourceTree = "<group>"; };
-		D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIHTTPMethod.swift; sourceTree = "<group>"; };
-		D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveAPIAuthenticator.swift; sourceTree = "<group>"; };
-		D195F1E422086DB200530339 /* MaxAgeCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxAgeCache.swift; sourceTree = "<group>"; };
-		D1996DE82369C69E00F25CA6 /* URLSessionRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRxTests.swift; sourceTree = "<group>"; };
-		D1996DEA2369DA7D00F25CA6 /* InterceptorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorMock.swift; sourceTree = "<group>"; };
-		D1996DEC2369E74200F25CA6 /* ReactiveAPITokenAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticatorTests.swift; sourceTree = "<group>"; };
-		D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReactiveAPITests.swift; sourceTree = "<group>"; };
-		D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
-		D1AF9B07237FF6C2000513F9 /* URLRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestTests.swift; sourceTree = "<group>"; };
-		D1AF9B08237FF6C2000513F9 /* URLComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLComponentsTests.swift; sourceTree = "<group>"; };
-		D1BA2C2B237AE38C009CCDC2 /* ReactiveFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveFetcherTests.swift; sourceTree = "<group>"; };
-		D1C4CA5D23D757D100B6F0CF /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
-		D1C4CA5F23D7585100B6F0CF /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
-		D1C7CC8E2374B87B007EDC5D /* LoadingResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultTests.swift; sourceTree = "<group>"; };
-		D1CD8B6822ABF1AA00324223 /* CacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheMock.swift; sourceTree = "<group>"; };
-		D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAgeCacheTests.swift; sourceTree = "<group>"; };
-		D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
-		D1E3B8D323D1E4E300A94844 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		D811C14523D6EC4B005325BF /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
-		D811C14723D714EB005325BF /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
-		D811C14C23D736DB005325BF /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		D820B58C237FFA1E00C7B0D3 /* ReactiveAPIExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPIExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D820B58F237FFA1E00C7B0D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D820B594237FFA1E00C7B0D3 /* ReactiveAPIExtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveAPIExtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D820B59B237FFA1E00C7B0D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D857D83F232FDC6F008170E7 /* URLSession+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Rx.swift"; sourceTree = "<group>"; };
-		D869D6B322AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticator.swift; sourceTree = "<group>"; };
+		0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveFetcherTests.swift; sourceTree = "<group>"; };
+		04DD9A05164737FAEFE27254 /* MaxAgeCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAgeCacheTests.swift; sourceTree = "<group>"; };
+		106FD5560BB69955774B1326 /* InterceptorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorMock.swift; sourceTree = "<group>"; };
+		1F6C2E14A6E22D34ED8B6CF0 /* ReactiveAPIExt-Tests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "ReactiveAPIExt-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveFetcher.swift; sourceTree = "<group>"; };
+		27167FD1A4D02BA3A995F9A7 /* AuthenticatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorMock.swift; sourceTree = "<group>"; };
+		28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
+		3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
+		32FBEDC77343F064C15A9673 /* ReactiveAPIRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIRequestInterceptor.swift; sourceTree = "<group>"; };
+		3362218B2589162300AAB04F /* RedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectTests.swift; sourceTree = "<group>"; };
+		3711A757EF3708D6E483915B /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxTest.framework; sourceTree = "<group>"; };
+		3E4B6B5DE4C89F71FADDADA3 /* ReactiveAPIAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIAuthenticator.swift; sourceTree = "<group>"; };
+		3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
+		41378024B921CEBAFED94FCC /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swifter.framework; sourceTree = "<group>"; };
+		4437588A10A00E7461E53C70 /* URLComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsTests.swift; sourceTree = "<group>"; };
+		489A94C6149C5A1D9597459E /* URLSession+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Rx.swift"; sourceTree = "<group>"; };
+		49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPICache.swift; sourceTree = "<group>"; };
+		4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticator.swift; sourceTree = "<group>"; };
+		5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
+		54AA865FD18A6B91D4202C5E /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxRelay.framework; sourceTree = "<group>"; };
+		554E6082EF93B90A356CAB2E /* FailableCodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodables.swift; sourceTree = "<group>"; };
+		5B09D7854629F235A953514E /* LoadingResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultTests.swift; sourceTree = "<group>"; };
+		5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+ReactiveAPI.swift"; sourceTree = "<group>"; };
+		5FB6920B4E31350CD51D7561 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		63983806B7360D9E12F8F99C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
+		64B03DD405C5A981B208EF61 /* URLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestTests.swift; sourceTree = "<group>"; };
+		68006A12527D833055AF6728 /* ReactiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPI.swift; sourceTree = "<group>"; };
+		6B391517D09D9A66EEEC5846 /* ReactiveAPIHTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIHTTPMethod.swift; sourceTree = "<group>"; };
+		6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = "<group>"; };
+		869092CEC22B107478730568 /* EncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableTests.swift; sourceTree = "<group>"; };
+		8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
+		8D501B7ABA3E2CD7FCAC8C4F /* CacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheMock.swift; sourceTree = "<group>"; };
+		8D586ECD11FEED79B4C990F5 /* ModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMock.swift; sourceTree = "<group>"; };
+		8F4DF91CAF7B84D49BEA0844 /* SkyTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTestCase.swift; sourceTree = "<group>"; };
+		90A205C495C3016F2BC2FB16 /* ReactiveAPI-Tests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "ReactiveAPI-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C31AEC6DF701ED0452C880E /* URLSessionRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRxTests.swift; sourceTree = "<group>"; };
+		A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReactiveAPITests.swift; sourceTree = "<group>"; };
+		A61C7303A883E96E966491DB /* ReactiveAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIError.swift; sourceTree = "<group>"; };
+		B56F7379DD222FC46C8D31E7 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		B77E5C245626036717746AE9 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
+		BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
+		C05F731F77317CB1F151CA3B /* SessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
+		C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
+		C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPIExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocol.swift; sourceTree = "<group>"; };
+		D2E36590C422A73E9BBEB844 /* MaxAgeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAgeCache.swift; sourceTree = "<group>"; };
+		D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocolTests.swift; sourceTree = "<group>"; };
+		DA214593A00D0B46EE4D4A8B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		EA779367D84A8D76CB277034 /* ReactiveAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB35E6E100532D2E6BA7653F /* ReactiveAPITokenAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticatorTests.swift; sourceTree = "<group>"; };
+		EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+QueryParams.swift"; sourceTree = "<group>"; };
+		F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D16432F222873CB700C0F780 /* Frameworks */ = {
+		1A3C40A2FE09DB71E58445CF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D811C14823D714EB005325BF /* RxTest.framework in Frameworks */,
-				3378E97E249B6A0A0060FE0C /* Swifter.framework in Frameworks */,
-				D164330022873CEB00C0F780 /* RxSwift.framework in Frameworks */,
-				D16432FA22873CB700C0F780 /* ReactiveAPI.framework in Frameworks */,
-				D1942861228EC5310071D00C /* RxCocoa.framework in Frameworks */,
-				D184126B22ABA67500609847 /* RxBlocking.framework in Frameworks */,
-				D184126D22ABA6FF00609847 /* RxRelay.framework in Frameworks */,
-				D1E3B8D423D1E4E300A94844 /* OHHTTPStubs.framework in Frameworks */,
+				0DFD7EDFEE0EC53AEC044FE8 /* RxSwift.framework in Frameworks */,
+				134CA0DFF0EF1F4D154BBFB1 /* RxCocoa.framework in Frameworks */,
+				7B06F7B6B76B639F6C4FD78A /* RxRelay.framework in Frameworks */,
+				8A152B482FF66A5B4CFBC696 /* RxTest.framework in Frameworks */,
+				2FEA0E518AAAA48D75FEF455 /* RxBlocking.framework in Frameworks */,
+				8969C5BA53EDD7F8362AE50C /* OHHTTPStubs.framework in Frameworks */,
+				9080A42F2EC90ABF12AF5AB2 /* Swifter.framework in Frameworks */,
+				C971B939B1265CE5F5E1D0F6 /* ReactiveAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D195F1C522086C8200530339 /* Frameworks */ = {
+		243F0280A3597CB9BF1330FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D195F1D522086D9600530339 /* RxSwift.framework in Frameworks */,
+				DD00C850D8E4FF92347728BE /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D820B589237FFA1E00C7B0D3 /* Frameworks */ = {
+		37C936A03BB1D5F7D0F1938A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D820B5B2237FFBCB00C7B0D3 /* RxSwift.framework in Frameworks */,
+				E93BA63D40CF92C0631A9AFB /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D820B591237FFA1E00C7B0D3 /* Frameworks */ = {
+		9AD6637250D0219FB4487277 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D811C14923D714EB005325BF /* RxTest.framework in Frameworks */,
-				D820B5AB237FFB3400C7B0D3 /* ReactiveAPI.framework in Frameworks */,
-				D820B595237FFA1E00C7B0D3 /* ReactiveAPIExt.framework in Frameworks */,
-				D820B5A7237FFB2B00C7B0D3 /* RxBlocking.framework in Frameworks */,
-				D820B5A8237FFB2B00C7B0D3 /* RxCocoa.framework in Frameworks */,
-				D820B5A9237FFB2B00C7B0D3 /* RxRelay.framework in Frameworks */,
-				D820B5AA237FFB2B00C7B0D3 /* RxSwift.framework in Frameworks */,
+				7290E5AF239C07F648FB0904 /* RxSwift.framework in Frameworks */,
+				2EFE047B74F161361711D972 /* RxCocoa.framework in Frameworks */,
+				182534ABEC461D7210573392 /* RxRelay.framework in Frameworks */,
+				8B99611D5819DFC6B5F6EFD8 /* RxTest.framework in Frameworks */,
+				98E8BEC8A09DA673CC96966E /* RxBlocking.framework in Frameworks */,
+				7E8329315416A967F2481F76 /* OHHTTPStubs.framework in Frameworks */,
+				08BEE139065AE1038D4BC814 /* Swifter.framework in Frameworks */,
+				C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		25E88A71235F0CE80027797A /* Fetcher */ = {
+		02AC9A4C7DAEAD646ADC41F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				25E88A74235F0ECD0027797A /* LoadingResult.swift */,
-				25E88A72235F0D050027797A /* ReactiveFetcher.swift */,
+				DA214593A00D0B46EE4D4A8B /* Date+.swift */,
+				869092CEC22B107478730568 /* EncodableTests.swift */,
+				4437588A10A00E7461E53C70 /* URLComponentsTests.swift */,
+				8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */,
+				64B03DD405C5A981B208EF61 /* URLRequestTests.swift */,
+				9C31AEC6DF701ED0452C880E /* URLSessionRxTests.swift */,
 			);
-			path = Fetcher;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3378E97F249B6AC50060FE0C /* TestSuite */ = {
+		033538CEFD4723066AABF450 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				3378E980249B6AE10060FE0C /* SkyTestCase.swift */,
+				3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */,
+				6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */,
+				F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */,
+				54AA865FD18A6B91D4202C5E /* RxRelay.framework */,
+				63983806B7360D9E12F8F99C /* RxSwift.framework */,
+				3711A757EF3708D6E483915B /* RxTest.framework */,
+				41378024B921CEBAFED94FCC /* Swifter.framework */,
 			);
-			path = TestSuite;
+			path = iOS;
 			sourceTree = "<group>";
 		};
-		D16432F622873CB700C0F780 /* ReactiveAPITests */ = {
+		0C829E9938EDECA64485009D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D16432F922873CB700C0F780 /* Info.plist */,
-				D1A36F1222A2C181001D9ED5 /* JSONReactiveAPITests.swift */,
-				D1CD8B6A22ABF99100324223 /* MaxAgeCacheTests.swift */,
-				D1CD8B6D22AC064900324223 /* ReactiveAPIErrorTests.swift */,
-				D184127022ABA8C100609847 /* ReactiveAPIProtocolTests.swift */,
-				D1996DEC2369E74200F25CA6 /* ReactiveAPITokenAuthenticatorTests.swift */,
-				3378E983249B6B5D0060FE0C /* RefreshTokenTests.swift */,
-				3378E97F249B6AC50060FE0C /* TestSuite */,
-				D1996DE72369AAFD00F25CA6 /* Extensions */,
-				D1A36F1622A2CE23001D9ED5 /* Mocks */,
-				D1CD8B6C22ABFAB200324223 /* Resources */,
-			);
-			path = ReactiveAPITests;
-			sourceTree = "<group>";
-		};
-		D195F1BE22086C8200530339 = {
-			isa = PBXGroup;
-			children = (
-				D195F1C922086C8200530339 /* Products */,
-				D195F1D322086D9600530339 /* Frameworks */,
-				D195F1CA22086C8200530339 /* ReactiveAPI */,
-				D16432F622873CB700C0F780 /* ReactiveAPITests */,
-				D820B58D237FFA1E00C7B0D3 /* ReactiveAPIExt */,
-				D820B598237FFA1E00C7B0D3 /* ReactiveAPIExtTests */,
-			);
-			sourceTree = "<group>";
-		};
-		D195F1C922086C8200530339 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D195F1C822086C8200530339 /* ReactiveAPI.framework */,
-				D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */,
-				D820B58C237FFA1E00C7B0D3 /* ReactiveAPIExt.framework */,
-				D820B594237FFA1E00C7B0D3 /* ReactiveAPIExtTests.xctest */,
+				90A205C495C3016F2BC2FB16 /* ReactiveAPI-Tests.xctest */,
+				EA779367D84A8D76CB277034 /* ReactiveAPI.framework */,
+				1F6C2E14A6E22D34ED8B6CF0 /* ReactiveAPIExt-Tests.xctest */,
+				C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D195F1CA22086C8200530339 /* ReactiveAPI */ = {
+		0DDF0C3B585FF93265186122 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D195F1CC22086C8200530339 /* Info.plist */,
-				D195F1D722086DB200530339 /* ReactiveAPI.swift */,
-				D195F1E122086DB200530339 /* ReactiveAPIAuthenticator.swift */,
-				D195F1DE22086DB200530339 /* ReactiveAPICache.swift */,
-				D195F1DD22086DB200530339 /* ReactiveAPIError.swift */,
-				D195F1E022086DB200530339 /* ReactiveAPIHTTPMethod.swift */,
-				D195F1DF22086DB200530339 /* ReactiveAPIProtocol.swift */,
-				D195F1D622086DB100530339 /* ReactiveAPIRequestInterceptor.swift */,
-				D869D6B322AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift */,
-				D195F1E322086DB200530339 /* Caching */,
-				D195F1D822086DB200530339 /* Extensions */,
-			);
-			path = ReactiveAPI;
-			sourceTree = "<group>";
-		};
-		D195F1D322086D9600530339 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3378E97D249B6A0A0060FE0C /* Swifter.framework */,
-				D811C14723D714EB005325BF /* RxTest.framework */,
-				D1E3B8D323D1E4E300A94844 /* OHHTTPStubs.framework */,
-				D184126A22ABA67500609847 /* RxBlocking.framework */,
-				D1942860228EC5310071D00C /* RxCocoa.framework */,
-				D184126C22ABA6FE00609847 /* RxRelay.framework */,
-				D195F1D422086D9600530339 /* RxSwift.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D195F1D822086DB200530339 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D195F1DB22086DB200530339 /* Encodable+Dictionary.swift */,
-				D1942867228F2AFA0071D00C /* URLComponents+QueryParams.swift */,
-				D195F1D922086DB200530339 /* URLRequest+ReactiveAPI.swift */,
-				D857D83F232FDC6F008170E7 /* URLSession+Rx.swift */,
+				5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */,
+				EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */,
+				5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */,
+				489A94C6149C5A1D9597459E /* URLSession+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		D195F1E322086DB200530339 /* Caching */ = {
+		2B8280DC1654154405E0547B /* ReactiveAPIExt */ = {
 			isa = PBXGroup;
 			children = (
-				D195F1E422086DB200530339 /* MaxAgeCache.swift */,
+				554E6082EF93B90A356CAB2E /* FailableCodables.swift */,
+				8BD715FF3E005E5A812B5983 /* Fetcher */,
 			);
-			path = Caching;
+			name = ReactiveAPIExt;
+			path = Sources/ReactiveAPIExt;
 			sourceTree = "<group>";
 		};
-		D1996DE72369AAFD00F25CA6 /* Extensions */ = {
+		3859C20799BEDA7EC7FF2E71 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D16432F722873CB700C0F780 /* EncodableTests.swift */,
-				D1AF9B08237FF6C2000513F9 /* URLComponentsTests.swift */,
-				D1AF9B07237FF6C2000513F9 /* URLRequestTests.swift */,
-				D1996DE82369C69E00F25CA6 /* URLSessionRxTests.swift */,
-				D811C14523D6EC4B005325BF /* URLRequest+.swift */,
-				D811C14C23D736DB005325BF /* Date+.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D1A36F1622A2CE23001D9ED5 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				D181276E22ABC712001CA667 /* AuthenticatorMock.swift */,
-				D1CD8B6822ABF1AA00324223 /* CacheMock.swift */,
-				D1996DEA2369DA7D00F25CA6 /* InterceptorMock.swift */,
-				D1C4CA5F23D7585100B6F0CF /* JSONHelper.swift */,
-				D1C4CA5D23D757D100B6F0CF /* MockAPI.swift */,
-				D181276822ABAC25001CA667 /* ModelMock.swift */,
-				D1A36F1422A2CD69001D9ED5 /* SessionMock.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		D1CD8B6C22ABFAB200324223 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D181276A22ABACBC001CA667 /* Resources.swift */,
+				5FB6920B4E31350CD51D7561 /* Resources.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D820B58D237FFA1E00C7B0D3 /* ReactiveAPIExt */ = {
+		5328F841BF5000D048B3D5FE /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				D820B58F237FFA1E00C7B0D3 /* Info.plist */,
-				25A3A1B0238DC1CA009C70EA /* FailableCodables.swift */,
-				25E88A71235F0CE80027797A /* Fetcher */,
+				27167FD1A4D02BA3A995F9A7 /* AuthenticatorMock.swift */,
+				8D501B7ABA3E2CD7FCAC8C4F /* CacheMock.swift */,
+				106FD5560BB69955774B1326 /* InterceptorMock.swift */,
+				B56F7379DD222FC46C8D31E7 /* JSONHelper.swift */,
+				B77E5C245626036717746AE9 /* MockAPI.swift */,
+				8D586ECD11FEED79B4C990F5 /* ModelMock.swift */,
+				C05F731F77317CB1F151CA3B /* SessionMock.swift */,
 			);
-			path = ReactiveAPIExt;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
-		D820B598237FFA1E00C7B0D3 /* ReactiveAPIExtTests */ = {
+		5AC1AE3609411E2D8D5A15C4 = {
 			isa = PBXGroup;
 			children = (
-				D820B59B237FFA1E00C7B0D3 /* Info.plist */,
-				25A3A1B2238DC1F4009C70EA /* FailableCodableArrayTests.swift */,
-				D1C7CC8E2374B87B007EDC5D /* LoadingResultTests.swift */,
-				D1BA2C2B237AE38C009CCDC2 /* ReactiveFetcherTests.swift */,
+				5ED2B36C4AAA6A28DA0C0D2F /* ReactiveAPI */,
+				2B8280DC1654154405E0547B /* ReactiveAPIExt */,
+				679E05ABDDAC1595A93C8C4E /* ReactiveAPIExtTests */,
+				E08D22BB4D96A03DF3086F40 /* ReactiveAPITests */,
+				8A89564C9037E6606362F123 /* Frameworks */,
+				0C829E9938EDECA64485009D /* Products */,
 			);
-			path = ReactiveAPIExtTests;
+			sourceTree = "<group>";
+		};
+		5E84D0E131B548F9D750D278 /* TestSuite */ = {
+			isa = PBXGroup;
+			children = (
+				8F4DF91CAF7B84D49BEA0844 /* SkyTestCase.swift */,
+			);
+			path = TestSuite;
+			sourceTree = "<group>";
+		};
+		5ED2B36C4AAA6A28DA0C0D2F /* ReactiveAPI */ = {
+			isa = PBXGroup;
+			children = (
+				68006A12527D833055AF6728 /* ReactiveAPI.swift */,
+				3E4B6B5DE4C89F71FADDADA3 /* ReactiveAPIAuthenticator.swift */,
+				49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */,
+				A61C7303A883E96E966491DB /* ReactiveAPIError.swift */,
+				6B391517D09D9A66EEEC5846 /* ReactiveAPIHTTPMethod.swift */,
+				CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */,
+				32FBEDC77343F064C15A9673 /* ReactiveAPIRequestInterceptor.swift */,
+				4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */,
+				68EC0122F227E4899A9FC6DE /* Caching */,
+				0DDF0C3B585FF93265186122 /* Extensions */,
+			);
+			name = ReactiveAPI;
+			path = Sources/ReactiveAPI;
+			sourceTree = "<group>";
+		};
+		61943C7F8BBC3D7554618250 /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				033538CEFD4723066AABF450 /* iOS */,
+			);
+			name = Carthage;
+			path = Carthage/Build;
+			sourceTree = "<group>";
+		};
+		679E05ABDDAC1595A93C8C4E /* ReactiveAPIExtTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */,
+				5B09D7854629F235A953514E /* LoadingResultTests.swift */,
+				0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */,
+			);
+			name = ReactiveAPIExtTests;
+			path = Tests/ReactiveAPIExtTests;
+			sourceTree = "<group>";
+		};
+		68EC0122F227E4899A9FC6DE /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+				D2E36590C422A73E9BBEB844 /* MaxAgeCache.swift */,
+			);
+			path = Caching;
+			sourceTree = "<group>";
+		};
+		8A89564C9037E6606362F123 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61943C7F8BBC3D7554618250 /* Carthage */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BD715FF3E005E5A812B5983 /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */,
+				21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */,
+			);
+			path = Fetcher;
+			sourceTree = "<group>";
+		};
+		E08D22BB4D96A03DF3086F40 /* ReactiveAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */,
+				04DD9A05164737FAEFE27254 /* MaxAgeCacheTests.swift */,
+				C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */,
+				D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */,
+				EB35E6E100532D2E6BA7653F /* ReactiveAPITokenAuthenticatorTests.swift */,
+				BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */,
+				3362218B2589162300AAB04F /* RedirectTests.swift */,
+				02AC9A4C7DAEAD646ADC41F6 /* Extensions */,
+				5328F841BF5000D048B3D5FE /* Mocks */,
+				3859C20799BEDA7EC7FF2E71 /* Resources */,
+				5E84D0E131B548F9D750D278 /* TestSuite */,
+			);
+			name = ReactiveAPITests;
+			path = Tests/ReactiveAPITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		D195F1C322086C8200530339 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D820B587237FFA1E00C7B0D3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		D16432F422873CB700C0F780 /* ReactiveAPITests */ = {
+		AF9CECAD7D366C48F74C4654 /* ReactiveAPI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D16432FF22873CB700C0F780 /* Build configuration list for PBXNativeTarget "ReactiveAPITests" */;
+			buildConfigurationList = F0A9FA8B8ED2DAF7B6E243FB /* Build configuration list for PBXNativeTarget "ReactiveAPI" */;
 			buildPhases = (
-				D16432F122873CB700C0F780 /* Sources */,
-				D16432F222873CB700C0F780 /* Frameworks */,
-				D16432F322873CB700C0F780 /* Resources */,
-				D164330122873D3200C0F780 /* Copy Files Carthage */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D16432FC22873CB700C0F780 /* PBXTargetDependency */,
-			);
-			name = ReactiveAPITests;
-			productName = ReactiveAPITests;
-			productReference = D16432F522873CB700C0F780 /* ReactiveAPITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D195F1C722086C8200530339 /* ReactiveAPI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D195F1D022086C8200530339 /* Build configuration list for PBXNativeTarget "ReactiveAPI" */;
-			buildPhases = (
-				D195F1C322086C8200530339 /* Headers */,
-				D195F1C422086C8200530339 /* Sources */,
-				D195F1C522086C8200530339 /* Frameworks */,
-				D195F1C622086C8200530339 /* Resources */,
+				2678D64ADABCA44F0C69FD49 /* Sources */,
+				37C936A03BB1D5F7D0F1938A /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -457,17 +447,15 @@
 			);
 			name = ReactiveAPI;
 			productName = ReactiveAPI;
-			productReference = D195F1C822086C8200530339 /* ReactiveAPI.framework */;
+			productReference = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D820B58B237FFA1E00C7B0D3 /* ReactiveAPIExt */ = {
+		D0423F2354F0F3B5CF799C41 /* ReactiveAPIExt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D820B5A1237FFA1E00C7B0D3 /* Build configuration list for PBXNativeTarget "ReactiveAPIExt" */;
+			buildConfigurationList = 21F7F90E2EB97B47B5F3131D /* Build configuration list for PBXNativeTarget "ReactiveAPIExt" */;
 			buildPhases = (
-				D820B587237FFA1E00C7B0D3 /* Headers */,
-				D820B588237FFA1E00C7B0D3 /* Sources */,
-				D820B589237FFA1E00C7B0D3 /* Frameworks */,
-				D820B58A237FFA1E00C7B0D3 /* Resources */,
+				FD976F19A35B1FC848E811F7 /* Sources */,
+				243F0280A3597CB9BF1330FF /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -475,300 +463,216 @@
 			);
 			name = ReactiveAPIExt;
 			productName = ReactiveAPIExt;
-			productReference = D820B58C237FFA1E00C7B0D3 /* ReactiveAPIExt.framework */;
+			productReference = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D820B593237FFA1E00C7B0D3 /* ReactiveAPIExtTests */ = {
+		E231F85C1D65FA4C82B97A69 /* ReactiveAPI-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D820B5A2237FFA1E00C7B0D3 /* Build configuration list for PBXNativeTarget "ReactiveAPIExtTests" */;
+			buildConfigurationList = C27F7F71E1BDB270C007050C /* Build configuration list for PBXNativeTarget "ReactiveAPI-Tests" */;
 			buildPhases = (
-				D820B590237FFA1E00C7B0D3 /* Sources */,
-				D820B591237FFA1E00C7B0D3 /* Frameworks */,
-				D820B592237FFA1E00C7B0D3 /* Resources */,
-				D820B5AC237FFB4300C7B0D3 /* CopyFiles */,
+				585B105F9F3881C1A99DC1FD /* Sources */,
+				1A3C40A2FE09DB71E58445CF /* Frameworks */,
+				9B34ED4CB40488D0A6A7B679 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D820B597237FFA1E00C7B0D3 /* PBXTargetDependency */,
+				B31EE5B3C98F2A230924ECF7 /* PBXTargetDependency */,
 			);
-			name = ReactiveAPIExtTests;
-			productName = ReactiveAPIExtTests;
-			productReference = D820B594237FFA1E00C7B0D3 /* ReactiveAPIExtTests.xctest */;
+			name = "ReactiveAPI-Tests";
+			productName = "ReactiveAPI-Tests";
+			productReference = 90A205C495C3016F2BC2FB16 /* ReactiveAPI-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE00F2D50627B34AB9498629 /* ReactiveAPIExt-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E079795FA282748A8B1D3E2 /* Build configuration list for PBXNativeTarget "ReactiveAPIExt-Tests" */;
+			buildPhases = (
+				88252EA9C67CBE40CD7EA453 /* Sources */,
+				9AD6637250D0219FB4487277 /* Frameworks */,
+				4A5E0371819C2F29A9859A77 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				407146A8B0E14E37C46633C0 /* PBXTargetDependency */,
+			);
+			name = "ReactiveAPIExt-Tests";
+			productName = "ReactiveAPIExt-Tests";
+			productReference = 1F6C2E14A6E22D34ED8B6CF0 /* ReactiveAPIExt-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D195F1BF22086C8200530339 /* Project object */ = {
+		0257EE0D0B53C201CBE27AEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1200;
-				ORGANIZATIONNAME = Sky;
-				TargetAttributes = {
-					D16432F422873CB700C0F780 = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
-					D195F1C722086C8200530339 = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
-					};
-					D820B58B237FFA1E00C7B0D3 = {
-						CreatedOnToolsVersion = 11.2;
-					};
-					D820B593237FFA1E00C7B0D3 = {
-						CreatedOnToolsVersion = 11.2;
-					};
-				};
+				LastUpgradeCheck = 1020;
 			};
-			buildConfigurationList = D195F1C222086C8200530339 /* Build configuration list for PBXProject "ReactiveAPI" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 4668ACBF8DC2B272523853C3 /* Build configuration list for PBXProject "ReactiveAPI" */;
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = D195F1BE22086C8200530339;
-			productRefGroup = D195F1C922086C8200530339 /* Products */;
+			mainGroup = 5AC1AE3609411E2D8D5A15C4;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D195F1C722086C8200530339 /* ReactiveAPI */,
-				D16432F422873CB700C0F780 /* ReactiveAPITests */,
-				D820B58B237FFA1E00C7B0D3 /* ReactiveAPIExt */,
-				D820B593237FFA1E00C7B0D3 /* ReactiveAPIExtTests */,
+				AF9CECAD7D366C48F74C4654 /* ReactiveAPI */,
+				E231F85C1D65FA4C82B97A69 /* ReactiveAPI-Tests */,
+				D0423F2354F0F3B5CF799C41 /* ReactiveAPIExt */,
+				EE00F2D50627B34AB9498629 /* ReactiveAPIExt-Tests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		D16432F322873CB700C0F780 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D195F1C622086C8200530339 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D820B58A237FFA1E00C7B0D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D820B592237FFA1E00C7B0D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		D16432F122873CB700C0F780 /* Sources */ = {
+		2678D64ADABCA44F0C69FD49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1CD8B6E22AC064900324223 /* ReactiveAPIErrorTests.swift in Sources */,
-				D16432F822873CB700C0F780 /* EncodableTests.swift in Sources */,
-				D1CD8B6B22ABF99100324223 /* MaxAgeCacheTests.swift in Sources */,
-				D811C14623D6EC4C005325BF /* URLRequest+.swift in Sources */,
-				D1C4CA5E23D757D100B6F0CF /* MockAPI.swift in Sources */,
-				D1996DE92369C69E00F25CA6 /* URLSessionRxTests.swift in Sources */,
-				D1AF9B0A237FF6C2000513F9 /* URLComponentsTests.swift in Sources */,
-				D181276922ABAC25001CA667 /* ModelMock.swift in Sources */,
-				3378E981249B6AE10060FE0C /* SkyTestCase.swift in Sources */,
-				D1996DED2369E74200F25CA6 /* ReactiveAPITokenAuthenticatorTests.swift in Sources */,
-				D1CD8B6922ABF1AA00324223 /* CacheMock.swift in Sources */,
-				D181276B22ABACBC001CA667 /* Resources.swift in Sources */,
-				D1996DEB2369DA7D00F25CA6 /* InterceptorMock.swift in Sources */,
-				3378E984249B6B5D0060FE0C /* RefreshTokenTests.swift in Sources */,
-				D184127122ABA8C100609847 /* ReactiveAPIProtocolTests.swift in Sources */,
-				D811C14D23D736DB005325BF /* Date+.swift in Sources */,
-				D1A36F1322A2C181001D9ED5 /* JSONReactiveAPITests.swift in Sources */,
-				D1A36F1522A2CD69001D9ED5 /* SessionMock.swift in Sources */,
-				D181276F22ABC712001CA667 /* AuthenticatorMock.swift in Sources */,
-				D1C4CA6023D7585100B6F0CF /* JSONHelper.swift in Sources */,
-				D1AF9B09237FF6C2000513F9 /* URLRequestTests.swift in Sources */,
+				65B900F550F4896C18D2BB89 /* Encodable+Dictionary.swift in Sources */,
+				C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */,
+				1A639B2EAD1F4F4F48315D2A /* LoadingResult.swift in Sources */,
+				786203255A9D3A72B681D4A9 /* MaxAgeCache.swift in Sources */,
+				ACA18579ECA350C08C14A96B /* ReactiveAPI.swift in Sources */,
+				D02BB21A12C91F622F76505D /* ReactiveAPIAuthenticator.swift in Sources */,
+				E90611E9FDF9D87E366E718C /* ReactiveAPICache.swift in Sources */,
+				E523A8599F7D043F0F01B081 /* ReactiveAPIError.swift in Sources */,
+				A380737D37C954DB5B642AF3 /* ReactiveAPIHTTPMethod.swift in Sources */,
+				399854E62897A90CC9F34FC8 /* ReactiveAPIProtocol.swift in Sources */,
+				74B19ADC932FDBE9998539AF /* ReactiveAPIRequestInterceptor.swift in Sources */,
+				BA6B38CB8DED835219A1A72C /* ReactiveAPITokenAuthenticator.swift in Sources */,
+				6C439ED428595B7BEE3F49CB /* ReactiveFetcher.swift in Sources */,
+				1FA1B4AB3B726ACC60811C20 /* URLComponents+QueryParams.swift in Sources */,
+				C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */,
+				3E1E67C0FDA795C15561FF57 /* URLSession+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D195F1C422086C8200530339 /* Sources */ = {
+		585B105F9F3881C1A99DC1FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D857D840232FDC6F008170E7 /* URLSession+Rx.swift in Sources */,
-				D1942868228F2AFA0071D00C /* URLComponents+QueryParams.swift in Sources */,
-				D195F1EF22086DB200530339 /* ReactiveAPIAuthenticator.swift in Sources */,
-				D195F1EE22086DB200530339 /* ReactiveAPIHTTPMethod.swift in Sources */,
-				D195F1ED22086DB200530339 /* ReactiveAPIProtocol.swift in Sources */,
-				D195F1E722086DB200530339 /* URLRequest+ReactiveAPI.swift in Sources */,
-				D195F1EC22086DB200530339 /* ReactiveAPICache.swift in Sources */,
-				D195F1F122086DB200530339 /* MaxAgeCache.swift in Sources */,
-				D869D6B422AFEC6A00BBD3FB /* ReactiveAPITokenAuthenticator.swift in Sources */,
-				D195F1E522086DB200530339 /* ReactiveAPIRequestInterceptor.swift in Sources */,
-				D195F1E922086DB200530339 /* Encodable+Dictionary.swift in Sources */,
-				D195F1E622086DB200530339 /* ReactiveAPI.swift in Sources */,
-				D195F1EB22086DB200530339 /* ReactiveAPIError.swift in Sources */,
+				1722E21EF47A31A43150C81C /* AuthenticatorMock.swift in Sources */,
+				3EAE79251499B755EECE2074 /* CacheMock.swift in Sources */,
+				72DF081ED4D25D7BC1921C9D /* Date+.swift in Sources */,
+				55CE7017D10F36672FB1E611 /* EncodableTests.swift in Sources */,
+				C3CB029F1104E61DD22141F1 /* InterceptorMock.swift in Sources */,
+				9610A70386D45E0CC4603883 /* JSONHelper.swift in Sources */,
+				BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */,
+				F111710DF741B5DDAFEB36A6 /* MaxAgeCacheTests.swift in Sources */,
+				B5A64C1F069A6B63CFFFB3A3 /* MockAPI.swift in Sources */,
+				3362218C2589162300AAB04F /* RedirectTests.swift in Sources */,
+				38931B80CB9E716336F20F6D /* ModelMock.swift in Sources */,
+				81F0407DF82E64DA6AE7D699 /* ReactiveAPIErrorTests.swift in Sources */,
+				628DD4487A1E825B09DCEC82 /* ReactiveAPIProtocolTests.swift in Sources */,
+				F49C6BCECA6C84BE55000622 /* ReactiveAPITokenAuthenticatorTests.swift in Sources */,
+				1DEE82B93E8213E624B4A3C8 /* RefreshTokenTests.swift in Sources */,
+				A43359890AFD2272147304D0 /* Resources.swift in Sources */,
+				B5D632917EE07A220969482B /* SessionMock.swift in Sources */,
+				A0F3A78B8CDA3E9603436DA4 /* SkyTestCase.swift in Sources */,
+				0210DC737540435B27370485 /* URLComponentsTests.swift in Sources */,
+				4A916EA919CD58BE3AED7795 /* URLRequest+.swift in Sources */,
+				E271914CDE833CBCC5631D21 /* URLRequestTests.swift in Sources */,
+				D6FD38AC63A25B6569F70555 /* URLSessionRxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D820B588237FFA1E00C7B0D3 /* Sources */ = {
+		88252EA9C67CBE40CD7EA453 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D820B5A4237FFA6000C7B0D3 /* ReactiveFetcher.swift in Sources */,
-				25A3A1B1238DC1CA009C70EA /* FailableCodables.swift in Sources */,
-				D820B5A3237FFA6000C7B0D3 /* LoadingResult.swift in Sources */,
+				EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */,
+				472C1C45AF3D5882144E62DD /* LoadingResultTests.swift in Sources */,
+				2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D820B590237FFA1E00C7B0D3 /* Sources */ = {
+		FD976F19A35B1FC848E811F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D820B5A6237FFA7700C7B0D3 /* LoadingResultTests.swift in Sources */,
-				25A3A1B3238DC1F4009C70EA /* FailableCodableArrayTests.swift in Sources */,
-				D820B5A5237FFA7700C7B0D3 /* ReactiveFetcherTests.swift in Sources */,
+				6044286A72B57F21C89F192B /* FailableCodables.swift in Sources */,
+				284BB9BE2902E77B7FF877AE /* LoadingResult.swift in Sources */,
+				3E19FF4A4D47C1DACD6AE6B2 /* ReactiveFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D16432FC22873CB700C0F780 /* PBXTargetDependency */ = {
+		407146A8B0E14E37C46633C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D195F1C722086C8200530339 /* ReactiveAPI */;
-			targetProxy = D16432FB22873CB700C0F780 /* PBXContainerItemProxy */;
+			target = D0423F2354F0F3B5CF799C41 /* ReactiveAPIExt */;
+			targetProxy = A664658C848B8628DD31FACD /* PBXContainerItemProxy */;
 		};
-		D820B597237FFA1E00C7B0D3 /* PBXTargetDependency */ = {
+		B31EE5B3C98F2A230924ECF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D820B58B237FFA1E00C7B0D3 /* ReactiveAPIExt */;
-			targetProxy = D820B596237FFA1E00C7B0D3 /* PBXContainerItemProxy */;
+			target = AF9CECAD7D366C48F74C4654 /* ReactiveAPI */;
+			targetProxy = 9298C2DC819C20FA8DED1148 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		D16432FD22873CB700C0F780 /* Debug */ = {
+		1FC90579432AC04034705BBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 64346Y5J98;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ReactiveAPITests/Info.plist;
+				INFOPLIST_FILE = ReactiveAPIExt.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIExt;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		D16432FE22873CB700C0F780 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 64346Y5J98;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = ReactiveAPITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
-		D195F1CE22086C8200530339 /* Debug */ = {
+		2A822510B1E3F23CA0F9368D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				INFOPLIST_FILE = ReactiveAPIExt.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIExt;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		D195F1CF22086C8200530339 /* Release */ = {
+		496D50D2B2D105780BCEF020 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -778,7 +682,6 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -794,16 +697,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -816,25 +716,20 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		D195F1D122086C8200530339 /* Debug */ = {
+		65376FD6D20DC7E71769A20C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 64346Y5J98;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -842,207 +737,232 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ReactiveAPI/Info.plist;
+				INFOPLIST_FILE = ReactiveAPI.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		6EDE946ABD5830CC1CAE89E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.12.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.sky.ReactiveAPI-Tests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7949A7BB1DA185FC857807FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "it.sky.ReactiveAPI-Tests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CF602787EA946466783B9D02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ReactiveAPI.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		E7DC003B16CB32B9F84D0302 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D195F1D222086C8200530339 /* Release */ = {
+		F05D5C24470BBC781E0AA60C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 64346Y5J98;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ReactiveAPI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.12.1;
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.sky.ReactiveAPIExt-Tests";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		D820B59D237FFA1E00C7B0D3 /* Debug */ = {
+		FCA35D8AD4FFB70A2CC5575D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 64346Y5J98;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ReactiveAPIExt/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.12.1;
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIExt;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.sky.ReactiveAPIExt-Tests";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
-		};
-		D820B59E237FFA1E00C7B0D3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 64346Y5J98;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = ReactiveAPIExt/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.12.1;
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIExt;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		D820B59F237FFA1E00C7B0D3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 64346Y5J98;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = ReactiveAPIExtTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIExtTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		D820B5A0237FFA1E00C7B0D3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 64346Y5J98;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = ReactiveAPIExtTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = it.sky.ReactiveAPIExtTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D16432FF22873CB700C0F780 /* Build configuration list for PBXNativeTarget "ReactiveAPITests" */ = {
+		0E079795FA282748A8B1D3E2 /* Build configuration list for PBXNativeTarget "ReactiveAPIExt-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D16432FD22873CB700C0F780 /* Debug */,
-				D16432FE22873CB700C0F780 /* Release */,
+				FCA35D8AD4FFB70A2CC5575D /* Debug */,
+				F05D5C24470BBC781E0AA60C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		D195F1C222086C8200530339 /* Build configuration list for PBXProject "ReactiveAPI" */ = {
+		21F7F90E2EB97B47B5F3131D /* Build configuration list for PBXNativeTarget "ReactiveAPIExt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D195F1CE22086C8200530339 /* Debug */,
-				D195F1CF22086C8200530339 /* Release */,
+				2A822510B1E3F23CA0F9368D /* Debug */,
+				1FC90579432AC04034705BBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		D195F1D022086C8200530339 /* Build configuration list for PBXNativeTarget "ReactiveAPI" */ = {
+		4668ACBF8DC2B272523853C3 /* Build configuration list for PBXProject "ReactiveAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D195F1D122086C8200530339 /* Debug */,
-				D195F1D222086C8200530339 /* Release */,
+				E7DC003B16CB32B9F84D0302 /* Debug */,
+				496D50D2B2D105780BCEF020 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		D820B5A1237FFA1E00C7B0D3 /* Build configuration list for PBXNativeTarget "ReactiveAPIExt" */ = {
+		C27F7F71E1BDB270C007050C /* Build configuration list for PBXNativeTarget "ReactiveAPI-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D820B59D237FFA1E00C7B0D3 /* Debug */,
-				D820B59E237FFA1E00C7B0D3 /* Release */,
+				6EDE946ABD5830CC1CAE89E9 /* Debug */,
+				7949A7BB1DA185FC857807FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		D820B5A2237FFA1E00C7B0D3 /* Build configuration list for PBXNativeTarget "ReactiveAPIExtTests" */ = {
+		F0A9FA8B8ED2DAF7B6E243FB /* Build configuration list for PBXNativeTarget "ReactiveAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D820B59F237FFA1E00C7B0D3 /* Debug */,
-				D820B5A0237FFA1E00C7B0D3 /* Release */,
+				65376FD6D20DC7E71769A20C /* Debug */,
+				CF602787EA946466783B9D02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D195F1BF22086C8200530339 /* Project object */;
+	rootObject = 0257EE0D0B53C201CBE27AEA /* Project object */;
 }

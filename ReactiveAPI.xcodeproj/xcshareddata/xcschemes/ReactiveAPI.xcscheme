@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1200"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D195F1C722086C8200530339"
+               BlueprintIdentifier = "AF9CECAD7D366C48F74C4654"
                BuildableName = "ReactiveAPI.framework"
                BlueprintName = "ReactiveAPI"
                ReferencedContainer = "container:ReactiveAPI.xcodeproj">
@@ -26,28 +26,32 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "NO"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D195F1C722086C8200530339"
-            BuildableName = "ReactiveAPI.framework"
-            BlueprintName = "ReactiveAPI"
-            ReferencedContainer = "container:ReactiveAPI.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D16432F422873CB700C0F780"
-               BuildableName = "ReactiveAPITests.xctest"
-               BlueprintName = "ReactiveAPITests"
+               BlueprintIdentifier = "E231F85C1D65FA4C82B97A69"
+               BuildableName = "ReactiveAPI-Tests.xctest"
+               BlueprintName = "ReactiveAPI-Tests"
                ReferencedContainer = "container:ReactiveAPI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AF9CECAD7D366C48F74C4654"
+            BuildableName = "ReactiveAPI.framework"
+            BlueprintName = "ReactiveAPI"
+            ReferencedContainer = "container:ReactiveAPI.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -62,12 +66,14 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D195F1C722086C8200530339"
+            BlueprintIdentifier = "AF9CECAD7D366C48F74C4654"
             BuildableName = "ReactiveAPI.framework"
             BlueprintName = "ReactiveAPI"
             ReferencedContainer = "container:ReactiveAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -75,15 +81,18 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D195F1C722086C8200530339"
+            BlueprintIdentifier = "AF9CECAD7D366C48F74C4654"
             BuildableName = "ReactiveAPI.framework"
             BlueprintName = "ReactiveAPI"
             ReferencedContainer = "container:ReactiveAPI.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

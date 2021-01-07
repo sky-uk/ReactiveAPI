@@ -1,7 +1,7 @@
 version: 2.1
 aliases:
   - &xcode_version
-      xcode: 12.2.3
+      xcode: 12.3.0
   - &ssh_fix
       name: SSH FIX -> https://support.circleci.com/hc/en-us/articles/360044709573-Swift-Package-Manager-fails-to-clone-from-private-Git-repositories
       command: |

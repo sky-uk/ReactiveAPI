@@ -7,7 +7,6 @@ if [ "z$CI" == "z" ]; then
   echo "✅ Carthage Bootstrap Completed. Stand by..."
   echo "🍎 C🎱 Autogeneration Stuff..."
   echo
-  cd sourcery && ./generate.sh
   echo
   echo "✅Well Done!"
 fi

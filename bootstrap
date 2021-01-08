@@ -2,11 +2,3 @@
 curl https://gist.githubusercontent.com/skymobilebuilds/61f4a95bd62a3db36b52719aeab7e0d5/raw/61affe5b13efaeb83ba3aaf5ef2cb97bab893485/carthage-xc12.sh -o wcarthage && chmod +x wcarthage
 ./wcarthage bootstrap --platform iOS --cache-builds
 
-if [ "z$CI" == "z" ]; then
-  echo
-  echo "✅ Carthage Bootstrap Completed. Stand by..."
-  echo "🍎 C🎱 Autogeneration Stuff..."
-  echo
-  echo
-  echo "✅Well Done!"
-fi

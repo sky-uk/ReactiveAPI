@@ -1,6 +1,7 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import Combine
 
 public enum ReactiveAPITokenAuthenticatorState {
     case invoked
@@ -24,9 +25,11 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
     private var isRenewingToken = false
     private let currentToken = BehaviorRelay<String?>(value: nil)
+    private let currentToken1: AnyPublisher<String, ReactiveAPIError>?
     private let tokenHeaderName: String
     private let getCurrentToken: () -> String?
     private let renewToken: () -> Single<String>
+    private let renewToken1: () -> AnyPublisher<String, Never>
     private let shouldRenewToken: (URLRequest, HTTPURLResponse, Data?) -> Bool
     private let logger: ReactiveAPITokenAuthenticatorLogger?
 
@@ -52,6 +55,19 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         return session.fetch(newRequest)
             .map { $0.data }
             .asSingle()
+    }
+
+    func requestWithNewToken1(session: URLSession,
+                             request: URLRequest,
+                             newToken: String) -> AnyPublisher<Data, ReactiveAPIError> {
+        logger?.log(state: .retryingRequestWithNewToken)
+
+        var newRequest = request
+        newRequest.setValue(newToken, forHTTPHeaderField: tokenHeaderName)
+        return session.fetch(newRequest)
+            .map { $0.data }
+            .mapError { ReactiveAPIError.map($0) }
+            .eraseToAnyPublisher()
     }
 
     public func authenticate(session: Reactive<URLSession>, request: URLRequest, response: HTTPURLResponse, data: Data?) -> Single<Data>? {

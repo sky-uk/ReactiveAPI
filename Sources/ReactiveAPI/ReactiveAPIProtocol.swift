@@ -1,11 +1,13 @@
 import Foundation
 import RxSwift
+import Combine
 
 public typealias ReactiveAPITypeConverter = (_ value: Any?) -> String?
 
 public protocol ReactiveAPIProtocol {
     var baseUrl: URL { get }
     var session: Reactive<URLSession> { get }
+    var session1: URLSession { get }
     var decoder: ReactiveAPIDecoder { get }
     var encoder: JSONEncoder { get }
     var authenticator: ReactiveAPIAuthenticator? { get set }
@@ -53,6 +55,37 @@ extension ReactiveAPIProtocol {
 
                 return retryRequest
             }
+    }
+
+    func rxDataRequest1(_ request: URLRequest) -> AnyPublisher<Data, ReactiveAPIError> {
+        return session1.fetch(request, interceptors: requestInterceptors)
+            .tryMap { (request, response, data) -> Data in
+                if let cache = self.cache,
+                   let urlCache = self.session1.configuration.urlCache,
+                   let cachedResponse = cache.cache(response,
+                                                    request: request,
+                                                    data: data) {
+
+                    urlCache.storeCachedResponse(cachedResponse,
+                                                 for: request)
+
+                }
+                return data
+            }
+            .tryCatch { error -> AnyPublisher<Data, ReactiveAPIError> in
+                guard
+                    let authenticator = self.authenticator,
+                    case let ReactiveAPIError.httpError(request, response, data) = error,
+                    let retryRequest = authenticator.authenticate1(session: self.session1,
+                                                                  request: request,
+                                                                  response: response,
+                                                                  data: data)
+                else { throw error }
+
+                return retryRequest
+            }
+            .mapError { ReactiveAPIError.map($0) }
+            .eraseToAnyPublisher()
     }
 
     func rxDataRequest<D: Decodable>(_ request: URLRequest) -> Single<D> {

@@ -103,8 +103,66 @@ extension ReactiveAPIProtocol {
         }
     }
 
+    func rxDataRequest1<D: Decodable>(_ request: URLRequest) -> AnyPublisher<D, ReactiveAPIError> {
+        return rxDataRequest1(request)
+            .decode(type: D.self, decoder: JSONDecoder())
+            .mapError { error in
+                guard let _error = error as? DecodingError else {
+                    return ReactiveAPIError.map(error)
+                }
+                return ReactiveAPIError.decodingError1(_error)
+            }
+            .eraseToAnyPublisher()
+    }
+
+    func rxDataRequest1b<D: Decodable>(_ request: URLRequest) -> AnyPublisher<D, ReactiveAPIError> {
+        return session1.fetch(request, interceptors: requestInterceptors)
+            .tryMap { (request, response, data) -> Data in
+                if let cache = self.cache,
+                   let urlCache = self.session1.configuration.urlCache,
+                   let cachedResponse = cache.cache(response,
+                                                    request: request,
+                                                    data: data) {
+
+                    urlCache.storeCachedResponse(cachedResponse,
+                                                 for: request)
+
+                }
+
+                return data
+            }
+            .tryCatch { error -> AnyPublisher<Data, ReactiveAPIError> in
+                guard
+                    let authenticator = self.authenticator,
+                    case let ReactiveAPIError.httpError(request, response, data) = error,
+                    let retryRequest = authenticator.authenticate1(session: self.session1,
+                                                                   request: request,
+                                                                   response: response,
+                                                                   data: data)
+                else { throw error }
+
+                return retryRequest
+            }
+            .mapError { ReactiveAPIError.map($0) }
+            .decode(type: D.self, decoder: JSONDecoder())
+            .mapError { error in
+                guard let _error = error as? DecodingError else {
+                    return ReactiveAPIError.map(error)
+                }
+                return ReactiveAPIError.decodingError1(_error)
+            }
+            .eraseToAnyPublisher()
+
+    }
+
     func rxDataRequestDiscardingPayload(_ request: URLRequest) -> Single<Void> {
         return rxDataRequest(request).map { _ in () }
+    }
+
+    func rxDataRequestDiscardingPayload1(_ request: URLRequest) -> AnyPublisher<Void, ReactiveAPIError> {
+        return rxDataRequest1(request).tryMap { _ in () }
+            .mapError { ReactiveAPIError.map($0) }
+            .eraseToAnyPublisher()
     }
 }
 

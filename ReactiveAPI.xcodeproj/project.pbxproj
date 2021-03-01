@@ -67,6 +67,7 @@
 		BA6B38CB8DED835219A1A72C /* ReactiveAPITokenAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */; };
 		BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */; };
 		C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
+		C227178625E941AF0044ADDA /* URLSession+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178525E941AF0044ADDA /* URLSession+Combine.swift */; };
 		C3CB029F1104E61DD22141F1 /* InterceptorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FD5560BB69955774B1326 /* InterceptorMock.swift */; };
 		C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */; };
 		C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */; };
@@ -186,6 +187,7 @@
 		B77E5C245626036717746AE9 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
 		BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
 		C05F731F77317CB1F151CA3B /* SessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
+		C227178525E941AF0044ADDA /* URLSession+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Combine.swift"; sourceTree = "<group>"; };
 		C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
 		C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPIExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocol.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */,
 				5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */,
 				489A94C6149C5A1D9597459E /* URLSession+Rx.swift */,
+				C227178525E941AF0044ADDA /* URLSession+Combine.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				786203255A9D3A72B681D4A9 /* MaxAgeCache.swift in Sources */,
 				ACA18579ECA350C08C14A96B /* ReactiveAPI.swift in Sources */,
 				D02BB21A12C91F622F76505D /* ReactiveAPIAuthenticator.swift in Sources */,
+				C227178625E941AF0044ADDA /* URLSession+Combine.swift in Sources */,
 				E90611E9FDF9D87E366E718C /* ReactiveAPICache.swift in Sources */,
 				E523A8599F7D043F0F01B081 /* ReactiveAPIError.swift in Sources */,
 				A380737D37C954DB5B642AF3 /* ReactiveAPIHTTPMethod.swift in Sources */,
@@ -715,7 +719,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -866,7 +870,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

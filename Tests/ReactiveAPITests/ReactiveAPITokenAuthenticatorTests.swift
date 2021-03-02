@@ -36,6 +36,45 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
+    func test_requestWithNewToken_When200_DataIsValid_Combine() {
+        let session = URLSessionMock.create(Resources.json)
+        do {
+            let response = try authenticator.requestWithNewToken1(session: session,
+                                                                 request: Resources.urlRequest,
+                                                                 newToken: "newToken")
+                .waitForCompletion()
+                .first
+
+            XCTAssertNotNil(response)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_requestWithNewToken_When200_DataIsValid_Comparison() {
+        let session = URLSessionMock.create(Resources.json)
+        do {
+            let response1 = try authenticator.requestWithNewToken(session: session.rx,
+                                                                 request: Resources.urlRequest,
+                                                                 newToken: "newToken")
+                .toBlocking()
+                .single()
+
+            let response2 = try authenticator.requestWithNewToken1(session: session,
+                                                                   request: Resources.urlRequest,
+                                                                   newToken: "newToken")
+                .waitForCompletion()
+                .first
+
+            XCTAssertNotNil(response1)
+            XCTAssertNotNil(response2)
+            XCTAssertEqual(response1, response2)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+
+    }
+
     func test_requestWithNewToken_When500_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         let response = authenticator.requestWithNewToken(session: session.rx,

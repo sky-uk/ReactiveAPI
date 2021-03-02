@@ -1,6 +1,7 @@
 import Foundation
 import RxSwift
 import ReactiveAPI
+import Combine
 
 class MockAPI: ReactiveAPI {
 
@@ -13,8 +14,16 @@ class MockAPI: ReactiveAPI {
         return request(url: absoluteURL(MockAPI.loginEndpoint))
     }
 
+    func login1() -> AnyPublisher<ModelMock, ReactiveAPIError> {
+        return request1(url: absoluteURL(MockAPI.loginEndpoint))
+    }
+
     func renewToken() -> Single<ModelMock> {
         return request(url: absoluteURL(MockAPI.renewEndpoint))
+    }
+
+    func renewToken1() -> AnyPublisher<ModelMock, ReactiveAPIError> {
+        return request1(url: absoluteURL(MockAPI.renewEndpoint))
     }
 
     func authenticatedSingleAction() -> Single<ModelMock> {

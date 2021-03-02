@@ -1,5 +1,6 @@
 import XCTest
 import RxSwift
+import Combine
 import Swifter
 @testable import ReactiveAPI
 
@@ -7,7 +8,10 @@ class RefreshTokenTests: SkyTestCase {
 
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
-                                                              renewToken: { Single.just("renewToken") })
+                                                              renewToken: { Single.just("renewToken") },
+                                                              renewToken1: { Just("renewToken")
+                                                                .mapError { ReactiveAPIError.map($0) }
+                                                                .eraseToAnyPublisher() })
 
     func testRefreshToken() {
         // Given
@@ -24,6 +28,13 @@ class RefreshTokenTests: SkyTestCase {
                     currentToken = $0.name
                     return $0.name
                 }
+            }, renewToken1: {
+                sut.renewToken1().tryMap {
+                    currentToken = $0.name
+                    return $0.name
+                }
+                .mapError { ReactiveAPIError.map($0) }
+                .eraseToAnyPublisher()
             })
 
             sut.requestInterceptors += [ TokenInterceptor(tokenValue: { return currentToken }, headerName: tokenHeaderName) ]
@@ -96,6 +107,11 @@ private class ClientAPI: ReactiveAPI {
     func renewToken() -> Single<Model> {
         let url = absoluteURL(ClientAPI.Endpoint.renew)
         return request(url: url)
+    }
+
+    func renewToken1() -> AnyPublisher<Model, ReactiveAPIError> {
+        let url = absoluteURL(ClientAPI.Endpoint.renew)
+        return request1(url: url)
     }
 
     func endpoint1() -> Single<Model> {

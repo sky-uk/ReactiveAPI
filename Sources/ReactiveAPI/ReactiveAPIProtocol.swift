@@ -186,6 +186,35 @@ public extension ReactiveAPIProtocol {
         }
     }
 
+    // body params as dictionary and generic response type
+    func request1<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
+                               url: URL,
+                               headers: [String: Any?]? = nil,
+                               queryParams: [String: Any?]? = nil,
+                               bodyParams: [String: Any?]? = nil) -> AnyPublisher<D, ReactiveAPIError> {
+
+        let closure = { () throws -> URLRequest in
+            do {
+                let request = try URLRequest.createForJSON(with: url,
+                                                           method: method,
+                                                           headers: headers,
+                                                           queryParams: queryParams,
+                                                           bodyParams: bodyParams,
+                                                           queryStringTypeConverter: queryStringTypeConverter)
+                return request
+            } catch {
+                throw error
+            }
+        }
+
+        return Just(1)
+            .tryMap { _ in try closure() }
+            .mapError { ReactiveAPIError.map($0) }
+            .flatMap { rxDataRequest1($0) }
+            .mapError { ReactiveAPIError.map($0) }
+            .eraseToAnyPublisher()
+    }
+
     // body params as encodable and generic response type
     func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                              url: URL,

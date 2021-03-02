@@ -1,6 +1,7 @@
 import XCTest
 import RxSwift
 import OHHTTPStubs
+import Combine
 
 @testable import ReactiveAPI
 
@@ -15,7 +16,10 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
-                                                              renewToken: { Single.just("renewToken") })
+                                                              renewToken: { Single.just("renewToken") },
+                                                              renewToken1: { Just("renewToken")
+                                                                .mapError { ReactiveAPIError.map($0) }
+                                                                .eraseToAnyPublisher() })
 
     func test_requestWithNewToken_When200_DataIsValid() {
         let session = URLSessionMock.create(Resources.json)
@@ -76,7 +80,10 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         let session = URLSessionMock.create(Resources.json)
         let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                           getCurrentToken: { nil },
-                                                          renewToken: { Single.just("renewToken") })
+                                                          renewToken: { Single.just("renewToken") },
+                                                          renewToken1: { Just("renewToken")
+                                                            .mapError { ReactiveAPIError.map($0) }
+                                                            .eraseToAnyPublisher() })
         do {
             let response = try authenticator.authenticate(session: session.rx,
                                                           request: Resources.urlRequest,
@@ -182,7 +189,15 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
                                                             sut.renewToken().map {
                                                                 currentToken = $0.name
                                                                 return $0.name
-                                                            }})
+                                                            }},
+                                                          renewToken1: {
+                                                            sut.renewToken1().tryMap {
+                                                                currentToken = $0.name
+                                                                return $0.name
+                                                            }
+                                                            .mapError { ReactiveAPIError.map($0) }
+                                                            .eraseToAnyPublisher()
+                                                          })
         sut.requestInterceptors += [
             TokenInterceptor(tokenValue: { currentToken }, headerName: tokenHeaderName)
         ]

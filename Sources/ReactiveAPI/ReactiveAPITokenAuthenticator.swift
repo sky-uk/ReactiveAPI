@@ -25,7 +25,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
     private var isRenewingToken = false
     private let currentToken = BehaviorRelay<String?>(value: nil)
-    private var currentToken1: AnyPublisher<String, ReactiveAPIError>?
+    private var currentToken1: AnyPublisher<String?, ReactiveAPIError> = Empty().eraseToAnyPublisher()
     private let tokenHeaderName: String
     private let getCurrentToken: () -> String?
     private let renewToken: () -> Single<String>
@@ -154,7 +154,9 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         if isRenewingToken {
             logger?.log(state: .waitingForTokenRenewWhichIsInProgress)
 
-            return currentToken1?
+            return currentToken1
+                .filter { $0 != nil }
+                .map { $0! }
                 .first()
                 .flatMap { token -> AnyPublisher<Data, ReactiveAPIError> in
                     self.logger?.log(state: .finishedWaitingForTokenRenew)
@@ -186,7 +188,8 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     }
 
     func setNewToken(token: String?, isRenewing: Bool) {
-        // TODO: è corretto questo ordine dei controlli
+        // TODO: è corretto questo ordine dei controlli?
+        // TODO: perchè non posso controllare solo se token è diverso da nil? se token è nil la condizione sarà sempre FALSE, se token è diverso da nil sarà sempre TRUE
         if currentToken.value == nil && token != nil || currentToken.value != nil && token != nil {
             isRenewingToken = false
         } else {
@@ -196,12 +199,17 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     }
 
     func setNewToken1(token: String?, isRenewing: Bool) {
+        isRenewingToken = token != nil ? false : isRenewing
 
-//        if currentToken.value == nil && token != nil || currentToken.value != nil && token != nil {
-//            isRenewingToken = false
-//        } else {
-//            isRenewingToken = isRenewing
-//        }
-//        currentToken.accept(token)
+        // TODO: mando token a currentToken1 senza reinizzializzarlo!
+//        currentToken1 = Result.Publisher(token)
+//            .mapError { ReactiveAPIError.map($0) }
+//            .eraseToAnyPublisher()
+
+        currentToken1 = Just(token)
+            .mapError { ReactiveAPIError.map($0) }
+            .eraseToAnyPublisher()
+
+        _ = currentToken1.print()
     }
 }

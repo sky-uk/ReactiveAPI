@@ -68,6 +68,7 @@
 		BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */; };
 		C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
 		C227178625E941AF0044ADDA /* URLSession+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178525E941AF0044ADDA /* URLSession+Combine.swift */; };
+		C227179525EE5E9C0044ADDA /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178F25EE5E8E0044ADDA /* Publisher+.swift */; };
 		C3CB029F1104E61DD22141F1 /* InterceptorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FD5560BB69955774B1326 /* InterceptorMock.swift */; };
 		C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */; };
 		C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */; };
@@ -188,6 +189,7 @@
 		BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
 		C05F731F77317CB1F151CA3B /* SessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
 		C227178525E941AF0044ADDA /* URLSession+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Combine.swift"; sourceTree = "<group>"; };
+		C227178F25EE5E8E0044ADDA /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
 		C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPIExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocol.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */,
 				64B03DD405C5A981B208EF61 /* URLRequestTests.swift */,
 				9C31AEC6DF701ED0452C880E /* URLSessionRxTests.swift */,
+				C227178F25EE5E8E0044ADDA /* Publisher+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C227179525EE5E9C0044ADDA /* Publisher+.swift in Sources */,
 				1722E21EF47A31A43150C81C /* AuthenticatorMock.swift in Sources */,
 				3EAE79251499B755EECE2074 /* CacheMock.swift in Sources */,
 				72DF081ED4D25D7BC1921C9D /* Date+.swift in Sources */,

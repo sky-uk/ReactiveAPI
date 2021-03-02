@@ -105,7 +105,7 @@ extension ReactiveAPIProtocol {
 
     func rxDataRequest1<D: Decodable>(_ request: URLRequest) -> AnyPublisher<D, ReactiveAPIError> {
         return rxDataRequest1(request)
-            .decode(type: D.self, decoder: JSONDecoder())
+            .decode(type: D.self, decoder: JSONDecoder()) // TODO: capire se ci sono anche altri decoder da supportare (forse sì) e capire come gestirli, perchè prima intuitivamente veniva sovrascritto l'attributo "decoder" del ReactiveAPIDecoder
             .mapError { error in
                 guard let _error = error as? DecodingError else {
                     return ReactiveAPIError.map(error)
@@ -115,7 +115,7 @@ extension ReactiveAPIProtocol {
             .eraseToAnyPublisher()
     }
 
-    func rxDataRequest1b<D: Decodable>(_ request: URLRequest) -> AnyPublisher<D, ReactiveAPIError> {
+    func rxDataRequest1b<D: Decodable>(_ request: URLRequest) -> AnyPublisher<D, ReactiveAPIError> { // questa è la stessa di sopra ma unisce più parti
         return session1.fetch(request, interceptors: requestInterceptors)
             .tryMap { (request, response, data) -> Data in
                 if let cache = self.cache,

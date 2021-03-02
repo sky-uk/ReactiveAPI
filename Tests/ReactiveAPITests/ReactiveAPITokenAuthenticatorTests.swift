@@ -137,6 +137,59 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
+    func test_Authenticate_When401_ReturnNil_Combine() {
+        let session = URLSessionMock.create(Resources.json)
+        let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
+                                                          getCurrentToken: { nil },
+                                                          renewToken: { Single.just("renewToken") },
+                                                          renewToken1: { Just("renewToken")
+                                                            .mapError { ReactiveAPIError.map($0) }
+                                                            .eraseToAnyPublisher() })
+        do {
+            let response = try authenticator.authenticate1(session: session,
+                                                          request: Resources.urlRequest,
+                                                          response: Resources.httpUrlResponse(code: 401)!,
+                                                          data: nil)?
+                .waitForCompletion()
+                .first
+
+            XCTAssertNil(response)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_Authenticate_When401_ReturnNil_Comparison() {
+        let session = URLSessionMock.create(Resources.json)
+        let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
+                                                          getCurrentToken: { nil },
+                                                          renewToken: { Single.just("renewToken") },
+                                                          renewToken1: { Just("renewToken")
+                                                            .mapError { ReactiveAPIError.map($0) }
+                                                            .eraseToAnyPublisher() })
+        do {
+            let response1 = try authenticator.authenticate(session: session.rx,
+                                                          request: Resources.urlRequest,
+                                                          response: Resources.httpUrlResponse(code: 401)!,
+                                                          data: nil)?
+                .toBlocking()
+                .single()
+
+            let response2 = try authenticator.authenticate1(session: session,
+                                                           request: Resources.urlRequest,
+                                                           response: Resources.httpUrlResponse(code: 401)!,
+                                                           data: nil)?
+                .waitForCompletion()
+                .first
+
+            XCTAssertNil(response1)
+            XCTAssertNil(response2)
+            XCTAssertEqual(response1, response2)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
     func test_Authenticate_WhenGetCurrentTokenNil_ReturnNil() {
         let session = URLSessionMock.create(Resources.json)
         do {

@@ -33,7 +33,7 @@ open class ReactiveAPI: ReactiveAPIProtocol {
         self.encoder = encoder
         self.baseUrl = baseUrl
 
-        self.session = URLSession.rx.init(URLSession.shared) // TODO da rimuovere
+        self.session = URLSession.shared.rx // TODO da rimuovere
     }
 }
 

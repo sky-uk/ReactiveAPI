@@ -30,7 +30,15 @@ class MockAPI: ReactiveAPI {
         return request(url: absoluteURL(MockAPI.authenticatedSingleActionEndpoint))
     }
 
+    func authenticatedSingleAction1() -> AnyPublisher<ModelMock, ReactiveAPIError> {
+        return request1(url: absoluteURL(MockAPI.authenticatedSingleActionEndpoint))
+    }
+
     func authenticatedParallelAction() -> Single<ModelMock> {
         return request(url: absoluteURL(MockAPI.authenticatedParallelActionEndpoint))
+    }
+
+    func authenticatedParallelAction1() -> AnyPublisher<ModelMock, ReactiveAPIError> {
+        return request1(url: absoluteURL(MockAPI.authenticatedParallelActionEndpoint))
     }
 }

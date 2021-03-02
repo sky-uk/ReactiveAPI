@@ -210,6 +210,6 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
 
-        _ = currentToken1.print()
+        _ = currentToken1.print() // TODO: da controllare!
     }
 }

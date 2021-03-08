@@ -188,8 +188,6 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     }
 
     func setNewToken(token: String?, isRenewing: Bool) {
-        // TODO: è corretto questo ordine dei controlli?
-        // TODO: perchè non posso controllare solo se token è diverso da nil? se token è nil la condizione sarà sempre FALSE, se token è diverso da nil sarà sempre TRUE
         if currentToken.value == nil && token != nil || currentToken.value != nil && token != nil {
             isRenewingToken = false
         } else {
@@ -199,9 +197,14 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     }
 
     func setNewToken1(token: String?, isRenewing: Bool) {
-        isRenewingToken = token != nil ? false : isRenewing
-
+        // TODO: è corretto questo ordine dei controlli?
+        // TODO: perchè non posso controllare solo se token è diverso da nil? se token è nil la condizione sarà sempre FALSE, se token è diverso da nil sarà sempre TRUE
+//        isRenewingToken = token != nil ? false : isRenewing
+        if currentToken1.value == nil && token != nil || currentToken1.value != nil && token != nil {
+            isRenewingToken = false
+        } else {
+            isRenewingToken = isRenewing
+        }
         currentToken1.send(token)
-
     }
 }

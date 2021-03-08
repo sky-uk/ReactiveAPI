@@ -53,7 +53,7 @@ class URLSessionRxTests: XCTestCase {
         }
     }
 
-    func test_Fetch_WhenDataNil_UnknownError() {
+    func test_Fetch_WhenDataNil_GenericError() {
         let session = URLSessionMock(response: Resources.httpUrlResponse())
         let response = session.rx.fetch(Resources.urlRequest)
             .toBlocking()
@@ -63,15 +63,16 @@ class URLSessionRxTests: XCTestCase {
         case .completed(elements: _):
             XCTFail("This should throws an error!")
         case .failed(elements: _, error: let error):
-            if case ReactiveAPIError.unknown = error {
+            if case ReactiveAPIError.generic(error:) = error {
                 XCTAssertNotNil(error)
             } else {
                 XCTFail("This should be a ReactiveAPIError.unknown")
             }
         }
     }
+    // TODO: capire se è il caso di inserire un errore specifico al posto del generico
 
-    func test_Fetch_WhenResponseNil_UnknownError() {
+    func test_Fetch_WhenResponseNil_GenericError() {
         let session = URLSessionMock(data: Resources.json.data(using: .utf8))
         let response = session.rx.fetch(Resources.urlRequest)
             .toBlocking()
@@ -81,13 +82,15 @@ class URLSessionRxTests: XCTestCase {
         case .completed(elements: _):
             XCTFail("This should throws an error!")
         case .failed(elements: _, error: let error):
-            if case ReactiveAPIError.unknown = error {
+            if case ReactiveAPIError.generic(error:) = error {
                 XCTAssertNotNil(error)
             } else {
                 XCTFail("This should be a ReactiveAPIError.unknown")
             }
         }
     }
+    // TODO: capire se è il caso di inserire un errore specifico al posto del generico
+
 
     func test_Fetch_WhenResponseIsNotHTTP_NonHttpResponse() {
         let session = URLSessionMock(data: Data(), response: URLResponse())

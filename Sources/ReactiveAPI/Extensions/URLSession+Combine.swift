@@ -19,7 +19,7 @@ extension URLSession {
 
                 return (mutableRequest, httpResponse, response.data)
             }
-            .mapError { ReactiveAPIError.map($0) }
+            .mapError { ReactiveAPIError.map($0) } // TODO: capire come gestire l'errore missingResponse
             .eraseToAnyPublisher()
 
     }

@@ -9,7 +9,7 @@ extension Reactive where Base: URLSession {
 
             let task = self.base.dataTask(with: mutableRequest) { data, response, error in
                 guard let response = response, let data = data else {
-                    observer.on(.error(error ?? ReactiveAPIError.unknown))
+                    observer.on(.error(ReactiveAPIError.missingResponse(request: mutableRequest)))
                     return
                 }
 

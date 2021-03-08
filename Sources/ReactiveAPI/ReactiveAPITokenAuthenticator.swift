@@ -179,7 +179,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
             }
             .mapError { ReactiveAPIError.map($0) }
             .flatMap { newToken -> AnyPublisher<Data, ReactiveAPIError> in
-                self.setNewToken(token: newToken, isRenewing: false)
+                self.setNewToken1(token: newToken, isRenewing: false)
                 self.logger?.log(state: .tokenRenewSucceeded)
                 return self.requestWithNewToken1(session: session, request: request, newToken: newToken)
             }

@@ -25,7 +25,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
     private var isRenewingToken = false
     private let currentToken = BehaviorRelay<String?>(value: nil)
-    private var currentToken1: AnyPublisher<String?, ReactiveAPIError> = Empty().eraseToAnyPublisher()
+    private var currentToken1 = CurrentValueSubject<String?, ReactiveAPIError>(nil)
     private let tokenHeaderName: String
     private let getCurrentToken: () -> String?
     private let renewToken: () -> Single<String>
@@ -201,15 +201,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     func setNewToken1(token: String?, isRenewing: Bool) {
         isRenewingToken = token != nil ? false : isRenewing
 
-        // TODO: mando token a currentToken1 senza reinizzializzarlo!
-//        currentToken1 = Result.Publisher(token)
-//            .mapError { ReactiveAPIError.map($0) }
-//            .eraseToAnyPublisher()
+        currentToken1.send(token)
 
-        currentToken1 = Just(token)
-            .mapError { ReactiveAPIError.map($0) }
-            .eraseToAnyPublisher()
-
-        _ = currentToken1.print() // TODO: da controllare!
     }
 }

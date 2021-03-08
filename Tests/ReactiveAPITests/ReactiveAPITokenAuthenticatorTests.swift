@@ -548,7 +548,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             XCTAssertEqual(loginCounter, 1)
             XCTAssertEqual(renewCounter, 1)
             XCTAssertEqual(singleActionCounter, 1)
-            XCTAssertEqual(parallelActionCounter, 6) // TODO: capire come mai sono solo 3. Ciò che avviene è che una chiamata parallela finisce e le altre due vengono cancellate
+            XCTAssertEqual(parallelActionCounter, 6)
         } catch {
             XCTFail("\(error)")
         }

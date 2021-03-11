@@ -107,10 +107,10 @@ extension ReactiveAPIProtocol {
         return rxDataRequest1(request)
             .decode(type: D.self, decoder: JSONDecoder()) // TODO: capire se ci sono anche altri decoder da supportare (forse sì) e capire come gestirli, perchè prima intuitivamente veniva sovrascritto l'attributo "decoder" del ReactiveAPIDecoder
             .mapError { error in
-                guard let _error = error as? DecodingError else {
+                guard let decodingError = error as? DecodingError else {
                     return ReactiveAPIError.map(error)
                 }
-                return ReactiveAPIError.decodingError1(_error)
+                return ReactiveAPIError.decodingError1(decodingError)
             }
             .eraseToAnyPublisher()
     }
@@ -146,10 +146,10 @@ extension ReactiveAPIProtocol {
             .mapError { ReactiveAPIError.map($0) }
             .decode(type: D.self, decoder: JSONDecoder())
             .mapError { error in
-                guard let _error = error as? DecodingError else {
+                guard let decodingError = error as? DecodingError else {
                     return ReactiveAPIError.map(error)
                 }
-                return ReactiveAPIError.decodingError1(_error)
+                return ReactiveAPIError.decodingError1(decodingError)
             }
             .eraseToAnyPublisher()
 
@@ -188,10 +188,10 @@ public extension ReactiveAPIProtocol {
 
     // body params as dictionary and generic response type
     func request1<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                               url: URL,
-                               headers: [String: Any?]? = nil,
-                               queryParams: [String: Any?]? = nil,
-                               bodyParams: [String: Any?]? = nil) -> AnyPublisher<D, ReactiveAPIError> {
+                                url: URL,
+                                headers: [String: Any?]? = nil,
+                                queryParams: [String: Any?]? = nil,
+                                bodyParams: [String: Any?]? = nil) -> AnyPublisher<D, ReactiveAPIError> {
 
         let closure = { () throws -> URLRequest in
             do {

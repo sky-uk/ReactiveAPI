@@ -9,7 +9,7 @@ public protocol ReactiveAPIAuthenticator {
                       data: Data?) -> Single<Data>?
 
     func authenticate1(session: URLSession,
-                      request: URLRequest,
-                      response: HTTPURLResponse,
-                      data: Data?) -> AnyPublisher<Data, ReactiveAPIError>?
+                       request: URLRequest,
+                       response: HTTPURLResponse,
+                       data: Data?) -> AnyPublisher<Data, ReactiveAPIError>?
 }

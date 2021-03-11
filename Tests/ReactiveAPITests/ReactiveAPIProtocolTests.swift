@@ -93,6 +93,26 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
+    func test_RxDataRequest_When500WithAuthenticator_ReturnError_Combine() {
+        let session = URLSessionMock.create(Resources.json, errorCode: 500)
+        let api = ReactiveAPI(session: session,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        api.authenticator = AuthenticatorMock(code: 401)
+
+        do {
+            _ = try await(api.rxDataRequest1(Resources.urlRequest))
+
+            XCTFail("This should throw an error!")
+        } catch {
+            if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
+                XCTAssertTrue(response.statusCode == 500)
+            } else {
+                XCTFail("This should be a ReactiveAPIError.httpError")
+            }
+        }
+    }
+
     func test_RxDataRequest_Cache() {
         let session = URLSessionMock.create(Resources.json)
         let api = ReactiveAPI(session: session.rx,
@@ -113,6 +133,24 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
+    func test_RxDataRequest_Cache_Combine() {
+        let session = URLSessionMock.create(Resources.json)
+        let api = ReactiveAPI(session: session,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        let cache = CacheMock()
+        api.cache = cache
+        let request = Resources.urlRequest
+        do {
+            _ = try await(api.rxDataRequest1(request))
+
+            let urlCache = session.configuration.urlCache
+            XCTAssertNotNil(urlCache?.cachedResponse(for: request))
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
     func test_RxDataRequestDecodable_WhenResponseIsValid_ReturnDecoded() {
         let session = URLSessionMock.create(Resources.jsonResponse)
         let api = ReactiveAPI(session: session.rx,
@@ -122,6 +160,25 @@ class ReactiveAPIProtocolTests: XCTestCase {
             let response: ModelMock = try api.rxDataRequest(Resources.urlRequest)
                 .toBlocking()
                 .single()
+
+            XCTAssertNotNil(response)
+            XCTAssertEqual(response.name, "Patrick")
+            XCTAssertEqual(response.id, 5)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_RxDataRequestDecodable_WhenResponseIsValid_ReturnDecoded_Combine() {
+        let session = URLSessionMock.create(Resources.jsonResponse)
+        let api = ReactiveAPI(session: session,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        do {
+            let response: ModelMock = try api.rxDataRequest1(Resources.urlRequest)
+                .waitForCompletion()
+                .first
+                .map { $0 as ModelMock }!
 
             XCTAssertNotNil(response)
             XCTAssertEqual(response.name, "Patrick")
@@ -152,6 +209,23 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
+    func test_RxDataRequestDecodable_WhenResponseIsInvalid_ReturnError_Combine() {
+        let session = URLSessionMock.create(Resources.jsonInvalidResponse)
+        let api = ReactiveAPI(session: session,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        do {
+            let _: ModelMock = try await(api.rxDataRequest1(Resources.urlRequest))
+            XCTFail("This should throw an error!")
+        } catch {
+            if case let ReactiveAPIError.decodingError1(underlyingError: underlyingError) = error {
+                XCTAssertNotNil(underlyingError)
+            } else {
+                XCTFail("This should be a ReactiveAPIError.decodingError")
+            }
+        }
+    }
+
     func test_RxDataRequestVoid_WhenResponseIsValid_ReturnDecoded() {
         let session = URLSessionMock.create(Resources.jsonResponse)
         let api = ReactiveAPI(session: session.rx,
@@ -161,6 +235,23 @@ class ReactiveAPIProtocolTests: XCTestCase {
             let response: Void = try api.rxDataRequestDiscardingPayload(Resources.urlRequest)
                 .toBlocking()
                 .single()
+
+            XCTAssertNotNil(response)
+
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_RxDataRequestVoid_WhenResponseIsValid_ReturnDecoded_Combine() {
+        let session = URLSessionMock.create(Resources.jsonResponse)
+        let api = ReactiveAPI(session: session,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        do {
+            let response: Void = try api.rxDataRequestDiscardingPayload1(Resources.urlRequest)
+                .waitForCompletion()
+                .first!
 
             XCTAssertNotNil(response)
 

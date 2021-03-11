@@ -53,7 +53,7 @@ class URLSessionRxTests: XCTestCase {
         }
     }
 
-    func test_Fetch_WhenDataNil_GenericError() {
+    func test_Fetch_WhenDataNil_MissingDataError() {
         let session = URLSessionMock(response: Resources.httpUrlResponse())
         let response = session.rx.fetch(Resources.urlRequest)
             .toBlocking()
@@ -63,16 +63,15 @@ class URLSessionRxTests: XCTestCase {
         case .completed(elements: _):
             XCTFail("This should throw an error!")
         case .failed(elements: _, error: let error):
-            if case ReactiveAPIError.generic(error:) = error {
+            if case ReactiveAPIError.missingResponse(request: Resources.urlRequest) = error {
                 XCTAssertNotNil(error)
             } else {
-                XCTFail("This should be a ReactiveAPIError.unknown")
+                XCTFail("This should be a ReactiveAPIError.missingResponse(request:)")
             }
         }
     }
-    // TODO: capire se è il caso di inserire un errore specifico al posto del generico
 
-    func test_Fetch_WhenResponseNil_GenericError() {
+    func test_Fetch_WhenResponseNil_MissingResponseError() {
         let session = URLSessionMock(data: Resources.json.data(using: .utf8))
         let response = session.rx.fetch(Resources.urlRequest)
             .toBlocking()
@@ -82,15 +81,13 @@ class URLSessionRxTests: XCTestCase {
         case .completed(elements: _):
             XCTFail("This should throw an error!")
         case .failed(elements: _, error: let error):
-            if case ReactiveAPIError.generic(error:) = error {
+            if case ReactiveAPIError.missingResponse(request: Resources.urlRequest) = error {
                 XCTAssertNotNil(error)
             } else {
-                XCTFail("This should be a ReactiveAPIError.unknown")
+                XCTFail("This should be a ReactiveAPIError.missingResponse(request:)")
             }
         }
     }
-    // TODO: capire se è il caso di inserire un errore specifico al posto del generico
-
 
     func test_Fetch_WhenResponseIsNotHTTP_NonHttpResponse() {
         let session = URLSessionMock(data: Data(), response: URLResponse())

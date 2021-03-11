@@ -8,8 +8,8 @@ extension URLSession {
 
         return self.dataTaskPublisher(for: mutableRequest)
             .tryMap { response in
-                guard let httpResponse = response.response as? HTTPURLResponse
-                else {
+                // 'guard' order matters
+                guard let httpResponse = response.response as? HTTPURLResponse else {
                     throw ReactiveAPIError.nonHttpResponse(response: response.response)
                 }
 
@@ -17,9 +17,13 @@ extension URLSession {
                     throw ReactiveAPIError.httpError(request: mutableRequest, response: httpResponse, data: response.data)
                 }
 
+                guard !response.data.isEmpty else {
+                    throw ReactiveAPIError.missingResponseData(request: mutableRequest)
+                }
+
                 return (mutableRequest, httpResponse, response.data)
             }
-            .mapError { ReactiveAPIError.map($0) } // TODO: capire come gestire l'errore missingResponse
+            .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
 
     }

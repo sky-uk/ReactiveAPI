@@ -25,7 +25,7 @@ struct AuthenticatorMock: ReactiveAPIAuthenticator {
         else { return nil }
 
         return Just(Resources.data)
-            .mapError { ReactiveAPIError.generic(error: $0) }
+            .mapError { .generic(error: $0) }
             .eraseToAnyPublisher()
     }
 }

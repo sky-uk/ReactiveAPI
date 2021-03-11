@@ -12,10 +12,15 @@ public enum ReactiveAPIError: Error {
     case URLComponentsError(URL)
     case httpError(request: URLRequest, response: HTTPURLResponse, data: Data)
     case nonHttpResponse(response: URLResponse)
-    case missingResponse(request: URLRequest)
+    case missingResponseData(request: URLRequest)
+    case networkError(urlError: URLError)
     case generic(error: Error)
 
     static func map(_ error: Error) -> ReactiveAPIError {
+        if let urlerror = error as? URLError {
+            return .networkError(urlError: urlerror)
+        }
+
         return (error as? ReactiveAPIError) ?? .generic(error: error)
     }
 }

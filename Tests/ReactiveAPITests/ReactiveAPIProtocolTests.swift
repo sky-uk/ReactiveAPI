@@ -83,7 +83,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
 
         switch response {
         case .completed(elements: _):
-            XCTFail("This should throws an error!")
+            XCTFail("This should throw an error!")
         case .failed(elements: _, error: let error):
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                 XCTAssertTrue(response.statusCode == 500)
@@ -199,7 +199,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
 
         switch response {
         case .completed(elements: _):
-            XCTFail("This should throws an error!")
+            XCTFail("This should throw an error!")
         case .failed(elements: _, error: let error):
             if case let ReactiveAPIError.decodingError(_, data: data) = error {
                 XCTAssertNotNil(data)

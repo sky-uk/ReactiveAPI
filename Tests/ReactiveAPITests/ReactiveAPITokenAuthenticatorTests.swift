@@ -80,7 +80,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
         switch response {
             case .completed(elements: _):
-                XCTFail("This should throws an error!")
+                XCTFail("This should throw an error!")
             case .failed(elements: _, error: let error):
                 if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                     XCTAssertTrue(response.statusCode == 500)
@@ -97,7 +97,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
                                                              request: Resources.urlRequest,
                                                              newToken: "newToken"))
 
-            XCTFail("This should throws an error!")
+            XCTFail("This should throw an error!")
         } catch {
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                 XCTAssertTrue(response.statusCode == 500)
@@ -117,7 +117,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
         switch response {
             case .completed(elements: _):
-                XCTFail("This should throws an error!")
+                XCTFail("This should throw an error!")
             case .failed(elements: _, error: let error):
                 if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                     XCTAssertTrue(response.statusCode == 401)
@@ -134,7 +134,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
                                                              request: Resources.urlRequest,
                                                              newToken: "newToken"))
 
-            XCTFail("This should throws an error!")
+            XCTFail("This should throw an error!")
         } catch {
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                 XCTAssertTrue(response.statusCode == 401)
@@ -397,7 +397,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         let response = authenticator.authenticate(session: session.rx,
                                                   request: Resources.urlRequest,
-                                                  response: Resources.httpUrlResponse(code: 401)!, // TODO: perchè qui c'è 401?
+                                                  response: Resources.httpUrlResponse(code: 401)!,
                                                   data: nil)?
             .toBlocking()
             .materialize()
@@ -409,7 +409,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
                 } else {
                     XCTFail("This should be a ReactiveAPIError.httpError")
             }
-            default: XCTFail("This should throws an error!")
+            default: XCTFail("This should throw an error!")
         }
     }
 
@@ -421,7 +421,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
                                                       response: Resources.httpUrlResponse(code: 401)!,
                                                       data: nil)!)
 
-            XCTFail("This should throws an error!")
+            XCTFail("This should throw an error!")
         } catch {
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                 XCTAssertTrue(response.statusCode == 500)

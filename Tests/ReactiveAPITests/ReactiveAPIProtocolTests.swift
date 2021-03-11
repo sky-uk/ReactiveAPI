@@ -23,6 +23,53 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
+    func test_RxDataRequest_When401WithAuthenticator_DataIsValid_Combine() {
+        let session = URLSessionMock.create(Resources.json, errorCode: 401)
+        let api = ReactiveAPI(session: session,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        api.authenticator = AuthenticatorMock(code: 401)
+
+        do {
+            let response = try api.rxDataRequest1(Resources.urlRequest)
+                .waitForCompletion()
+                .first
+
+            XCTAssertNotNil(response)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func test_RxDataRequest_When401WithAuthenticator_DataIsValid_Comparison() {
+        let session = URLSessionMock.create(Resources.json, errorCode: 401)
+        let api1 = ReactiveAPI(session: session.rx,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        api1.authenticator = AuthenticatorMock(code: 401)
+
+        let api2 = ReactiveAPI(session: session,
+                              decoder: JSONDecoder(),
+                              baseUrl: Resources.url)
+        api2.authenticator = AuthenticatorMock(code: 401)
+
+        do {
+            let response1 = try api1.rxDataRequest(Resources.urlRequest)
+                .toBlocking()
+                .single()
+
+            let response2 = try api2.rxDataRequest1(Resources.urlRequest)
+                .waitForCompletion()
+                .first
+
+            XCTAssertNotNil(response1)
+            XCTAssertNotNil(response2)
+            XCTAssertEqual(response1, response2)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
     func test_RxDataRequest_When500WithAuthenticator_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         let api = ReactiveAPI(session: session.rx,

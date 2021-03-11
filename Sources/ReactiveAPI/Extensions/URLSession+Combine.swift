@@ -26,7 +26,7 @@ extension URLSession {
 }
 
 // Esempio di fetch con gestione singola degli errori
-//func fetch(url: URL) -> AnyPublisher<Data, APIError> {
+// func fetch(url: URL) -> AnyPublisher<Data, APIError> {
 //    let request = URLRequest(url: url)
 //
 //    return URLSession.DataTaskPublisher(request: request, session: .shared)
@@ -68,4 +68,4 @@ extension URLSession {
 //            return APIError.unknown
 //        }
 //        .eraseToAnyPublisher()
-//}
+// }

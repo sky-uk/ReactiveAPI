@@ -185,10 +185,9 @@ fileprivate class ClientAPI: ReactiveAPI {
         request1(url: absoluteURL(Endpoint.endpoint2))
     }
 
-    // Struct
-
 }
 
+// Struct
 fileprivate struct Model: Codable {
     let name: String
     let id: String

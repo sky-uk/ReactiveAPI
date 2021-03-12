@@ -120,7 +120,7 @@ class RefreshTokenTests: SkyTestCase {
             sut.requestInterceptors += [ TokenInterceptor(tokenValue: { return currentToken }, headerName: tokenHeaderName) ]
 
             httpServer.route(ClientAPI.Endpoint.login) { (request, callCount) -> (HttpResponse) in
-                XCTAssertEqual(callCount, 1)
+                XCTAssertEqual(callCount, 1) // TODO: è successo che una volta su CI è fallito il test perchè qui c'era 2. Ricontrollare bene il meccanismo di sincronizzazione del semaforo in route
                 XCTAssertEqual(request.header(name: tokenHeaderName), token1)
                 return HttpResponse.ok(Model.mock().encoded())
             }
@@ -159,7 +159,8 @@ class RefreshTokenTests: SkyTestCase {
             let endpointCall1 = sut.endpoint1_1()
                 .print("\(Date().dateMillis) Parallel call  on \(Thread.current.description)")
                 .subscribe(on: queueScheduler00)
-            let endpointCall2 = sut.endpoint2_1()               .print("\(Date().dateMillis) Parallel call  on \(Thread.current.description)")
+            let endpointCall2 = sut.endpoint2_1()
+                .print("\(Date().dateMillis) Parallel call  on \(Thread.current.description)")
                 .subscribe(on: queueScheduler01)
 
             let events = try awaitCompletion(of: Publishers.Zip(endpointCall1, endpointCall2))

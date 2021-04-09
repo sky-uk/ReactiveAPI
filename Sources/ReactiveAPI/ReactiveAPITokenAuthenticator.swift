@@ -60,8 +60,8 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     }
 
     func requestWithNewToken1(session: URLSession,
-                             request: URLRequest,
-                             newToken: String) -> AnyPublisher<Data, ReactiveAPIError> {
+                              request: URLRequest,
+                              newToken: String) -> AnyPublisher<Data, ReactiveAPIError> {
         logger?.log(state: .retryingRequestWithNewToken)
 
         var newRequest = request

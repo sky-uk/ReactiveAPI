@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -71,6 +71,9 @@
 		C227178625E941AF0044ADDA /* URLSession+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178525E941AF0044ADDA /* URLSession+Combine.swift */; };
 		C227179525EE5E9C0044ADDA /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178F25EE5E8E0044ADDA /* Publisher+.swift */; };
 		C227179E25EF80C30044ADDA /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */; };
+		C2E5AA5826136C080022AF4C /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = C2E5AA5726136C080022AF4C /* CombineExt */; };
+		C2E5AA5C26136D2B0022AF4C /* LoadingResult1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5AA5B26136D2B0022AF4C /* LoadingResult1.swift */; };
+		C2E5AA5D26136D2B0022AF4C /* LoadingResult1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5AA5B26136D2B0022AF4C /* LoadingResult1.swift */; };
 		C3CB029F1104E61DD22141F1 /* InterceptorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FD5560BB69955774B1326 /* InterceptorMock.swift */; };
 		C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */; };
 		C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */; };
@@ -194,6 +197,7 @@
 		C227178525E941AF0044ADDA /* URLSession+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Combine.swift"; sourceTree = "<group>"; };
 		C227178F25EE5E8E0044ADDA /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Publisher.swift"; sourceTree = "<group>"; };
+		C2E5AA5B26136D2B0022AF4C /* LoadingResult1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResult1.swift; sourceTree = "<group>"; };
 		C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
 		C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPIExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocol.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E5AA5826136C080022AF4C /* CombineExt in Frameworks */,
 				E93BA63D40CF92C0631A9AFB /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */,
+				C2E5AA5B26136D2B0022AF4C /* LoadingResult1.swift */,
 				21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */,
 			);
 			path = Fetcher;
@@ -459,6 +465,9 @@
 			dependencies = (
 			);
 			name = ReactiveAPI;
+			packageProductDependencies = (
+				C2E5AA5726136C080022AF4C /* CombineExt */,
+			);
 			productName = ReactiveAPI;
 			productReference = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */;
 			productType = "com.apple.product-type.framework";
@@ -531,6 +540,9 @@
 				en,
 			);
 			mainGroup = 5AC1AE3609411E2D8D5A15C4;
+			packageReferences = (
+				C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */,
+			);
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -569,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B900F550F4896C18D2BB89 /* Encodable+Dictionary.swift in Sources */,
+				C2E5AA5C26136D2B0022AF4C /* LoadingResult1.swift in Sources */,
 				C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */,
 				1A639B2EAD1F4F4F48315D2A /* LoadingResult.swift in Sources */,
 				786203255A9D3A72B681D4A9 /* MaxAgeCache.swift in Sources */,
@@ -637,6 +650,7 @@
 				6044286A72B57F21C89F192B /* FailableCodables.swift in Sources */,
 				284BB9BE2902E77B7FF877AE /* LoadingResult.swift in Sources */,
 				3E19FF4A4D47C1DACD6AE6B2 /* ReactiveFetcher.swift in Sources */,
+				C2E5AA5D26136D2B0022AF4C /* LoadingResult1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1003,6 +1017,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2E5AA5726136C080022AF4C /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0257EE0D0B53C201CBE27AEA /* Project object */;
 }

@@ -67,7 +67,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         var newRequest = request
         newRequest.setValue(newToken, forHTTPHeaderField: tokenHeaderName)
         return session.fetch(newRequest)
-            .map { $0.data }
+            .map(\.data)
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }

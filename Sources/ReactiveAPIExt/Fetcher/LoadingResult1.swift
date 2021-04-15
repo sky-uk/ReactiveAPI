@@ -4,12 +4,12 @@ import CombineExt
 
 protocol LoadingDataConvertible1 {
     associatedtype ElementType
-    var data: SkyEvent<ElementType>? { get } //Event<ElementType, Error>? { get }
+    var data: SkyEvent<ElementType>? { get }
     var loading: Bool { get }
 }
 
 struct LoadingResult1<E>: LoadingDataConvertible1 {
-    let data: SkyEvent<E>? //Event<E, Error>?
+    let data: SkyEvent<E>?
     let loading: Bool
 
     init(_ loading: Bool) {
@@ -17,7 +17,7 @@ struct LoadingResult1<E>: LoadingDataConvertible1 {
         self.loading = loading
     }
 
-    init(_ data: SkyEvent<E>) { //Event<E, Error>) {
+    init(_ data: SkyEvent<E>) {
         self.data = data
         self.loading = false
     }
@@ -51,21 +51,6 @@ extension Publisher where Output: LoadingDataConvertible1 {
             .eraseToAnyPublisher()
     }
 }
-//
-//extension SkyEvent: Equatable where Element: Equatable {
-//    static public func == (lhs: Self, rhs: Self) -> Bool {
-//        switch (lhs, rhs) {
-//            case (.completed, .completed):
-//                return true
-//            case (.next(let outputLhs), .next(let outputRhs)):
-//                return outputLhs == outputRhs
-//            case (.error(let errorLhs), .error(let errorRhs)):
-//                return errorLhs.localizedDescription == errorRhs.localizedDescription
-//            default:
-//                return false
-//        }
-//    }
-//}
 
 public enum SkyEvent<Element> {
 

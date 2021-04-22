@@ -1,14 +1,15 @@
 import Foundation
-import RxSwift
+import Combine
+import CombineExt
 
 protocol LoadingDataConvertible {
     associatedtype ElementType
-    var data: Event<ElementType>? { get }
+    var data: SkyEvent<ElementType>? { get }
     var loading: Bool { get }
 }
 
 struct LoadingResult<E>: LoadingDataConvertible {
-    let data: Event<E>?
+    let data: SkyEvent<E>?
     let loading: Bool
 
     init(_ loading: Bool) {
@@ -16,25 +17,37 @@ struct LoadingResult<E>: LoadingDataConvertible {
         self.loading = loading
     }
 
-    init(_ data: Event<E>) {
+    init(_ data: SkyEvent<E>) {
         self.data = data
         self.loading = false
     }
 }
 
-extension ObservableType {
-    func monitorLoading() -> Observable<LoadingResult<Element>> {
+extension Publisher {
+    func monitorLoading() -> AnyPublisher<LoadingResult<Output>, Never> {
         materialize()
+            .map { data -> SkyEvent<Output> in
+                switch data {
+                    case .value(let output):
+                        return .next(output)
+                    case .failure(let error):
+                        return .error(error)
+                    case .finished:
+                        return .completed
+                }
+            }
             .map(LoadingResult.init)
-            .startWith(LoadingResult(true))
+            .prepend(LoadingResult(true))
+            .eraseToAnyPublisher()
     }
 }
 
-extension ObservableType where Element: LoadingDataConvertible {
-    var events: Observable<Event<Element.ElementType>> {
+extension Publisher where Output: LoadingDataConvertible {
+    var events: AnyPublisher<SkyEvent<Output.ElementType>, Self.Failure> {
         filter { !$0.loading }
-            .map { $0.data }
+            .map(\.data)
             .filter { $0 != nil }
             .map { $0! }
+            .eraseToAnyPublisher()
     }
 }

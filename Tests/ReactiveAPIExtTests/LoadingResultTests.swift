@@ -8,11 +8,11 @@ private enum LoadingResultTestsError: Error {
 }
 
 class LoadingResultTests: XCTestCase {
-    private let next = LoadingResult1<String>(SkyEvent.next("data"))
-    private let completed = LoadingResult1<String>(SkyEvent<String>.completed)
-    private let error = LoadingResult1<String>(SkyEvent<String>.error(LoadingResultTestsError.unknown))
-    private let loadingFalse = LoadingResult1<String>(false)
-    private let loadingTrue = LoadingResult1<String>(true)
+    private let next = LoadingResult<String>(SkyEvent.next("data"))
+    private let completed = LoadingResult<String>(SkyEvent<String>.completed)
+    private let error = LoadingResult<String>(SkyEvent<String>.error(LoadingResultTestsError.unknown))
+    private let loadingFalse = LoadingResult<String>(false)
+    private let loadingTrue = LoadingResult<String>(true)
 
     func test_InitLoading() {
         XCTAssertNil(loadingFalse.data)

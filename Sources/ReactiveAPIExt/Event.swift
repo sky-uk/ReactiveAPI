@@ -1,6 +1,6 @@
 import Foundation
 
-public enum SkyEvent<Element> {
+public enum SimpleEvent<Element> {
 
     /// Next element is produced.
     case next(Element)
@@ -12,7 +12,7 @@ public enum SkyEvent<Element> {
     case completed
 }
 
-extension SkyEvent {
+extension SimpleEvent {
 
     /// Is `completed` or `error` event.
     public var isStopEvent: Bool {

@@ -8,9 +8,9 @@ private enum LoadingResultTestsError: Error {
 }
 
 class LoadingResultTests: XCTestCase {
-    private let next = LoadingResult<String>(SkyEvent.next("data"))
-    private let completed = LoadingResult<String>(SkyEvent<String>.completed)
-    private let error = LoadingResult<String>(SkyEvent<String>.error(LoadingResultTestsError.unknown))
+    private let next = LoadingResult<String>(SimpleEvent.next("data"))
+    private let completed = LoadingResult<String>(SimpleEvent<String>.completed)
+    private let error = LoadingResult<String>(SimpleEvent<String>.error(LoadingResultTestsError.unknown))
     private let loadingFalse = LoadingResult<String>(false)
     private let loadingTrue = LoadingResult<String>(true)
 

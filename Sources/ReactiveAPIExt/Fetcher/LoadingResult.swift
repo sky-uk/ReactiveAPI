@@ -4,12 +4,12 @@ import CombineExt
 
 protocol LoadingDataConvertible {
     associatedtype ElementType
-    var data: SkyEvent<ElementType>? { get }
+    var data: SimpleEvent<ElementType>? { get }
     var loading: Bool { get }
 }
 
 struct LoadingResult<E>: LoadingDataConvertible {
-    let data: SkyEvent<E>?
+    let data: SimpleEvent<E>?
     let loading: Bool
 
     init(_ loading: Bool) {
@@ -17,7 +17,7 @@ struct LoadingResult<E>: LoadingDataConvertible {
         self.loading = loading
     }
 
-    init(_ data: SkyEvent<E>) {
+    init(_ data: SimpleEvent<E>) {
         self.data = data
         self.loading = false
     }
@@ -26,7 +26,7 @@ struct LoadingResult<E>: LoadingDataConvertible {
 extension Publisher {
     func monitorLoading() -> AnyPublisher<LoadingResult<Output>, Never> {
         materialize()
-            .map { data -> SkyEvent<Output> in
+            .map { data -> SimpleEvent<Output> in
                 switch data {
                     case .value(let output):
                         return .next(output)
@@ -43,7 +43,7 @@ extension Publisher {
 }
 
 extension Publisher where Output: LoadingDataConvertible {
-    var events: AnyPublisher<SkyEvent<Output.ElementType>, Self.Failure> {
+    var events: AnyPublisher<SimpleEvent<Output.ElementType>, Self.Failure> {
         filter { !$0.loading }
             .map(\.data)
             .filter { $0 != nil }

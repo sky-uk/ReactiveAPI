@@ -1,6 +1,6 @@
 import XCTest
-import RxSwift
-import RxBlocking
+import Combine
+import CombineExt
 @testable import ReactiveAPIExt
 
 private enum LoadingResultTestsError: Error {
@@ -8,11 +8,11 @@ private enum LoadingResultTestsError: Error {
 }
 
 class LoadingResultTests: XCTestCase {
-    private let next = LoadingResult<String>(Event.next("data"))
-    private let completed = LoadingResult<String>(Event<String>.completed)
-    private let error = LoadingResult<String>(Event<String>.error(LoadingResultTestsError.unknown))
-    private let loadingFalse = LoadingResult<String>(false)
-    private let loadingTrue = LoadingResult<String>(true)
+    private let next = LoadingResult1<String>(SkyEvent.next("data"))
+    private let completed = LoadingResult1<String>(SkyEvent<String>.completed)
+    private let error = LoadingResult1<String>(SkyEvent<String>.error(LoadingResultTestsError.unknown))
+    private let loadingFalse = LoadingResult1<String>(false)
+    private let loadingTrue = LoadingResult1<String>(true)
 
     func test_InitLoading() {
         XCTAssertNil(loadingFalse.data)
@@ -25,18 +25,18 @@ class LoadingResultTests: XCTestCase {
     func test_InitData() throws {
         XCTAssertEqual(next.loading, false)
         let dataNext = try XCTUnwrap(next.data)
-        XCTAssertEqual(dataNext.event.element, "data")
+        XCTAssertEqual(dataNext.element, "data")
         XCTAssertFalse(dataNext.isCompleted)
 
         XCTAssertEqual(completed.loading, false)
         let dataCompleted = try XCTUnwrap(completed.data)
-        XCTAssertNil(dataCompleted.event.element)
+        XCTAssertNil(dataCompleted.element)
         XCTAssertTrue(dataCompleted.isCompleted)
 
         XCTAssertEqual(error.loading, false)
         let dataError = try XCTUnwrap(error.data)
         let error = try XCTUnwrap(dataError.error)
-        XCTAssertNil(dataError.event.element)
+        XCTAssertNil(dataError.element)
         XCTAssertFalse(dataError.isCompleted)
         XCTAssert(error is LoadingResultTestsError)
         if case LoadingResultTestsError.unknown = error { XCTAssert(true) } else { XCTFail() }
@@ -44,17 +44,16 @@ class LoadingResultTests: XCTestCase {
 
     func test_MonitorLoading_WhenCompleted_ReturnLoadingResult() throws {
         let count = Int.random(in: 1...10)
-        let observable = Observable<String>.create { observer in
+        let publisher = AnyPublisher<String, Never>.create { subscriber in
             Array(repeating: "event", count: count).enumerated()
-                .forEach { observer.onNext("\($0)\($1)") }
-            observer.onCompleted()
-            return Disposables.create()
+                .forEach { subscriber.send("\($0.offset)\($0.element)") }
+            subscriber.send(completion: .finished)
+            return AnyCancellable {}
         }
 
-        let sequence = try? observable
+        let sequence = try? publisher
             .monitorLoading()
-            .toBlocking()
-            .toArray()
+            .waitForCompletion()
 
         var results = try XCTUnwrap(sequence)
         XCTAssertEqual(results.count, 1 + count + 1)
@@ -65,27 +64,26 @@ class LoadingResultTests: XCTestCase {
 
         let last = results.removeLast()
         XCTAssertEqual(last.loading, false)
-        XCTAssertNil(last.data!.event.element)
+        XCTAssertNil(last.data!.element)
         XCTAssertTrue(last.data!.isCompleted)
 
         results.enumerated()
             .forEach { (index, result) in
-                XCTAssertNotNil(result.data!.event.element)
-                XCTAssert((result.data!.event.element!.contains("\(index)")))
-        }
+                XCTAssertNotNil(result.data!.element)
+                XCTAssert((result.data!.element!.contains("\(index)")))
+            }
     }
 
     func test_MonitorLoading_WhenError_ReturnLoadingResult() throws {
-        let observable = Observable<String>.create { observer in
-            observer.onNext("event")
-            observer.onError(LoadingResultTestsError.unknown)
-            return Disposables.create()
+        let publisher = AnyPublisher<String, Error>.create { subscriber in
+            subscriber.send("event")
+            subscriber.send(completion: .failure(LoadingResultTestsError.unknown))
+            return AnyCancellable {}
         }
 
-        let sequence = try? observable
+        let sequence = try? publisher
             .monitorLoading()
-            .toBlocking()
-            .toArray()
+            .waitForCompletion()
 
         var results = try XCTUnwrap(sequence)
         XCTAssertEqual(results.count, 3)
@@ -96,10 +94,10 @@ class LoadingResultTests: XCTestCase {
 
         let last = results.removeLast()
         XCTAssertEqual(last.loading, false)
-        XCTAssertNil(last.data!.event.element)
+        XCTAssertNil(last.data!.element)
         XCTAssertFalse(last.data!.isCompleted)
         if let error = last.data?.error,
-            case LoadingResultTestsError.unknown = error {
+           case LoadingResultTestsError.unknown = error {
             XCTAssert(true)
         } else {
             XCTFail()
@@ -107,9 +105,9 @@ class LoadingResultTests: XCTestCase {
 
         results.enumerated()
             .forEach { (_, result) in
-                XCTAssertNotNil(result.data!.event.element)
-                XCTAssert((result.data!.event.element! == "event"))
-        }
+                XCTAssertNotNil(result.data!.element)
+                XCTAssert((result.data!.element! == "event"))
+            }
     }
 
     func test_Events_ReturnFiltered() {
@@ -124,10 +122,8 @@ class LoadingResultTests: XCTestCase {
             loadingTrue,
             next
         ]
-        let results = try? Observable.from(events)
-            .events
-            .toBlocking()
-            .toArray()
+
+        let results = try? awaitCompletion(of: events.publisher.events)
 
         XCTAssertNotNil(results)
         XCTAssertEqual(results?.count, 5)

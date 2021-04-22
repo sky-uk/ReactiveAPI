@@ -67,6 +67,10 @@
 		BA6B38CB8DED835219A1A72C /* ReactiveAPITokenAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */; };
 		BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */; };
 		C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
+		C214A045262EE0700080F7A7 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = C214A044262EE0700080F7A7 /* CombineExt */; };
+		C214A049262EE4E60080F7A7 /* LoadingResultTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214A048262EE4E60080F7A7 /* LoadingResultTests1.swift */; };
+		C214A04C262F12DE0080F7A7 /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */; };
+		C214A04F262F12E60080F7A7 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178F25EE5E8E0044ADDA /* Publisher+.swift */; };
 		C2190F66260B8ED60002FE36 /* MockClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2190F65260B8ED60002FE36 /* MockClientAPI.swift */; };
 		C227178625E941AF0044ADDA /* URLSession+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178525E941AF0044ADDA /* URLSession+Combine.swift */; };
 		C227179525EE5E9C0044ADDA /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178F25EE5E8E0044ADDA /* Publisher+.swift */; };
@@ -193,6 +197,7 @@
 		B77E5C245626036717746AE9 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
 		BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
 		C05F731F77317CB1F151CA3B /* SessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
+		C214A048262EE4E60080F7A7 /* LoadingResultTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultTests1.swift; sourceTree = "<group>"; };
 		C2190F65260B8ED60002FE36 /* MockClientAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClientAPI.swift; sourceTree = "<group>"; };
 		C227178525E941AF0044ADDA /* URLSession+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Combine.swift"; sourceTree = "<group>"; };
 		C227178F25EE5E8E0044ADDA /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
@@ -230,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C214A045262EE0700080F7A7 /* CombineExt in Frameworks */,
 				DD00C850D8E4FF92347728BE /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +403,7 @@
 			children = (
 				3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */,
 				5B09D7854629F235A953514E /* LoadingResultTests.swift */,
+				C214A048262EE4E60080F7A7 /* LoadingResultTests1.swift */,
 				0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */,
 			);
 			name = ReactiveAPIExtTests;
@@ -484,6 +491,9 @@
 			dependencies = (
 			);
 			name = ReactiveAPIExt;
+			packageProductDependencies = (
+				C214A044262EE0700080F7A7 /* CombineExt */,
+			);
 			productName = ReactiveAPIExt;
 			productReference = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */;
 			productType = "com.apple.product-type.framework";
@@ -637,7 +647,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C214A04C262F12DE0080F7A7 /* XCTestCase+Publisher.swift in Sources */,
 				EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */,
+				C214A04F262F12E60080F7A7 /* Publisher+.swift in Sources */,
+				C214A049262EE4E60080F7A7 /* LoadingResultTests1.swift in Sources */,
 				472C1C45AF3D5882144E62DD /* LoadingResultTests.swift in Sources */,
 				2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */,
 			);
@@ -1030,6 +1043,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C214A044262EE0700080F7A7 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
 		C2E5AA5726136C080022AF4C /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */;

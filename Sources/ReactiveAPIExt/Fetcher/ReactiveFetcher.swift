@@ -54,31 +54,15 @@ public class ReactiveFetcher1<Input, Output> {
 
     public var output: AnyPublisher<Output, Never> {
         operation.events
-            .map {
-                switch $0 {
-                    case .next(let output):
-                        return output
-                    default:
-                        return nil
-                }
-            }
-            .filter { $0 != nil }
-            .map { $0! }
+            .filter { $0.element != nil }
+            .map { $0.element! }
             .eraseToAnyPublisher()
     }
 
     public var error: AnyPublisher<Error, Never> {
         operation.events
-            .map {
-                switch $0 {
-                    case .error(let error):
-                        return error
-                    default:
-                        return nil
-                }
-            }
-            .filter { $0 != nil }
-            .map { $0! }
+            .filter { $0.error != nil }
+            .map { $0.error! }
             .eraseToAnyPublisher()
     }
 
@@ -91,17 +75,10 @@ public class ReactiveFetcher1<Input, Output> {
             .eraseToAnyPublisher()
     }
 
-    public var isCompleted: AnyPublisher<Bool, Never> {
+    public var isCompleted: AnyPublisher<Void, Never> {
         operation.events
-            .map {
-                switch $0 {
-                    case .completed:
-                        return true
-                    default:
-                        return false
-                }
-            }
-            .filter { $0 == true }
+            .filter { $0.isCompleted }
+            .map { _ in () }
             .eraseToAnyPublisher()
     }
 }

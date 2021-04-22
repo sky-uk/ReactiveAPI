@@ -109,8 +109,7 @@ class LoadingResultTests1: XCTestCase {
                 XCTAssert((result.data!.element! == "event"))
             }
     }
-/*
-// TODO: fallisce, correggere
+
     func test_Events_ReturnFiltered() {
         let events = [
             loadingTrue,
@@ -124,21 +123,9 @@ class LoadingResultTests1: XCTestCase {
             next
         ]
 
-        let publisher = AnyPublisher<LoadingResult1<String>, Error>.create { subscriber in
-            events.forEach { subscriber.send($0) }
-            return AnyCancellable {}
-        }
-
-        let results = try? awaitCompletion(of: publisher)//.events)
-
-//        let results = try? Observable.from(events)
-//            .events
-//            .toBlocking()
-//            .toArray()
-
+        let results = try? awaitCompletion(of: events.publisher.events)
 
         XCTAssertNotNil(results)
         XCTAssertEqual(results?.count, 5)
     }
- */
 }

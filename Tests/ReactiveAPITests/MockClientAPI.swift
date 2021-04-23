@@ -1,5 +1,4 @@
 import XCTest
-import RxSwift
 import Combine
 import ReactiveAPI
 
@@ -12,35 +11,19 @@ class ClientAPI: ReactiveAPI {
 
     }
 
-    func login() -> Single<Model> {
-        request(url: absoluteURL(ClientAPI.Endpoint.login))
-    }
-
-    func login1() -> AnyPublisher<Model, ReactiveAPIError> {
+    func login() -> AnyPublisher<Model, ReactiveAPIError> {
         request1(url: absoluteURL(ClientAPI.Endpoint.login))
     }
 
-    func renewToken() -> Single<Model> {
-        request(url: absoluteURL(ClientAPI.Endpoint.renew))
-    }
-
-    func renewToken1() -> AnyPublisher<Model, ReactiveAPIError> {
+    func renewToken() -> AnyPublisher<Model, ReactiveAPIError> {
         request1(url: absoluteURL(ClientAPI.Endpoint.renew))
     }
 
-    func endpoint1() -> Single<Model> {
-        request(url: absoluteURL(Endpoint.endpoint1))
-    }
-
-    func endpoint1_1() -> AnyPublisher<Model, ReactiveAPIError> {
+    func endpoint1() -> AnyPublisher<Model, ReactiveAPIError> {
         request1(url: absoluteURL(Endpoint.endpoint1))
     }
 
-    func endpoint2() -> Single<Model> {
-        request(url: absoluteURL(Endpoint.endpoint2))
-    }
-
-    func endpoint2_1() -> AnyPublisher<Model, ReactiveAPIError> {
+    func endpoint2() -> AnyPublisher<Model, ReactiveAPIError> {
         request1(url: absoluteURL(Endpoint.endpoint2))
     }
 }

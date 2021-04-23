@@ -15,14 +15,6 @@ class ReactiveAPIErrorTests: XCTestCase {
     func test_ErrorDescription() {
         XCTAssertNil(urlComponentsError.errorDescription)
         XCTAssertNil(httpError.errorDescription)
-        let description = ReactiveAPIError.decodingError(dataCorrupted, data: Resources.data).errorDescription
-        XCTAssertNotNil(description)
-        XCTAssertEqual(description, dataCorrupted.localizedDescription)
-    }
-
-    func test_ErrorDescription_Combine() {
-        XCTAssertNil(urlComponentsError.errorDescription)
-        XCTAssertNil(httpError.errorDescription)
         let description = ReactiveAPIError.decodingError1(dataCorrupted).errorDescription
         XCTAssertNotNil(description)
         XCTAssertEqual(description, dataCorrupted.localizedDescription)

@@ -25,7 +25,6 @@
 		399854E62897A90CC9F34FC8 /* ReactiveAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */; };
 		3A4146ED9D21634B60ED7FB7 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E19FF4A4D47C1DACD6AE6B2 /* ReactiveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */; };
-		3E1E67C0FDA795C15561FF57 /* URLSession+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489A94C6149C5A1D9597459E /* URLSession+Rx.swift */; };
 		3EAE79251499B755EECE2074 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D501B7ABA3E2CD7FCAC8C4F /* CacheMock.swift */; };
 		42F8CA0A75C45E5F9AF9237B /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A916EA919CD58BE3AED7795 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */; };
@@ -167,7 +166,6 @@
 		3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
 		41378024B921CEBAFED94FCC /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swifter.framework; sourceTree = "<group>"; };
 		4437588A10A00E7461E53C70 /* URLComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsTests.swift; sourceTree = "<group>"; };
-		489A94C6149C5A1D9597459E /* URLSession+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Rx.swift"; sourceTree = "<group>"; };
 		49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPICache.swift; sourceTree = "<group>"; };
 		4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticator.swift; sourceTree = "<group>"; };
 		5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 				5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */,
 				EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */,
 				5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */,
-				489A94C6149C5A1D9597459E /* URLSession+Rx.swift */,
 				C227178525E941AF0044ADDA /* URLSession+Combine.swift */,
 			);
 			path = Extensions;
@@ -604,7 +601,6 @@
 				6C439ED428595B7BEE3F49CB /* ReactiveFetcher.swift in Sources */,
 				1FA1B4AB3B726ACC60811C20 /* URLComponents+QueryParams.swift in Sources */,
 				C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */,
-				3E1E67C0FDA795C15561FF57 /* URLSession+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

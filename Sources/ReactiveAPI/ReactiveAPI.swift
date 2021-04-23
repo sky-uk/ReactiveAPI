@@ -1,9 +1,7 @@
 import Foundation
-import RxSwift
 
 open class ReactiveAPI: ReactiveAPIProtocol {
-    public let session: Reactive<URLSession>
-    public var session1: URLSession
+    public var session: URLSession
     public let decoder: ReactiveAPIDecoder
     public let encoder: JSONEncoder
     public let baseUrl: URL
@@ -12,7 +10,7 @@ open class ReactiveAPI: ReactiveAPIProtocol {
     public var cache: ReactiveAPICache?
     public var queryStringTypeConverter: ReactiveAPITypeConverter?
 
-    required public init(session: Reactive<URLSession>,
+    required public init(session: URLSession,
                          decoder: ReactiveAPIDecoder = JSONDecoder(),
                          encoder: JSONEncoder = JSONEncoder(),
                          baseUrl: URL) {
@@ -20,20 +18,6 @@ open class ReactiveAPI: ReactiveAPIProtocol {
         self.decoder = decoder
         self.encoder = encoder
         self.baseUrl = baseUrl
-
-        self.session1 = URLSession.shared // TODO da rimuovere
-    }
-
-    required public init(session: URLSession,
-                         decoder: ReactiveAPIDecoder = JSONDecoder(),
-                         encoder: JSONEncoder = JSONEncoder(),
-                         baseUrl: URL) {
-        self.session1 = session
-        self.decoder = decoder
-        self.encoder = encoder
-        self.baseUrl = baseUrl
-
-        self.session = URLSession.shared.rx // TODO da rimuovere
     }
 }
 

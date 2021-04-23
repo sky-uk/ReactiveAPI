@@ -76,7 +76,7 @@ extension ReactiveAPIProtocol {
     }
 }
 
-public extension ReactiveAPIProtocol {
+public extension ReactiveAPIProtocol { // TODO: refactoring!!!
     // body params as dictionary and generic response type
     func request1<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                 url: URL,
@@ -163,10 +163,10 @@ public extension ReactiveAPIProtocol {
 
     // body params as encodable and void response type
     func request1<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
-                               url: URL,
-                               headers: [String: Any?]? = nil,
-                               queryParams: [String: Any?]? = nil,
-                               body: E? = nil) -> AnyPublisher<Void, ReactiveAPIError> {
+                                url: URL,
+                                headers: [String: Any?]? = nil,
+                                queryParams: [String: Any?]? = nil,
+                                body: E? = nil) -> AnyPublisher<Void, ReactiveAPIError> {
 
         let closure = { () throws -> AnyPublisher<Void, ReactiveAPIError> in
             do {
@@ -183,7 +183,8 @@ public extension ReactiveAPIProtocol {
             }
         }
 
-        return try! closure()
+        return Just(1)
+            .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
 

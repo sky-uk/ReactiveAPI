@@ -73,6 +73,8 @@
 		C227178625E941AF0044ADDA /* URLSession+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178525E941AF0044ADDA /* URLSession+ReactiveAPI.swift */; };
 		C227179525EE5E9C0044ADDA /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178F25EE5E8E0044ADDA /* Publisher+.swift */; };
 		C227179E25EF80C30044ADDA /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */; };
+		C260FDF2263719DF0039E209 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C260FDF1263719DF0039E209 /* OHHTTPStubs */; };
+		C260FDF6263719F10039E209 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C260FDF5263719F10039E209 /* OHHTTPStubs */; };
 		C2E5AA5826136C080022AF4C /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = C2E5AA5726136C080022AF4C /* CombineExt */; };
 		C2E5AA5C26136D2B0022AF4C /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5AA5B26136D2B0022AF4C /* LoadingResult.swift */; };
 		C2E5AA5D26136D2B0022AF4C /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5AA5B26136D2B0022AF4C /* LoadingResult.swift */; };
@@ -84,11 +86,9 @@
 		D02BB21A12C91F622F76505D /* ReactiveAPIAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B6B5DE4C89F71FADDADA3 /* ReactiveAPIAuthenticator.swift */; };
 		D6FD38AC63A25B6569F70555 /* URLSessionRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31AEC6DF701ED0452C880E /* URLSessionRxTests.swift */; };
 		DA2EB26240D0A9EDCC582553 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD00C850D8E4FF92347728BE /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; };
 		E271914CDE833CBCC5631D21 /* URLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B03DD405C5A981B208EF61 /* URLRequestTests.swift */; };
 		E523A8599F7D043F0F01B081 /* ReactiveAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C7303A883E96E966491DB /* ReactiveAPIError.swift */; };
 		E90611E9FDF9D87E366E718C /* ReactiveAPICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */; };
-		E93BA63D40CF92C0631A9AFB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; };
 		EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */; };
 		ED7A01E7DF5091EA6668423B /* RedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E09D6BB2185C58FE50A8FD /* RedirectTests.swift */; };
 		EDEADE3EF5362AF77DB5145C /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -232,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C214A045262EE0700080F7A7 /* CombineExt in Frameworks */,
-				DD00C850D8E4FF92347728BE /* RxSwift.framework in Frameworks */,
+				C260FDF6263719F10039E209 /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2E5AA5826136C080022AF4C /* CombineExt in Frameworks */,
-				E93BA63D40CF92C0631A9AFB /* RxSwift.framework in Frameworks */,
+				C260FDF2263719DF0039E209 /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +468,7 @@
 			name = ReactiveAPI;
 			packageProductDependencies = (
 				C2E5AA5726136C080022AF4C /* CombineExt */,
+				C260FDF1263719DF0039E209 /* OHHTTPStubs */,
 			);
 			productName = ReactiveAPI;
 			productReference = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */;
@@ -487,6 +488,7 @@
 			name = ReactiveAPIExt;
 			packageProductDependencies = (
 				C214A044262EE0700080F7A7 /* CombineExt */,
+				C260FDF5263719F10039E209 /* OHHTTPStubs */,
 			);
 			productName = ReactiveAPIExt;
 			productReference = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */;
@@ -546,6 +548,7 @@
 			mainGroup = 5AC1AE3609411E2D8D5A15C4;
 			packageReferences = (
 				C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */,
+				C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -1024,6 +1027,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
 		C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
@@ -1039,6 +1050,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */;
 			productName = CombineExt;
+		};
+		C260FDF1263719DF0039E209 /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		C260FDF5263719F10039E209 /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
 		};
 		C2E5AA5726136C080022AF4C /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;

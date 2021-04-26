@@ -25,8 +25,8 @@ extension ReactiveAPIProtocol {
     public func absoluteURL(_ endpoint: String) -> URL {
         return baseUrl.appendingPathComponent(endpoint)
     }
-    //TODO: rinominare tutti i metodi chiamari rx...ecc
-    func rxDataRequest(_ request: URLRequest) -> AnyPublisher<Data, ReactiveAPIError> {
+
+    func reactiveDataRequest(_ request: URLRequest) -> AnyPublisher<Data, ReactiveAPIError> {
         return session.fetch(request, interceptors: requestInterceptors)
             .tryMap { (request, response, data) -> Data in
                 if let cache = self.cache,
@@ -57,8 +57,8 @@ extension ReactiveAPIProtocol {
             .eraseToAnyPublisher()
     }
 
-    func rxDataRequest<D: Decodable>(_ request: URLRequest) -> AnyPublisher<D, ReactiveAPIError> {
-        return rxDataRequest(request)
+    func reactiveDataRequest<D: Decodable>(_ request: URLRequest) -> AnyPublisher<D, ReactiveAPIError> {
+        return reactiveDataRequest(request)
             .tryMap { data in try self.decoder.decode(D.self, from: data) }
             .mapError { error in
                 guard let decodingError = error as? DecodingError else {
@@ -69,8 +69,8 @@ extension ReactiveAPIProtocol {
             .eraseToAnyPublisher()
     }
 
-    func rxDataRequestDiscardingPayload(_ request: URLRequest) -> AnyPublisher<Void, ReactiveAPIError> {
-        return rxDataRequest(request).tryMap { _ in () }
+    func reactiveDataRequestDiscardingPayload(_ request: URLRequest) -> AnyPublisher<Void, ReactiveAPIError> {
+        return reactiveDataRequest(request).tryMap { _ in () }
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }
@@ -100,7 +100,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
         return Just(1)
             .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
-            .flatMap { rxDataRequest($0) }
+            .flatMap { reactiveDataRequest($0) }
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }
@@ -129,7 +129,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
         return Just(1)
             .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
-            .flatMap { rxDataRequest($0) }
+            .flatMap { reactiveDataRequest($0) }
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }
@@ -157,7 +157,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
         return Just(1)
             .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
-            .flatMap { rxDataRequestDiscardingPayload($0) }
+            .flatMap { reactiveDataRequestDiscardingPayload($0) }
             .eraseToAnyPublisher()
     }
 
@@ -186,7 +186,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
         return Just(1)
             .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
-            .flatMap { rxDataRequestDiscardingPayload($0) }
+            .flatMap { reactiveDataRequestDiscardingPayload($0) }
             .eraseToAnyPublisher()
 
     }

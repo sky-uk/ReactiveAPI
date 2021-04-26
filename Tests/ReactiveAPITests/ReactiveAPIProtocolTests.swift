@@ -12,7 +12,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         api.authenticator = AuthenticatorMock(code: 401)
 
         do {
-            let response = try api.rxDataRequest(Resources.urlRequest)
+            let response = try api.reactiveDataRequest(Resources.urlRequest)
                 .waitForCompletion()
                 .first
 
@@ -30,7 +30,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         api.authenticator = AuthenticatorMock(code: 401)
 
         do {
-            _ = try await(api.rxDataRequest(Resources.urlRequest))
+            _ = try await(api.reactiveDataRequest(Resources.urlRequest))
 
             XCTFail("This should throw an error!")
         } catch {
@@ -51,7 +51,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         api.cache = cache
         let request = Resources.urlRequest
         do {
-            _ = try await(api.rxDataRequest(request))
+            _ = try await(api.reactiveDataRequest(request))
 
             let urlCache = session.configuration.urlCache
             XCTAssertNotNil(urlCache?.cachedResponse(for: request))
@@ -66,7 +66,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
                               decoder: JSONDecoder(),
                               baseUrl: Resources.url)
         do {
-            let response: ModelMock = try api.rxDataRequest(Resources.urlRequest)
+            let response: ModelMock = try api.reactiveDataRequest(Resources.urlRequest)
                 .waitForCompletion()
                 .first
                 .map { $0 as ModelMock }!
@@ -85,7 +85,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
                               decoder: JSONDecoder(),
                               baseUrl: Resources.url)
         do {
-            let _: ModelMock = try await(api.rxDataRequest(Resources.urlRequest))
+            let _: ModelMock = try await(api.reactiveDataRequest(Resources.urlRequest))
             XCTFail("This should throw an error!")
         } catch {
             if case let ReactiveAPIError.decodingError(underlyingError: underlyingError) = error {
@@ -102,7 +102,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
                               decoder: JSONDecoder(),
                               baseUrl: Resources.url)
         do {
-            let response: Void = try api.rxDataRequestDiscardingPayload(Resources.urlRequest)
+            let response: Void = try api.reactiveDataRequestDiscardingPayload(Resources.urlRequest)
                 .waitForCompletion()
                 .first!
 

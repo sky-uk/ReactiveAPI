@@ -34,10 +34,10 @@ extension ReactiveAPIProtocol {
                    let cachedResponse = cache.cache(response,
                                                     request: request,
                                                     data: data) {
-                    
+
                     urlCache.storeCachedResponse(cachedResponse,
                                                  for: request)
-                    
+
                 }
                 return data
             }
@@ -50,13 +50,13 @@ extension ReactiveAPIProtocol {
                                                                   response: response,
                                                                   data: data)
                 else { throw error }
-                
+
                 return retryRequest
             }
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }
-    
+
     func rxDataRequest<D: Decodable>(_ request: URLRequest) -> AnyPublisher<D, ReactiveAPIError> {
         return rxDataRequest(request)
             .tryMap { data in try self.decoder.decode(D.self, from: data) }
@@ -68,7 +68,7 @@ extension ReactiveAPIProtocol {
             }
             .eraseToAnyPublisher()
     }
-    
+
     func rxDataRequestDiscardingPayload(_ request: URLRequest) -> AnyPublisher<Void, ReactiveAPIError> {
         return rxDataRequest(request).tryMap { _ in () }
             .mapError { ReactiveAPIError.map($0) }
@@ -83,7 +83,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                                headers: [String: Any?]? = nil,
                                queryParams: [String: Any?]? = nil,
                                bodyParams: [String: Any?]? = nil) -> AnyPublisher<D, ReactiveAPIError> {
-        
+
         let closure = { () throws -> URLRequest in
             do {
                 return try URLRequest.createForJSON(with: url,
@@ -96,7 +96,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                 throw error
             }
         }
-        
+
         return Just(1)
             .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
@@ -104,7 +104,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }
-    
+
     // body params as encodable and generic response type
     //NOT USED
     func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
@@ -125,7 +125,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                 throw error
             }
         }
-        
+
         return Just(1)
             .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
@@ -133,7 +133,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
             .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }
-    
+
     // body params as dictionary and void response type
     //NOT USED
     func request(_ method: ReactiveAPIHTTPMethod = .get,
@@ -153,14 +153,14 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                 throw error
             }
         }
-        
+
         return Just(1)
             .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
             .flatMap { rxDataRequestDiscardingPayload($0) }
             .eraseToAnyPublisher()
     }
-    
+
     // body params as encodable and void response type
     //NOT USED
     func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
@@ -168,7 +168,7 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                                headers: [String: Any?]? = nil,
                                queryParams: [String: Any?]? = nil,
                                body: E? = nil) -> AnyPublisher<Void, ReactiveAPIError> {
-        
+
         let closure = { () throws -> URLRequest in
             do {
                 return try URLRequest.createForJSON(with: url,
@@ -182,12 +182,12 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                 throw error
             }
         }
-        
+
         return Just(1)
             .tryMap { _ in try closure() }
             .mapError { ReactiveAPIError.map($0) }
             .flatMap { rxDataRequestDiscardingPayload($0) }
             .eraseToAnyPublisher()
-        
+
     }
 }

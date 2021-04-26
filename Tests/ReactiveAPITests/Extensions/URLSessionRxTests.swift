@@ -67,7 +67,7 @@ class URLSessionRxTests: XCTestCase {
 
             XCTFail("This should throw an error!")
         } catch {
-            if case ReactiveAPIError.networkError(urlError:) = error { //Questo tipo di errore è diverso da quello sopra, perchè il metodo usato in combine per le chiamate di rete avrà sempre una response
+            if case ReactiveAPIError.networkError(urlError:) = error { //Questo tipo di errore è un "networkError" e non "missingResponse", perchè il metodo usato in combine per le chiamate di rete avrà sempre una response
                 XCTAssertNotNil(error)
             } else {
                 XCTFail("This should be a ReactiveAPIError.networkError(urlError:)")

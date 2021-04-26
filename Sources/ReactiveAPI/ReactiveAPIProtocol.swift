@@ -84,24 +84,16 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                                queryParams: [String: Any?]? = nil,
                                bodyParams: [String: Any?]? = nil) -> AnyPublisher<D, ReactiveAPIError> {
 
-        let closure = { () throws -> URLRequest in
-            do {
-                return try URLRequest.createForJSON(with: url,
-                                                    method: method,
-                                                    headers: headers,
-                                                    queryParams: queryParams,
-                                                    bodyParams: bodyParams,
-                                                    queryStringTypeConverter: queryStringTypeConverter)
-            } catch {
-                throw error
-            }
-        }
-
         return Just(1)
-            .tryMap { _ in try closure() }
+            .tryMap { _ in try URLRequest.createForJSON(with: url,
+                                                        method: method,
+                                                        headers: headers,
+                                                        queryParams: queryParams,
+                                                        bodyParams: bodyParams,
+                                                        queryStringTypeConverter: queryStringTypeConverter)
+            }
             .mapError { ReactiveAPIError.map($0) }
             .flatMap { reactiveDataRequest($0) }
-            .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }
 
@@ -112,25 +104,17 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                                              headers: [String: Any?]? = nil,
                                              queryParams: [String: Any?]? = nil,
                                              body: E? = nil) -> AnyPublisher<D, ReactiveAPIError> {
-        let closure = { () throws -> URLRequest in
-            do {
-                return try URLRequest.createForJSON(with: url,
-                                                    method: method,
-                                                    headers: headers,
-                                                    queryParams: queryParams,
-                                                    body: body,
-                                                    encoder: encoder,
-                                                    queryStringTypeConverter: queryStringTypeConverter)
-            } catch {
-                throw error
-            }
-        }
 
         return Just(1)
-            .tryMap { _ in try closure() }
+            .tryMap { _ in try URLRequest.createForJSON(with: url,
+                                                        method: method,
+                                                        headers: headers,
+                                                        queryParams: queryParams,
+                                                        body: body,
+                                                        encoder: encoder,
+                                                        queryStringTypeConverter: queryStringTypeConverter) }
             .mapError { ReactiveAPIError.map($0) }
             .flatMap { reactiveDataRequest($0) }
-            .mapError { ReactiveAPIError.map($0) }
             .eraseToAnyPublisher()
     }
 
@@ -141,21 +125,14 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                  headers: [String: Any?]? = nil,
                  queryParams: [String: Any?]? = nil,
                  bodyParams: [String: Any?]? = nil) -> AnyPublisher<Void, ReactiveAPIError> {
-        let closure = { () throws -> URLRequest in
-            do {
-                return try URLRequest.createForJSON(with: url,
-                                                    method: method,
-                                                    headers: headers,
-                                                    queryParams: queryParams,
-                                                    bodyParams: bodyParams,
-                                                    queryStringTypeConverter: queryStringTypeConverter)
-            } catch {
-                throw error
-            }
-        }
 
         return Just(1)
-            .tryMap { _ in try closure() }
+            .tryMap { _ in try URLRequest.createForJSON(with: url,
+                                                        method: method,
+                                                        headers: headers,
+                                                        queryParams: queryParams,
+                                                        bodyParams: bodyParams,
+                                                        queryStringTypeConverter: queryStringTypeConverter) }
             .mapError { ReactiveAPIError.map($0) }
             .flatMap { reactiveDataRequestDiscardingPayload($0) }
             .eraseToAnyPublisher()
@@ -169,22 +146,14 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                                queryParams: [String: Any?]? = nil,
                                body: E? = nil) -> AnyPublisher<Void, ReactiveAPIError> {
 
-        let closure = { () throws -> URLRequest in
-            do {
-                return try URLRequest.createForJSON(with: url,
-                                                    method: method,
-                                                    headers: headers,
-                                                    queryParams: queryParams,
-                                                    body: body,
-                                                    encoder: encoder,
-                                                    queryStringTypeConverter: queryStringTypeConverter)
-            } catch {
-                throw error
-            }
-        }
-
         return Just(1)
-            .tryMap { _ in try closure() }
+            .tryMap { _ in try URLRequest.createForJSON(with: url,
+                                                        method: method,
+                                                        headers: headers,
+                                                        queryParams: queryParams,
+                                                        body: body,
+                                                        encoder: encoder,
+                                                        queryStringTypeConverter: queryStringTypeConverter) }
             .mapError { ReactiveAPIError.map($0) }
             .flatMap { reactiveDataRequestDiscardingPayload($0) }
             .eraseToAnyPublisher()

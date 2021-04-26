@@ -76,7 +76,7 @@ extension ReactiveAPIProtocol {
     }
 }
 
-public extension ReactiveAPIProtocol { // TODO: refactoring!!!
+public extension ReactiveAPIProtocol {
     // body params as dictionary and generic response type
     func request<D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                url: URL,
@@ -90,15 +90,13 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
                                                         headers: headers,
                                                         queryParams: queryParams,
                                                         bodyParams: bodyParams,
-                                                        queryStringTypeConverter: queryStringTypeConverter)
-            }
+                                                        queryStringTypeConverter: queryStringTypeConverter) }
             .mapError { ReactiveAPIError.map($0) }
             .flatMap { reactiveDataRequest($0) }
             .eraseToAnyPublisher()
     }
 
     // body params as encodable and generic response type
-    //NOT USED
     func request<E: Encodable, D: Decodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                              url: URL,
                                              headers: [String: Any?]? = nil,
@@ -119,7 +117,6 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
     }
 
     // body params as dictionary and void response type
-    //NOT USED
     func request(_ method: ReactiveAPIHTTPMethod = .get,
                  url: URL,
                  headers: [String: Any?]? = nil,
@@ -139,7 +136,6 @@ public extension ReactiveAPIProtocol { // TODO: refactoring!!!
     }
 
     // body params as encodable and void response type
-    //NOT USED
     func request<E: Encodable>(_ method: ReactiveAPIHTTPMethod = .get,
                                url: URL,
                                headers: [String: Any?]? = nil,

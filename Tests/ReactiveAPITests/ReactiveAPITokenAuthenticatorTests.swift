@@ -12,32 +12,32 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             debugPrint("Stubbed: \(String(describing: request.url))")
         }
     }
-
+    
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
-                                                              renewToken1: { Just("renewToken")
+                                                              renewToken: { Just("renewToken")
                                                                 .mapError { ReactiveAPIError.map($0) }
                                                                 .eraseToAnyPublisher() })
-
+    
     func test_requestWithNewToken_When200_DataIsValid() {
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try await(authenticator.requestWithNewToken1(session: session,
-                                                                        request: Resources.urlRequest,
-                                                                        newToken: "newToken"))
+            let response = try await(authenticator.requestWithNewToken(session: session,
+                                                                       request: Resources.urlRequest,
+                                                                       newToken: "newToken"))
             XCTAssertNotNil(response)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
-
+    
     func test_requestWithNewToken_When500_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         do {
-            _ = try await(authenticator.requestWithNewToken1(session: session,
-                                                             request: Resources.urlRequest,
-                                                             newToken: "newToken"))
-
+            _ = try await(authenticator.requestWithNewToken(session: session,
+                                                            request: Resources.urlRequest,
+                                                            newToken: "newToken"))
+            
             XCTFail("This should throw an error!")
         } catch {
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
@@ -47,14 +47,14 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             }
         }
     }
-
+    
     func test_Fetch_When401_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 401)
         do {
-            _ = try await(authenticator.requestWithNewToken1(session: session,
-                                                             request: Resources.urlRequest,
-                                                             newToken: "newToken"))
-
+            _ = try await(authenticator.requestWithNewToken(session: session,
+                                                            request: Resources.urlRequest,
+                                                            newToken: "newToken"))
+            
             XCTFail("This should throw an error!")
         } catch {
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
@@ -64,85 +64,85 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             }
         }
     }
-
+    
     func test_Authenticate_When401_ReturnNil() {
         let session = URLSessionMock.create(Resources.json)
         let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                           getCurrentToken: { nil },
-                                                          renewToken1: { Just("renewToken")
+                                                          renewToken: { Just("renewToken")
                                                             .mapError { ReactiveAPIError.map($0) }
                                                             .eraseToAnyPublisher() })
         do {
-            let response = try authenticator.authenticate1(session: session,
+            let response = try authenticator.authenticate(session: session,
                                                           request: Resources.urlRequest,
                                                           response: Resources.httpUrlResponse(code: 401)!,
                                                           data: nil)?
                 .waitForCompletion()
                 .first
-
+            
             XCTAssertNil(response)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
-
+    
     func test_Authenticate_WhenGetCurrentTokenNil_ReturnNil() {
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try authenticator.authenticate1(session: session,
-                                                           request: Resources.urlRequest,
-                                                           response: Resources.httpUrlResponse(code: 500)!,
-                                                           data: nil)?
+            let response = try authenticator.authenticate(session: session,
+                                                          request: Resources.urlRequest,
+                                                          response: Resources.httpUrlResponse(code: 500)!,
+                                                          data: nil)?
                 .waitForCompletion()
                 .first
-
+            
             XCTAssertNil(response)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
-
+    
     func test_Authenticate_WhenIsRenewingTokenTrue_RequestWithNewToken() {
         let session = URLSessionMock.create(Resources.json)
-        authenticator.setNewToken1(token: "token", isRenewing: true)
+        authenticator.setNewToken(token: "token", isRenewing: true)
         do {
-            let response = try authenticator.authenticate1(session: session,
+            let response = try authenticator.authenticate(session: session,
                                                           request: Resources.urlRequest,
                                                           response: Resources.httpUrlResponse(code: 401)!,
                                                           data: nil)?
                 .waitForCompletion()
                 .first
-
+            
             XCTAssertNotNil(response)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
-
+    
     func test_Authenticate_RenewToken_Combine() {
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try authenticator.authenticate1(session: session,
+            let response = try authenticator.authenticate(session: session,
                                                           request: Resources.urlRequest,
                                                           response: Resources.httpUrlResponse(code: 401)!,
                                                           data: nil)?
                 .waitForCompletion()
                 .first
-
+            
             XCTAssertNotNil(response)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
-
+    
     func test_Authenticate_WhenRenewTokenSucceeded_AndRequest500_RetrunError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         do {
-            _ = try await(authenticator.authenticate1(session: session,
-                                                      request: Resources.urlRequest,
-                                                      response: Resources.httpUrlResponse(code: 401)!,
-                                                      data: nil)!)
-
+            _ = try await(authenticator.authenticate(session: session,
+                                                     request: Resources.urlRequest,
+                                                     response: Resources.httpUrlResponse(code: 401)!,
+                                                     data: nil)!)
+            
             XCTFail("This should throw an error!")
         } catch {
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
@@ -152,26 +152,26 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             }
         }
     }
-
+    
     func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() {
         // Given
         let queueAscheduler = DispatchQueue(label: "queueA", attributes: .concurrent)
         let queueBscheduler = DispatchQueue(label: "queueB", attributes: .concurrent)
         let queueCscheduler = DispatchQueue(label: "queueC", attributes: .concurrent)
-
+        
         var loginCounter = 0
         var renewCounter = 0
         var singleActionCounter = 0
         var parallelActionCounter = 0
         var callCounter = 0
         var currentToken = ""
-
+        
         let tokenHeaderName = "tokenHeaderName"
         let sut = MockAPI(session: URLSession.shared, baseUrl: Resources.baseUrl)
-
+        
         sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName,
                                                           getCurrentToken: { currentToken },
-                                                          renewToken1: {
+                                                          renewToken: {
                                                             sut.renewToken().tryMap {
                                                                 currentToken = $0.name
                                                                 return $0.name
@@ -182,27 +182,27 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         sut.requestInterceptors += [
             TokenInterceptor(tokenValue: { currentToken }, headerName: tokenHeaderName)
         ]
-
+        
         stub(condition: isHost(Resources.baseUrlHost)) { request -> HTTPStubsResponse in
             callCounter += 1
             print("\(callCounter) Request: \(request.url!.absoluteString)")
-
+            
             do {
                 if request.urlHasSuffix(MockAPI.loginEndpoint) {
                     loginCounter += 1
                     return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "oldToken", id: 1))
                 }
-
+                
                 if request.urlHasSuffix(MockAPI.renewEndpoint) {
                     renewCounter += 1
                     return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "newToken", id: 2))
                 }
-
+                
                 if request.urlHasSuffix(MockAPI.authenticatedSingleActionEndpoint) {
                     singleActionCounter += 1
                     return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "singleAction", id: 3))
                 }
-
+                
                 if request.urlHasSuffix(MockAPI.authenticatedParallelActionEndpoint) {
                     parallelActionCounter += 1
                     if request.value(forHTTPHeaderField: tokenHeaderName) == "oldToken" {
@@ -213,30 +213,30 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             } catch {
                 XCTFail("\(error)")
             }
-
+            
             return JSONHelper.stubError()
         }
-
+        
         do {
             let loginResponse = try await(sut.login())
             currentToken = loginResponse.name
             _ = try await(sut.authenticatedSingleAction())
-
+            
             let parallelCall1 = sut.authenticatedParallelAction()
                 .print("\(Date().dateMillis) Parallel call 1 on \(Thread.current.description)")
                 .subscribe(on: queueAscheduler)
-
+            
             let parallelCall2 = sut.authenticatedParallelAction()
                 .print("\(Date().dateMillis) Parallel call 2 on \(Thread.current.description)")
                 .subscribe(on: queueBscheduler)
-
+            
             let parallelCall3 = sut.authenticatedParallelAction()
                 .print("\(Date().dateMillis) Parallel call 3 on \(Thread.current.description)")
                 .subscribe(on: queueCscheduler)
-
+            
             // When
             let events = try awaitCompletion(of: Publishers.Zip3(parallelCall1, parallelCall2, parallelCall3))
-
+            
             // Then
             XCTAssertNotNil(events)
             XCTAssertEqual(loginCounter, 1)

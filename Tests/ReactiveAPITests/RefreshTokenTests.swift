@@ -7,7 +7,7 @@ class RefreshTokenTests: SkyTestCase {
 
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
-                                                              renewToken1: { Just("renewToken")
+                                                              renewToken: { Just("renewToken")
                                                                 .mapError { ReactiveAPIError.map($0) }
                                                                 .eraseToAnyPublisher() })
 
@@ -24,7 +24,7 @@ class RefreshTokenTests: SkyTestCase {
             let tokenHeaderName = "token-header-name"
             let sut = ClientAPI(session: URLSession.shared, baseUrl: URL(string: "http://127.0.0.1:8080")!)
 
-            sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName, getCurrentToken: { currentToken }, renewToken1: {
+            sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName, getCurrentToken: { currentToken }, renewToken: {
                 sut.renewToken().tryMap {
                     currentToken = $0.name
                     return $0.name

@@ -15,7 +15,7 @@ class ReactiveAPIErrorTests: XCTestCase {
     func test_ErrorDescription() {
         XCTAssertNil(urlComponentsError.errorDescription)
         XCTAssertNil(httpError.errorDescription)
-        let description = ReactiveAPIError.decodingError1(dataCorrupted).errorDescription
+        let description = ReactiveAPIError.decodingError(dataCorrupted).errorDescription
         XCTAssertNotNil(description)
         XCTAssertEqual(description, dataCorrupted.localizedDescription)
     }
@@ -24,31 +24,15 @@ class ReactiveAPIErrorTests: XCTestCase {
         XCTAssertNil(urlComponentsError.failureReason)
         XCTAssertNil(httpError.failureReason)
 
-        let keyNotFoundReason = ReactiveAPIError.decodingError(keyNotFound, data: Resources.data).failureReason
+        let keyNotFoundReason = ReactiveAPIError.decodingError(keyNotFound).failureReason
         XCTAssertNotNil(keyNotFoundReason)
         XCTAssertEqual(keyNotFoundReason, "root.test: Not Found!")
 
-        let typeMismatchReason = ReactiveAPIError.decodingError(typeMismatch, data: Resources.data).failureReason
+        let typeMismatchReason = ReactiveAPIError.decodingError(typeMismatch).failureReason
         XCTAssertNotNil(typeMismatchReason)
         XCTAssertEqual(typeMismatchReason, "root: Value not found.")
 
-        let dataCorruptedReason = ReactiveAPIError.decodingError(dataCorrupted, data: Resources.data).failureReason
-        XCTAssertEqual(dataCorruptedReason, "root: Value not found.")
-    }
-
-    func test_FailureReason_Combine() {
-        XCTAssertNil(urlComponentsError.failureReason)
-        XCTAssertNil(httpError.failureReason)
-
-        let keyNotFoundReason = ReactiveAPIError.decodingError1(keyNotFound).failureReason
-        XCTAssertNotNil(keyNotFoundReason)
-        XCTAssertEqual(keyNotFoundReason, "root.test: Not Found!")
-
-        let typeMismatchReason = ReactiveAPIError.decodingError1(typeMismatch).failureReason
-        XCTAssertNotNil(typeMismatchReason)
-        XCTAssertEqual(typeMismatchReason, "root: Value not found.")
-
-        let dataCorruptedReason = ReactiveAPIError.decodingError1(dataCorrupted).failureReason
+        let dataCorruptedReason = ReactiveAPIError.decodingError(dataCorrupted).failureReason
         XCTAssertEqual(dataCorruptedReason, "root: Value not found.")
     }
 }

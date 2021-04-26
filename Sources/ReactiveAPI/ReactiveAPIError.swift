@@ -7,8 +7,7 @@ private func reduce(_ codingKeys: [CodingKey]) -> String {
 }
 
 public enum ReactiveAPIError: Error {
-    case decodingError(_ underlyingError: DecodingError, data: Data)
-    case decodingError1(_ underlyingError: DecodingError)
+    case decodingError(_ underlyingError: DecodingError)
     case URLComponentsError(URL)
     case httpError(request: URLRequest, response: HTTPURLResponse, data: Data)
     case nonHttpResponse(response: URLResponse)
@@ -28,9 +27,7 @@ public enum ReactiveAPIError: Error {
 extension ReactiveAPIError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-            case .decodingError1(let underlyingError):
-                return underlyingError.localizedDescription
-            case .decodingError(let underlyingError, _):
+            case .decodingError(let underlyingError):
                 return underlyingError.localizedDescription
             default:
                 return nil
@@ -39,19 +36,7 @@ extension ReactiveAPIError: LocalizedError {
 
     public var failureReason: String? {
         switch self {
-            case .decodingError1(let underlyingError):
-                switch underlyingError {
-                    case DecodingError.keyNotFound(let key, let context):
-                        let fullPath = context.codingPath + [key]
-                        return "\(reduce(fullPath)): Not Found!"
-                    case DecodingError.typeMismatch(_, let context),
-                         DecodingError.valueNotFound(_, let context),
-                         DecodingError.dataCorrupted(let context):
-                        return "\(reduce(context.codingPath)): \(context.debugDescription)"
-                    default:
-                        return underlyingError.failureReason
-                }
-            case .decodingError(let underlyingError, _):
+            case .decodingError(let underlyingError):
                 switch underlyingError {
                     case DecodingError.keyNotFound(let key, let context):
                         let fullPath = context.codingPath + [key]

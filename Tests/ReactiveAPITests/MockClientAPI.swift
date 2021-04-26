@@ -12,19 +12,19 @@ class ClientAPI: ReactiveAPI {
     }
 
     func login() -> AnyPublisher<Model, ReactiveAPIError> {
-        request1(url: absoluteURL(ClientAPI.Endpoint.login))
+        request(url: absoluteURL(ClientAPI.Endpoint.login))
     }
 
     func renewToken() -> AnyPublisher<Model, ReactiveAPIError> {
-        request1(url: absoluteURL(ClientAPI.Endpoint.renew))
+        request(url: absoluteURL(ClientAPI.Endpoint.renew))
     }
 
     func endpoint1() -> AnyPublisher<Model, ReactiveAPIError> {
-        request1(url: absoluteURL(Endpoint.endpoint1))
+        request(url: absoluteURL(Endpoint.endpoint1))
     }
 
     func endpoint2() -> AnyPublisher<Model, ReactiveAPIError> {
-        request1(url: absoluteURL(Endpoint.endpoint2))
+        request(url: absoluteURL(Endpoint.endpoint2))
     }
 }
 

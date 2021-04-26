@@ -10,17 +10,17 @@ class MockAPI: ReactiveAPI {
     public static let authenticatedParallelActionEndpoint = "auth-parallel-action"
 
     func login() -> AnyPublisher<ModelMock, ReactiveAPIError> {
-        return request1(url: absoluteURL(MockAPI.loginEndpoint))
+        return request(url: absoluteURL(MockAPI.loginEndpoint))
     }
     func renewToken() -> AnyPublisher<ModelMock, ReactiveAPIError> {
-        return request1(url: absoluteURL(MockAPI.renewEndpoint))
+        return request(url: absoluteURL(MockAPI.renewEndpoint))
     }
 
     func authenticatedSingleAction() -> AnyPublisher<ModelMock, ReactiveAPIError> {
-        return request1(url: absoluteURL(MockAPI.authenticatedSingleActionEndpoint))
+        return request(url: absoluteURL(MockAPI.authenticatedSingleActionEndpoint))
     }
 
     func authenticatedParallelAction() -> AnyPublisher<ModelMock, ReactiveAPIError> {
-        return request1(url: absoluteURL(MockAPI.authenticatedParallelActionEndpoint))
+        return request(url: absoluteURL(MockAPI.authenticatedParallelActionEndpoint))
     }
 }

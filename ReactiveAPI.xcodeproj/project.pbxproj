@@ -44,8 +44,6 @@
 		C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
 		C214A045262EE0700080F7A7 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = C214A044262EE0700080F7A7 /* CombineExt */; };
 		C214A049262EE4E60080F7A7 /* LoadingResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214A048262EE4E60080F7A7 /* LoadingResultTests.swift */; };
-		C214A04C262F12DE0080F7A7 /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */; };
-		C214A04F262F12E60080F7A7 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178F25EE5E8E0044ADDA /* Publisher+.swift */; };
 		C214A0752631A6DC0080F7A7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214A0742631A6DC0080F7A7 /* Event.swift */; };
 		C214A0762631A6DC0080F7A7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214A0742631A6DC0080F7A7 /* Event.swift */; };
 		C2190F66260B8ED60002FE36 /* MockClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2190F65260B8ED60002FE36 /* MockClientAPI.swift */; };
@@ -601,9 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C214A04C262F12DE0080F7A7 /* XCTestCase+Publisher.swift in Sources */,
 				EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */,
-				C214A04F262F12E60080F7A7 /* Publisher+.swift in Sources */,
 				C214A049262EE4E60080F7A7 /* LoadingResultTests.swift in Sources */,
 				2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */,
 			);

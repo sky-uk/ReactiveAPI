@@ -7,10 +7,6 @@ aliases:
       command: |
         rm ~/.ssh/id_rsa
         for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts || true
-  - &carthage_bootstrap
-      name: Bootstrap iOS dependencies
-      command: |
-        ./bootstrap
   - &unittest_reactive_api
       name: Run ReactiveAPI Unit Tests
       command: >
@@ -36,10 +32,10 @@ jobs:
     shell: /bin/bash --login -eo pipefail
     steps:
       - checkout
-      - run: *carthage_bootstrap
       - run: *ssh_fix
-      - run: *unittest_reactive_api
-      - run: *unittest_reactive_api_ext
+      - run:
+         name: Build & Test
+         command: swift test
   swiftlint:
     docker:
       - image: dantoml/swiftlint:latest

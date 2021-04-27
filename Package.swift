@@ -6,44 +6,40 @@ import PackageDescription
 let package = Package(
     name: "ReactiveAPI",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v13),
         .macOS(.v10_15),
-        .tvOS(.v12),
-        .watchOS(.v5),
+        .tvOS(.v13),
+        .watchOS(.v6),
     ],
     products: [
         .library(name: "ReactiveAPI",  targets: ["ReactiveAPI"]),
         .library(name: "ReactiveAPIExt", targets: ["ReactiveAPIExt"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveX/RxSwift",  from: "5.1.0"),
         .package(url: "https://github.com/AliSoftware/OHHTTPStubs", from: "9.0.0"),
         .package(name: "Swifter", url: "https://github.com/httpswift/swifter", from: "1.5.0"),
+        .package(name: "CombineExt", url: "https://github.com/CombineCommunity/CombineExt.git", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "ReactiveAPI",
-            dependencies: [
-                "RxSwift",
-                .product(name: "RxCocoa", package: "RxSwift"),
-            ]),
+            dependencies: []),
         .target(
             name: "ReactiveAPIExt",
-            dependencies: ["RxSwift"]),
+            dependencies: ["CombineExt"]),
         .testTarget(
             name: "ReactiveAPITests",
             dependencies: [
                 "ReactiveAPI",
                 "Swifter",
                 "OHHTTPStubs",
-                .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs"),
-                .product(name: "RxBlocking", package: "RxSwift"),
+                .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
             ]),
         .testTarget(
             name: "ReactiveAPIExtTests",
             dependencies: [
                 "ReactiveAPIExt",
-                .product(name: "RxBlocking", package: "RxSwift"),
+                "CombineExt"
             ]),
     ]
 )

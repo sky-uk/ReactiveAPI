@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0210DC737540435B27370485 /* URLComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4437588A10A00E7461E53C70 /* URLComponentsTests.swift */; };
-		08BEE139065AE1038D4BC814 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; };
 		1722E21EF47A31A43150C81C /* AuthenticatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27167FD1A4D02BA3A995F9A7 /* AuthenticatorMock.swift */; };
-		17626DA69DB75BC178F4B27F /* Swifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DEE82B93E8213E624B4A3C8 /* RefreshTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */; };
 		1FA1B4AB3B726ACC60811C20 /* URLComponents+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */; };
 		2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */; };
@@ -20,7 +18,6 @@
 		3E19FF4A4D47C1DACD6AE6B2 /* ReactiveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */; };
 		3EAE79251499B755EECE2074 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D501B7ABA3E2CD7FCAC8C4F /* CacheMock.swift */; };
 		4A916EA919CD58BE3AED7795 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */; };
-		543F4CF4648DB738D3814304 /* Swifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55CE7017D10F36672FB1E611 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869092CEC22B107478730568 /* EncodableTests.swift */; };
 		6044286A72B57F21C89F192B /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
 		628DD4487A1E825B09DCEC82 /* ReactiveAPIProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */; };
@@ -33,7 +30,6 @@
 		7E8329315416A967F2481F76 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; };
 		81F0407DF82E64DA6AE7D699 /* ReactiveAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */; };
 		8969C5BA53EDD7F8362AE50C /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; };
-		9080A42F2EC90ABF12AF5AB2 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; };
 		9610A70386D45E0CC4603883 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F7379DD222FC46C8D31E7 /* JSONHelper.swift */; };
 		A0F3A78B8CDA3E9603436DA4 /* SkyTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DF91CAF7B84D49BEA0844 /* SkyTestCase.swift */; };
 		A380737D37C954DB5B642AF3 /* ReactiveAPIHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B391517D09D9A66EEEC5846 /* ReactiveAPIHTTPMethod.swift */; };
@@ -58,6 +54,7 @@
 		C227179E25EF80C30044ADDA /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */; };
 		C260FDF2263719DF0039E209 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C260FDF1263719DF0039E209 /* OHHTTPStubs */; };
 		C260FDF6263719F10039E209 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C260FDF5263719F10039E209 /* OHHTTPStubs */; };
+		C260FE05263811F50039E209 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = C260FE04263811F50039E209 /* Swifter */; };
 		C2E5AA5826136C080022AF4C /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = C2E5AA5726136C080022AF4C /* CombineExt */; };
 		C2E5AA5C26136D2B0022AF4C /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5AA5B26136D2B0022AF4C /* LoadingResult.swift */; };
 		C2E5AA5D26136D2B0022AF4C /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5AA5B26136D2B0022AF4C /* LoadingResult.swift */; };
@@ -102,7 +99,6 @@
 			files = (
 				AEC1DF0B620D1D339DA11042 /* ReactiveAPIExt.framework in Embed Frameworks */,
 				3A4146ED9D21634B60ED7FB7 /* OHHTTPStubs.framework in Embed Frameworks */,
-				17626DA69DB75BC178F4B27F /* Swifter.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,7 +111,6 @@
 			files = (
 				B015151A9FB04E24DE5C6E51 /* ReactiveAPI.framework in Embed Frameworks */,
 				6888BEAEE73E4BF1959B3374 /* OHHTTPStubs.framework in Embed Frameworks */,
-				543F4CF4648DB738D3814304 /* Swifter.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,7 +182,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8969C5BA53EDD7F8362AE50C /* OHHTTPStubs.framework in Frameworks */,
-				9080A42F2EC90ABF12AF5AB2 /* Swifter.framework in Frameworks */,
 				C971B939B1265CE5F5E1D0F6 /* ReactiveAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C260FE05263811F50039E209 /* Swifter in Frameworks */,
 				C2E5AA5826136C080022AF4C /* CombineExt in Frameworks */,
 				C260FDF2263719DF0039E209 /* OHHTTPStubs in Frameworks */,
 			);
@@ -215,7 +210,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E8329315416A967F2481F76 /* OHHTTPStubs.framework in Frameworks */,
-				08BEE139065AE1038D4BC814 /* Swifter.framework in Frameworks */,
 				C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +423,7 @@
 			packageProductDependencies = (
 				C2E5AA5726136C080022AF4C /* CombineExt */,
 				C260FDF1263719DF0039E209 /* OHHTTPStubs */,
+				C260FE04263811F50039E209 /* Swifter */,
 			);
 			productName = ReactiveAPI;
 			productReference = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */;
@@ -468,6 +463,8 @@
 				B31EE5B3C98F2A230924ECF7 /* PBXTargetDependency */,
 			);
 			name = "ReactiveAPI-Tests";
+			packageProductDependencies = (
+			);
 			productName = "ReactiveAPI-Tests";
 			productReference = 90A205C495C3016F2BC2FB16 /* ReactiveAPI-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -509,6 +506,7 @@
 			packageReferences = (
 				C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */,
 				C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+				C260FE03263811F50039E209 /* XCRemoteSwiftPackageReference "swifter" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -995,6 +993,14 @@
 				minimumVersion = 9.1.0;
 			};
 		};
+		C260FE03263811F50039E209 /* XCRemoteSwiftPackageReference "swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/httpswift/swifter.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 		C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
@@ -1020,6 +1026,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
 			productName = OHHTTPStubs;
+		};
+		C260FE04263811F50039E209 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C260FE03263811F50039E209 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
 		};
 		C2E5AA5726136C080022AF4C /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1,7 +1,7 @@
 import XCTest
 import ReactiveAPI
 
-class URLSessionRxTests: XCTestCase {
+class URLSessionReactiveTests: XCTestCase {
     func test_Fetch_When200_DataIsValid() {
         let session = URLSessionMock.create(Resources.json)
         do {

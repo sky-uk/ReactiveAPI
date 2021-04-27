@@ -1,10 +1,9 @@
 import XCTest
-import RxBlocking
 @testable import ReactiveAPI
 
 class ReactiveAPIProtocolTests: XCTestCase {
 
-    func test_RxDataRequest_When401WithAuthenticator_DataIsValid() {
+    func test_ReactiveDataRequest_When401WithAuthenticator_DataIsValid() {
         let session = URLSessionMock.create(Resources.json, errorCode: 401)
         let api = ReactiveAPI(session: session,
                               decoder: JSONDecoder(),
@@ -22,7 +21,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
-    func test_RxDataRequest_When500WithAuthenticator_ReturnError() {
+    func test_ReactiveDataRequest_When500WithAuthenticator_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         let api = ReactiveAPI(session: session,
                               decoder: JSONDecoder(),
@@ -42,7 +41,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
-    func test_RxDataRequest_Cache() {
+    func test_ReactiveDataRequest_Cache() {
         let session = URLSessionMock.create(Resources.json)
         let api = ReactiveAPI(session: session,
                               decoder: JSONDecoder(),
@@ -60,7 +59,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
-    func test_RxDataRequestDecodable_WhenResponseIsValid_ReturnDecoded() {
+    func test_ReactiveDataRequestDecodable_WhenResponseIsValid_ReturnDecoded() {
         let session = URLSessionMock.create(Resources.jsonResponse)
         let api = ReactiveAPI(session: session,
                               decoder: JSONDecoder(),
@@ -79,7 +78,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
-    func test_RxDataRequestDecodable_WhenResponseIsInvalid_ReturnError() {
+    func test_ReactiveDataRequestDecodable_WhenResponseIsInvalid_ReturnError() {
         let session = URLSessionMock.create(Resources.jsonInvalidResponse)
         let api = ReactiveAPI(session: session,
                               decoder: JSONDecoder(),
@@ -96,7 +95,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         }
     }
 
-    func test_RxDataRequestVoid_WhenResponseIsValid_ReturnDecoded() {
+    func test_ReactiveDataRequestVoid_WhenResponseIsValid_ReturnDecoded() {
         let session = URLSessionMock.create(Resources.jsonResponse)
         let api = ReactiveAPI(session: session,
                               decoder: JSONDecoder(),

@@ -9,61 +9,56 @@
 /* Begin PBXBuildFile section */
 		0210DC737540435B27370485 /* URLComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4437588A10A00E7461E53C70 /* URLComponentsTests.swift */; };
 		1722E21EF47A31A43150C81C /* AuthenticatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27167FD1A4D02BA3A995F9A7 /* AuthenticatorMock.swift */; };
+		184123D69AC4815D1D5B4C55 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 9E4E7D96201AB16F9B4F167C /* CombineExt */; };
+		1A639B2EAD1F4F4F48315D2A /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */; };
+		1BD2CE08C9D453CD539B344B /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B89729F64AC1E228E4B7AED /* XCTestCase+Publisher.swift */; };
 		1DEE82B93E8213E624B4A3C8 /* RefreshTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */; };
 		1FA1B4AB3B726ACC60811C20 /* URLComponents+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */; };
+		284BB9BE2902E77B7FF877AE /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */; };
 		2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */; };
 		38931B80CB9E716336F20F6D /* ModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D586ECD11FEED79B4C990F5 /* ModelMock.swift */; };
 		399854E62897A90CC9F34FC8 /* ReactiveAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */; };
-		3A4146ED9D21634B60ED7FB7 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E19FF4A4D47C1DACD6AE6B2 /* ReactiveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */; };
 		3EAE79251499B755EECE2074 /* CacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D501B7ABA3E2CD7FCAC8C4F /* CacheMock.swift */; };
+		3FEE526D602E755C3362D20E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4664608E23DF6C56D83EC /* Event.swift */; };
+		472C1C45AF3D5882144E62DD /* LoadingResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09D7854629F235A953514E /* LoadingResultTests.swift */; };
+		4A8100E0AE2BF08139C38589 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4664608E23DF6C56D83EC /* Event.swift */; };
 		4A916EA919CD58BE3AED7795 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */; };
 		55CE7017D10F36672FB1E611 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869092CEC22B107478730568 /* EncodableTests.swift */; };
 		6044286A72B57F21C89F192B /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
 		628DD4487A1E825B09DCEC82 /* ReactiveAPIProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */; };
 		65B900F550F4896C18D2BB89 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */; };
-		6888BEAEE73E4BF1959B3374 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6ACD65855DB5C3DF9E6EDB87 /* URLSession+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0129A0D1F84CFF63C91066 /* URLSession+ReactiveAPI.swift */; };
 		6C439ED428595B7BEE3F49CB /* ReactiveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */; };
+		6EB5A417994B604FC465CD3C /* MockClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4EACBA5DFBF41130E17362 /* MockClientAPI.swift */; };
 		72DF081ED4D25D7BC1921C9D /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA214593A00D0B46EE4D4A8B /* Date+.swift */; };
 		74B19ADC932FDBE9998539AF /* ReactiveAPIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FBEDC77343F064C15A9673 /* ReactiveAPIRequestInterceptor.swift */; };
 		786203255A9D3A72B681D4A9 /* MaxAgeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E36590C422A73E9BBEB844 /* MaxAgeCache.swift */; };
-		7E8329315416A967F2481F76 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; };
 		81F0407DF82E64DA6AE7D699 /* ReactiveAPIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */; };
-		8969C5BA53EDD7F8362AE50C /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; };
 		9610A70386D45E0CC4603883 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F7379DD222FC46C8D31E7 /* JSONHelper.swift */; };
+		9EF4BD6E90D89B678DF85B4A /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F312526A213E63C33EF0429C /* Publisher+.swift */; };
 		A0F3A78B8CDA3E9603436DA4 /* SkyTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DF91CAF7B84D49BEA0844 /* SkyTestCase.swift */; };
 		A380737D37C954DB5B642AF3 /* ReactiveAPIHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B391517D09D9A66EEEC5846 /* ReactiveAPIHTTPMethod.swift */; };
 		A43359890AFD2272147304D0 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6920B4E31350CD51D7561 /* Resources.swift */; };
 		ACA18579ECA350C08C14A96B /* ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68006A12527D833055AF6728 /* ReactiveAPI.swift */; };
 		AEC1DF0B620D1D339DA11042 /* ReactiveAPIExt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B015151A9FB04E24DE5C6E51 /* ReactiveAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B05200BA2AF715A4CE775F8F /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = C754ABA566531A148BE9D035 /* Swifter */; };
 		B5A64C1F069A6B63CFFFB3A3 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E5C245626036717746AE9 /* MockAPI.swift */; };
 		B5D632917EE07A220969482B /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05F731F77317CB1F151CA3B /* SessionMock.swift */; };
 		BA6B38CB8DED835219A1A72C /* ReactiveAPITokenAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */; };
 		BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */; };
 		C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
-		C214A045262EE0700080F7A7 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = C214A044262EE0700080F7A7 /* CombineExt */; };
-		C214A049262EE4E60080F7A7 /* LoadingResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214A048262EE4E60080F7A7 /* LoadingResultTests.swift */; };
-		C214A0752631A6DC0080F7A7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214A0742631A6DC0080F7A7 /* Event.swift */; };
-		C214A0762631A6DC0080F7A7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214A0742631A6DC0080F7A7 /* Event.swift */; };
-		C2190F66260B8ED60002FE36 /* MockClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2190F65260B8ED60002FE36 /* MockClientAPI.swift */; };
-		C227178625E941AF0044ADDA /* URLSession+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178525E941AF0044ADDA /* URLSession+ReactiveAPI.swift */; };
-		C227179525EE5E9C0044ADDA /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227178F25EE5E8E0044ADDA /* Publisher+.swift */; };
-		C227179E25EF80C30044ADDA /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */; };
-		C258748A26383F9A0014ADD4 /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258748826383F9A0014ADD4 /* XCTestCase+Publisher.swift */; };
-		C258748B26383F9A0014ADD4 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258748926383F9A0014ADD4 /* Publisher+.swift */; };
-		C260FDF2263719DF0039E209 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C260FDF1263719DF0039E209 /* OHHTTPStubs */; };
-		C260FDF6263719F10039E209 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = C260FDF5263719F10039E209 /* OHHTTPStubs */; };
-		C260FE05263811F50039E209 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = C260FE04263811F50039E209 /* Swifter */; };
-		C2E5AA5826136C080022AF4C /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = C2E5AA5726136C080022AF4C /* CombineExt */; };
-		C2E5AA5C26136D2B0022AF4C /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5AA5B26136D2B0022AF4C /* LoadingResult.swift */; };
-		C2E5AA5D26136D2B0022AF4C /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5AA5B26136D2B0022AF4C /* LoadingResult.swift */; };
 		C3CB029F1104E61DD22141F1 /* InterceptorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FD5560BB69955774B1326 /* InterceptorMock.swift */; };
+		C5C132308BE4D7772F7FE06C /* XCTestCase+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D311DA60C4992FA6CBED6A64 /* XCTestCase+Publisher.swift */; };
 		C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */; };
 		C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */; };
 		C971B939B1265CE5F5E1D0F6 /* ReactiveAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */; };
+		CAF872F0154D2F52FA97AF41 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664435D8E64D920874FAB17 /* Publisher+.swift */; };
 		D02BB21A12C91F622F76505D /* ReactiveAPIAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4B6B5DE4C89F71FADDADA3 /* ReactiveAPIAuthenticator.swift */; };
 		D6FD38AC63A25B6569F70555 /* URLSessionRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31AEC6DF701ED0452C880E /* URLSessionRxTests.swift */; };
+		DA7F985E36D68CAB47906C5A /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 38A31C6BF16047DE4708C9EF /* CombineExt */; };
+		E18C812EE19F13BA143E928E /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 19E56FD2E297826A65093056 /* Swifter */; };
 		E271914CDE833CBCC5631D21 /* URLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B03DD405C5A981B208EF61 /* URLRequestTests.swift */; };
 		E523A8599F7D043F0F01B081 /* ReactiveAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C7303A883E96E966491DB /* ReactiveAPIError.swift */; };
 		E90611E9FDF9D87E366E718C /* ReactiveAPICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */; };
@@ -98,7 +93,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				AEC1DF0B620D1D339DA11042 /* ReactiveAPIExt.framework in Embed Frameworks */,
-				3A4146ED9D21634B60ED7FB7 /* OHHTTPStubs.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,7 +104,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B015151A9FB04E24DE5C6E51 /* ReactiveAPI.framework in Embed Frameworks */,
-				6888BEAEE73E4BF1959B3374 /* OHHTTPStubs.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,26 +117,24 @@
 		1F6C2E14A6E22D34ED8B6CF0 /* ReactiveAPIExt-Tests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "ReactiveAPIExt-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveFetcher.swift; sourceTree = "<group>"; };
 		27167FD1A4D02BA3A995F9A7 /* AuthenticatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorMock.swift; sourceTree = "<group>"; };
-		3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
+		28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
 		32FBEDC77343F064C15A9673 /* ReactiveAPIRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIRequestInterceptor.swift; sourceTree = "<group>"; };
-		3711A757EF3708D6E483915B /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxTest.framework; sourceTree = "<group>"; };
 		3E4B6B5DE4C89F71FADDADA3 /* ReactiveAPIAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIAuthenticator.swift; sourceTree = "<group>"; };
 		3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
-		41378024B921CEBAFED94FCC /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swifter.framework; sourceTree = "<group>"; };
 		4437588A10A00E7461E53C70 /* URLComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsTests.swift; sourceTree = "<group>"; };
 		49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPICache.swift; sourceTree = "<group>"; };
+		4B89729F64AC1E228E4B7AED /* XCTestCase+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Publisher.swift"; sourceTree = "<group>"; };
 		4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticator.swift; sourceTree = "<group>"; };
+		4E4EACBA5DFBF41130E17362 /* MockClientAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClientAPI.swift; sourceTree = "<group>"; };
 		5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
-		54AA865FD18A6B91D4202C5E /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxRelay.framework; sourceTree = "<group>"; };
 		554E6082EF93B90A356CAB2E /* FailableCodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodables.swift; sourceTree = "<group>"; };
 		57E09D6BB2185C58FE50A8FD /* RedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectTests.swift; sourceTree = "<group>"; };
+		5B09D7854629F235A953514E /* LoadingResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultTests.swift; sourceTree = "<group>"; };
 		5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+ReactiveAPI.swift"; sourceTree = "<group>"; };
 		5FB6920B4E31350CD51D7561 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
-		63983806B7360D9E12F8F99C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
 		64B03DD405C5A981B208EF61 /* URLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestTests.swift; sourceTree = "<group>"; };
 		68006A12527D833055AF6728 /* ReactiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPI.swift; sourceTree = "<group>"; };
 		6B391517D09D9A66EEEC5846 /* ReactiveAPIHTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIHTTPMethod.swift; sourceTree = "<group>"; };
-		6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = "<group>"; };
 		869092CEC22B107478730568 /* EncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableTests.swift; sourceTree = "<group>"; };
 		8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
 		8D501B7ABA3E2CD7FCAC8C4F /* CacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheMock.swift; sourceTree = "<group>"; };
@@ -153,29 +144,24 @@
 		9C31AEC6DF701ED0452C880E /* URLSessionRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRxTests.swift; sourceTree = "<group>"; };
 		A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReactiveAPITests.swift; sourceTree = "<group>"; };
 		A61C7303A883E96E966491DB /* ReactiveAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIError.swift; sourceTree = "<group>"; };
+		A9A4664608E23DF6C56D83EC /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B56F7379DD222FC46C8D31E7 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		B664435D8E64D920874FAB17 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		B77E5C245626036717746AE9 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
 		BF42415650A1C3EC6808D1D4 /* RefreshTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenTests.swift; sourceTree = "<group>"; };
 		C05F731F77317CB1F151CA3B /* SessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
-		C214A048262EE4E60080F7A7 /* LoadingResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultTests.swift; sourceTree = "<group>"; };
-		C214A0742631A6DC0080F7A7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		C2190F65260B8ED60002FE36 /* MockClientAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClientAPI.swift; sourceTree = "<group>"; };
-		C227178525E941AF0044ADDA /* URLSession+ReactiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ReactiveAPI.swift"; sourceTree = "<group>"; };
-		C227178F25EE5E8E0044ADDA /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
-		C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Publisher.swift"; sourceTree = "<group>"; };
-		C258748826383F9A0014ADD4 /* XCTestCase+Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Publisher.swift"; sourceTree = "<group>"; };
-		C258748926383F9A0014ADD4 /* Publisher+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
-		C2E5AA5B26136D2B0022AF4C /* LoadingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
 		C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIErrorTests.swift; sourceTree = "<group>"; };
 		C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPIExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD71DB0F89B9E40E368A9C5 /* ReactiveAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocol.swift; sourceTree = "<group>"; };
+		CE0129A0D1F84CFF63C91066 /* URLSession+ReactiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ReactiveAPI.swift"; sourceTree = "<group>"; };
 		D2E36590C422A73E9BBEB844 /* MaxAgeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAgeCache.swift; sourceTree = "<group>"; };
+		D311DA60C4992FA6CBED6A64 /* XCTestCase+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Publisher.swift"; sourceTree = "<group>"; };
 		D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIProtocolTests.swift; sourceTree = "<group>"; };
 		DA214593A00D0B46EE4D4A8B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		EA779367D84A8D76CB277034 /* ReactiveAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB35E6E100532D2E6BA7653F /* ReactiveAPITokenAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticatorTests.swift; sourceTree = "<group>"; };
 		EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+QueryParams.swift"; sourceTree = "<group>"; };
-		F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = "<group>"; };
+		F312526A213E63C33EF0429C /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8969C5BA53EDD7F8362AE50C /* OHHTTPStubs.framework in Frameworks */,
+				E18C812EE19F13BA143E928E /* Swifter in Frameworks */,
 				C971B939B1265CE5F5E1D0F6 /* ReactiveAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,8 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C214A045262EE0700080F7A7 /* CombineExt in Frameworks */,
-				C260FDF6263719F10039E209 /* OHHTTPStubs in Frameworks */,
+				184123D69AC4815D1D5B4C55 /* CombineExt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,9 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C260FE05263811F50039E209 /* Swifter in Frameworks */,
-				C2E5AA5826136C080022AF4C /* CombineExt in Frameworks */,
-				C260FDF2263719DF0039E209 /* OHHTTPStubs in Frameworks */,
+				DA7F985E36D68CAB47906C5A /* CombineExt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E8329315416A967F2481F76 /* OHHTTPStubs.framework in Frameworks */,
+				B05200BA2AF715A4CE775F8F /* Swifter in Frameworks */,
 				C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,28 +207,14 @@
 			children = (
 				DA214593A00D0B46EE4D4A8B /* Date+.swift */,
 				869092CEC22B107478730568 /* EncodableTests.swift */,
+				B664435D8E64D920874FAB17 /* Publisher+.swift */,
 				4437588A10A00E7461E53C70 /* URLComponentsTests.swift */,
 				8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */,
 				64B03DD405C5A981B208EF61 /* URLRequestTests.swift */,
 				9C31AEC6DF701ED0452C880E /* URLSessionRxTests.swift */,
-				C227178F25EE5E8E0044ADDA /* Publisher+.swift */,
-				C227179D25EF80C30044ADDA /* XCTestCase+Publisher.swift */,
+				D311DA60C4992FA6CBED6A64 /* XCTestCase+Publisher.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		033538CEFD4723066AABF450 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */,
-				6BCA4B0921EBBD461EFC41EC /* RxBlocking.framework */,
-				F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */,
-				54AA865FD18A6B91D4202C5E /* RxRelay.framework */,
-				63983806B7360D9E12F8F99C /* RxSwift.framework */,
-				3711A757EF3708D6E483915B /* RxTest.framework */,
-				41378024B921CEBAFED94FCC /* Swifter.framework */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		0C829E9938EDECA64485009D /* Products */ = {
@@ -265,7 +234,7 @@
 				5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */,
 				EEF467456C12ECF541683B59 /* URLComponents+QueryParams.swift */,
 				5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */,
-				C227178525E941AF0044ADDA /* URLSession+ReactiveAPI.swift */,
+				CE0129A0D1F84CFF63C91066 /* URLSession+ReactiveAPI.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -273,7 +242,7 @@
 		2B8280DC1654154405E0547B /* ReactiveAPIExt */ = {
 			isa = PBXGroup;
 			children = (
-				C214A0742631A6DC0080F7A7 /* Event.swift */,
+				A9A4664608E23DF6C56D83EC /* Event.swift */,
 				554E6082EF93B90A356CAB2E /* FailableCodables.swift */,
 				8BD715FF3E005E5A812B5983 /* Fetcher */,
 			);
@@ -308,9 +277,8 @@
 			children = (
 				5ED2B36C4AAA6A28DA0C0D2F /* ReactiveAPI */,
 				2B8280DC1654154405E0547B /* ReactiveAPIExt */,
-				E08D22BB4D96A03DF3086F40 /* ReactiveAPITests */,
 				679E05ABDDAC1595A93C8C4E /* ReactiveAPIExtTests */,
-				8A89564C9037E6606362F123 /* Frameworks */,
+				E08D22BB4D96A03DF3086F40 /* ReactiveAPITests */,
 				0C829E9938EDECA64485009D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -341,22 +309,13 @@
 			path = Sources/ReactiveAPI;
 			sourceTree = "<group>";
 		};
-		61943C7F8BBC3D7554618250 /* Carthage */ = {
-			isa = PBXGroup;
-			children = (
-				033538CEFD4723066AABF450 /* iOS */,
-			);
-			name = Carthage;
-			path = Carthage/Build;
-			sourceTree = "<group>";
-		};
 		679E05ABDDAC1595A93C8C4E /* ReactiveAPIExtTests */ = {
 			isa = PBXGroup;
 			children = (
-				C258748726383F740014ADD4 /* Extensions */,
 				3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */,
-				C214A048262EE4E60080F7A7 /* LoadingResultTests.swift */,
+				5B09D7854629F235A953514E /* LoadingResultTests.swift */,
 				0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */,
+				85DD3E5CB04199174996D16A /* Extensions */,
 			);
 			name = ReactiveAPIExtTests;
 			path = Tests/ReactiveAPIExtTests;
@@ -370,30 +329,22 @@
 			path = Caching;
 			sourceTree = "<group>";
 		};
-		8A89564C9037E6606362F123 /* Frameworks */ = {
+		85DD3E5CB04199174996D16A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				61943C7F8BBC3D7554618250 /* Carthage */,
+				F312526A213E63C33EF0429C /* Publisher+.swift */,
+				4B89729F64AC1E228E4B7AED /* XCTestCase+Publisher.swift */,
 			);
-			name = Frameworks;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8BD715FF3E005E5A812B5983 /* Fetcher */ = {
 			isa = PBXGroup;
 			children = (
-				C2E5AA5B26136D2B0022AF4C /* LoadingResult.swift */,
+				28EFA1894E67A75E25A88CF4 /* LoadingResult.swift */,
 				21EA441A536051F8C44DC0B4 /* ReactiveFetcher.swift */,
 			);
 			path = Fetcher;
-			sourceTree = "<group>";
-		};
-		C258748726383F740014ADD4 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C258748926383F9A0014ADD4 /* Publisher+.swift */,
-				C258748826383F9A0014ADD4 /* XCTestCase+Publisher.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E08D22BB4D96A03DF3086F40 /* ReactiveAPITests */ = {
@@ -401,7 +352,7 @@
 			children = (
 				A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */,
 				04DD9A05164737FAEFE27254 /* MaxAgeCacheTests.swift */,
-				C2190F65260B8ED60002FE36 /* MockClientAPI.swift */,
+				4E4EACBA5DFBF41130E17362 /* MockClientAPI.swift */,
 				C6E8ECCF2705DE6CC2827A19 /* ReactiveAPIErrorTests.swift */,
 				D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */,
 				EB35E6E100532D2E6BA7653F /* ReactiveAPITokenAuthenticatorTests.swift */,
@@ -425,7 +376,6 @@
 			buildPhases = (
 				2678D64ADABCA44F0C69FD49 /* Sources */,
 				37C936A03BB1D5F7D0F1938A /* Frameworks */,
-				C2E01F6A25FA6D0B008BCC7D /* ⚙ swiftlint */,
 			);
 			buildRules = (
 			);
@@ -433,9 +383,7 @@
 			);
 			name = ReactiveAPI;
 			packageProductDependencies = (
-				C2E5AA5726136C080022AF4C /* CombineExt */,
-				C260FDF1263719DF0039E209 /* OHHTTPStubs */,
-				C260FE04263811F50039E209 /* Swifter */,
+				38A31C6BF16047DE4708C9EF /* CombineExt */,
 			);
 			productName = ReactiveAPI;
 			productReference = EA779367D84A8D76CB277034 /* ReactiveAPI.framework */;
@@ -454,8 +402,7 @@
 			);
 			name = ReactiveAPIExt;
 			packageProductDependencies = (
-				C214A044262EE0700080F7A7 /* CombineExt */,
-				C260FDF5263719F10039E209 /* OHHTTPStubs */,
+				9E4E7D96201AB16F9B4F167C /* CombineExt */,
 			);
 			productName = ReactiveAPIExt;
 			productReference = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */;
@@ -476,6 +423,7 @@
 			);
 			name = "ReactiveAPI-Tests";
 			packageProductDependencies = (
+				19E56FD2E297826A65093056 /* Swifter */,
 			);
 			productName = "ReactiveAPI-Tests";
 			productReference = 90A205C495C3016F2BC2FB16 /* ReactiveAPI-Tests.xctest */;
@@ -495,6 +443,9 @@
 				407146A8B0E14E37C46633C0 /* PBXTargetDependency */,
 			);
 			name = "ReactiveAPIExt-Tests";
+			packageProductDependencies = (
+				C754ABA566531A148BE9D035 /* Swifter */,
+			);
 			productName = "ReactiveAPIExt-Tests";
 			productReference = 1F6C2E14A6E22D34ED8B6CF0 /* ReactiveAPIExt-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -505,20 +456,20 @@
 		0257EE0D0B53C201CBE27AEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1200;
 			};
 			buildConfigurationList = 4668ACBF8DC2B272523853C3 /* Build configuration list for PBXProject "ReactiveAPI" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				Base,
 				en,
 			);
 			mainGroup = 5AC1AE3609411E2D8D5A15C4;
 			packageReferences = (
-				C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */,
-				C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
-				C260FE03263811F50039E209 /* XCRemoteSwiftPackageReference "swifter" */,
+				97B1437EB8CFA1792A4D2ADE /* XCRemoteSwiftPackageReference "CombineExt" */,
+				28F8328C452D8E373B77D184 /* XCRemoteSwiftPackageReference "swifter" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -531,49 +482,28 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C2E01F6A25FA6D0B008BCC7D /* ⚙ swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "⚙ swiftlint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		2678D64ADABCA44F0C69FD49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				65B900F550F4896C18D2BB89 /* Encodable+Dictionary.swift in Sources */,
-				C2E5AA5C26136D2B0022AF4C /* LoadingResult.swift in Sources */,
+				3FEE526D602E755C3362D20E /* Event.swift in Sources */,
 				C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */,
+				1A639B2EAD1F4F4F48315D2A /* LoadingResult.swift in Sources */,
 				786203255A9D3A72B681D4A9 /* MaxAgeCache.swift in Sources */,
 				ACA18579ECA350C08C14A96B /* ReactiveAPI.swift in Sources */,
 				D02BB21A12C91F622F76505D /* ReactiveAPIAuthenticator.swift in Sources */,
-				C227178625E941AF0044ADDA /* URLSession+ReactiveAPI.swift in Sources */,
 				E90611E9FDF9D87E366E718C /* ReactiveAPICache.swift in Sources */,
 				E523A8599F7D043F0F01B081 /* ReactiveAPIError.swift in Sources */,
 				A380737D37C954DB5B642AF3 /* ReactiveAPIHTTPMethod.swift in Sources */,
-				C214A0752631A6DC0080F7A7 /* Event.swift in Sources */,
 				399854E62897A90CC9F34FC8 /* ReactiveAPIProtocol.swift in Sources */,
 				74B19ADC932FDBE9998539AF /* ReactiveAPIRequestInterceptor.swift in Sources */,
 				BA6B38CB8DED835219A1A72C /* ReactiveAPITokenAuthenticator.swift in Sources */,
 				6C439ED428595B7BEE3F49CB /* ReactiveFetcher.swift in Sources */,
 				1FA1B4AB3B726ACC60811C20 /* URLComponents+QueryParams.swift in Sources */,
 				C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */,
+				6ACD65855DB5C3DF9E6EDB87 /* URLSession+ReactiveAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +511,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C227179525EE5E9C0044ADDA /* Publisher+.swift in Sources */,
 				1722E21EF47A31A43150C81C /* AuthenticatorMock.swift in Sources */,
 				3EAE79251499B755EECE2074 /* CacheMock.swift in Sources */,
 				72DF081ED4D25D7BC1921C9D /* Date+.swift in Sources */,
@@ -591,12 +520,12 @@
 				BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */,
 				F111710DF741B5DDAFEB36A6 /* MaxAgeCacheTests.swift in Sources */,
 				B5A64C1F069A6B63CFFFB3A3 /* MockAPI.swift in Sources */,
+				6EB5A417994B604FC465CD3C /* MockClientAPI.swift in Sources */,
 				38931B80CB9E716336F20F6D /* ModelMock.swift in Sources */,
+				CAF872F0154D2F52FA97AF41 /* Publisher+.swift in Sources */,
 				81F0407DF82E64DA6AE7D699 /* ReactiveAPIErrorTests.swift in Sources */,
 				628DD4487A1E825B09DCEC82 /* ReactiveAPIProtocolTests.swift in Sources */,
 				F49C6BCECA6C84BE55000622 /* ReactiveAPITokenAuthenticatorTests.swift in Sources */,
-				C227179E25EF80C30044ADDA /* XCTestCase+Publisher.swift in Sources */,
-				C2190F66260B8ED60002FE36 /* MockClientAPI.swift in Sources */,
 				ED7A01E7DF5091EA6668423B /* RedirectTests.swift in Sources */,
 				1DEE82B93E8213E624B4A3C8 /* RefreshTokenTests.swift in Sources */,
 				A43359890AFD2272147304D0 /* Resources.swift in Sources */,
@@ -606,6 +535,7 @@
 				4A916EA919CD58BE3AED7795 /* URLRequest+.swift in Sources */,
 				E271914CDE833CBCC5631D21 /* URLRequestTests.swift in Sources */,
 				D6FD38AC63A25B6569F70555 /* URLSessionRxTests.swift in Sources */,
+				C5C132308BE4D7772F7FE06C /* XCTestCase+Publisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,11 +543,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C258748B26383F9A0014ADD4 /* Publisher+.swift in Sources */,
 				EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */,
-				C258748A26383F9A0014ADD4 /* XCTestCase+Publisher.swift in Sources */,
-				C214A049262EE4E60080F7A7 /* LoadingResultTests.swift in Sources */,
+				472C1C45AF3D5882144E62DD /* LoadingResultTests.swift in Sources */,
+				9EF4BD6E90D89B678DF85B4A /* Publisher+.swift in Sources */,
 				2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */,
+				1BD2CE08C9D453CD539B344B /* XCTestCase+Publisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,10 +555,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C214A0762631A6DC0080F7A7 /* Event.swift in Sources */,
+				4A8100E0AE2BF08139C38589 /* Event.swift in Sources */,
 				6044286A72B57F21C89F192B /* FailableCodables.swift in Sources */,
+				284BB9BE2902E77B7FF877AE /* LoadingResult.swift in Sources */,
 				3E19FF4A4D47C1DACD6AE6B2 /* ReactiveFetcher.swift in Sources */,
-				C2E5AA5D26136D2B0022AF4C /* LoadingResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,10 +587,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = ReactiveAPIExt.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -684,10 +610,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = ReactiveAPIExt.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -712,6 +634,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -727,6 +650,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -746,12 +670,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				VALIDATE_PRODUCT = YES;
-				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
@@ -764,10 +689,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = ReactiveAPI.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -786,10 +707,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -805,10 +722,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -829,10 +742,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = ReactiveAPI.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -857,6 +766,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -872,6 +782,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -897,14 +808,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -912,10 +823,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -931,10 +838,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -997,15 +900,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.1.0;
-			};
-		};
-		C260FE03263811F50039E209 /* XCRemoteSwiftPackageReference "swifter" */ = {
+		28F8328C452D8E373B77D184 /* XCRemoteSwiftPackageReference "swifter" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/httpswift/swifter.git";
 			requirement = {
@@ -1013,41 +908,36 @@
 				minimumVersion = 1.5.0;
 			};
 		};
-		C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+		97B1437EB8CFA1792A4D2ADE /* XCRemoteSwiftPackageReference "CombineExt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C214A044262EE0700080F7A7 /* CombineExt */ = {
+		19E56FD2E297826A65093056 /* Swifter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */;
-			productName = CombineExt;
-		};
-		C260FDF1263719DF0039E209 /* OHHTTPStubs */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
-			productName = OHHTTPStubs;
-		};
-		C260FDF5263719F10039E209 /* OHHTTPStubs */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C260FDF0263719DF0039E209 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
-			productName = OHHTTPStubs;
-		};
-		C260FE04263811F50039E209 /* Swifter */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C260FE03263811F50039E209 /* XCRemoteSwiftPackageReference "swifter" */;
+			package = 28F8328C452D8E373B77D184 /* XCRemoteSwiftPackageReference "swifter" */;
 			productName = Swifter;
 		};
-		C2E5AA5726136C080022AF4C /* CombineExt */ = {
+		38A31C6BF16047DE4708C9EF /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C2E5AA5626136C080022AF4C /* XCRemoteSwiftPackageReference "CombineExt" */;
+			package = 97B1437EB8CFA1792A4D2ADE /* XCRemoteSwiftPackageReference "CombineExt" */;
 			productName = CombineExt;
+		};
+		9E4E7D96201AB16F9B4F167C /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97B1437EB8CFA1792A4D2ADE /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+		C754ABA566531A148BE9D035 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28F8328C452D8E373B77D184 /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

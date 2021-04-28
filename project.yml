@@ -74,4 +74,3 @@ targetTemplates:
     scheme: {}
     dependencies:
       - package: Swifter
-      - package: CombineExt

@@ -1,18 +1,11 @@
 import XCTest
-import OHHTTPStubs
+import Swifter
 import Combine
 
 @testable import ReactiveAPI
 
-class ReactiveAPITokenAuthenticatorTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        HTTPStubs.removeAllStubs()
-        HTTPStubs.onStubActivation { (request, _, _) in
-            debugPrint("Stubbed: \(String(describing: request.url))")
-        }
-    }
-    
+class ReactiveAPITokenAuthenticatorTests: SkyTestCase {
+
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
                                                               renewToken: { Just("renewToken")
@@ -153,7 +146,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
     
-    func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() {
+    func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() throws {
         // Given
         let queueAscheduler = DispatchQueue(label: "queueA", attributes: .concurrent)
         let queueBscheduler = DispatchQueue(label: "queueB", attributes: .concurrent)
@@ -166,7 +159,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         var callCounter = 0
         var currentToken = ""
         
-        let tokenHeaderName = "tokenHeaderName"
+        let tokenHeaderName = "tokenheadername"
         let sut = MockAPI(session: URLSession.shared, baseUrl: Resources.baseUrl)
         
         sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName,
@@ -182,41 +175,36 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         sut.requestInterceptors += [
             TokenInterceptor(tokenValue: { currentToken }, headerName: tokenHeaderName)
         ]
-        
-        stub(condition: isHost(Resources.baseUrlHost)) { request -> HTTPStubsResponse in
+
+        httpServer.route(MockAPI.loginEndpoint) { (request, callCount) -> (HttpResponse) in
             callCounter += 1
-            print("\(callCounter) Request: \(request.url!.absoluteString)")
-            
-            do {
-                if request.urlHasSuffix(MockAPI.loginEndpoint) {
-                    loginCounter += 1
-                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "oldToken", id: 1))
-                }
-                
-                if request.urlHasSuffix(MockAPI.renewEndpoint) {
-                    renewCounter += 1
-                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "newToken", id: 2))
-                }
-                
-                if request.urlHasSuffix(MockAPI.authenticatedSingleActionEndpoint) {
-                    singleActionCounter += 1
-                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "singleAction", id: 3))
-                }
-                
-                if request.urlHasSuffix(MockAPI.authenticatedParallelActionEndpoint) {
-                    parallelActionCounter += 1
-                    if request.value(forHTTPHeaderField: tokenHeaderName) == "oldToken" {
-                        return JSONHelper.unauthorized401()
-                    }
-                    return try JSONHelper.jsonHttpResponse(value: ModelMock(name: "parallelAction", id: 4))
-                }
-            } catch {
-                XCTFail("\(error)")
-            }
-            
-            return JSONHelper.stubError()
+            loginCounter += 1
+            return HttpResponse.ok(ModelMock(name: "oldToken", id: 1).encoded())
         }
-        
+
+        httpServer.route(MockAPI.renewEndpoint) { (request, callCount) -> (HttpResponse) in
+            callCounter += 1
+            renewCounter += 1
+            return HttpResponse.ok(ModelMock(name: "newToken", id: 2).encoded())
+        }
+
+        httpServer.route(MockAPI.authenticatedSingleActionEndpoint) { (request, callCount) -> (HttpResponse) in
+            callCounter += 1
+            singleActionCounter += 1
+            return HttpResponse.ok(ModelMock(name: "singleAction", id: 3).encoded())
+        }
+
+        httpServer.route(MockAPI.authenticatedParallelActionEndpoint) { (request, callCount) -> (HttpResponse) in
+            callCounter += 1
+            parallelActionCounter += 1
+            if request.header(name: tokenHeaderName) == "oldToken" {
+                return HttpResponse.unauthorized
+            }
+            return HttpResponse.ok(ModelMock(name: "parallelAction", id: 4).encoded())
+        }
+
+        try startServer()
+
         do {
             let loginResponse = try await(sut.login())
             currentToken = loginResponse.name

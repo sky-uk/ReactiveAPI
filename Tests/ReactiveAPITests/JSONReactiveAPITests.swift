@@ -16,11 +16,11 @@ class JSONReactiveAPITests: XCTestCase {
 
     func test_AbsoluteURL_AppendsEndpoint() {
         let url = api.absoluteURL("path")
-        XCTAssertEqual(url.absoluteString, "http://www.mock.com/path")
+        XCTAssertEqual(url.absoluteString, "http://localhost:8080/path")
     }
 
     func test_AbsoluteURL_AppendsEmptyEndpoint() {
         let url = api.absoluteURL("")
-        XCTAssertEqual(url.absoluteString, "http://www.mock.com/")
+        XCTAssertEqual(url.absoluteString, "http://localhost:8080/")
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 
 struct Resources {
     static let url = URL(string: "https://url.com")!
-    static let baseUrlHost = "www.mock.com"
+    static let baseUrlHost = "localhost:8080"
     static let baseUrl = URL(string: "http://\(Resources.baseUrlHost)/")!
     static let urlRequest = URLRequest(url: Resources.url)
     static let data = Data(count: 100)

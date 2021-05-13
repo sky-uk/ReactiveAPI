@@ -8,7 +8,7 @@ class RedirectTests: SkyTestCase {
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
                                                               renewToken: { Just("renewToken")
-                                                                .mapError { ReactiveAPIError.map($0) }
+                                                                .setFailureType(to: ReactiveAPIError.self)
                                                                 .eraseToAnyPublisher() })
 
     func testRedirect() throws {

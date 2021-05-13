@@ -29,7 +29,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         api.authenticator = AuthenticatorMock(code: 401)
 
         do {
-            _ = try await(api.reactiveDataRequest(Resources.urlRequest))
+            _ = try awaitCompletion(api.reactiveDataRequest(Resources.urlRequest))
 
             XCTFail("This should throw an error!")
         } catch {
@@ -50,7 +50,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
         api.cache = cache
         let request = Resources.urlRequest
         do {
-            _ = try await(api.reactiveDataRequest(request))
+            _ = try awaitCompletion(api.reactiveDataRequest(request))
 
             let urlCache = session.configuration.urlCache
             XCTAssertNotNil(urlCache?.cachedResponse(for: request))
@@ -84,7 +84,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
                               decoder: JSONDecoder(),
                               baseUrl: Resources.url)
         do {
-            let _: ModelMock = try await(api.reactiveDataRequest(Resources.urlRequest))
+            let _: ModelMock = try awaitCompletion(api.reactiveDataRequest(Resources.urlRequest))
             XCTFail("This should throw an error!")
         } catch {
             if case let ReactiveAPIError.decodingError(underlyingError: underlyingError) = error {
@@ -101,9 +101,9 @@ class ReactiveAPIProtocolTests: XCTestCase {
                               decoder: JSONDecoder(),
                               baseUrl: Resources.url)
         do {
-            let response: Void = try api.reactiveDataRequestDiscardingPayload(Resources.urlRequest)
+            let response: Void? = try api.reactiveDataRequestDiscardingPayload(Resources.urlRequest)
                 .waitForCompletion()
-                .first!
+                .first
 
             XCTAssertNotNil(response)
 

@@ -70,8 +70,7 @@ extension ReactiveAPIProtocol {
     }
 
     func reactiveDataRequestDiscardingPayload(_ request: URLRequest) -> AnyPublisher<Void, ReactiveAPIError> {
-        return reactiveDataRequest(request).tryMap { _ in () }
-            .mapError { ReactiveAPIError.map($0) }
+        return reactiveDataRequest(request).map { _ in () }
             .eraseToAnyPublisher()
     }
 }

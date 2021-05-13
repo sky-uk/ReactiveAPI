@@ -9,13 +9,13 @@ class ReactiveAPITokenAuthenticatorTests: SkyTestCase {
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
                                                               renewToken: { Just("renewToken")
-                                                                .mapError { ReactiveAPIError.map($0) }
+                                                                .setFailureType(to: ReactiveAPIError.self)
                                                                 .eraseToAnyPublisher() })
     
     func test_requestWithNewToken_When200_DataIsValid() {
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try await(authenticator.requestWithNewToken(session: session,
+            let response = try awaitCompletion(authenticator.requestWithNewToken(session: session,
                                                                        request: Resources.urlRequest,
                                                                        newToken: "newToken"))
             XCTAssertNotNil(response)
@@ -27,7 +27,7 @@ class ReactiveAPITokenAuthenticatorTests: SkyTestCase {
     func test_requestWithNewToken_When500_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         do {
-            _ = try await(authenticator.requestWithNewToken(session: session,
+            _ = try awaitCompletion(authenticator.requestWithNewToken(session: session,
                                                             request: Resources.urlRequest,
                                                             newToken: "newToken"))
             
@@ -44,7 +44,7 @@ class ReactiveAPITokenAuthenticatorTests: SkyTestCase {
     func test_Fetch_When401_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 401)
         do {
-            _ = try await(authenticator.requestWithNewToken(session: session,
+            _ = try awaitCompletion(authenticator.requestWithNewToken(session: session,
                                                             request: Resources.urlRequest,
                                                             newToken: "newToken"))
             
@@ -63,7 +63,7 @@ class ReactiveAPITokenAuthenticatorTests: SkyTestCase {
         let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                           getCurrentToken: { nil },
                                                           renewToken: { Just("renewToken")
-                                                            .mapError { ReactiveAPIError.map($0) }
+                                                            .setFailureType(to: ReactiveAPIError.self)
                                                             .eraseToAnyPublisher() })
         do {
             let response = try authenticator.authenticate(session: session,
@@ -131,7 +131,7 @@ class ReactiveAPITokenAuthenticatorTests: SkyTestCase {
     func test_Authenticate_WhenRenewTokenSucceeded_AndRequest500_RetrunError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         do {
-            _ = try await(authenticator.authenticate(session: session,
+            _ = try awaitCompletion(authenticator.authenticate(session: session,
                                                      request: Resources.urlRequest,
                                                      response: Resources.httpUrlResponse(code: 401)!,
                                                      data: nil)!)
@@ -206,9 +206,9 @@ class ReactiveAPITokenAuthenticatorTests: SkyTestCase {
         try startServer()
 
         do {
-            let loginResponse = try await(sut.login())
+            let loginResponse = try awaitCompletion(sut.login())
             currentToken = loginResponse.name
-            _ = try await(sut.authenticatedSingleAction())
+            _ = try awaitCompletion(sut.authenticatedSingleAction())
             
             let parallelCall1 = sut.authenticatedParallelAction()
                 .print("\(Date().dateMillis) Parallel call 1 on \(Thread.current.description)")

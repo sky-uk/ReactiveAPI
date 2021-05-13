@@ -18,7 +18,7 @@ class URLSessionReactiveTests: XCTestCase {
     func test_Fetch_When500_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
         do {
-            _ = try await(session.fetch(Resources.urlRequest))
+            _ = try awaitCompletion(session.fetch(Resources.urlRequest))
 
             XCTFail("This should throw an error!")
         } catch {
@@ -33,7 +33,7 @@ class URLSessionReactiveTests: XCTestCase {
     func test_Fetch_When401_ReturnError() {
         let session = URLSessionMock.create(Resources.json, errorCode: 401)
         do {
-            _ = try await(session.fetch(Resources.urlRequest))
+            _ = try awaitCompletion(session.fetch(Resources.urlRequest))
 
             XCTFail("This should throw an error!")
         } catch {
@@ -48,7 +48,7 @@ class URLSessionReactiveTests: XCTestCase {
     func test_Fetch_WhenDataNil_MissingDataError() {
         let session = URLSessionMock(response: Resources.httpUrlResponse())
         do {
-            _ = try await(session.fetch(Resources.urlRequest))
+            _ = try awaitCompletion(session.fetch(Resources.urlRequest))
 
             XCTFail("This should throw an error!")
         } catch {
@@ -63,7 +63,7 @@ class URLSessionReactiveTests: XCTestCase {
     func test_Fetch_WhenResponseNil_MissingResponseError() {
         let session = URLSessionMock(data: Resources.json.data(using: .utf8))
         do {
-            _ = try await(session.fetch(Resources.urlRequest))
+            _ = try awaitCompletion(session.fetch(Resources.urlRequest))
 
             XCTFail("This should throw an error!")
         } catch {
@@ -78,7 +78,7 @@ class URLSessionReactiveTests: XCTestCase {
     func test_Fetch_WhenResponseIsNotHTTP_NonHttpResponse() {
         let session = URLSessionMock(data: Data(), response: URLResponse())
         do {
-            _ = try await(session.fetch(Resources.urlRequest))
+            _ = try awaitCompletion(session.fetch(Resources.urlRequest))
 
             XCTFail("This should throw an error!")
         } catch {

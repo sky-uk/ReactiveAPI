@@ -1,4 +1,4 @@
 #!/bin/bash -e
-curl https://gist.githubusercontent.com/skymobilebuilds/61f4a95bd62a3db36b52719aeab7e0d5/raw/61affe5b13efaeb83ba3aaf5ef2cb97bab893485/carthage-xc12.sh -o wcarthage && chmod +x wcarthage
+curl -# https://gist.githubusercontent.com/skymobilebuilds/61f4a95bd62a3db36b52719aeab7e0d5/raw/fbee83e3240b22b61edf2874f28249a24b20e9c1/carthage-xc12.sh -o wcarthage && chmod +x wcarthage
 ./wcarthage bootstrap --platform iOS --cache-builds
 

@@ -3,6 +3,8 @@ options:
   bundleIdPrefix: it.sky
   deploymentTarget:
     iOS: "12.4"
+settings:
+    VALIDATE_WORKSPACE: YES
 targets:
   ReactiveAPI:
     templates:

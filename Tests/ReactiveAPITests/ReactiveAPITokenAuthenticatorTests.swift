@@ -160,6 +160,7 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
+    /*
     func test_multiple_parallel_failed_requests_should_trigger_a_single_token_refresh_and_be_retried_after_refresh() {
         // Given
         let queueAscheduler = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queueA"))
@@ -259,4 +260,5 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
             XCTFail("\(error)")
         }
     }
+    */
 }

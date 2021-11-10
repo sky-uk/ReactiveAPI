@@ -44,7 +44,7 @@ targetTemplates:
       path: ${target_name}.plist
       properties:
         CFBundleIdentifier: it.sky.${target_name}
-        CFBundleShortVersionString: "1.13.0"
+        CFBundleShortVersionString: "1.13.3"
     sources:
       - path: Sources/ReactiveAPI
     scheme:
@@ -58,7 +58,7 @@ targetTemplates:
       path: ${target_name}.plist
       properties:
         CFBundleIdentifier: it.sky.${target_name}
-        CFBundleShortVersionString: "1.13.0"
+        CFBundleShortVersionString: "1.13.3"
     sources:
       - path: Sources/ReactiveAPIExt
     scheme:

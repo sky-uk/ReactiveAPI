@@ -1,9 +1,8 @@
 import Foundation
-import RxSwift
 
 public protocol ReactiveAPIAuthenticator {
-    func authenticate(session: Reactive<URLSession>,
+    func authenticate(session: URLSession,
                       request: URLRequest,
                       response: HTTPURLResponse,
-                      data: Data?) -> Single<Data>?
+                      data: Data?) async throws -> Data?
 }

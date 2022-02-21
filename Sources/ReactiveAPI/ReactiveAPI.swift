@@ -1,8 +1,7 @@
 import Foundation
-import RxSwift
 
 open class ReactiveAPI: ReactiveAPIProtocol {
-    public let session: Reactive<URLSession>
+    public let session: URLSession
     public let decoder: ReactiveAPIDecoder
     public let encoder: JSONEncoder
     public let baseUrl: URL
@@ -11,7 +10,7 @@ open class ReactiveAPI: ReactiveAPIProtocol {
     public var cache: ReactiveAPICache?
     public var queryStringTypeConverter: ReactiveAPITypeConverter?
 
-    required public init(session: Reactive<URLSession>,
+    required public init(session: URLSession,
                          decoder: ReactiveAPIDecoder = JSONDecoder(),
                          encoder: JSONEncoder = JSONEncoder(),
                          baseUrl: URL) {

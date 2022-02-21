@@ -1,6 +1,5 @@
 import Foundation
 import RxCocoa
-import RxSwift
 
 public enum ReactiveAPITokenAuthenticatorState {
     case invoked
@@ -26,13 +25,13 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     private let currentToken = BehaviorRelay<String?>(value: nil)
     private let tokenHeaderName: String
     private let getCurrentToken: () -> String?
-    private let renewToken: () -> Single<String>
+    private let renewToken: () -> String
     private let shouldRenewToken: (URLRequest, HTTPURLResponse, Data?) -> Bool
     private let logger: ReactiveAPITokenAuthenticatorLogger?
 
     public init(tokenHeaderName: String,
                 getCurrentToken: @escaping () -> String?,
-                renewToken: @escaping () -> Single<String>,
+                renewToken: @escaping () -> String,
                 shouldRenewToken: @escaping(URLRequest, HTTPURLResponse, Data?) -> Bool = { _, _, _ in true },
                 logger: ReactiveAPITokenAuthenticatorLogger? = nil) {
         self.tokenHeaderName = tokenHeaderName
@@ -42,19 +41,17 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         self.logger = logger
     }
 
-    func requestWithNewToken(session: Reactive<URLSession>,
+    func requestWithNewToken(session: URLSession,
                              request: URLRequest,
-                             newToken: String) -> Single<Data> {
+                             newToken: String) async throws -> Data {
         logger?.log(state: .retryingRequestWithNewToken)
 
         var newRequest = request
         newRequest.setValue(newToken, forHTTPHeaderField: tokenHeaderName)
-        return session.fetch(newRequest)
-            .map { $0.data }
-            .asSingle()
+        return try await session.fetch(newRequest).data // TODO
     }
 
-    public func authenticate(session: Reactive<URLSession>, request: URLRequest, response: HTTPURLResponse, data: Data?) -> Single<Data>? {
+    public func authenticate(session: URLSession, request: URLRequest, response: HTTPURLResponse, data: Data?) async throws-> Data? {
         logger?.log(state: .invoked)
 
         guard response.statusCode == 401,
@@ -75,38 +72,32 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
         if failedRequestToken == nil || failedRequestToken != actualToken {
             logger?.log(state: .injectingExistingToken)
-            return requestWithNewToken(session: session, request: request, newToken: actualToken)
+            return try await requestWithNewToken(session: session, request: request, newToken: actualToken) // TODO
         }
 
         if isRenewingToken {
             logger?.log(state: .waitingForTokenRenewWhichIsInProgress)
 
-            return currentToken
-                .filter { $0 != nil }
-                .map { $0! }
-                .take(1)
-                .asSingle()
-                .flatMap { token in
-                    self.logger?.log(state: .finishedWaitingForTokenRenew)
-                    return self.requestWithNewToken(session: session, request: request, newToken: token)
-                }
+            async let token = currentToken
+            self.logger?.log(state: .finishedWaitingForTokenRenew)
+            return try await self.requestWithNewToken(session: session, request: request, newToken: "") // TODO
         }
 
         logger?.log(state: .startedTokenRefresh)
 
         setNewToken(token: nil, isRenewing: true)
 
-        return renewToken()
-            .catchError { error in
-                self.logger?.log(state: .tokenRenewError(error))
-                self.setNewToken(token: nil, isRenewing: false)
-                let httpError = ReactiveAPIError.httpError(request: request, response: response, data: data ?? Data())
-                return Single.error(httpError)
-            }.flatMap { newToken in
-                self.setNewToken(token: newToken, isRenewing: false)
-                self.logger?.log(state: .tokenRenewSucceeded)
-                return self.requestWithNewToken(session: session, request: request, newToken: newToken)
-            }
+        do {
+            async let newToken = renewToken()
+            self.setNewToken(token: await newToken, isRenewing: false)
+            self.logger?.log(state: .tokenRenewSucceeded)
+            return try await self.requestWithNewToken(session: session, request: request, newToken: await newToken)
+        } catch (let error) {
+            self.logger?.log(state: .tokenRenewError(error))
+            self.setNewToken(token: nil, isRenewing: false)
+            let httpError = ReactiveAPIError.httpError(request: request, response: response, data: data ?? Data())
+            throw httpError
+        }
     }
 
     func setNewToken(token: String?, isRenewing: Bool) {

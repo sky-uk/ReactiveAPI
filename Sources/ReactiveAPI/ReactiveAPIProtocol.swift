@@ -25,6 +25,7 @@ extension ReactiveAPIProtocol {
         return baseUrl.appendingPathComponent(endpoint)
     }
 
+    @discardableResult
     func rxDataRequest(_ request: URLRequest) async throws -> Data {
         do {
             let (request, response, data) = try await session.fetch(request, interceptors: requestInterceptors)
@@ -53,6 +54,7 @@ extension ReactiveAPIProtocol {
         }
     }
 
+    @discardableResult
     func rxDataRequest<D: Decodable>(_ request: URLRequest) async throws -> D {
         let data = try await rxDataRequest(request)
         do {
@@ -67,9 +69,8 @@ extension ReactiveAPIProtocol {
         }
     }
 
-    func rxDataRequestDiscardingPayload(_ request: URLRequest) async throws -> (Void) {
-        let _ = try await rxDataRequest(request)
-        return ()
+    func rxDataRequestDiscardingPayload(_ request: URLRequest) async throws {
+        try await rxDataRequest(request)
     }
 }
 
@@ -80,17 +81,13 @@ public extension ReactiveAPIProtocol {
                                headers: [String: Any?]? = nil,
                                queryParams: [String: Any?]? = nil,
                                bodyParams: [String: Any?]? = nil) async throws -> D {
-        do {
-            let request = try URLRequest.createForJSON(with: url,
-                                                       method: method,
-                                                       headers: headers,
-                                                       queryParams: queryParams,
-                                                       bodyParams: bodyParams,
-                                                       queryStringTypeConverter: queryStringTypeConverter)
-            return try await rxDataRequest(request)
-        } catch {
-            throw error
-        }
+        let request = try URLRequest.createForJSON(with: url,
+                                                   method: method,
+                                                   headers: headers,
+                                                   queryParams: queryParams,
+                                                   bodyParams: bodyParams,
+                                                   queryStringTypeConverter: queryStringTypeConverter)
+        return try await rxDataRequest(request)
     }
 
     // body params as encodable and generic response type
@@ -99,18 +96,14 @@ public extension ReactiveAPIProtocol {
                                              headers: [String: Any?]? = nil,
                                              queryParams: [String: Any?]? = nil,
                                              body: E? = nil) async throws -> D {
-        do {
-            let request = try URLRequest.createForJSON(with: url,
-                                                       method: method,
-                                                       headers: headers,
-                                                       queryParams: queryParams,
-                                                       body: body,
-                                                       encoder: encoder,
-                                                       queryStringTypeConverter: queryStringTypeConverter)
-            return try await rxDataRequest(request)
-        } catch {
-            throw error
-        }
+        let request = try URLRequest.createForJSON(with: url,
+                                                   method: method,
+                                                   headers: headers,
+                                                   queryParams: queryParams,
+                                                   body: body,
+                                                   encoder: encoder,
+                                                   queryStringTypeConverter: queryStringTypeConverter)
+        return try await rxDataRequest(request)
     }
 
     // body params as dictionary and void response type
@@ -119,17 +112,13 @@ public extension ReactiveAPIProtocol {
                  headers: [String: Any?]? = nil,
                  queryParams: [String: Any?]? = nil,
                  bodyParams: [String: Any?]? = nil) async throws -> Void {
-        do {
-            let request = try URLRequest.createForJSON(with: url,
-                                                       method: method,
-                                                       headers: headers,
-                                                       queryParams: queryParams,
-                                                       bodyParams: bodyParams,
-                                                       queryStringTypeConverter: queryStringTypeConverter)
-            return try await rxDataRequestDiscardingPayload(request)
-        } catch {
-            throw error
-        }
+        let request = try URLRequest.createForJSON(with: url,
+                                                   method: method,
+                                                   headers: headers,
+                                                   queryParams: queryParams,
+                                                   bodyParams: bodyParams,
+                                                   queryStringTypeConverter: queryStringTypeConverter)
+        return try await rxDataRequestDiscardingPayload(request)
     }
 
     // body params as encodable and void response type
@@ -138,17 +127,13 @@ public extension ReactiveAPIProtocol {
                                headers: [String: Any?]? = nil,
                                queryParams: [String: Any?]? = nil,
                                body: E? = nil) async throws -> Void {
-        do {
-            let request = try URLRequest.createForJSON(with: url,
-                                                       method: method,
-                                                       headers: headers,
-                                                       queryParams: queryParams,
-                                                       body: body,
-                                                       encoder: encoder,
-                                                       queryStringTypeConverter: queryStringTypeConverter)
-            return try await rxDataRequestDiscardingPayload(request)
-        } catch {
-            throw error
-        }
+        let request = try URLRequest.createForJSON(with: url,
+                                                   method: method,
+                                                   headers: headers,
+                                                   queryParams: queryParams,
+                                                   body: body,
+                                                   encoder: encoder,
+                                                   queryStringTypeConverter: queryStringTypeConverter)
+        return try await rxDataRequestDiscardingPayload(request)
     }
 }

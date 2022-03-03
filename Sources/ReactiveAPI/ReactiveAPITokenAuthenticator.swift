@@ -48,7 +48,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
         var newRequest = request
         newRequest.setValue(newToken, forHTTPHeaderField: tokenHeaderName)
-        return try await session.fetch(newRequest).data // TODO
+        return try await session.fetch(newRequest).data
     }
 
     public func authenticate(session: URLSession, request: URLRequest, response: HTTPURLResponse, data: Data?) async throws-> Data? {
@@ -72,15 +72,15 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
         if failedRequestToken == nil || failedRequestToken != actualToken {
             logger?.log(state: .injectingExistingToken)
-            return try await requestWithNewToken(session: session, request: request, newToken: actualToken) // TODO
+            return try await requestWithNewToken(session: session, request: request, newToken: actualToken)
         }
 
         if isRenewingToken {
             logger?.log(state: .waitingForTokenRenewWhichIsInProgress)
 
-            async let token = currentToken
+            async let token = currentToken // TODO
             self.logger?.log(state: .finishedWaitingForTokenRenew)
-            return try await self.requestWithNewToken(session: session, request: request, newToken: "") // TODO
+            return try await self.requestWithNewToken(session: session, request: request, newToken: "")
         }
 
         logger?.log(state: .startedTokenRefresh)

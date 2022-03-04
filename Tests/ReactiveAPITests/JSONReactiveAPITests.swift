@@ -1,17 +1,16 @@
 import XCTest
-import RxSwift
 @testable import ReactiveAPI
 
 class JSONReactiveAPITests: XCTestCase {
     private let session = URLSession(configuration: URLSessionConfiguration.default)
 
     private var api: ReactiveAPI {
-        return ReactiveAPI(session: session.rx,
+        return ReactiveAPI(session: session,
                            baseUrl: Resources.baseUrl)
     }
 
     func test_Init_JSONReactiveAPI() {
-        XCTAssertEqual(api.session.base, session)
+        XCTAssertEqual(api.session, session)
         XCTAssertNotNil(api.decoder)
     }
 

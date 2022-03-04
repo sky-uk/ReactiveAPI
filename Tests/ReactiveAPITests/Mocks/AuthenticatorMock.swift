@@ -1,17 +1,16 @@
 import Foundation
 import ReactiveAPI
-import RxSwift
 
 struct AuthenticatorMock: ReactiveAPIAuthenticator {
     let code: Int
 
-    func authenticate(session: Reactive<URLSession>,
+    func authenticate(session: URLSession,
                       request: URLRequest,
                       response: HTTPURLResponse,
-                      data: Data?) -> Single<Data>? {
+                      data: Data?) async throws-> Data? {
         guard response.statusCode == code
             else { return nil }
 
-        return Single.just(Resources.data)
+        return Resources.data
     }
 }

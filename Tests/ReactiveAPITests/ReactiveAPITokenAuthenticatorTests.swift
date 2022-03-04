@@ -1,5 +1,4 @@
 import XCTest
-import RxSwift
 import OHHTTPStubs
 
 @testable import ReactiveAPI
@@ -15,16 +14,14 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
 
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
-                                                              renewToken: { Single.just("renewToken") })
+                                                              renewToken: { "renewToken" })
 
-    func test_requestWithNewToken_When200_DataIsValid() {
+    func test_requestWithNewToken_When200_DataIsValid() async {
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try authenticator.requestWithNewToken(session: session.rx,
-                                                                 request: Resources.urlRequest,
-                                                                 newToken: "newToken")
-                .toBlocking()
-                .single()
+            let response = try await authenticator.requestWithNewToken(session: session,
+                                                                       request: Resources.urlRequest,
+                                                                       newToken: "newToken")
 
             XCTAssertNotNil(response)
         } catch {
@@ -32,58 +29,48 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
-    func test_requestWithNewToken_When500_ReturnError() {
+    func test_requestWithNewToken_When500_ReturnError() async {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
-        let response = authenticator.requestWithNewToken(session: session.rx,
-                                                         request: Resources.urlRequest,
-                                                         newToken: "newToken")
-            .toBlocking()
-            .materialize()
-
-        switch response {
-            case .completed(elements: _):
-                XCTFail("This should throws an error!")
-            case .failed(elements: _, error: let error):
-                if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
-                    XCTAssertTrue(response.statusCode == 500)
-                } else {
-                    XCTFail("This should be a ReactiveAPIError.httpError")
+        do {
+            let _ = try await authenticator.requestWithNewToken(session: session,
+                                                                request: Resources.urlRequest,
+                                                                newToken: "newToken")
+            XCTFail("This should throws an error!")
+        } catch {
+            if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
+                XCTAssertTrue(response.statusCode == 500)
+            } else {
+                XCTFail("This should be a ReactiveAPIError.httpError")
             }
         }
     }
 
-    func test_Fetch_When401_ReturnError() {
+    func test_Fetch_When401_ReturnError() async {
         let session = URLSessionMock.create(Resources.json, errorCode: 401)
-        let response = authenticator.requestWithNewToken(session: session.rx,
-                                                         request: Resources.urlRequest,
-                                                         newToken: "newToken")
-            .toBlocking()
-            .materialize()
-
-        switch response {
-            case .completed(elements: _):
-                XCTFail("This should throws an error!")
-            case .failed(elements: _, error: let error):
-                if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
-                    XCTAssertTrue(response.statusCode == 401)
-                } else {
-                    XCTFail("This should be a ReactiveAPIError.httpError")
+        do {
+            let _ = try await authenticator.requestWithNewToken(session: session,
+                                                                request: Resources.urlRequest,
+                                                                newToken: "newToken")
+            XCTFail("This should throws an error!")
+        } catch {
+            if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
+                XCTAssertTrue(response.statusCode == 401)
+            } else {
+                XCTFail("This should be a ReactiveAPIError.httpError")
             }
         }
     }
 
-    func test_Authenticate_When401_ReturnNil() {
+    func test_Authenticate_When401_ReturnNil() async {
         let session = URLSessionMock.create(Resources.json)
         let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                           getCurrentToken: { nil },
-                                                          renewToken: { Single.just("renewToken") })
+                                                          renewToken: { "renewToken" })
         do {
-            let response = try authenticator.authenticate(session: session.rx,
+            let response = try await authenticator.authenticate(session: session,
                                                           request: Resources.urlRequest,
                                                           response: Resources.httpUrlResponse(code: 401)!,
-                                                          data: nil)?
-                .toBlocking()
-                .single()
+                                                          data: nil)
 
             XCTAssertNil(response)
         } catch {
@@ -91,15 +78,13 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
-    func test_Authenticate_WhenGetCurrentTokenNil_ReturnNil() {
+    func test_Authenticate_WhenGetCurrentTokenNil_ReturnNil() async {
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try authenticator.authenticate(session: session.rx,
+            let response = try await authenticator.authenticate(session: session,
                                                           request: Resources.urlRequest,
                                                           response: Resources.httpUrlResponse(code: 500)!,
-                                                          data: nil)?
-                .toBlocking()
-                .single()
+                                                          data: nil)
 
             XCTAssertNil(response)
         } catch {
@@ -107,16 +92,14 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
-    func test_Authenticate_WhenIsRenewingTokenTrue_RequestWithNewToken() {
+    func test_Authenticate_WhenIsRenewingTokenTrue_RequestWithNewToken() async {
         let session = URLSessionMock.create(Resources.json)
         authenticator.setNewToken(token: "token", isRenewing: true)
         do {
-            let response = try authenticator.authenticate(session: session.rx,
+            let response = try await authenticator.authenticate(session: session,
                                                           request: Resources.urlRequest,
                                                           response: Resources.httpUrlResponse(code: 401)!,
-                                                          data: nil)?
-                .toBlocking()
-                .single()
+                                                          data: nil)
 
             XCTAssertNotNil(response)
         } catch {
@@ -124,15 +107,13 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
-    func test_Authenticate_RenewToken() {
+    func test_Authenticate_RenewToken() async {
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try authenticator.authenticate(session: session.rx,
+            let response = try await authenticator.authenticate(session: session,
                                                           request: Resources.urlRequest,
                                                           response: Resources.httpUrlResponse(code: 401)!,
-                                                          data: nil)?
-                .toBlocking()
-                .single()
+                                                          data: nil)
 
             XCTAssertNotNil(response)
         } catch {
@@ -140,23 +121,20 @@ class ReactiveAPITokenAuthenticatorTests: XCTestCase {
         }
     }
 
-    func test_Authenticate_WhenRenewTokenSucceeded_AndRequest500_RetrunError() {
+    func test_Authenticate_WhenRenewTokenSucceeded_AndRequest500_RetrunError() async {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
-        let response = authenticator.authenticate(session: session.rx,
-                                                  request: Resources.urlRequest,
-                                                  response: Resources.httpUrlResponse(code: 401)!,
-                                                  data: nil)?
-            .toBlocking()
-            .materialize()
-
-        switch response {
-            case .failed(elements: _, error: let error):
-                if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
-                    XCTAssertTrue(response.statusCode == 500)
-                } else {
-                    XCTFail("This should be a ReactiveAPIError.httpError")
+        do {
+            let _ = try await authenticator.authenticate(session: session,
+                                                      request: Resources.urlRequest,
+                                                      response: Resources.httpUrlResponse(code: 401)!,
+                                                      data: nil)
+            XCTFail("This should throws an error!")
+        } catch {
+            if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
+                XCTAssertTrue(response.statusCode == 500)
+            } else {
+                XCTFail("This should be a ReactiveAPIError.httpError")
             }
-            default: XCTFail("This should throws an error!")
         }
     }
 

@@ -1,15 +1,11 @@
 import XCTest
-import RxSwift
-import RxBlocking
 import ReactiveAPI
 
 class URLSessionRxTests: XCTestCase {
-    func test_Fetch_When200_DataIsValid() {
+    func test_Fetch_When200_DataIsValid() async {
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try session.rx.fetch(Resources.urlRequest)
-                .toBlocking()
-                .single()
+            let response = try await session.fetch(Resources.urlRequest)
 
             XCTAssertNotNil(response)
         } catch {
@@ -17,16 +13,12 @@ class URLSessionRxTests: XCTestCase {
         }
     }
 
-    func test_Fetch_When500_ReturnError() {
+    func test_Fetch_When500_ReturnError() async {
         let session = URLSessionMock.create(Resources.json, errorCode: 500)
-        let response = session.rx.fetch(Resources.urlRequest)
-            .toBlocking()
-            .materialize()
-
-        switch response {
-        case .completed(elements: _):
+        do {
+            let _ = try await session.fetch(Resources.urlRequest)
             XCTFail("This should throws an error!")
-        case .failed(elements: _, error: let error):
+        } catch {
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                 XCTAssertTrue(response.statusCode == 500)
             } else {
@@ -35,16 +27,12 @@ class URLSessionRxTests: XCTestCase {
         }
     }
 
-    func test_Fetch_When401_ReturnError() {
+    func test_Fetch_When401_ReturnError() async {
         let session = URLSessionMock.create(Resources.json, errorCode: 401)
-        let response = session.rx.fetch(Resources.urlRequest)
-            .toBlocking()
-            .materialize()
-
-        switch response {
-        case .completed(elements: _):
+        do {
+            let _ = try await session.fetch(Resources.urlRequest)
             XCTFail("This should throws an error!")
-        case .failed(elements: _, error: let error):
+        } catch {
             if case let ReactiveAPIError.httpError(request: _, response: response, data: _) = error {
                 XCTAssertTrue(response.statusCode == 401)
             } else {
@@ -53,16 +41,12 @@ class URLSessionRxTests: XCTestCase {
         }
     }
 
-    func test_Fetch_WhenDataNil_UnknownError() {
+    func test_Fetch_WhenDataNil_UnknownError() async {
         let session = URLSessionMock(response: Resources.httpUrlResponse())
-        let response = session.rx.fetch(Resources.urlRequest)
-            .toBlocking()
-            .materialize()
-
-        switch response {
-        case .completed(elements: _):
+        do {
+            let _ = try await session.fetch(Resources.urlRequest)
             XCTFail("This should throws an error!")
-        case .failed(elements: _, error: let error):
+        } catch {
             if case ReactiveAPIError.unknown = error {
                 XCTAssertNotNil(error)
             } else {
@@ -71,16 +55,12 @@ class URLSessionRxTests: XCTestCase {
         }
     }
 
-    func test_Fetch_WhenResponseNil_UnknownError() {
+    func test_Fetch_WhenResponseNil_UnknownError() async {
         let session = URLSessionMock(data: Resources.json.data(using: .utf8))
-        let response = session.rx.fetch(Resources.urlRequest)
-            .toBlocking()
-            .materialize()
-
-        switch response {
-        case .completed(elements: _):
+        do {
+            let _ = try await session.fetch(Resources.urlRequest)
             XCTFail("This should throws an error!")
-        case .failed(elements: _, error: let error):
+        } catch {
             if case ReactiveAPIError.unknown = error {
                 XCTAssertNotNil(error)
             } else {
@@ -89,16 +69,12 @@ class URLSessionRxTests: XCTestCase {
         }
     }
 
-    func test_Fetch_WhenResponseIsNotHTTP_NonHttpResponse() {
+    func test_Fetch_WhenResponseIsNotHTTP_NonHttpResponse() async {
         let session = URLSessionMock(data: Data(), response: URLResponse())
-        let response = session.rx.fetch(Resources.urlRequest)
-            .toBlocking()
-            .materialize()
-
-        switch response {
-        case .completed(elements: _):
+        do {
+            let _ = try await session.fetch(Resources.urlRequest)
             XCTFail("This should throws an error!")
-        case .failed(elements: _, error: let error):
+        } catch {
             if case ReactiveAPIError.nonHttpResponse(response: _) = error {
                 XCTAssertNotNil(error)
             } else {
@@ -107,13 +83,11 @@ class URLSessionRxTests: XCTestCase {
         }
     }
 
-    func test_Fetch_Interceptors() {
+    func test_Fetch_Interceptors() async {
         let intercetors = Array(repeating: InterceptorMock(), count: 6)
         let session = URLSessionMock.create(Resources.json)
         do {
-            let response = try session.rx.fetch(Resources.urlRequest, interceptors: intercetors)
-                .toBlocking()
-                .single()
+            let response = try await session.fetch(Resources.urlRequest, interceptors: intercetors)
 
             XCTAssertNotNil(response)
             XCTAssertNotNil(response.request.allHTTPHeaderFields)

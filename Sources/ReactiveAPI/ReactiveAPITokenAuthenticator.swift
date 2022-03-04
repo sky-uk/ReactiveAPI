@@ -22,7 +22,7 @@ public protocol ReactiveAPITokenAuthenticatorLogger {
 public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
     private var isRenewingToken = false
-    private let currentToken = BehaviorRelay<String?>(value: nil)
+    private var currentToken: String? = nil
     private let tokenHeaderName: String
     private let getCurrentToken: () -> String?
     private let renewToken: () -> String
@@ -78,9 +78,9 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         if isRenewingToken {
             logger?.log(state: .waitingForTokenRenewWhichIsInProgress)
 
-            async let token = currentToken // TODO
+            async let token = currentToken ?? "" // TODO
             self.logger?.log(state: .finishedWaitingForTokenRenew)
-            return try await self.requestWithNewToken(session: session, request: request, newToken: "")
+            return try await self.requestWithNewToken(session: session, request: request, newToken: token)
         }
 
         logger?.log(state: .startedTokenRefresh)
@@ -101,11 +101,11 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     }
 
     func setNewToken(token: String?, isRenewing: Bool) {
-        if currentToken.value == nil && token != nil || currentToken.value != nil && token != nil {
+        if currentToken == nil && token != nil || currentToken != nil && token != nil {
             isRenewingToken = false
         } else {
             isRenewingToken = isRenewing
         }
-        currentToken.accept(token)
+        currentToken = token
     }
 }

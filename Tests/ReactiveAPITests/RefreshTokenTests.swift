@@ -1,5 +1,4 @@
 import XCTest
-import RxSwift
 import Swifter
 @testable import ReactiveAPI
 
@@ -7,9 +6,9 @@ class RefreshTokenTests: SkyTestCase {
 
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
-                                                              renewToken: { Single.just("renewToken") })
+                                                              renewToken: { "renewToken" })
 
-    func testRefreshToken() {
+    func testRefreshToken() async {
         // Given
         do {
             let token1 = "token1"
@@ -17,13 +16,13 @@ class RefreshTokenTests: SkyTestCase {
             var currentToken = token1
 
             let tokenHeaderName = "token-header-name"
-            let sut = ClientAPI(session: URLSession.shared.rx, baseUrl: URL(string: "http://127.0.0.1:8080")!)
+            let sut = ClientAPI(session: URLSession.shared, baseUrl: URL(string: "http://127.0.0.1:8080")!)
+
+            let renewToken = try await sut.renewToken() // TODO
 
             sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName, getCurrentToken: { currentToken }, renewToken: {
-                sut.renewToken().map {
-                    currentToken = $0.name
-                    return $0.name
-                }
+                currentToken = renewToken.name
+                return renewToken.name
             })
 
             sut.requestInterceptors += [ TokenInterceptor(tokenValue: { return currentToken }, headerName: tokenHeaderName) ]
@@ -63,12 +62,12 @@ class RefreshTokenTests: SkyTestCase {
 
             try startServer()
             // When
-            _ = try sut.login().toBlocking().single()
+            _ = try await sut.login()
 
-            let endpointCall1 = sut.endpoint1().subscribeOn(ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue1")))
-            let endpointCall2 = sut.endpoint2().subscribeOn(ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue2")))
+            async let endpointCall1 = sut.endpoint1()
+            async let endpointCall2 = sut.endpoint2()
 
-            let events = try Single.zip(endpointCall1, endpointCall2).toBlocking().single()
+            let events = try await [endpointCall1, endpointCall2]
 
             // Then
             XCTAssertNotNil(events)
@@ -89,21 +88,21 @@ private class ClientAPI: ReactiveAPI {
 
     }
 
-    func login() -> Single<Model> {
-        return request(url: absoluteURL(ClientAPI.Endpoint.login))
+    func login() async throws -> Model {
+        return try await request(url: absoluteURL(ClientAPI.Endpoint.login))
     }
 
-    func renewToken() -> Single<Model> {
+    func renewToken() async throws -> Model {
         let url = absoluteURL(ClientAPI.Endpoint.renew)
-        return request(url: url)
+        return try await request(url: url)
     }
 
-    func endpoint1() -> Single<Model> {
-        return request(url: absoluteURL(Endpoint.endpoint1))
+    func endpoint1() async throws -> Model {
+        return try await request(url: absoluteURL(Endpoint.endpoint1))
     }
 
-    func endpoint2() -> Single<Model> {
-        return request(url: absoluteURL(Endpoint.endpoint2))
+    func endpoint2() async throws -> Model {
+        return try await request(url: absoluteURL(Endpoint.endpoint2))
     }
 }
 

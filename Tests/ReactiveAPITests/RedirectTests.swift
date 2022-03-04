@@ -1,5 +1,4 @@
 import XCTest
-import RxSwift
 import Swifter
 @testable import ReactiveAPI
 
@@ -7,26 +6,21 @@ class RedirectTests: SkyTestCase {
 
     private let authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: "tokenHeaderName",
                                                               getCurrentToken: { "getCurrentToken" },
-                                                              renewToken: { Single.just("renewToken") })
+                                                              renewToken: { "renewToken" })
 
-    func testRedirect() throws {
+    func testRedirect() async throws {
         // Given
-        let queueScheduler00 = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue00"))
-        let queueScheduler01 = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue01"))
-        let queueScheduler02 = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue02"))
-
         var callCountEndpoint1 = 0
         var callCountEndpoint2 = 0
 
         let token1 = "token1"
         var currentToken = token1
         let tokenHeaderName = "token-header-name"
-        let sut = ClientAPI(session: URLSession.shared.rx, baseUrl: URL(string: "http://127.0.0.1:8080")!)
+        let sut = ClientAPI(session: URLSession.shared, baseUrl: URL(string: "http://127.0.0.1:8080")!)
+        let renewToken = try await sut.renewToken() // TODO
         sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName, getCurrentToken: { currentToken }, renewToken: {
-            sut.renewToken().map {
-                currentToken = $0.name
-                return $0.name
-            }
+            currentToken = renewToken.name
+            return renewToken.name
         })
         sut.requestInterceptors += [ TokenInterceptor(tokenValue: { return currentToken }, headerName: tokenHeaderName) ]
 
@@ -46,20 +40,11 @@ class RedirectTests: SkyTestCase {
 
         try startServer()
         // When
-        let call00 = sut.endpoint1().do(onSubscribed: {
-            print("\(Date().dateMillis) Parallel call  on \(Thread.current.description)")
-        }).subscribeOn(queueScheduler00)
+        async let call00 = sut.endpoint1()
+        async let call01 = sut.endpoint1()
+        async let call02 = sut.endpoint1()
 
-        let call01 = sut.endpoint1().do(onSubscribed: {
-            print("\(Date().dateMillis) Parallel call  on \(Thread.current.description)")
-        }).subscribeOn(queueScheduler01)
-
-        let call02 = sut.endpoint1().do(onSubscribed: {
-            print("\(Date().dateMillis) Parallel call on \(Thread.current.description)")
-        }).subscribeOn(queueScheduler02)
-
-
-        let streamed = try Single.zip(call00, call01, call02).toBlocking().single()
+        let streamed = try await [call00, call01, call02]
         // Then
         XCTAssertNotNil(streamed)
         XCTAssertEqual(callCountEndpoint1, 3)
@@ -76,21 +61,24 @@ fileprivate class ClientAPI: ReactiveAPI {
 
     }
 
-    func login() -> Single<Model> {
-        return request(url: absoluteURL(ClientAPI.Endpoint.login))
+    func login() async throws -> Model {
+        return try await request(url: absoluteURL(ClientAPI.Endpoint.login))
     }
 
-    func renewToken() -> Single<Model> {
+    func renewToken() async throws -> Model {
         let url = absoluteURL(ClientAPI.Endpoint.renew)
-        return request(url: url)
+        return try await request(url: url)
     }
 
-    func endpoint1() -> Single<Model> {
-        return request(url: absoluteURL(Endpoint.endpoint1))
+    func endpoint1() async throws -> Model { // TODO
+//        print("pino")
+//        sleep(1000)
+//        print("dopo sleep")
+        return try await request(url: absoluteURL(Endpoint.endpoint1))
     }
 
-    func endpoint2() -> Single<Model> {
-        return request(url: absoluteURL(Endpoint.endpoint2))
+    func endpoint2() async throws -> Model {
+        return try await request(url: absoluteURL(Endpoint.endpoint2))
     }
 
     // Struct

@@ -78,7 +78,7 @@ class ReactiveAPIProtocolTests: XCTestCase {
                               decoder: JSONDecoder(),
                               baseUrl: Resources.url)
         do {
-            let _ = try await api.rxDataRequest(Resources.urlRequest)
+            let _: ModelMock = try await api.rxDataRequest(Resources.urlRequest)
             XCTFail("This should throws an error!")
         } catch {
             if case let ReactiveAPIError.decodingError(_, data: data) = error {

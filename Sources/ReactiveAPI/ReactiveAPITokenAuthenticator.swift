@@ -25,13 +25,13 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
     private var currentToken: String? = nil
     private let tokenHeaderName: String
     private let getCurrentToken: () -> String?
-    private let renewToken: () -> String
+    private let renewToken: () async throws -> String
     private let shouldRenewToken: (URLRequest, HTTPURLResponse, Data?) -> Bool
     private let logger: ReactiveAPITokenAuthenticatorLogger?
 
     public init(tokenHeaderName: String,
                 getCurrentToken: @escaping () -> String?,
-                renewToken: @escaping () -> String,
+                renewToken: @escaping () async throws -> String,
                 shouldRenewToken: @escaping(URLRequest, HTTPURLResponse, Data?) -> Bool = { _, _, _ in true },
                 logger: ReactiveAPITokenAuthenticatorLogger? = nil) {
         self.tokenHeaderName = tokenHeaderName
@@ -89,7 +89,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
         do {
             async let newToken = renewToken()
-            self.setNewToken(token: await newToken, isRenewing: false)
+            self.setNewToken(token: try await newToken, isRenewing: false)
             self.logger?.log(state: .tokenRenewSucceeded)
             return try await self.requestWithNewToken(session: session, request: request, newToken: await newToken)
         } catch (let error) {

@@ -17,8 +17,8 @@ class RedirectTests: SkyTestCase {
         var currentToken = token1
         let tokenHeaderName = "token-header-name"
         let sut = ClientAPI(session: URLSession.shared, baseUrl: URL(string: "http://127.0.0.1:8080")!)
-        let renewToken = try await sut.renewToken() // TODO
         sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName, getCurrentToken: { currentToken }, renewToken: {
+            let renewToken = try! await sut.renewToken()
             currentToken = renewToken.name
             return renewToken.name
         })
@@ -71,9 +71,6 @@ fileprivate class ClientAPI: ReactiveAPI {
     }
 
     func endpoint1() async throws -> Model { // TODO
-//        print("pino")
-//        sleep(1000)
-//        print("dopo sleep")
         return try await request(url: absoluteURL(Endpoint.endpoint1))
     }
 

@@ -18,9 +18,8 @@ class RefreshTokenTests: SkyTestCase {
             let tokenHeaderName = "token-header-name"
             let sut = ClientAPI(session: URLSession.shared, baseUrl: URL(string: "http://127.0.0.1:8080")!)
 
-            let renewToken = try await sut.renewToken() // TODO
-
             sut.authenticator = ReactiveAPITokenAuthenticator(tokenHeaderName: tokenHeaderName, getCurrentToken: { currentToken }, renewToken: {
+                let renewToken = try! await sut.renewToken()
                 currentToken = renewToken.name
                 return renewToken.name
             })

@@ -7,7 +7,7 @@ extension URLSession {
             var mutableRequest = request
             interceptors?.forEach { mutableRequest = $0.intercept(mutableRequest) }
 
-            let task = URLSession.shared.dataTask(with: mutableRequest) { data, response, error in
+            let task = dataTask(with: mutableRequest) { data, response, error in
                 guard let response = response, let data = data else {
                     continuation.resume(throwing: error ?? ReactiveAPIError.unknown)
                     return

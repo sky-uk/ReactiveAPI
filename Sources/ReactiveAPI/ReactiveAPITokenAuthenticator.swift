@@ -22,7 +22,7 @@ public protocol ReactiveAPITokenAuthenticatorLogger {
 public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
 
     private var isRenewingToken = false
-    private var currentToken: String? = nil
+    @atomic private var currentToken: String? = nil
     private let tokenHeaderName: String
     private let getCurrentToken: () -> String?
     private let renewToken: () async throws -> String
@@ -78,9 +78,10 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         if isRenewingToken {
             logger?.log(state: .waitingForTokenRenewWhichIsInProgress)
 
-            async let token = currentToken ?? "" // TODO
-            self.logger?.log(state: .finishedWaitingForTokenRenew)
-            return try await self.requestWithNewToken(session: session, request: request, newToken: token)
+            if let token = currentToken {
+                self.logger?.log(state: .finishedWaitingForTokenRenew)
+                return try await self.requestWithNewToken(session: session, request: request, newToken: token)
+            }
         }
 
         logger?.log(state: .startedTokenRefresh)
@@ -107,5 +108,34 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
             isRenewingToken = isRenewing
         }
         currentToken = token
+    }
+}
+
+@propertyWrapper
+struct atomic<T> {
+    private var value: T
+    private let lock = NSLock()
+
+    init(wrappedValue value: T) {
+        self.value = value
+    }
+
+    var wrappedValue: T {
+      get { getValue() }
+      set { setValue(newValue: newValue) }
+    }
+
+    func getValue() -> T {
+        lock.lock()
+        defer { lock.unlock() }
+
+        return value
+    }
+
+    mutating func setValue(newValue: T) {
+        lock.lock()
+        defer { lock.unlock() }
+
+        value = newValue
     }
 }

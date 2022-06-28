@@ -65,8 +65,8 @@ class RefreshTokenTests: SkyTestCase {
             // When
             _ = try sut.login().toBlocking().single()
 
-            let endpointCall1 = sut.endpoint1().subscribeOn(ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue1")))
-            let endpointCall2 = sut.endpoint2().subscribeOn(ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue2")))
+            let endpointCall1 = sut.endpoint1().subscribe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue1")))
+            let endpointCall2 = sut.endpoint2().subscribe(on: ConcurrentDispatchQueueScheduler(queue: DispatchQueue.init(label: "queue2")))
 
             let events = try Single.zip(endpointCall1, endpointCall2).toBlocking().single()
 

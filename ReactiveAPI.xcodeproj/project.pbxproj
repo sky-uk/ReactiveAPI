@@ -34,7 +34,6 @@
 		4A916EA919CD58BE3AED7795 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4578D4EA19E9F478655EE2 /* URLRequest+.swift */; };
 		543F4CF4648DB738D3814304 /* Swifter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41378024B921CEBAFED94FCC /* Swifter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55CE7017D10F36672FB1E611 /* EncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869092CEC22B107478730568 /* EncodableTests.swift */; };
-		6044286A72B57F21C89F192B /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
 		628DD4487A1E825B09DCEC82 /* ReactiveAPIProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B7AEA2790F3935DCCE80FC /* ReactiveAPIProtocolTests.swift */; };
 		65B900F550F4896C18D2BB89 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */; };
 		6888BEAEE73E4BF1959B3374 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3284954744CBAD11E93E3122 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -66,7 +65,6 @@
 		B5D632917EE07A220969482B /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05F731F77317CB1F151CA3B /* SessionMock.swift */; };
 		BA6B38CB8DED835219A1A72C /* ReactiveAPITokenAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */; };
 		BE4F20F6162893DC897623F4 /* JSONReactiveAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C66E8DEEE392ED8BEFF2E /* JSONReactiveAPITests.swift */; };
-		C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E6082EF93B90A356CAB2E /* FailableCodables.swift */; };
 		C3CB029F1104E61DD22141F1 /* InterceptorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FD5560BB69955774B1326 /* InterceptorMock.swift */; };
 		C6248D46B4D1CBF96EDE33AF /* URLRequest+ReactiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */; };
 		C630B7E53805494ACF53F49A /* ReactiveAPIExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C957F5D3298652CC65EE2A88 /* ReactiveAPIExt.framework */; };
@@ -80,7 +78,6 @@
 		E523A8599F7D043F0F01B081 /* ReactiveAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C7303A883E96E966491DB /* ReactiveAPIError.swift */; };
 		E90611E9FDF9D87E366E718C /* ReactiveAPICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D48B3C7ED907599F88F874 /* ReactiveAPICache.swift */; };
 		E93BA63D40CF92C0631A9AFB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63983806B7360D9E12F8F99C /* RxSwift.framework */; };
-		EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */; };
 		ED7A01E7DF5091EA6668423B /* RedirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E09D6BB2185C58FE50A8FD /* RedirectTests.swift */; };
 		EDEADE3EF5362AF77DB5145C /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F99CF6C8F217C7B1923BEC0A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F111710DF741B5DDAFEB36A6 /* MaxAgeCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD9A05164737FAEFE27254 /* MaxAgeCacheTests.swift */; };
@@ -155,7 +152,6 @@
 		32FBEDC77343F064C15A9673 /* ReactiveAPIRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIRequestInterceptor.swift; sourceTree = "<group>"; };
 		3711A757EF3708D6E483915B /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxTest.framework; sourceTree = "<group>"; };
 		3E4B6B5DE4C89F71FADDADA3 /* ReactiveAPIAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPIAuthenticator.swift; sourceTree = "<group>"; };
-		3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodableArrayTests.swift; sourceTree = "<group>"; };
 		41378024B921CEBAFED94FCC /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swifter.framework; sourceTree = "<group>"; };
 		4437588A10A00E7461E53C70 /* URLComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponentsTests.swift; sourceTree = "<group>"; };
 		489A94C6149C5A1D9597459E /* URLSession+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Rx.swift"; sourceTree = "<group>"; };
@@ -163,7 +159,6 @@
 		4E2BF82599A489CBAD9B6B5F /* ReactiveAPITokenAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveAPITokenAuthenticator.swift; sourceTree = "<group>"; };
 		5173DDE3F735352BA1AD9F8D /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
 		54AA865FD18A6B91D4202C5E /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxRelay.framework; sourceTree = "<group>"; };
-		554E6082EF93B90A356CAB2E /* FailableCodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableCodables.swift; sourceTree = "<group>"; };
 		57E09D6BB2185C58FE50A8FD /* RedirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectTests.swift; sourceTree = "<group>"; };
 		5B09D7854629F235A953514E /* LoadingResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResultTests.swift; sourceTree = "<group>"; };
 		5D72D0F4A849D541A1DB0D65 /* URLRequest+ReactiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+ReactiveAPI.swift"; sourceTree = "<group>"; };
@@ -300,7 +295,6 @@
 		2B8280DC1654154405E0547B /* ReactiveAPIExt */ = {
 			isa = PBXGroup;
 			children = (
-				554E6082EF93B90A356CAB2E /* FailableCodables.swift */,
 				8BD715FF3E005E5A812B5983 /* Fetcher */,
 			);
 			name = ReactiveAPIExt;
@@ -379,7 +373,6 @@
 		679E05ABDDAC1595A93C8C4E /* ReactiveAPIExtTests */ = {
 			isa = PBXGroup;
 			children = (
-				3EE9451D98EDE478E98479EC /* FailableCodableArrayTests.swift */,
 				5B09D7854629F235A953514E /* LoadingResultTests.swift */,
 				0279AE14C252398F6D5AFEE1 /* ReactiveFetcherTests.swift */,
 			);
@@ -513,7 +506,7 @@
 				};
 			};
 			buildConfigurationList = 4668ACBF8DC2B272523853C3 /* Build configuration list for PBXProject "ReactiveAPI" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -538,7 +531,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B900F550F4896C18D2BB89 /* Encodable+Dictionary.swift in Sources */,
-				C0A444ADC67931E235DC99ED /* FailableCodables.swift in Sources */,
 				1A639B2EAD1F4F4F48315D2A /* LoadingResult.swift in Sources */,
 				786203255A9D3A72B681D4A9 /* MaxAgeCache.swift in Sources */,
 				ACA18579ECA350C08C14A96B /* ReactiveAPI.swift in Sources */,
@@ -589,7 +581,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB50F4D02122063AC68C4D07 /* FailableCodableArrayTests.swift in Sources */,
 				472C1C45AF3D5882144E62DD /* LoadingResultTests.swift in Sources */,
 				2C83FA80B6F15A49A4E0ED76 /* ReactiveFetcherTests.swift in Sources */,
 			);
@@ -599,7 +590,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6044286A72B57F21C89F192B /* FailableCodables.swift in Sources */,
 				284BB9BE2902E77B7FF877AE /* LoadingResult.swift in Sources */,
 				3E19FF4A4D47C1DACD6AE6B2 /* ReactiveFetcher.swift in Sources */,
 			);

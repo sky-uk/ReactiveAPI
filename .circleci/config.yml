@@ -7,26 +7,12 @@ aliases:
       command: |
         rm ~/.ssh/id_rsa
         for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts || true
-  - &carthage_bootstrap
-      name: Bootstrap iOS dependencies
-      command: |
-        ./bootstrap
-  - &unittest_reactive_api
-      name: Run ReactiveAPI Unit Tests
-      command: >
-        xcodebuild test
-        -scheme ReactiveAPI
-        -clonedSourcePackagesDirPath SourcePackages
-        -destination 'platform=iOS Simulator,name=iPhone 11'
-        | xcpretty
-  - &unittest_reactive_api_ext
-      name: Run ReactiveAPIExt Unit Tests
-      command: >
-        xcodebuild test
-        -scheme ReactiveAPIExt
-        -clonedSourcePackagesDirPath SourcePackages
-        -destination 'platform=iOS Simulator,name=iPhone 11'
-        | xcpretty
+  - &run_swift_test
+      name: Run Tests on macOS
+      command: swift test 
+  - &run_xcodebuld_test
+      name: Run tests on iOS 
+      command: xcodebuild test -scheme ReactiveAPI-Package -destination 'platform=iOS Simulator,name=iPhone 13'
   - &swiftlint
       name: Run Swiftlint
       command: swiftlint lint
@@ -36,10 +22,9 @@ jobs:
     shell: /bin/bash --login -eo pipefail
     steps:
       - checkout
-      - run: *carthage_bootstrap
       - run: *ssh_fix
-      - run: *unittest_reactive_api
-      - run: *unittest_reactive_api_ext
+      - run: *run_swift_test
+      - run: *run_xcodebuld_test
   swiftlint:
     docker:
       - image: dantoml/swiftlint:latest

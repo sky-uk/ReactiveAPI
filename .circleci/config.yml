@@ -12,7 +12,7 @@ aliases:
       command: swift test 
   - &run_xcodebuld_test
       name: Run tests on iOS 
-      command: xcodebuild test -scheme ReactiveAPI-Package -destination 'platform=iOS Simulator,name=iPhone 14'
+      command: xcodebuild test -scheme ReactiveAPI-Package -destination 'platform=iOS Simulator,name=iPhone 13'
   - &swiftlint
       name: Run Swiftlint
       command: swiftlint lint

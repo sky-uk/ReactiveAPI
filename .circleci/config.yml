@@ -8,7 +8,7 @@ aliases:
         rm ~/.ssh/id_rsa
         for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts || true
   - &run_swift_test
-      name: Run Swift Tests on macos
+      name: Run Tests on macOS
       command: swift test 
   - &run_xcodebuld_test
       name: Run tests on iOS 

@@ -48,15 +48,15 @@ class RedirectTests: SkyTestCase {
         // When
         let call00 = sut.endpoint1().do(onSubscribed: {
             print("\(Date().dateMillis) Parallel call  on \(Thread.current.description)")
-        }).subscribeOn(queueScheduler00)
+        }).subscribe(on: queueScheduler00)
 
         let call01 = sut.endpoint1().do(onSubscribed: {
             print("\(Date().dateMillis) Parallel call  on \(Thread.current.description)")
-        }).subscribeOn(queueScheduler01)
+        }).subscribe(on: queueScheduler01)
 
         let call02 = sut.endpoint1().do(onSubscribed: {
             print("\(Date().dateMillis) Parallel call on \(Thread.current.description)")
-        }).subscribeOn(queueScheduler02)
+        }).subscribe(on: queueScheduler02)
 
 
         let streamed = try Single.zip(call00, call01, call02).toBlocking().single()

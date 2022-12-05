@@ -16,7 +16,7 @@ let package = Package(
         .library(name: "ReactiveAPIExt", targets: ["ReactiveAPIExt"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveX/RxSwift",  from: "5.1.0"),
+        .package(url: "https://github.com/ReactiveX/RxSwift",  from: "6.5.0"),
         .package(url: "https://github.com/AliSoftware/OHHTTPStubs", from: "9.0.0"),
         .package(name: "Swifter", url: "https://github.com/httpswift/swifter", from: "1.5.0"),
     ],

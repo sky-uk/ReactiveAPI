@@ -97,7 +97,7 @@ public class ReactiveAPITokenAuthenticator: ReactiveAPIAuthenticator {
         setNewToken(token: nil, isRenewing: true)
 
         return renewToken()
-            .catchError { error in
+            .catch { error in
                 self.logger?.log(state: .tokenRenewError(error))
                 self.setNewToken(token: nil, isRenewing: false)
                 let httpError = ReactiveAPIError.httpError(request: request, response: response, data: data ?? Data())

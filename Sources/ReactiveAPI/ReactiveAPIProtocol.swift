@@ -41,7 +41,7 @@ extension ReactiveAPIProtocol {
                 return Observable.just(data)
             }
             .asSingle()
-            .catchError { error -> Single<Data> in
+            .catch { error -> Single<Data> in
                 guard
                     let authenticator = self.authenticator,
                     case let ReactiveAPIError.httpError(request, response, data) = error,
